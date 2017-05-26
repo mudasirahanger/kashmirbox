@@ -106,9 +106,9 @@ $('.latest_slider').slick({
     infinite: true,
     speed: 2000,
     slidesToShow: 4,
-    centerMode: false,
+    centerMode: true,
     arrows: true,
-    variableWidth: true
+    variableWidth: false
 });
 
 
@@ -150,7 +150,7 @@ $('.latest_ico').find('.fa-heart').on('click',function(){
 
   if($(this).css('color')=='rgb(255, 255, 255)'){
     
-    $(this).css('color','#3f4d4a');
+    $(this).css('color','#fd461c');
   }
   else{
      
@@ -163,7 +163,7 @@ $('.lve_frm_kmr_heart_ico').find('.fa-heart').on('click',function(){
 
   if($(this).css('color')=='rgb(255, 255, 255)'){
     
-    $(this).css('color','#3f4d4a');
+    $(this).css('color','#fd461c');
   }
   else{
      
@@ -233,14 +233,14 @@ function myTimer() {
     m= 60-d.getMinutes();
     s=60-d.getSeconds();
 
-    var clock = document.getElementById("clockdiv");
+/*    var clock = document.getElementById("clockdiv");
     var hoursSpan = clock.querySelector('.hours');
     var minutesSpan = clock.querySelector('.minutes');
     var secondsSpan = clock.querySelector('.seconds');
-
-    hoursSpan.innerHTML=h;
-    minutesSpan.innerHTML=m;
-    secondsSpan.innerHTML=s;
+*/
+    document.getElementById("hours").innerHTML=h;
+    document.getElementById("minutes").innerHTML=m;
+    document.getElementById("seconds").innerHTML=s;
 
 }
 
