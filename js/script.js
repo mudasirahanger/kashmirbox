@@ -101,7 +101,7 @@ $('.col-latest-3').on('mouseleave',function(){
  $(this).find('.btn-latest').hide();
 });
 
-$('.latest_slider').slick({
+/*$('.latest_slider').slick({
       dots: false,
     infinite: true,
     speed: 300,
@@ -109,8 +109,42 @@ $('.latest_slider').slick({
     centerMode: false,
     arrows: true,
     variableWidth: false
-});
+});*/
 
+$('.latest_slider').slick({
+  centerMode: true,
+  centerPadding: '100px',
+  slidesToShow: 4,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '30px',
+        slidesToShow: 1
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '90px',
+        slidesToShow: 3
+      }
+    }
+  ]
+});
 
 if ( $(window).width() > 739) {      
   //Add your javascript for large screens here 
