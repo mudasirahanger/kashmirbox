@@ -104,9 +104,9 @@ $('.col-latest-3').on('mouseleave',function(){
 $('.latest_slider').slick({
       dots: false,
     infinite: true,
-    speed: 2000,
+    speed: 300,
     slidesToShow: 4,
-    centerMode: true,
+    centerMode: false,
     arrows: true,
     variableWidth: false
 });
