@@ -1542,16 +1542,91 @@ margin-left: 10px;
 
 
 @media screen and (max-width: 776px){
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  font-size: 8px;
+
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+      font-size: 8px;
+
+	}
 	.top_tag_line{
 		font-size: 13px;
 		line-height: 16px;
 	}
+	.top_logo_container{
+		padding: 0px;
+		margin-top: -20px;
+	}
+     .logo_container img{
+     	width: 100%;
 
+     }
+     .rw_sbs img{
+       margin-right: 10px;
+     }
+     .whish{
+     	display: none;
+     }
+     .car_t{
+     	//position: relative;
+
+       }
+     .col_pos{
+     	position: absolute !important;
+     	left: 64%;
+     }
+     .mob_pos{
+     	position: absolute !important;
+		top: 61px;
+		left: 16%;
+     }
+     .top_tag_text{
+     	display: none;
+     }
+     .top_sng_drop{
+     	display: none;
+     }
+     .top_sng_drop_mob{
+     	display: block;
+     	top: 81px;
+        left: 40%;
+        font-size: 26px;
+     }
+     .top_sng_drop_mob span{
+        display: none;
+     }
+     .wish_bag_container{
+       font-size: 0px;
+     }
+     .car_t a{
+     	font-size: 30px;
+     	vertical-align: bottom;
+     	vertical-align: -moz-middle-with-baseline;
+     	color: #108b3c;
+     }
+     .car_t a:hover{
+     	font-size: 30px;
+     	color: #108b3c;
+     }
+     .cart_count{
+     	font-size: 11px;
+     	padding: 0px 5px;
+     }
+     .nav_container{
+     	margin-top: 15px;
+     	margin-bottom: 15px;
+     	background-color: #fff;
+     }
+     .rw_mar_mo{
+     	margin-top: 20px;
+     }
     .carousel_sub_heading{
     	font-size: 13px;
 		line-height: 18px;
 		width: 100%;
 		margin-bottom: 0px;
+		display: none;
     }
     .carousel_price{
     	font-size: 12px;
@@ -1624,14 +1699,14 @@ margin-left: 10px;
        margin-left: 4px;
     }
     .kmr_details_headline a{
-    	font-size: 11px;
+    	font-size: 14px;
 		line-height: 15px;
 		margin-left: 6px;
     }
     .kmr_details_subheading{
     	padding-left: 6px;
     	font-weight: 400;
-		font-size: 9px;
+		font-size: 11px;
 		line-height: 15px;
 		margin-top: 3px;
 		padding-bottom: 13px;
@@ -1639,7 +1714,7 @@ margin-left: 10px;
     .txt_highlighted{
     	margin-left: 6px;
 		padding-bottom: 15px;
-		font-size: 9px;
+		font-size: 11px;
 		line-height: 15px;
     }
     .stor_ful_img{
@@ -1704,8 +1779,10 @@ margin-left: 10px;
 		height: 174px;
 	}
 	.btn-dotd{
-		font-size: 14px !important;
-		padding: 8px 22px !important;
+		//font-size: 14px !important;
+		//padding: 8px 22px !important;
+		width: 90%;
+        margin-left: 5%;
 	}
 	#u_cnt_wthot .rw_pad{
 		padding-right: 15px;
@@ -1736,8 +1813,10 @@ margin-left: 10px;
     }
     .tag_line{
     	font-size: 13px;
-		line-height: 16px;
-		padding: 10px 0px;
+		line-height: 0px;
+		padding: 0px 0px;
+		//display: none;
+		background: #fff;
     }
     .rw_sbs{
     	padding: 15px;
@@ -1771,10 +1850,10 @@ margin-left: 10px;
     	text-align: center;
     }
     .footer_logo img{
-    	width: 85%;
+    	//width: 85%;
     }
     .footer_nav_heading{
-    	font-size: 14px;
+    	font-size: 16px;
 		line-height: 21px;
     }
     .footer_nav_subtxt{
@@ -1782,7 +1861,7 @@ margin-left: 10px;
     	width: 100%;
     }
     .payement_partner_heading{
-    	font-size: 14px;
+    	font-size: 16px;
 		line-height: 21px;
     }
     .slider_artisan .slick-prev{
@@ -1816,18 +1895,8 @@ margin-left: 10px;
 		text-align: center;
 		border-bottom: 1px solid #c2c2c2;
     }
-    .nav_hide{
-    	display: none;
-    }
-    #btm_nav .col-xs-4{
-    	padding: 0px;
-    	text-align: center;
-    	border-bottom: 1px solid #d7d7d7;
-		border-top: 1px solid #d7d7d7;
-		margin-top: 40px;
-		padding-top: 15px;
-		padding-bottom: 15px;
-    }
+   
+
     .footer_nav_heading button{
        float: none;
        padding: 0px;

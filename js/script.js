@@ -172,8 +172,11 @@ $('.js-filter').on('click', function(){
 else {
   //Add your javascript for small screens here 
  $('.slider_artisan').slick({
-    arrows: true,
-    infinite: true
+    arrows: false,
+    infinite: true,
+    centerMode: true,
+    centerPadding: '40px',
+    slidesToShow: 1
 
 
 });
@@ -204,6 +207,13 @@ $('.lve_frm_kmr_heart_ico').find('.fa-heart').on('click',function(){
     $(this).css('color','#fff');
   }
 });
+
+
+if ( $(window).width() < 776) {   
+//$('.top_sng_drop_mob').html('<a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>');
+//$('#kashmirbox').html('<div>test</div>');
+}
+
 
 })();
 
