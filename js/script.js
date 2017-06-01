@@ -128,9 +128,9 @@ $('.latest_slider').slick({
     {
       breakpoint: 480,
       settings: {
-        arrows: false,
+        arrows: true,
         centerMode: true,
-        centerPadding: '30px',
+        centerPadding: '60px',
         slidesToShow: 1
       }
     },
@@ -172,10 +172,10 @@ $('.js-filter').on('click', function(){
 else {
   //Add your javascript for small screens here 
  $('.slider_artisan').slick({
-    arrows: false,
+    arrows: true,
     infinite: true,
     centerMode: true,
-    centerPadding: '40px',
+    centerPadding: '95px',
     slidesToShow: 1
 
 
@@ -213,7 +213,13 @@ if ( $(window).width() < 776) {
 //$('.top_sng_drop_mob').html('<a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>');
 //$('#kashmirbox').html('<div>test</div>');
 }
+$('[data-toggle="slide-collapse"]').on('click', function() {
+    $navMenuCont = $($(this).data('target'));
+    $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
 
+});
+
+$("#ex2").slider({});
 
 })();
 
