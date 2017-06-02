@@ -4,11 +4,13 @@
 	<title>catagory</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap-slider.css">
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap-slider.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -157,8 +159,165 @@
      		<div class="col_heading">
      			Filters
      		</div>
-     		<div>
-     			Filter by price interval: <b> 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>1000</b>
+     		<div class="row filter_single mar-t-40">
+	     		<div class="col-md-12 col-sm-12 filter_headings">
+	     		Price
+	     		</div>
+     		   
+                <div class="col-md-12 col-sm-12 text-center mar-b-25">
+     			  <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,750]"/>
+     			</div>
+     			<div class="col-md-6 col-sm-6">
+     			 <input type="text" name="slider-min" id="slider-min" value="10"/>
+     			</div>
+     			<div class="col-md-6 col-sm-6">
+     			 <input type="text" name="slider-max" id="slider-max" value="1000"/>
+     			</div>
+     		</div>
+     		<div class="row filter_single">
+     			<div class="col-md-12 col-sm-12 filter_headings">
+     				Manufacturers
+     			</div>
+     			<div class="col-sm-12 col-md-12">
+     			    <div class="checkbox manufac_check">
+					  <label><input type="checkbox" value="">Kashmir Exotics</label>
+					</div>
+					<div class="checkbox manufac_check">
+					  <label><input type="checkbox" value="">Koshur</label>
+					</div>
+					<div class="checkbox manufac_check">
+					  <label><input type="checkbox" value="">Pine</label>
+					</div>
+					<div class="checkbox manufac_check">
+					  <label><input type="checkbox" value="">RV Spices</label>
+					</div>
+				</div>
+     		</div>
+     		<div class="row filter_single">
+     			<div class="col-md-10 col-sm-10 filter_headings">
+
+     				Concerns
+     			</div>
+     			<div class="col-md-2 col-sm-2">
+     				<i class="fa fa-plus-circle filter_ico"></i>
+     			</div>
+     		</div>
+     		<div class="row filter_single">
+     			<div class="col-md-10 col-sm-10 filter_headings">
+
+     				Benefits
+     			</div>
+     			<div class="col-md-2 col-sm-2">
+     				<i class="fa fa-plus-circle filter_ico"></i>
+     			</div>
+     		</div>
+     		<div class="row mar-t-30">
+	     		<div class="offer_img_container" style="background-image: url('images/deal.jpg');">
+	     			
+	     		</div>
+     		</div>
+     		<div class="col_heading row mar-t-30">
+     			Top rated products
+     		</div>
+     		<div class="row filter_single">
+	     		<div class="col-md-5 col-sm-5">
+	     			<img src="images/top1.jpg">
+	     		</div>
+	     		<div class="col-md-7 col-sm-7 pad-l-0">
+	     			<div class="product_text mar-t-15">
+	     				Koshur Walnuts Boxy 
+	     			</div>
+	     			<div class="product_text">
+	     				400 Grams
+	     			</div>
+	     			<div class="product_ico">
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     			</div>
+	     		</div>
+     		</div>
+     		<div class="row filter_single">
+	     		<div class="col-md-5 col-sm-5">
+	     			<img src="images/top1.jpg">
+	     		</div>
+	     		<div class="col-md-7 col-sm-7 pad-l-0">
+	     			<div class="product_text mar-t-15">
+	     				Koshur Walnuts Boxy 
+	     			</div>
+	     			<div class="product_text">
+	     				400 Grams
+	     			</div>
+	     			<div class="product_ico">
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     			</div>
+	     		</div>
+     		</div>
+     		<div class="row filter_single">
+	     		<div class="col-md-5 col-sm-5">
+	     			<img src="images/top1.jpg">
+	     		</div>
+	     		<div class="col-md-7 col-sm-7 pad-l-0">
+	     			<div class="product_text mar-t-15">
+	     				Koshur Walnuts Boxy 
+	     			</div>
+	     			<div class="product_text">
+	     				400 Grams
+	     			</div>
+	     			<div class="product_ico">
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     			</div>
+	     		</div>
+     		</div>
+     		<div class="row filter_single">
+	     		<div class="col-md-5 col-sm-5">
+	     			<img src="images/top1.jpg">
+	     		</div>
+	     		<div class="col-md-7 col-sm-7 pad-l-0">
+	     			<div class="product_text mar-t-15">
+	     				Koshur Walnuts Boxy 
+	     			</div>
+	     			<div class="product_text">
+	     				400 Grams
+	     			</div>
+	     			<div class="product_ico">
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     			</div>
+	     		</div>
+     		</div>
+     		<div class="row filter_single">
+	     		<div class="col-md-5 col-sm-5">
+	     			<img src="images/top1.jpg">
+	     		</div>
+	     		<div class="col-md-7 col-sm-7 pad-l-0">
+	     			<div class="product_text mar-t-15">
+	     				Koshur Walnuts Boxy 
+	     			</div>
+	     			<div class="product_text">
+	     				400 Grams
+	     			</div>
+	     			<div class="product_ico">
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     				<i class="fa fa-star"></i>
+	     			</div>
+	     		</div>
      		</div>
      	</div>
      	<div class="col-md-9 col-sm-9">
