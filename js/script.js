@@ -221,6 +221,64 @@ $('[data-toggle="slide-collapse"]').on('click', function() {
 
 $("#ex2").slider({});
 
+/*$('.sort_tabs div').on('click',function(){
+console.log('working');
+if ($(this).hasClass('active')){
+  $('.sort_tabs div').addClass('active');
+  $(this).removeClass('active');
+
+}
+else{
+  $('.sort_tabs div').removeClass('active');
+  $(this).addClass('active');
+}
+
+});*/
+
+
+$('#grid-view').on('click',function(){
+  if ($(this).hasClass('active')){}
+  else{
+    $(this).addClass('active');
+    $('#list-view').removeClass('active');
+    $('.product_single_detail').hide();
+    $('.product_single').removeClass('col-md-12 col-sm-12').addClass('col-md-4 col-sm-4 pad-0');
+    $('.product_single_img').removeClass('col-md-3 col-sm-3').addClass('col-md-12 col-sm-12 pad-0');
+    $('.product_single_desc').removeClass('col-md-9 col-sm-9').addClass('col-md-12 col-sm-12');
+    $('.ready_to_ship').hide();
+    $('.product_single_wishlist').hide();
+    $('.pruduct_single_name').removeClass('col-md-9 col-sm-9').addClass('col-md-8 col-sm-8 mar-t-15 pad-0');
+    $('.product_single_price').removeClass('col-sm-10 col-md-10').addClass('col-sm-4 col-md-4 price_grid');
+    $('.product_single_rating').addClass('pad-0');
+    $('.btn-single-product').removeClass('btn-single-product').addClass('btn-single-product-grid');
+    $('.product_single_img').html('<div class="wrapper_overlay"></div>').addClass('height_img_grid')
+                            .removeClass('height_img_list');
+  }
+});
+
+
+$('#list-view').on('click',function(){
+  if ($(this).hasClass('active')){}
+  else{
+    $(this).addClass('active');
+    $('#grid-view').removeClass('active');
+    $('.product_single_detail').show();
+    $('.product_single').removeClass('col-md-4 col-sm-4 pad-0').addClass('col-md-12 col-sm-12');
+    $('.product_single_img').removeClass('col-md-12 col-sm-12 pad-0').addClass('col-md-3 col-sm-3');
+    $('.product_single_desc').removeClass('col-md-12 col-sm-12').addClass('col-md-9 col-sm-9');
+    $('.product_single_wishlist').show();
+    $('.ready_to_ship').show();
+    $('.pruduct_single_name').removeClass('col-md-8 col-sm-8 mar-t-15 pad-0').addClass('col-md-9 col-sm-9');
+    $('.product_single_price').removeClass('col-sm-4 col-md-4 price_grid').addClass('col-sm-10 col-md-10');
+    $('.product_single_rating').removeClass('pad-0');
+    $('.btn-single-product-grid').removeClass('btn-single-product-grid').addClass('btn-single-product');
+    $('.product_single_img').html('').addClass('height_img_list').removeClass('height_img_grid');
+
+  }
+});
+
+
+
 })();
 
 
