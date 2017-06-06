@@ -116,32 +116,15 @@ $('.col-latest-3').on('mouseleave',function(){
     variableWidth: false
 });*/
 
+if ( $(window).width() < 1400) { 
 $('.latest_slider').slick({
+  arrows: true,
   centerMode: true,
   centerPadding: '100px',
+  infinite: true,
   slidesToShow: 4,
   responsive: [
-       {
-      breakpoint: 1600,
-      settings: {
-        arrows: true,
-        centerMode: true,
-        centerPadding: '0px',
-        slidesToShow: 5,
-        draggable: false
-      }
-    },
-     {
-      breakpoint: 1368,
-      settings: {
-        arrows: true,
-        centerMode: true,
-        centerPadding: '100px',
-        slidesToShow: 4,
-        draggable: false
-      }
-    }, 
-        {
+    {
       breakpoint: 1200,
       settings: {
         arrows: true,
@@ -192,6 +175,19 @@ $('.latest_slider').slick({
   ]
 });
 
+
+}
+else{
+$('.latest_slider').slick({
+      arrows: true,
+      infinite: true,
+      autoplay: false,
+      slidesToShow: 5,
+      slidesToScroll: 5,
+      variableWidth: true,
+      dots: false
+  });
+}
 if ( $(window).width() > 1200) {      
   //Add your javascript for large screens here 
   $('.slider_artisan').slick({
@@ -310,8 +306,8 @@ else{
 
 
 //console.log('test');
-if (( $(window).width() > 1200) &&  ( $(window).width() < 1600)){
-  //console.log('none');
+if (( $(window).width() > 1200) &&  ( $(window).width() < 1400)){
+  console.log('none');
   var tmp=1;
   $('.latest_slider').find('.slick-active').each(function(){
     
@@ -336,48 +332,15 @@ if (( $(window).width() > 1200) &&  ( $(window).width() < 1600)){
        
     }
     else{
-     //console.log(tmp);
-     tmp=1;
-     $(this).removeClass('slick-active');
-    }
-  });
-  });
-
-}
-if ( $(window).width() > 1600)  {
-  //console.log('none');
-  var tmp=1;
-  $('.latest_slider').find('.slick-active').each(function(){
-    
-    
-    if(tmp < 5){
-     tmp=tmp+1;
-       
-    }
-    else{
      console.log(tmp);
      tmp=1;
      $(this).removeClass('slick-active');
     }
   });
-  $('.latest_slider').find('button').on('click',function(){
-    var tmp=1;
-      $('.latest_slider').find('.slick-active').each(function(){
-    
-    
-    if(tmp < 5){
-     tmp=tmp+1;
-       
-    }
-    else{
-     //console.log(tmp);
-     tmp=1;
-     $(this).removeClass('slick-active');
-    }
-  });
   });
 
 }
+
 
 
 })();

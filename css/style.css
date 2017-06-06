@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Montserrat:300,400,600,700|Playfair+Display:400,400i,700,900');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-@import url(https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css);
 h2{
 	color: #fff !important;
 	font-family: 'Playfair Display', serif !important;
@@ -1301,15 +1301,15 @@ margin-left: 10px;
 }
 
 .slide-text {
-    left: 0;
+    //left: 0;
     top: 10%;
     //right: 0;
     //width: 50%;
-    margin: auto;
+   // margin: auto;
     padding: 10px;
     position: absolute;
-    text-align: left;
-    padding: 10px 110px;
+    //text-align: left;
+   // padding: 10px 110px;
     
 }
 .carousel_heading{
@@ -1735,13 +1735,26 @@ margin-left: 10px;
 }
 
      .slick-slide{
-     	opacity: .4;
+     	//opacity: .4;
      }
 
 
 /*------------------------------------------------------*/
 /* RESPONSIVE
 /*------------------------------------------------------*/
+@media (min-width: 1400px){
+	.col-latest-3{
+         	margin-left: 30px;
+         }
+}
+
+@media (max-width: 1400px){
+	     .slick-slide{
+     	    opacity: .4;
+
+         }
+         
+}
 
 @media (max-width: 991px) {
     .slide-text h1 {
@@ -1866,6 +1879,9 @@ margin-left: 10px;
 	::-moz-placeholder { /* Firefox 19+ */
       font-size: 8px;
 
+	}
+	.testa_image{
+		width: 100%;
 	}
 	#myNavbar {
 	    //position: fixed;
