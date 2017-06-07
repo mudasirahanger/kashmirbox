@@ -116,15 +116,66 @@ $('.col-latest-3').on('mouseleave',function(){
     variableWidth: false
 });*/
 
-if ( $(window).width() < 1400) { 
 $('.latest_slider').slick({
-  arrows: true,
-  centerMode: true,
-  centerPadding: '100px',
-  infinite: true,
-  slidesToShow: 4,
-  responsive: [
-    {
+     arrows:true,
+     infinite:true,
+     autoplay:false,
+     slidesToShow:10,
+     centerMode:true,
+     draggable:false,
+     centerPadding:'180px',
+     responsive:[
+     {
+        breakpoint:2733,
+        settings:{
+          slidesToShow:7,
+          draggable:false,
+          centerPadding:'180px'
+        }
+       },
+      {
+        breakpoint:2050,
+        settings:{
+          slidesToShow:6,
+          draggable:false,
+          centerPadding:'150px'
+        }
+       },
+        {
+        breakpoint:1922,
+        settings:{
+          slidesToShow:5,
+          draggable:false,
+          draggable:false,
+          centerPadding:'180px'
+        }
+       },
+       {
+        breakpoint:1823,
+        settings:{
+          slidesToShow:5,
+          draggable:false,
+          centerPadding:'150px'
+        }
+       },
+       {
+        breakpoint:1601,
+        settings:{
+          slidesToShow:4,
+          draggable:false,
+          centerPadding:'150px'
+        }
+       },
+       {
+       breakpoint:1500,
+       settings:{
+        slidesToShow:4,
+        draggable:false,
+        centerPadding:'100px'
+       }
+
+      },
+      {
       breakpoint: 1200,
       settings: {
         arrows: true,
@@ -140,7 +191,8 @@ $('.latest_slider').slick({
         arrows: true,
         centerMode: true,
         centerPadding: '90px',
-        slidesToShow: 3
+        slidesToShow: 3,
+        draggable:true
       }
     }, 
     {
@@ -149,7 +201,8 @@ $('.latest_slider').slick({
         arrows: true,
         centerMode: true,
         centerPadding: '130px',
-        slidesToShow: 2
+        slidesToShow: 2,
+        draggable:true
       }
     }, 
     {
@@ -158,7 +211,8 @@ $('.latest_slider').slick({
         arrows: false,
         centerMode: true,
         centerPadding: '40px',
-        slidesToShow: 1
+        slidesToShow: 1,
+        draggable:true
       }
     },
     {
@@ -167,27 +221,129 @@ $('.latest_slider').slick({
         arrows: true,
         centerMode: true,
         centerPadding: '60px',
-        slidesToShow: 1
+        slidesToShow: 1,
+        draggable:true
       }
     }
+     ]
+});
 
+$('.best_seller_slider').slick({
+     arrows:true,
+     infinite:true,
+     autoplay:false,
+     slidesToShow:10,
+     centerMode:true,
+     draggable:false,
+     centerPadding:'180px',
+     responsive:[
+     {
+        breakpoint:2733,
+        settings:{
+          slidesToShow:7,
+          draggable:false,
+          centerPadding:'180px'
+        }
+       },
+      {
+        breakpoint:2050,
+        settings:{
+          slidesToShow:6,
+          draggable:false,
+          centerPadding:'150px'
+        }
+       },
+        {
+        breakpoint:1922,
+        settings:{
+          slidesToShow:5,
+          draggable:false,
+          draggable:false,
+          centerPadding:'180px'
+        }
+       },
+       {
+        breakpoint:1823,
+        settings:{
+          slidesToShow:5,
+          draggable:false,
+          centerPadding:'150px'
+        }
+       },
+       {
+        breakpoint:1600,
+        settings:{
+          slidesToShow:5,
+          draggable:false,
+          centerPadding:'120px'
+        }
+       },
+       {
+       breakpoint:1500,
+       settings:{
+        slidesToShow:4,
+        draggable:false,
+        centerPadding:'100px'
+       }
 
-  ]
+      },
+      {
+      breakpoint: 1200,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '90px',
+        slidesToShow: 3,
+        draggable: false
+      }
+    },
+      {
+      breakpoint: 1025,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '90px',
+        slidesToShow: 3,
+        draggable:true
+      }
+    }, 
+    {
+      breakpoint: 881,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '130px',
+        slidesToShow: 2,
+        draggable:true
+      }
+    }, 
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1,
+        draggable:true
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 1,
+        draggable:true
+      }
+    }
+     ]
 });
 
 
-}
-else{
-$('.latest_slider').slick({
-      arrows: true,
-      infinite: true,
-      autoplay: false,
-      slidesToShow: 5,
-      slidesToScroll: 5,
-      variableWidth: true,
-      dots: false
-  });
-}
+
+
+
 if ( $(window).width() > 1200) {      
   //Add your javascript for large screens here 
   $('.slider_artisan').slick({
@@ -250,30 +406,18 @@ $('.js-filter').on('click', function(){
 
 
 
-$('.latest_ico').find('.fa-heart').on('click',function(){
-
-  if($(this).css('color')=='rgb(255, 255, 255)'){
-    
-    $(this).css('color','#fd461c');
+$('.latest_ico').on('click',function(){
+  
+  if($(this).find('i').hasClass('fa-heart-o')){
+    $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
   }
   else{
-     
-    $(this).css('color','#fff');
+    $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
   }
+
 });
 
 
-$('.lve_frm_kmr_heart_ico').find('.fa-heart').on('click',function(){
-
-  if($(this).css('color')=='rgb(255, 255, 255)'){
-    
-    $(this).css('color','#fd461c');
-  }
-  else{
-     
-    $(this).css('color','#fff');
-  }
-});
 
 
 /*if ( $(window).width() < 776) {   
@@ -305,8 +449,8 @@ else{
 
 
 
-//console.log('test');
-if (( $(window).width() > 1200) &&  ( $(window).width() < 1400)){
+            /*latest_slider*/
+ if (( $(window).width() > 1200) &&  ( $(window).width() < 1710)){
   console.log('none');
   var tmp=1;
   $('.latest_slider').find('.slick-active').each(function(){
@@ -341,7 +485,192 @@ if (( $(window).width() > 1200) &&  ( $(window).width() < 1400)){
 
 }
 
+  if (( $(window).width() > 1823) &&  ( $(window).width() < 2050)){
+  console.log('none');
+  var tmp=1;
+  $('.latest_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 6){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  $('.latest_slider').find('button').on('click',function(){
+    var tmp=1;
+      $('.latest_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 6){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  });
 
+}
+  if (( $(window).width() > 2732) &&  ( $(window).width() < 5000)){
+  console.log('none');
+  var tmp=1;
+  $('.latest_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 10){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  $('.latest_slider').find('button').on('click',function(){
+    var tmp=1;
+      $('.latest_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 10){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  });
+
+}
+    /*latest_slider*/
+
+
+     /*best seller slider*/
+    
+  if (( $(window).width() > 1200) &&  ( $(window).width() < 1710)){
+  console.log('none');
+  var tmp=1;
+  $('.best_seller_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 5){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  $('.best_seller_slider').find('button').on('click',function(){
+    var tmp=1;
+      $('.best_seller_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 5){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  });
+
+}
+
+  if (( $(window).width() > 1823) &&  ( $(window).width() < 2050)){
+  console.log('none');
+  var tmp=1;
+  $('.best_seller_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 6){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  $('.best_seller_slider').find('button').on('click',function(){
+    var tmp=1;
+      $('.best_seller_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 6){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  });
+
+}
+
+  if (( $(window).width() > 2732) &&  ( $(window).width() < 5000)){
+  console.log('none');
+  var tmp=1;
+  $('.best_seller_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 10){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  $('.best_seller_slider').find('button').on('click',function(){
+    var tmp=1;
+      $('.best_seller_slider').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 10){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  });
+
+}
+
+
+
+
+
+
+
+
+     /*best seller slider*/
 
 })();
 
