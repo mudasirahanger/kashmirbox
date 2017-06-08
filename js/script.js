@@ -75,22 +75,6 @@ $('.lve_frm_kmr_wraper').on('mouseleave',function(){
 
 });
 
-$('#ajx_val').hide();
-	$('#srch').on('keyup',function(){
-		var x= $(this).val();
-		console.log(x);
-		    $.ajax({
-		    type:'POST',
-		    url:'tmp.php',
-		    data: 'srch='+x,
-		    success:function(html){
-		    	$('#ajx_val').show();
-		        $('#ajx_val').html(html);
-		         //alert(html);
-		    }
-		}); 
-
-	});
 
 
 $('.col-latest-3').on('mouseenter',function(){
@@ -407,7 +391,9 @@ $('.js-filter').on('click', function(){
 
 
 $('.latest_ico').on('click',function(){
-  
+   var z=$('.cart_count').html();
+        z=parseInt(z)+1;
+        $('.cart_count').html(z);
   if($(this).find('i').hasClass('fa-heart-o')){
     $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
   }

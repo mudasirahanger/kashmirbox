@@ -1501,11 +1501,28 @@ margin-left: 10px;
 .sort_drop{
 	display: inline-block;
 	float: right;
-    line-height: 41px;
+    //line-height: 41px;
+    background: url(http://127.0.0.1/kashmirbox/images/select_sep.png) no-repeat 96% 0;
+	height: 33px;
+	overflow: hidden;
+	width: 168px;
+	border: 1px solid #c1c1c1;
 }
 #sort_select{
-	width: 168px;
+	background: transparent;
+	border: none;
 	height: 33px;
+	padding: 5px;
+	width: inherit;
+	color: #666666;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	box-shadow: none;
+    background-image: none;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 .filter_single{
     
@@ -1513,6 +1530,13 @@ margin-left: 10px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-bottom: 5px;
+}
+#ajx_val{
+	position: absolute;
+    width: 89%;
+    background: white;
+    z-index: 9999;
+    padding: 15px;
 }
 .pad-0{
 	padding: 0px !important;
@@ -1573,18 +1597,18 @@ margin-left: 10px;
 	color: #282828;
 }
 
-.manufac_check{
+.filter_check{
 	font-size: 13px;
 	font-family: 'Montserrat', serif;
 	font-weight: 300;
 	line-height: 28px;
 }
 
-.manufac_check label{
+.filter_check label{
 	font-weight: 300 !important;
 }
 
-.manufac_check input[type="checkbox"]{
+.filter_check input[type="checkbox"]{
 	margin: 7px 0 0;
 }
 
@@ -1592,6 +1616,7 @@ margin-left: 10px;
 	color: #282828;
 	font-size: 15px;
 	line-height: 21px;
+	cursor: pointer;
 }
 .offer_img_container{
 	width: 100%;
@@ -1604,9 +1629,17 @@ margin-left: 10px;
 	font-family: 'Montserrat', serif;
 	font-size: 14px;
 	line-height: 18px;
-	color: #272727
+	color: #272727;
 }
-
+.product_text a{
+	font-family: 'Montserrat', serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #272727;
+}
+.product_text a:hover{
+    color: #272727;
+}
 .product_ico{
 	color: #ff8400;
 	font-size: 13px;
@@ -1655,6 +1688,7 @@ margin-left: 10px;
 	font-size: 14px;
 	line-height: 20px;
 	color: #272727;
+	cursor: pointer;
 }
 .product_single_wishlist i{
     margin-right: 7px;
@@ -1769,6 +1803,77 @@ margin-left: 10px;
 .slider-handle:active{
 	cursor: grabbing;
 }
+.fa_grid{
+	cursor: pointer;
+	color: #fd461c;
+}
+.btn_more{
+	background-color: #272727;
+	color: #fff;
+	border-radius: 3px !important;
+	font-family: 'Montserrat', serif;
+	font-size: 14px !important;
+	line-height: 28px !important;
+	padding-left: 32px !important;
+    padding-right: 32px !important;
+    margin-top: 60px;
+	margin-bottom: 55px !important;
+	margin-left: 25%;
+}
+.btn_more:hover, .btn_more:focus{
+	color: #fff !important;
+}
+
+
+
+
+
+
+
+
+
+
+.ajx_img img{
+	width: 100%;
+	max-height: 70px;
+
+}
+.ajx_txt a{
+	font-family: 'Montserrat', serif;
+	color: #272727;
+	
+
+}
+.ajx_price{
+		font-family: 'Montserrat', serif;
+	    color: #272727;
+	   
+}
+.ajx_txt a:hover{
+	color: #272727 !important;
+}
+
+
+#ajx_val title{
+	display: block;
+	font-size: 18px;
+	line-height: 41px;
+	margin-left: 15px;
+	//margin-bottom: 15px;
+	color: #272727;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
 
 /*------------------------------------------------------*/
 /* RESPONSIVE
