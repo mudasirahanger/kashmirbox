@@ -23,6 +23,7 @@ $('#bootstrap-touch-slider').bsTouchSlider();
   $('[data-toggle="slide-collapse"]').on('click', function() {
     $navMenuCont = $($(this).data('target'));
     $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
+    $('.fa-mob-close').toggle(300);
 
 });
 	$('.wrapper_overlay').hide();
@@ -192,9 +193,9 @@ $('.latest_slider').slick({
     {
       breakpoint: 768,
       settings: {
-        arrows: false,
+        arrows: true,
         centerMode: true,
-        centerPadding: '40px',
+        centerPadding: '200px',
         slidesToShow: 1,
         draggable:true
       }
@@ -304,9 +305,9 @@ $('.best_seller_slider').slick({
     {
       breakpoint: 768,
       settings: {
-        arrows: false,
+        arrows: true,
         centerMode: true,
-        centerPadding: '40px',
+        centerPadding: '200px',
         slidesToShow: 1,
         draggable:true
       }
@@ -357,8 +358,20 @@ else if( $(window).width() < 776) {
     arrows: true,
     infinite: true,
     centerMode: true,
-    centerPadding: '95px',
-    slidesToShow: 1
+    centerPadding: '130px',
+    slidesToShow: 2,
+     responsive:[
+        {
+      breakpoint: 480,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '95px',
+        slidesToShow: 1,
+        draggable:true
+      }
+    }
+     ]
 
 
 });
@@ -657,6 +670,41 @@ else{
 
 
      /*best seller slider*/
+
+
+
+  if (( $(window).width() > 481) &&  ( $(window).width() < 776)){
+   var tmp=1;
+  $('.slider_artisan').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 3){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  $('.slider_artisan').find('button').on('click',function(){
+    var tmp=1;
+      $('.slider_artisan').find('.slick-active').each(function(){
+    
+    
+    if(tmp < 3){
+     tmp=tmp+1;
+       
+    }
+    else{
+     console.log(tmp);
+     tmp=1;
+     $(this).removeClass('slick-active');
+    }
+  });
+  });
+}
 
 })();
 

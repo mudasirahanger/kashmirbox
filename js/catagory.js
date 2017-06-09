@@ -33,7 +33,11 @@ $("document").ready(function() {
 });
 (function(){
 
-
+$('.product_single_wishlist').find('span').on('click',function(){
+	 var z=$('.cart_count').html();
+	z=parseInt(z)+1;
+	$('.cart_count').html(z);
+});
 
 
 
@@ -140,7 +144,7 @@ $('#list-view').on('click',function(){
     $('.product_single_img').removeClass('col-md-12 col-sm-12 pad-0').addClass('col-md-3 col-sm-3');
     $('.product_single_desc').removeClass('col-md-12 col-sm-12').addClass('col-md-9 col-sm-9');
     $('.product_single_wishlist_grid').removeClass('col-md-12 col-sm-12 product_single_wishlist_grid').addClass('product_single_wishlist col-md-3 col-sm-3');
-    $('.product_single_wishlist').html('<i class="fa fa-heart"></i>add to wishlist');
+    $('.product_single_wishlist').html('<span><i class="fa fa-heart"></i>add to wishlist</span>');
     $('.product_single_wishlist').show();
     $('.ready_to_ship').removeClass('col-md-12 col-sm-12 ready_to_ship_grid').addClass('col-md-2 col-sm-2');
     $('.product_single_name').removeClass('col-md-10 col-sm-10 mar-t-15 pad-0 product_single_name_grid').addClass('col-md-9 col-sm-9');

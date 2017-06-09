@@ -10,6 +10,13 @@ p{
 	font-size: 15px;
 	font-family: 'Montserrat', sans-serif !important;
 }
+.fa-mob-close{
+	display: none;
+}
+
+
+
+
 .input-group-addon, .input-group-btn{
 	width: 10% !important;
 }
@@ -1001,16 +1008,16 @@ margin-left: 10px;
   padding-bottom: 60px;
 }
 #fade-quote-carousel.carousel .carousel-inner .item {
-  opacity: 0;
+ /* opacity: 0;
   -webkit-transition-property: opacity;
       -ms-transition-property: opacity;
-          transition-property: opacity;
+          transition-property: opacity;*/
 }
 #fade-quote-carousel.carousel .carousel-inner .active {
-  opacity: 1;
+ /* opacity: 1;
   -webkit-transition-property: opacity;
       -ms-transition-property: opacity;
-          transition-property: opacity;
+          transition-property: opacity;*/
 
 }
 #fade-quote-carousel.carousel .carousel-indicators {
@@ -1135,21 +1142,21 @@ margin-left: 10px;
 **********************/
 
 .fade {
-    opacity: 1;
+    //opacity: 1;
 }
 .fade .item {
     top: 0;
     z-index: 1;
-    opacity: 0;
+    //opacity: 0;
     width: 100%;
     position: absolute;
     left: 0 !important;
     display: block !important;
-    -webkit-transition: opacity ease-in-out 1s;
+   /* -webkit-transition: opacity ease-in-out 1s;
     -moz-transition: opacity ease-in-out 1s;
     -ms-transition: opacity ease-in-out 1s;
     -o-transition: opacity ease-in-out 1s;
-    transition: opacity ease-in-out 1s;
+    transition: opacity ease-in-out 1s;*/
 }
 .fade .item:first-child {
     top: auto;
@@ -1158,11 +1165,11 @@ margin-left: 10px;
 .fade .item.active {
     opacity: 1;
     z-index: 2;
-    -webkit-transition: opacity ease-in-out 1s;
+  /*  -webkit-transition: opacity ease-in-out 1s;
     -moz-transition: opacity ease-in-out 1s;
     -ms-transition: opacity ease-in-out 1s;
     -o-transition: opacity ease-in-out 1s;
-    transition: opacity ease-in-out 1s;
+    transition: opacity ease-in-out 1s;*/
 }
 
 
@@ -1173,7 +1180,7 @@ margin-left: 10px;
 /*---------- LEFT/RIGHT ROUND CONTROL ----------*/
 .control-round .carousel-control {
     top: 47%;
-    opacity: 0;
+    //opacity: 0;
     width: 45px;
     height: 45px;
     z-index: 100;
@@ -1947,6 +1954,18 @@ margin-left: 10px;
 
 /*---------- MEDIA 480px ----------*/
 @media  (max-width: 768px) {
+	.fa-mob-close{
+		
+		color: #000;
+		position: fixed;
+		z-index: 99999;
+		top: 3%;
+		right: 12%;
+
+	}
+	.navbar-nav{
+		margin: 0 auto !important;
+	}
     .slide-text {
         padding: 0px 23px;
     }
@@ -2013,6 +2032,28 @@ margin-left: 10px;
         display: none;
     }
 
+    .latest_slider .slick-next, .best_seller_slider .slick-next{
+		left: 83%;
+	}
+	    .stor_ful_img{
+    	
+		height: 169px;
+    }
+    .stor_smal_img{
+    	
+    	height: 231px;
+    	
+    }
+    	.btn-dotd{
+		//font-size: 14px !important;
+		//padding: 8px 22px !important;
+		width: 90%;
+        margin-left: 5%;
+	}
+	    .btn_sbscribe{
+    	width: 100%;
+    	margin-left: 0px;
+    }
 }
 
 @media screen and (max-width: 350px){
@@ -2057,14 +2098,14 @@ margin-left: 10px;
 
 	}
 	.testa_image{
-		width: 100%;
+		width: 200px;
 	}
 	#myNavbar {
-	    //position: fixed;
-	    //top: 0;
+	    position: fixed;
+	    top: 0;
 	    left: 0;
 	    z-index: 1;
-	    width: 280px; /*example + never use min-width with this solution */
+	    width: 100%; /*example + never use min-width with this solution */
 	    //height: 100%;
     }
 	.top_tag_line{
@@ -2075,10 +2116,7 @@ margin-left: 10px;
 		//padding: 0px;
 		//margin-top: -20px;
 	}
-     .logo_container img{
-     	width: 100%;
-
-     }
+  
      .rw_sbs img{
        margin-right: 10px;
      }
@@ -2106,11 +2144,25 @@ margin-left: 10px;
      }
      .top_sng_drop_mob{
      	display: block;
-		top: 82px;
+		//top: 83px;
 		left: 82%;
 		font-size: 26px;
 		position: absolute !important;
 		z-index: 9999999;
+		text-align: right !important;
+     }
+     #srch{
+     	height: 35px;
+     }
+     .top_logo_container .input-group{
+     	height: 35px;
+     }
+     .form-control{
+     	-webkit-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: none;
+		-o-transition: none;
+		transition: none;
      }
      .top_sng_drop_mob span{
         display: none;
@@ -2138,7 +2190,7 @@ margin-left: 10px;
      	background-color: transparent;
      	z-index: 99999999999999;
 		position: absolute;
-		top: 57px;
+		//top: 57px;
      }
      .rw_mar_mo{
      	margin-top: 20px;
@@ -2206,9 +2258,7 @@ margin-left: 10px;
     .latest_slider .slick-slide {
       //margin-right: 21px;
 	}
-	.latest_slider .slick-next, .best_seller_slider .slick-next{
-		left: 83%;
-	}
+
 	.col-latest-3{
 		width: 246px;
 	}
@@ -2265,7 +2315,7 @@ margin-left: 10px;
     .stor_ful_img{
     	border-radius: 3px;
 		width: 100%;
-		height: 169px;
+		//height: 169px;
     }
     .story_detials{
     	padding: 20px 0px 20px 10px;
@@ -2286,7 +2336,7 @@ margin-left: 10px;
     }
     .stor_smal_img{
     	width: 100%;
-    	height: 231px;
+    	//height: 231px;
     	border-radius: 3px;
     }
     .story_sml_title a{
@@ -2323,12 +2373,7 @@ margin-left: 10px;
 		width: 100%;
 		height: 174px;
 	}
-	.btn-dotd{
-		//font-size: 14px !important;
-		//padding: 8px 22px !important;
-		width: 90%;
-        margin-left: 5%;
-	}
+
 	#u_cnt_wthot .rw_pad{
 		padding-right: 15px;
 	}
@@ -2380,10 +2425,7 @@ margin-left: 10px;
 		margin-bottom: 15px;
 		margin-left: 0px;
     }
-    .btn_sbscribe{
-    	width: 100%;
-    	margin-left: 0px;
-    }
+
     .cnnct{
     	font-size: 18px;
 		line-height: 23px;
@@ -2563,7 +2605,62 @@ margin-left: 10px;
 }
 
 
+@media screen and (max-width: 350px){
+	   .logo_container img{
+     	width: 200px;
 
+     }
+         .top_sng_drop_mob{
+     	
+		top: 74px;
+		
+     }
+     .nav_container{
+     	top: 48px;
+     }
+}
 
+@media screen and (min-width: 351px) and (max-width: 776px){
+	   .logo_container img{
+     	width: 250px;
 
-
+     }
+     .top_sng_drop_mob{
+     	
+		top: 83px;
+		
+     }
+     .nav_container{
+     	top: 57px;
+     }
+}
+@media screen and (min-width: 481px) and (max-width: 776px){
+	.latest_slider .slick-next, .best_seller_slider .slick-next{
+		left: 90%;
+	}
+	.stor_ful_img{
+    	
+		height: 270px;
+    }
+    .stor_smal_img{
+    	
+       height: 270px;
+    	
+    }
+    .story_sml_title{
+    	top: 80%;
+    }
+    	.btn-dotd{
+		//font-size: 14px !important;
+		//padding: 8px 22px !important;
+		width: 70%;
+        margin-left: 15%;
+	}
+	#eml{
+		width: 80%;
+	}
+	    .btn_sbscribe{
+    	width: 80%;
+    	margin-left: 0px;
+    }
+}
