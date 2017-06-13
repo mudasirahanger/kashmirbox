@@ -5,16 +5,16 @@ $("document").ready(function() {
     setTimeout(function(){
 	    $('.product_hover').on('mouseenter',function(){
 	      //console.log("working");
-	      $(this).find('.wrapper_overlay').show();
-	      $(this).find('.btn-single-product-grid').show();
+	     // $(this).find('.wrapper_overlay').show();
+	     // $(this).find('.btn-single-product-grid').show();
 	      $(this).find('.product_single_wishlist_grid').show();
 	    });
 
 
 
 	    $('.product_hover').on('mouseleave',function(){
-	      $(this).find('.wrapper_overlay').hide();
-	      $(this).find('.btn-single-product-grid').hide();
+	      //$(this).find('.wrapper_overlay').hide();
+	     // $(this).find('.btn-single-product-grid').hide();
 	      $(this).find('.product_single_wishlist_grid').hide();
 	    });
 	    $('.fa_grid').on('click',function(){
@@ -103,8 +103,8 @@ $('#grid-view').on('click',function(){
     $('.product_single_name').removeClass('col-md-9 col-sm-9').addClass('col-md-10 col-sm-10 mar-t-15 pad-0 product_single_name_grid');
     $('.product_single_price').removeClass('col-sm-10 col-md-10').addClass('col-sm-4 col-md-4 price_grid');
     $('.product_single_rating').addClass('pad-0');
-    $('.btn-single-product').removeClass('btn-single-product').addClass('btn-single-product-grid');
-    $('.product_single_img').html('<div class="wrapper_overlay"></div>').addClass('height_img_grid')
+    $('.btn-single-product').hide();
+    $('.product_single_img').addClass('height_img_grid')
                             .removeClass('height_img_list');
     $('.product_single').addClass('product_hover');
     $('.wrapper_overlay').hide();
@@ -150,9 +150,9 @@ $('#list-view').on('click',function(){
     $('.product_single_name').removeClass('col-md-10 col-sm-10 mar-t-15 pad-0 product_single_name_grid').addClass('col-md-9 col-sm-9');
     $('.product_single_price').removeClass('col-sm-4 col-md-4 price_grid').addClass('col-sm-10 col-md-10');
     $('.product_single_rating').removeClass('pad-0');
-    $('.btn-single-product-grid').removeClass('btn-single-product-grid').addClass('btn-single-product');
+    //$('.btn-single-product-grid').removeClass('btn-single-product-grid').addClass('btn-single-product');
     $('.btn-single-product').show();
-    $('.product_single_img').html(' ').addClass('height_img_list').removeClass('height_img_grid');
+    $('.product_single_img').addClass('height_img_list').removeClass('height_img_grid');
     //console.log('testing');
     $('.product_single').removeClass('product_hover');
     $('.actual_price').show();

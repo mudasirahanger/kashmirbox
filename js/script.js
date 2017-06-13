@@ -64,7 +64,7 @@ $('.pash_wrapper').on('mouseleave',function(){
           $(this).find('.wrapper_overlay').hide();
 		  $(this).find('.pash_wrapper_subheading').hide();
 		  $(this).find('.btn-pash_wrap').hide();
-		  $(this).find('.pash_wrap_headline').css("top","50%");
+		  $(this).find('.pash_wrap_headline').css("top","47%");
        
    });
    $('.pash_wrapper_small').on('mouseenter',function(){
@@ -78,7 +78,7 @@ $('.pash_wrapper_small').on('mouseleave',function(){
           $(this).find('.wrapper_overlay').hide();
 		  $(this).find('.pash_wrapper_small_subheading').hide();
 		  $(this).find('.btn-pash_wrap').hide();
-		  $(this).find('.pash_small_headline').css("top","50%");
+		  $(this).find('.pash_small_headline').css("top","47%");
        
    });
 }
