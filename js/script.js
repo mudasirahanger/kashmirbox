@@ -28,6 +28,7 @@ $('#bootstrap-touch-slider').bsTouchSlider();
     $('.fa-mob-close').toggle(300);
           
 });
+  $('.nav-tabs a:first').tab('show');
   if ( $(window).width() > 776) { 
      $('[data-toggle="slide-collapse"]').on('click', function() {
     $navMenuCont = $($(this).data('target'));
@@ -274,11 +275,11 @@ $('.best_seller_slider').slick({
         }
        },
        {
-        breakpoint:1600,
+        breakpoint:1601,
         settings:{
-          slidesToShow:5,
+          slidesToShow:4,
           draggable:false,
-          centerPadding:'120px'
+          centerPadding:'150px'
         }
        },
        {

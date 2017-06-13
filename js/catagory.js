@@ -93,7 +93,7 @@ $('#grid-view').on('click',function(){
     $(this).addClass('active');
     $('#list-view').removeClass('active');
     $('.product_single_detail').hide();
-    $('.product_single').removeClass('col-md-12 col-sm-12').addClass('col-md-4 col-sm-4 pad-t-0 pad-b-0').css('background','none');
+    $('.product_single').removeClass('col-md-12 col-sm-12').addClass('col-md-4 col-sm-4 pad-t-0 pad-b-0 col-xs-6').css('background','none');
     $('.product_single_img').removeClass('col-md-3 col-sm-3').addClass('col-md-12 col-sm-12 pad-0');
     $('.product_single_desc').removeClass('col-md-9 col-sm-9').addClass('col-md-12 col-sm-12');
     $('.ready_to_ship').removeClass('col-md-2 col-sm-2').addClass('col-md-12 col-sm-12 ready_to_ship_grid');
