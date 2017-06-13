@@ -15,30 +15,38 @@ Credits: Bootstrap, jQuery, TouchSwipe, Animate.css, FontAwesome
 // Curently there are no option available.
 
 
-
     /*jQuery for luxurios pashmina wrap section*/
 $('#bootstrap-touch-slider').bsTouchSlider();
 
 (function(){
+
+
   $('[data-toggle="slide-collapse"]').on('click', function() {
     $navMenuCont = $($(this).data('target'));
     $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
-    $('.fa-mob-close').toggle(300);
 
+    $('.fa-mob-close').toggle(300);
+          
 });
+  $('.fa-mob-close').on('click',function(){
+    //console.log('working');
+     $('[data-toggle="slide-collapse"]').trigger('click');
+  });
 	$('.wrapper_overlay').hide();
 	$('.pash_wrapper_subheading').hide();
+  $('.pash_wrapper_small_subheading').hide();
+  
 	$('.btn-pash_wrap').hide();
 	$('.btn-kmr_wrap').hide();
 	$('.lve_frm_kmr_heart_ico').hide();
   $('.latest_ico').hide();
   $('.btn-latest').hide();
-
+  if ( $(window).width() > 776) { 
    $('.pash_wrapper').on('mouseenter',function(){
    	      $(this).find('.pash_wrap_headline').css("top","10%");
           $(this).find('.wrapper_overlay').show();
-	$(this).find('.pash_wrapper_subheading').show();
-	$(this).find('.btn-pash_wrap').show();
+        	$(this).find('.pash_wrapper_subheading').show();
+        	$(this).find('.btn-pash_wrap').show();
      
    });
 $('.pash_wrapper').on('mouseleave',function(){
@@ -51,18 +59,18 @@ $('.pash_wrapper').on('mouseleave',function(){
    $('.pash_wrapper_small').on('mouseenter',function(){
    	      $(this).find('.pash_small_headline').css("top","10%");
           $(this).find('.wrapper_overlay').show();
-	$(this).find('.pash_wrapper_subheading').show();
+	$(this).find('.pash_wrapper_small_subheading').show();
 	$(this).find('.btn-pash_wrap').show();
      
    });
 $('.pash_wrapper_small').on('mouseleave',function(){
           $(this).find('.wrapper_overlay').hide();
-		  $(this).find('.pash_wrapper_subheading').hide();
+		  $(this).find('.pash_wrapper_small_subheading').hide();
 		  $(this).find('.btn-pash_wrap').hide();
 		  $(this).find('.pash_small_headline').css("top","50%");
        
    });
-
+}
 $('.lve_frm_kmr_wraper').on('mouseenter',function(){
 	$(this).find('.wrapper_overlay').show();
 	$(this).find('.btn-kmr_wrap').show();
