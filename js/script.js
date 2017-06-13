@@ -28,6 +28,16 @@ $('#bootstrap-touch-slider').bsTouchSlider();
     $('.fa-mob-close').toggle(300);
           
 });
+  if ( $(window).width() > 776) { 
+     $('[data-toggle="slide-collapse"]').on('click', function() {
+    $navMenuCont = $($(this).data('target'));
+    $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
+     //$('#myNavbar');
+    $('.fa-mob-close').toggle(300);
+          
+});
+
+  }
   $('.fa-mob-close').on('click',function(){
     //console.log('working');
      $('[data-toggle="slide-collapse"]').trigger('click');
