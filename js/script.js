@@ -32,7 +32,7 @@ $('#bootstrap-touch-slider').bsTouchSlider();
      $('[data-toggle="slide-collapse"]').on('click', function() {
     $navMenuCont = $($(this).data('target'));
     $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
-     //$('#myNavbar');
+     $('#myNavbar').attr('display','block !important');
     $('.fa-mob-close').toggle(300);
           
 });
