@@ -20,5 +20,15 @@
 		}); 
      }
 	});
+  $('[data-toggle="slide-collapse"]').on('click', function() {
+    $navMenuCont = $($(this).data('target'));
+    $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
 
+    $('.fa-mob-close').toggle(300);
+          
+});
+   $('.fa-mob-close').on('click',function(){
+    //console.log('working');
+     $('[data-toggle="slide-collapse"]').trigger('click');
+  });
 })();

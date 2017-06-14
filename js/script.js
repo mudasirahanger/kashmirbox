@@ -21,13 +21,7 @@ $('#bootstrap-touch-slider').bsTouchSlider();
 (function(){
 
 
-  $('[data-toggle="slide-collapse"]').on('click', function() {
-    $navMenuCont = $($(this).data('target'));
-    $navMenuCont.animate({'width':'toggle'}, 300).css('background-color','#fff');
 
-    $('.fa-mob-close').toggle(300);
-          
-});
   $('.nav-tabs a:first').tab('show');
   if ( $(window).width() > 776) { 
      $('[data-toggle="slide-collapse"]').on('click', function() {
@@ -39,10 +33,7 @@ $('#bootstrap-touch-slider').bsTouchSlider();
 });
 
   }
-  $('.fa-mob-close').on('click',function(){
-    //console.log('working');
-     $('[data-toggle="slide-collapse"]').trigger('click');
-  });
+ 
 	$('.wrapper_overlay').hide();
 	$('.pash_wrapper_subheading').hide();
   $('.pash_wrapper_small_subheading').hide();
@@ -228,6 +219,26 @@ $('.latest_slider').slick({
         slidesToShow: 1,
         draggable:true
       }
+    },
+        {
+      breakpoint: 361,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        draggable:true
+      }
+    },
+       {
+      breakpoint: 321,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '30px',
+        slidesToShow: 1,
+        draggable:true
+      }
     }
      ]
 });
@@ -340,6 +351,26 @@ $('.best_seller_slider').slick({
         slidesToShow: 1,
         draggable:true
       }
+    },
+       {
+      breakpoint: 361,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '50px',
+        slidesToShow: 1,
+        draggable:true
+      }
+    },
+       {
+      breakpoint: 321,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '30px',
+        slidesToShow: 1,
+        draggable:true
+      }
     }
      ]
 });
@@ -388,9 +419,29 @@ else if( $(window).width() < 776) {
         centerPadding: '95px',
         slidesToShow: 1,
         draggable:true
+       }
+      },
+      {
+      breakpoint: 361,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '85px',
+        slidesToShow: 1,
+        draggable:true
+      }
+    },
+    {
+      breakpoint: 321,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '70px',
+        slidesToShow: 1,
+        draggable:true
       }
     }
-     ]
+    ]
 
 
 });

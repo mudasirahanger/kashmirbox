@@ -1489,7 +1489,7 @@ margin-left: 10px;
 	text-align: center;
 	color: #fff;
 	width: 46%;
-	margin-left: 26%;
+	margin: 0 auto;
 	font-weight: 300;
 }
 
@@ -1558,6 +1558,7 @@ margin-left: 10px;
     -webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	cursor: pointer;
 }
 .filter_single{
     
@@ -1899,7 +1900,9 @@ margin-left: 10px;
 	font-family: 'Playfair Display', serif;
 	font-weight: 700;
 }
-
+.fa_filter{
+   display: none;
+}
 
 
 
@@ -2158,7 +2161,8 @@ margin-left: 10px;
        }
      .col_pos{
      	position: absolute !important;
-     	left: 64%;
+     	left: 58%;
+     	padding: 0px !important;
      }
      .mob_pos{
      	//position: absolute !important;
@@ -2174,11 +2178,12 @@ margin-left: 10px;
      .top_sng_drop_mob{
      	display: block;
 		//top: 83px;
-		left: 82%;
+		left: 78%;
 		font-size: 26px;
 		position: absolute !important;
 		z-index: 9999999;
 		text-align: right !important;
+		padding: 0px !important;
      }
      #srch{
      	height: 35px;
@@ -2403,11 +2408,17 @@ margin-left: 10px;
 		height: 174px;
 	}
 
-	#u_cnt_wthot .rw_pad{
-		padding-right: 15px;
+	#u_cnt_wthot .rw_pad, #love_from_kmr .rw_pad{
+		//padding-right: 15px;
+		margin-right: 0px;
+        margin-left: 0px;
 	}
-	#u_cnt_wthot .col_mar{
-		padding-right: 0px !important;
+	#u_cnt_wthot .col_mar, #love_from_kmr .col_mar{
+		//padding-right: 0px !important;
+		padding: 0px;
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-bottom: 10px;
 	}
 	iframe{
 		width: 100%;
@@ -2536,15 +2547,102 @@ margin-left: 10px;
     .nav_container .navbar-toggle{
     	float: left;
     }
-    .col_mar {
+/*    .col_mar {
 	    margin-bottom: 10px;
 	    padding-left: 5px !important;
 	    padding-right: 5px !important;
-    }
+    }*/
     .display_none_mob{
     	display: none;
     }
-
+    .banner_img{
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    #top_banner h2{
+    	font-size: 25px;
+    	line-height: 30px;
+    	margin: 0 auto;
+    }
+    #top_banner p{
+    	width: 80%;
+    	margin-top: 20px;
+    	line-height: 22px;
+    }
+     .sort_tabs{
+    	display: none;
+    }
+    .sort_drop{
+    	float: none;
+    }
+    .product_single{
+    	padding: 0px !important;
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+		margin-bottom: 10px;
+    }
+    #catagory_details .pad-l-30{
+       padding: 0px;
+    }
+    .height_img_grid{
+    	height: 137px;
+    }
+    .product_single_name{
+    	font-size: 12px;
+    }
+    .product_single_price{
+    	font-size: 12px;
+    	padding: 0px !important;
+    }
+    #catagory_details .mar-t-15{
+    	margin: 0 auto;
+    }
+    .ready_to_ship_grid{
+    	//display: none;
+    }
+    .product_single_desc{
+       padding-top: 20px;
+    }
+    .price_grid{
+    	position: relative !important;
+    	left: 0;
+		text-align: left;
+		top: 0;
+    }
+        .product_single_wishlist_grid{
+    	top: -120px;
+    }
+    .ready_to_ship_grid span{
+    	width: 32%;
+    }
+    .ready_to_ship_grid{
+    	top: -25px !important;
+    }
+    .col_filter_mob{
+    	position: fixed !important;
+		bottom: 0px;
+		width: 80%;
+		margin: 0 auto;
+		z-index: 999999999999999999;
+		background: white;
+		height: 40px;
+		margin-left: 10%;
+		overflow: hidden;
+		//cursor: pointer;
+    }
+    .col_heading_mob{
+    	cursor: pointer;
+    }
+    .col_heading{
+    	text-align: center;
+    }
+    .fa_filter{
+    	cursor: pointer;
+    	position: absolute;
+		top: 13px;
+		left: 87%;
+		font-size: 21px;
+    }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 777px){
@@ -2578,6 +2676,33 @@ margin-left: 10px;
     }
     .testa_image{
     	width: 100%;
+    }
+    .product_single_wishlist{
+    	font-size: 13px;
+    	padding: 0px !important;
+
+    }
+    .ready_to_ship{
+         padding: 0px !important;
+    }
+    .height_img_grid{
+    	height: 200px;
+    }
+    .product_single_wishlist_grid{
+    	top: -190px;
+    }
+    .product_single_name_grid{
+    	font-size: 13px !important;
+    } 
+    .price_grid{
+    	padding-left: 0px;
+    	font-size: 13px !important;
+    }
+    .ready_to_ship i{
+        font-size: 18px;
+    }
+    .ready_to_ship_grid span{
+    	width: 25%;
     }
 }
 @media screen and (min-width: 777px) and (max-width: 1279px){
