@@ -34,6 +34,7 @@
       }
       a {
         font-size: rem(13);
+        color: $pine-green-color;
       }
     }
     li:last-child{
@@ -90,6 +91,23 @@
       }
       .wishlist-icon {
         margin-right: 70px;
+      }
+    }
+  }
+}
+
+
+#site-header-navigation {
+  padding: $unit-layout;
+  ul {
+    list-style-type: none;
+    li {
+      float: left;
+      width: 10%;
+      color: $text-color;
+      a {
+        text-transform: uppercase;
+        font-size: rem(13px);
       }
     }
   }
