@@ -1,3 +1,19 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+.btn-primary {
+  background-color: $brand-color;
+  border-color: $brand-color;
+  transition: all 0.5s;
+  padding: 0;
+
+  &:hover, &:active, &:focus, 
+  &:hover:focus, &:hover:active,
+  &:focus:active, &:focus:hover,
+  &:active:hover, &:active:focus{
+    background-color: $brand-color;
+    border-color: $brand-color;
+    opacity: 0.8;
+  }
+}

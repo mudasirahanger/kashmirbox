@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
-#site_header {
+#site-header {
 
 }
 
-#site_header_top {
+#site-header-top {
   background-color: $approx-snow-color;
   padding: $quarter-unit-layout rem(0px);
   border-bottom: rem(2px) solid #f0f0f0;
@@ -20,7 +20,7 @@
     font-style: italic;
   }  
 
-  .quick_links {
+  .quick-links {
     list-style-type: none;
     float: right;
     li {
@@ -45,6 +45,52 @@
     }
     a:last-child {
       border-right: none;
+    }
+  }
+}
+
+
+#site-header-primary{
+  padding: $double-unit-layout * 1.25 0;
+  border-bottom: rem(2px) solid #f0f0f0;
+
+  .container {
+    max-width: rem(1300px);
+  }
+
+  .kbsearch {
+    margin: rem(10px) 0;
+  }
+
+  .mini-cart-wrap {
+    .cart {
+      .wishlist-icon, .mini-cart-icon {
+        float: right;
+        font-size: 48px;
+        line-height: 0;
+        color: $brand-color;
+      }
+      .mini-cart-icon {
+        position: relative;
+        .mini-cart-count {
+          position: absolute;
+          left: -10px;
+          bottom: -10px;
+          background-color: #f25c5b;
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          line-height: 30px;
+          text-align: center;
+          color: white;
+          font-size: 16px;
+          font-style: normal;
+        }
+      }
+      .wishlist-icon {
+        margin-right: 70px;
+      }
     }
   }
 }

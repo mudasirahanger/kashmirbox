@@ -1,8 +1,8 @@
 header#site_header
-  div#site_header_top
-    div.container
+  #site-header-top
+    .container
       span.tagline Over $70 million sent to artisans arround the world! - offering &amp; Empowering Kashmir
-      ul.quick_links
+      ul.quick-links
         li
           i(class='fa fa-info-circle')
           a(href='#')
@@ -14,14 +14,31 @@ header#site_header
         li
           i(class='fa fa-inr')
           a(href='#')
-            span Help 
+            span Currency 
         li
           i(class='fa fa-user-circle-o')
           a(href='#')
             span Register
           a(href='#')
             span Login
-  div#site_header_primary
-  div#site_header_navigation
+  #site-header-primary
+    .container
+      .logo-wrap(class='col-sm-4 padding-0')
+        img(src='images/logo.png' alt="Kashmir Box")
+      .search-wrap(class='col-sm-4 padding-0')
+        .kbsearch
+          input(type='text' placeholder='What can Kashmir offer you today?')
+          a(class='btn btn-primary search-btn')
+            i(class='fa fa-search')  
+      .mini-cart-wrap(class='col-sm-4 padding-0')
+         .cart
+            a.mini-cart-icon(href='#')
+              i(class='fa fa-shopping-bag')
+              i(class='mini-cart-count') 6 
+            a.wishlist-icon(href='#') 
+              i(class="fa fa-heart-o") 
+          
+
+  div#site-header-navigation
 
 

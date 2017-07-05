@@ -45,3 +45,8 @@ ul {
 ul li {
   color: $text-color;
 }
+
+
+input, button, img {
+  outline: none;
+}
