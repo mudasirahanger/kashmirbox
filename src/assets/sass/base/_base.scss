@@ -26,11 +26,22 @@ html {
  * Basic styles for links
  */
 a {
-  color: $brand-color;
+  color: $pine-green-color;
   text-decoration: none;
 
   @include on-event {
     color: $text-color;
     text-decoration: underline;
   }
+}
+
+/**
+ * Basic styles for unordered list
+ */
+ul {
+  padding: rem(0px);
+  margin: rem(0px);
+}
+ul li {
+  color: $text-color;
 }

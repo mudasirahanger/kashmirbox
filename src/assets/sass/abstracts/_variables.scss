@@ -14,7 +14,7 @@ $text-font-stack: 'Montserrat', 'Helvetica Neue Light', 'Helvetica Neue', 'Helve
 /// @type List
 $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
 
-
+$ff-playfair-display: 'Playfair Display', serif;
 
 
 
@@ -24,7 +24,7 @@ $text-color: rgb(34, 34, 34) !default;
 
 /// Main brand color
 /// @type Color
-$brand-color: rgb(229, 0, 80) !default;
+$brand-color: rgb(16, 139, 60) !default;
 
 /// Light grey
 /// @type Color
@@ -39,12 +39,17 @@ $mid-grey: rgb(153, 153, 153) !default;
 $dark-grey: rgb(68, 68, 68) !default;
 
 
+/// Section Colors
+$approx-snow-color: #f9f9f9 !default;
+
+/// text colors
+$pine-green-color: #027273 !default;
 
 
 
 /// Container's maximum width
 /// @type Length
-$max-width: 1180px !default;
+$max-width: 1170px !default;
 
 
 
@@ -70,5 +75,5 @@ $base-url: '/assets/' !default;
 
 // This is the px value of the main unit - rem base - on which all sizing and
 // layout depends. Every single rem value is calculated using this value.
-$rem-base: 16px
+$rem-base: 16px;
 
