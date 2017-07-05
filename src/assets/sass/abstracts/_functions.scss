@@ -28,3 +28,14 @@
 @function font($path, $base: $base-url) {
   @return asset($base, 'fonts/', $path);
 }
+
+
+/// get only magnitude
+@function unitless($val) {
+  @return $val / ($val * 0 + 1)
+}
+
+/// calculate rem of a value
+@function rem($val) {
+  @return unitless($val) / unitless($rem-base) * 1rem;
+}

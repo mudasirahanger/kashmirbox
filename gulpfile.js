@@ -94,7 +94,7 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       livereload: true,
       open: true,
-      fallback : '/dist/index.html'
+      path : '/dist',
     }));
 });
 
@@ -106,6 +106,5 @@ gulp.task('default', [
   'js',
   'optimizeImages',
   'copyFonts',
-  'watch',
-  'webserver'
+  'watch'
 ]);
