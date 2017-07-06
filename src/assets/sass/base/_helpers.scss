@@ -70,6 +70,29 @@
   color: $text-color-dark;
 }
 
+.section-title {
+  text-align: center;
+  &:after {
+    content: '';
+    background-image: url($images-path + 'section-title-separator.png');
+    display: inline-block;
+    height: rem(45px);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .title {
+    font-weight: 700;
+    font-family: $ff-playfair-display;
+    font-size: rem(30px);
+    line-height: rem(41px);
+    color: $text-color-dark;
+  }
+  .desc {
+    font-weight: 300;
+  }
+}
+
 .brand-color {
   color: $brand-color;
 }

@@ -1,0 +1,36 @@
+.artisan-collection-slider {
+  .slide {
+    .slide-content {
+      width: rem(170px);
+      margin: 0 auto;
+      .slide-img {
+        display: inline-block;
+      }
+      .title {
+        font-size: rem(17px);
+        font-family: $ff-playfair-display;
+      }
+      .sub-title, .view-range {
+        font-weight: 300;
+        line-height: rem(28px);
+        font-size: rem(14px);
+        display: block;
+      }
+      .view-range {
+        color: $brand-color;
+        margin-top: $unit-layout*1.25;
+        .fa-caret-right {
+          font-size: rem(14px);
+          display: inline-block;
+          margin-left: $half-unit-layout;
+        }
+      }
+    }
+  }
+  .slick-prev:before, .slick-next:before {
+    color: $brand-color;
+  }
+  .slick-prev, .slick-next {
+    top: 35%;
+  }
+}
