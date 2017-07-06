@@ -48,7 +48,7 @@ ul li {
 }
 
 
-input, button, img {
+input, button, img, .btn {
   outline: none;
 }
 
@@ -56,7 +56,10 @@ p {
   margin: rem(0px);
 }
 
-
+/* Bootstrap overrides */
 .form-group {
   margin-bottom: 0;
+}
+.row {
+  margin: 0;
 }

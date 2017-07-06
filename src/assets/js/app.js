@@ -1,3 +1,10 @@
 jQuery(document).ready(function($){
-	console.log("hello");
+	
+  $('.hero-slider').slick({
+    dots : true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 4000
+  });
+
 });

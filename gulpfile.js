@@ -43,6 +43,7 @@ var jsPath = 'src/assets/js/'
 var jsFiles = [
   jsPath+'jquery-3.2.1.min.js',
   jsPath+'bootstrap.min.js',
+  jsPath+'vendor/slick-slider/slick.min.js',
   jsPath+'app.js'
 ];
 var jsDest = 'dist/js/';

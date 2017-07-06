@@ -11,7 +11,7 @@
   border-bottom: rem(2px) solid #f0f0f0;
 
   .container {
-    max-width: rem(1300px);
+    max-width: rem($lg-container);
   }
 
   .tagline {
@@ -56,7 +56,7 @@
   border-bottom: rem(2px) solid #f0f0f0;
 
   .container {
-    max-width: rem(1300px);
+    max-width: rem($lg-container);
   }
 
   .kbsearch {

@@ -8,7 +8,9 @@
 
 // 2. Vendors
 @import
-  'vendor/bootstrap';
+  'vendor/bootstrap',
+  'vendor/slick.scss',
+  'vendor/slick-theme.scss';
 
 // 3. Base stuff
 @import
@@ -28,7 +30,8 @@
   'components/button',
   'components/kbsearch',
   'components/newsletter-form',
-  'components/social-connect';
+  'components/social-connect',
+  'components/hero-slider';
 
 // 6. Page-specific styles
 @import

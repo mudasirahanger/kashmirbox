@@ -1,6 +1,15 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+.btn {
+  outline: none;
+  &:hover, &:active, &:focus, 
+  &:hover:focus, &:hover:active,
+  &:focus:active, &:focus:hover,
+  &:active:hover, &:active:focus{
+    outline: none;
+  }
+}
 
 .btn-primary {
   background-color: $brand-color;
@@ -27,5 +36,23 @@
     background-color: #f05d5e;
     border-color: #f05d5e;
     opacity: 0.8;
+  }
+}
+
+.btn-border {
+  background-color: transparent;
+  border: rem(2px) solid white;
+  color: white;
+  transition: all 0.5s;
+  padding: 0;
+}
+
+.btn-border-pink {
+  border-width: rem(2px);
+  border: rem(2px) solid #f05d5e;
+
+  &:hover, &:active, &:focus {
+    background-color: #f05d5e;
+    color: white;
   }
 }
