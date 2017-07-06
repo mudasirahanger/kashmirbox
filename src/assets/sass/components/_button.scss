@@ -39,6 +39,19 @@
   }
 }
 
+.btn-white {
+  background-color: white;
+  border-color: white;
+  transition: all 0.5s;
+  padding: 0;
+  color: $text-color-dark;
+  &:hover, &:active, &:focus {
+    background-color: white;
+    border-color: white;
+    opacity: 0.8;
+  }
+}
+
 .btn-border {
   background-color: transparent;
   border: rem(2px) solid white;

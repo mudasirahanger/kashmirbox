@@ -27,6 +27,7 @@ html {
  * Basic styles for links
  */
 a {
+  outline: none;
   color: $text-color;
   text-decoration: none;
 
@@ -62,4 +63,9 @@ p {
 }
 .row {
   margin: 0;
+}
+
+/* slick slider overrides */
+.slick-initialized .slick-slide {
+  outline: none;
 }

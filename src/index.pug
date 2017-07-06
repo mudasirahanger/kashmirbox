@@ -5,8 +5,10 @@ block app_variables
 
 block home_content
   main#content
+    //Hero Section
     section.hero-slider-section.row
       include components/hero-slider.pug
+    //Artisan Section
     section.artisan-collection-section.row
       .container
         .section-title
@@ -14,3 +16,55 @@ block home_content
           p.desc Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
         .col-md-10.col-md-offset-1  
           include components/artisan-collection-slider.pug
+    // Pashmina Section
+    section.pashmina-section.row
+      .container
+        .section-title
+          h2.title Luxurious Pashmina Wraps
+          p.desc Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+        .masonary-gallery
+          .left-col.col-sm-4
+            .gallery-item(style='background-image:url(images/pashmina/pashmina-1.png)')
+              .gallery-item-content
+                h5.name Solid Pashmina
+              .overlay
+                .overlay-content
+                  h5.name Solid Pashmina
+                  p.excerpt.
+                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Fusce vel rutrum mauris. In velit libero, tincidunt ac congue ut, rhoncus commodo sapien.
+                  a(href="#" class="btn btn-white shop-now") Shop Now <span class='fa fa-caret-right'></span>
+          .center-col.col-sm-4
+            .gallery-item(style='background-image:url(images/pashmina/pashmina-3.png)')
+              .gallery-item-content
+                h5.name GI Pashmina
+              .overlay
+                .overlay-content
+                  h5.name GI Pashmina
+                  p.excerpt.
+                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Fusce vel rutrum mauris. In velit libero, tincidunt ac congue ut, rhoncus commodo sapien.
+                  a(href="#" class="btn btn-white shop-now") Shop Now <span class='fa fa-caret-right'></span>
+            .gallery-item(style='background-image:url(images/pashmina/pashmina-2.png)')
+              .gallery-item-content
+                h5.name Dip Dye Pashmina
+              .overlay
+                .overlay-content
+                  h5.name Dip Dye Pashmina
+                  p.excerpt.
+                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Fusce vel rutrum mauris. In velit libero, tincidunt ac congue ut, rhoncus commodo sapien.
+                  a(href="#" class="btn btn-white shop-now") Shop Now <span class='fa fa-caret-right'></span>
+          .right-col.col-sm-4
+            .gallery-item(style='background-image:url(images/pashmina/pashmina-4.png)')
+              .gallery-item-content
+                h5.name Kani Pashmina
+              .overlay
+                .overlay-content
+                  h5.name Kani Pashmina
+                  p.excerpt.
+                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Fusce vel rutrum mauris. In velit libero, tincidunt ac congue ut, rhoncus commodo sapien.
+                  a(href="#" class="btn btn-white shop-now") Shop Now <span class='fa fa-caret-right'></span>
+    // Latest Arrivals Section
+    section.latest-arrivals-section.row
+      .container
+        .section-title
+          h2.title Latest Arrivals
+          p.desc Health. Exotic Indulgence. Stylish Apparels.      

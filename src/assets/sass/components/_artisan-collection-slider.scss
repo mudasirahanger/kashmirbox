@@ -7,6 +7,8 @@
         display: inline-block;
       }
       .title {
+        display: inline-block;
+        margin-top: $half-unit-layout;
         font-size: rem(17px);
         font-family: $ff-playfair-display;
       }
