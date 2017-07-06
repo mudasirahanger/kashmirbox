@@ -62,5 +62,14 @@
 }
 
 
+/* common title */
+.title {
+  font-weight: 700;
+  font-family: $ff-playfair-display;
+  font-size: rem(16px);
+  color: $text-color-dark;
+}
 
-
+.brand-color {
+  color: $brand-color;
+}

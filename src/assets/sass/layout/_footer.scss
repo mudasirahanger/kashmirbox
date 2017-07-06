@@ -1,3 +1,63 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+#site-footer-top {
+  padding: $unit-layout * 1.25 0;
+  background-color: $approx-snow-color;
+}
+
+
+#site-footer-primary {
+  padding-top: $double-unit-layout;
+  padding-bottom: $unit-layout;
+  border-bottom: 1px solid $mid-grey;
+  .logo {
+    margin-bottom: $double-unit-layout;
+  }
+  .about-kashmir-box {
+    width: 90%;
+    .description {
+      color: #7e7e7e;
+      font-weight: 300;
+      font-size: rem(13px);
+      .brand-color {
+        font-weight: 500;
+      }
+    }
+  }
+  .title-wrap {
+    margin: $half-unit-layout 0; 
+  }
+  .footer-links {
+    list-style-type: none;
+    li {
+      a {
+        color: #151515;
+        font-size: rem(13px);
+        line-height: $unit-layout * 1.625;
+      }
+    }
+  }
+}
+
+
+#site-footer-secondary {
+  padding: $unit-layout 0;
+  .payment-partners {
+    text-align: center;
+  }
+}
+
+#site-footer-copyright {
+  background-color: #272932;
+  padding: $unit-layout;
+  .copyright-text {
+    color: #848484;
+    text-align: center;
+    a {
+      &:hover {
+        color: $brand-color;
+      }
+    }
+  }
+}

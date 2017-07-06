@@ -21,11 +21,14 @@
 @import
   'layout/header',
   'layout/footer',
-  'layout/kbsearch';
+  'layout/tagline';
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/kbsearch',
+  'components/newsletter-form',
+  'components/social-connect';
 
 // 6. Page-specific styles
 @import

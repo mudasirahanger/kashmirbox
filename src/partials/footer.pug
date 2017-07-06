@@ -1,1 +1,58 @@
-footer#site_footer This is site footer
+// Site Footer
+footer#site-footer
+  include ../components/tagline.pug
+  #site-footer-top
+    .container
+      .col-sm-7.padding-0
+        include ../components/newsletter-form.pug
+      .col-sm-5.padding-0
+        include ../components/social-connect.pug
+  #site-footer-primary
+    .container
+      .col-xs-12
+        img.logo(src='images/logo.png' alt="Kashmir Box")
+      .col-sm-6.padding-0.footer-col-1
+        .title-wrap: p.title Your Convenient Connection to the best of Kashmir
+        .about-kashmir-box
+          p.description.
+            Kashmir Box prides itself for being an artisan family of more than 1000 artisans, 200 producers and 50+ local brands from the remotest corners of Kashmir. We aim to bring the most cherished and glorious of authentic Kashmiri Crafts and produce to our valued customers, giving them the most seamless shopping experience ever. Whether you are looking for the soft embrace of <strong class='brand-color'>Pashmina &amp; Cashmere</strong>, or to charm up your attire with the best of Kashmiri Embroideries like <strong class='brand-color'>Aari, Sozni &amp; Tilla</strong> or to décor up your home with <strong class='brand-color'>Paper Machie &amp; Walnut Wood</strong> beauties or simply to treat yourself to the exquisite <strong class='brand-color'>Kashmiri Kahwa, Dry Fruits, Saffron and Wazwan</strong>, or to benefit from the age old health boosters like Mountain <strong class='brand-color'>Shilajit</strong>, we have got you covered. We are your convenient connection to the best of Kashmir, an easy way to get all the beautiful products as easily and hassle free as is possible. 
+      .col-sm-2.padding-0.footer-col-2
+        .title-wrap: p.title Our Company
+        ul.footer-links
+          li: a(href='#') About Us
+          li: a(href='#') Careers
+          li: a(href='#') Shipping
+          li: a(href='#') Return Policy
+          li: a(href='#') Terms &amp; Conditions
+          li: a(href='#') Privacy
+          li: a(href='#') Contact Us
+          li: a(href='#') Gift Vouchers
+          li: a(href='#') Affiliate
+      .col-sm-2.padding-0.footer-col-3
+        .title-wrap: p.title Top Categories
+        ul.footer-links
+          li: a(href='#') Paper Mache
+          li: a(href='#') Walnut Woor
+          li: a(href='#') Chain Stitch
+          li: a(href='#') Timeless Tilla
+          li: a(href='#') Paper Mache
+          li: a(href='#') Walnut Woor
+          li: a(href='#') Chain Stitch
+          li: a(href='#') Timeless Tilla
+      .col-sm-2.padding-0.footer-col-4
+        .title-wrap: p.title More...
+        ul.footer-links
+          li: a(href='#') Bulk Orders
+          li: a(href='#') Customisation
+          li: a(href='#') Gifting
+          li: a(href='#') Product Development
+          li: a(href='#') Kashmir Tales
+  #site-footer-secondary
+    .container
+      .payment-partners
+        p.title Payment Partners
+        img(src='images/payment-partners-logo.png' alt="Payment Partners")
+  #site-footer-copyright
+    .container
+      p.copyright-text.
+        Copyright &copy; <a class='brand-color' href='#'>KashmirBox.com 2017-18</a>. All Rights Reserved

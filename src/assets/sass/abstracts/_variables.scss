@@ -21,6 +21,7 @@ $ff-playfair-display: 'Playfair Display', serif;
 /// Copy text color
 /// @type Color
 $text-color: rgb(34, 34, 34) !default;
+$text-color-dark: rgb(39, 41, 50) !default;
 
 /// Main brand color
 /// @type Color
@@ -49,7 +50,7 @@ $pine-green-color: #027273 !default;
 
 /// Container's maximum width
 /// @type Length
-$max-width: 1170px !default;
+$max-width: 73.125rem !default; //1170px
 
 
 

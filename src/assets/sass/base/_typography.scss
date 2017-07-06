@@ -32,6 +32,14 @@ body {
   font: normal 100% / 1.75 $text-font-stack;
 }
 
+h2 {
+  font-size: rem(30px);
+}
+
+h6 {
+  font-size: rem(18px);
+}
+
 p {
-	font-size: rem(14px);
+  font-size: rem(14px);
 }

@@ -17,3 +17,15 @@
     opacity: 0.8;
   }
 }
+
+.btn-pink {
+  background-color: #f05d5e;
+  border-color: #f05d5e;
+  transition: all 0.5s;
+  padding: 0;
+  &:hover, &:active, &:focus {
+    background-color: #f05d5e;
+    border-color: #f05d5e;
+    opacity: 0.8;
+  }
+}
