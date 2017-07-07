@@ -1,0 +1,26 @@
+- 
+  var products = [
+    {category : 'Boxy Walnuts', price : '$229', img : 'boxy-walnut.png', rating : 4, liked: true, sale: true, tag: 'Breathtaking Tea Cozies'}, 
+    {category : 'Himaliyan Shilajit', price : '$229', img : 'himalayan-shilajit.png', rating : 5, tag: 'Breathtaking Tea Cozies'},
+    {category : 'Kashmiri Saffron', price : '$229', img : 'kashmiri-saffron.png', rating : 5, liked:true, tag: 'Breathtaking Tea Cozies' },
+    {category : 'Boxy Walnuts', price : '$229', img : 'boxy-walnut.png', rating : 4, sale: true, tag: 'Breathtaking Tea Cozies'}, 
+    {category : 'Himaliyan Shilajit', price : '$229', img : 'himalayan-shilajit.png', rating : 5, tag: 'Breathtaking Tea Cozies'},
+    {category : 'Kashmiri Saffron', price : '$229', img : 'kashmiri-saffron.png', rating : 5, tag: 'Breathtaking Tea Cozies'}
+  ];
+.product-grid
+  each product in products
+    .grid-item
+      .product
+        .product-img(href='#')
+          img.slide-img(src='images/products/'+product.img)
+          .overlay
+            .overlay-content
+              a(href='#' class="btn btn-white view-products") View Products <span class="fa fa-caret-right">
+        .product-footer
+          a.category(href='#')= product.category
+          span.price= 'From '+product.price
+          span.tag= product.tag
+        if product.liked
+          .liked: span.fa.fa-heart
+        if product.sale
+          .for-sale: span Sale 20% OFF
