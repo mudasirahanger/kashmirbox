@@ -1,0 +1,91 @@
+.product-slider {
+  .slide-content {
+    position: relative;
+    max-width: 270px;
+    width: 100%;
+    margin: 0 auto;
+    .product-link:hover + .slide-footer .name{
+      color: $brand-color;
+      text-decoration: underline;
+    }
+    .liked {
+      position: absolute;
+      right: $unit-layout;
+      top: $unit-layout;
+      .fa-heart {
+        color: #fd461c;
+      }
+    }
+    .for-sale {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 0;
+      height: 0;
+      border-top: rem(110px) solid #000;
+      border-right: rem(110px) solid transparent;
+      span {
+        position: absolute;
+        color: white;
+        font-family: $ff-cinzel-decorative;
+        font-weight: 700;
+        top: 0;
+        margin-top: rem(-110px);
+        padding: $quarter-unit-layout*1.25;
+        font-size: rem(14px);
+      }
+    }
+    .slide-footer {
+      padding: $unit-layout;
+      .name {
+        font-weight: 300;
+        font-size: rem(15px);
+        color: $text-color-dark;
+        &:hover {
+          color: $brand-color;
+        }
+      }
+      .price {
+        font-size: rem(15px);
+        color: $text-color-dark;
+        float: right;
+      }
+      .rating {
+        color: $pantone-color;
+      }
+    }
+  }
+  .slick-slide {
+    opacity: 0.2;
+    transition: opacity 1s;
+  }
+  .slick-active {
+    opacity: 1;
+  }
+  .slick-track .slick-active:last-child {
+    opacity: 0.5;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: $brand-color;
+
+  }
+  .slick-prev:before, .slick-next:before {
+    font-size: rem(30px);
+  }
+ 
+  .slick-arrow {
+    color: black;
+    position: absolute;
+    top: 35%;
+    font-size: 23px;
+    z-index: 100;
+  }
+  .slide-back {
+    left: rem(20px);
+    
+  }
+  .slide-next {
+    right: rem(20px);
+  }
+}
