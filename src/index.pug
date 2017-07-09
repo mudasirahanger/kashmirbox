@@ -69,6 +69,7 @@ block home_content
           h2.title Latest Arrivals
           p.desc Health. Exotic Indulgence. Stylish Apparels.
       .product-slider-wrap
+        - var productSliderId = 'product-slider-1';
         include components/product-slider.pug
     //Kashmiri Products Categories
     section.kashmiri-product-section.row
@@ -85,6 +86,7 @@ block home_content
           h2.title Best Sellers
           p.desc Health. Exotic Indulgence. Stylish Apparels.
       .product-slider-wrap
+        - var productSliderId = 'product-slider-2';
         include components/product-slider.pug
     //Special Products Categories
     section.special-product-section.row

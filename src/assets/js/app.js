@@ -8,6 +8,8 @@ jQuery(document).ready(function($){
   });
 
   $('.artisan-collection-slider').slick({
+    'prevArrow' : '<span class="fa fa-chevron-left slide-back"></span>',
+    'nextArrow' : '<span class="fa fa-chevron-right slide-next"></span>',
     arrows: true,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -16,22 +18,37 @@ jQuery(document).ready(function($){
   });
 
 
-  /* product slider js */
+  /* product slider  */
   
-  $('.product-slider').on('init', function(slick){
+  function initProductSlider(index) {
+    var slider = $('.product-slider:eq('+index+')');
     if($(window).width() > 767) {
-     var activeCount = $('.product-slider .slick-active').length-1;
-      $('.product-slider .slick-active:eq('+activeCount+')').css('opacity', 0.5);
+     var activeCount = slider.find('.slick-active').length-1;
+      slider.find('.slick-active:eq('+activeCount+')').css('opacity', 0.5);
     }
+  }
+
+  function reInitActiveSlides(index) {
+    var slider = $('.product-slider:eq('+index+')');
+    if($(window).width() > 767) {
+      slider.find('.slick-slide').css('opacity', 0.5);
+      slider.find('.slick-active').css('opacity', 1);
+      var activeCount = slider.find('.slick-active').length-1;
+      slider.find('.slick-active:eq('+activeCount+')').css('opacity', 0.5);
+    }
+  }
+
+  $('.product-slider').on('init', function(slick){
+    var count = $('.product-slider').length;
+    for(var i = 0; i < count; i++)
+      initProductSlider(i);
   });
 
+
   $('.product-slider').on('afterChange', function(slick, currentSlide){
-    if($(window).width() > 767) {
-      $('.product-slider .slick-slide').css('opacity', 0.5);
-      $('.product-slider .slick-active').css('opacity', 1);
-      var activeCount = $('.product-slider .slick-active').length-1;
-      $('.product-slider .slick-active:eq('+activeCount+')').css('opacity', 0.5);
-    }
+    var count = $('.product-slider').length;
+    for(var i = 0; i < count; i++)
+      reInitActiveSlides(i);
   });
 
   $('.product-slider').slick({
@@ -41,7 +58,7 @@ jQuery(document).ready(function($){
     autoplay: false,
     autoplaySpeed: 4000,
     slidesToShow: 10,
-    slidesToScroll: 2,
+    slidesToScroll: 4,
     centerMode: true,
     centerPadding: '100px',
     infinite: true,

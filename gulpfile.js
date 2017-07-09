@@ -3,13 +3,13 @@
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const webserver = require('gulp-webserver');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
 const gulp = require('gulp');
+const connect = require('gulp-connect');
 
 
 /* PUG */
@@ -19,7 +19,8 @@ gulp.task('pug', function buildHTML() {
   .pipe(pug({
     pretty : true
   }))
-  .pipe(gulp.dest('dist/'));
+  .pipe(gulp.dest('dist/'))
+  .pipe(connect.reload());
 });
 
 
@@ -34,7 +35,8 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(sassDest));
+    .pipe(gulp.dest(sassDest))
+    .pipe(connect.reload());
 });
 
 
@@ -53,11 +55,12 @@ gulp.task('js', function (cb) {
         gulp.src(jsFiles),
         sourcemaps.init(),
         concat('main.js'),
-        gulp.dest(jsDest),
         rename('main.min.js'),
         uglify(),
+        gulp.dest(jsDest),
         sourcemaps.write('.'),
-        gulp.dest(jsDest)
+        gulp.dest(jsDest),
+        connect.reload()
     ],
     cb
   );
@@ -69,13 +72,15 @@ gulp.task('optimizeImages', function () {
     return gulp.src('src/assets/images/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/images'))
+        .pipe(connect.reload());
 });
 
 
 /* FONTS */
 gulp.task('copyFonts', function() {
    gulp.src('src/assets/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}')
-   .pipe(gulp.dest('dist/fonts'));
+   .pipe(gulp.dest('dist/fonts'))
+   .pipe(connect.reload());
 });
 
 
@@ -90,13 +95,11 @@ gulp.task('watch', function(){
 
 
 /* Dev Web Server */
-gulp.task('webserver', function() {
-  gulp.src('.')
-    .pipe(webserver({
-      livereload: true,
-      open: true,
-      path : '/dist',
-    }));
+gulp.task('connect', function() {
+  connect.server({
+    root: 'dist',
+    livereload: true
+  });
 });
 
 
@@ -107,5 +110,6 @@ gulp.task('default', [
   'js',
   'optimizeImages',
   'copyFonts',
-  'watch'
+  'watch',
+  'connect'
 ]);

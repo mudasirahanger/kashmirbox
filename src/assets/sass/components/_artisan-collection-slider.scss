@@ -29,10 +29,20 @@
       }
     }
   }
+  .slick-arrow {
+    color: black;
+    position: absolute;
+    top: 30%;
+    font-size: 23px;
+    z-index: 100;
+  }
   .slick-prev:before, .slick-next:before {
     color: $brand-color;
   }
-  .slick-prev, .slick-next {
-    top: 35%;
+  .slide-back {
+    left: -10px;
+  }
+  .slide-next {
+    right: -10px;
   }
 }
