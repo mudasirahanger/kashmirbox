@@ -1,0 +1,21 @@
+.story-view1 {
+  img {
+    width: 100%;
+  }
+  .desc {
+    padding: rem(20px);
+    h5 {
+      font-family: $ff-playfair-display;
+      font-weight: 700;
+      color: $text-color-dark;
+    }
+    p {
+      font-weight: 300;
+    }
+    .read-more {
+      padding: $unit-layout * 1.25 0;
+      color: $brand-color;
+      display: inline-block;
+    }
+  }
+}

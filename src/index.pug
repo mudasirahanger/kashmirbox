@@ -79,6 +79,33 @@ block home_content
           p.desc Health. Exotic Indulgence. Stylish Apparels.
         .product-grid-wrap
           include components/product-category-grid.pug
+    //Kashmir Stories Section
+    section.stories-section.row
+      .container.padding-0
+        .section-title
+          h2.title Stories from the valley
+          p.desc People, Places, Art, Craft and Food!
+        .left-col.col-sm-7
+          .story-view1
+            img(src='images/ghulam-nabi.png' alt='Ghulam Nabi')
+            .desc
+              h5 The Genius of Ghulam Nabi Dar
+              p.
+                As I walk into his Karkhana, he is completely lost in his own world, carving out the intricacies of a tree which demand his full attention. The constant drumming of his tools against planks of wood begins to sound like a melodious rhythm.
+              a.read-more(href="#") Read more <span class="fa fa-caret-right"></span>
+        .right-col.col-sm-5
+          .story-view2
+            a(href='#')
+              img(src='images/nusrat-flower-power.png' alt="Nusrat Jahan")
+              .overlay
+                h6 Flower Power-The Story Of Nusrat Jahan Ara
+          .story-view2
+            a(href='#')
+              img(src='images/cold-pressed-essential-oil.png')
+              .overlay
+                h6 Cold Pressed Essential Oils
+
+
     // Best Sellers Section
     section.best-sellers-section.row
       .container

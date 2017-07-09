@@ -1,0 +1,24 @@
+.story-view2 {
+  margin-bottom: $unit-layout * 1.25;
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: $unit-layout * 1.25;
+    width: 100%;
+    h6 {
+      color: white;
+      font-family: $ff-playfair-display;
+      font-weight: 700;
+    }
+  }
+  a {
+    position: relative;
+    overflow: hidden;
+    height: rem(225px);
+    display: inline-block;
+    img {
+      width: 100%;
+    }
+  }
+}
