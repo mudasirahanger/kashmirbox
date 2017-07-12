@@ -12,30 +12,56 @@
 }
 
 
-.pashmina-section {
-  padding: $unit-layout*3 0 $unit-layout*4 0;
-  background-color: $approx-snow-color;
-}
-
-.latest-arrivals-section {
-  padding: $unit-layout*3 0 $unit-layout*4 0;
-}
-
-
-.kashmiri-product-section {
-  background-color: $approx-snow-color;
+.pashmina-section,
+.latest-arrivals-section,
+.kashmiri-product-section,
+.special-product-section,
+.best-sellers-section,
+.stories-section,
+.deals-section {
   padding: $unit-layout*3 0 $unit-layout*4 0;
 }
 
-.special-product-section {
+.pashmina-section,
+.kashmiri-product-section,
+.special-product-section,
+.deals-section {
   background-color: $approx-snow-color;
-  padding: $unit-layout*3 0 $unit-layout*4 0;
 }
 
 .special-product-section .product-category-grid .product{
   background-color: white;
 }
 
-.best-sellers-section {
-  padding: $unit-layout*3 0 $unit-layout*4 0;
+
+.deals-section {
+  .left-col {
+    h4 {
+      font-family: $ff-playfair-display;
+      font-weight: 700;
+      line-height: $unit-layout * 2.5;
+    }
+    .desc {
+      margin: $double-unit-layout 0;
+      p {
+        font-weight: 300;
+      }
+    }
+    .rating .fa{
+        color: $pantone-color;
+    }
+    .shop-now {
+      border-radius: rem(5px);
+      width: rem(250px);
+      font-size: rem(18px);
+      span {
+        display: inline-block;
+        padding: 0px 5px;
+      }
+      #deal-countdown {
+         font-weight: 800;
+        font-family: $ff-open-sans;
+      }
+    }
+  }
 }

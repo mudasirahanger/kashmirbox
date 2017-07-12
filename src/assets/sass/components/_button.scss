@@ -16,7 +16,12 @@
   border-color: $brand-color;
   transition: all 0.5s;
   padding: 0;
-
+  text-decoration: none;
+  width: rem(190px);
+  height: rem(45px);
+  line-height: rem(45px);
+  display: inline-block;
+  text-align: center;
   &:hover, &:active, &:focus, 
   &:hover:focus, &:hover:active,
   &:focus:active, &:focus:hover,
@@ -24,6 +29,7 @@
     background-color: $brand-color;
     border-color: $brand-color;
     opacity: 0.8;
+    text-decoration: none;
   }
 }
 
