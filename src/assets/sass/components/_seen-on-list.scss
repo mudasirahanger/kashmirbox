@@ -1,0 +1,32 @@
+.seen-on-list {
+  padding: 0;
+  margin:0;
+  list-style-type: none;
+  li {
+    float: left;
+    width: 20%;
+    height: 130px;
+    span {
+      background-image: url('../images/seen-on.png');
+      background-size: cover;
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+    }
+    span.hindustan-times {
+      background-position: 0px;
+    }
+    span.mid-day{
+      background-position: -173px 5px;
+    }
+    span.bloomberg {
+      background-position: -340px 0px;
+    }
+    span.your-story {
+      background-position: 300px 5px;
+    }
+    span.cert {
+      background-position: 133px 5px;
+    }
+  }
+}
