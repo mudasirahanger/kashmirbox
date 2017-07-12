@@ -1,0 +1,11 @@
+.testimonial-section {
+  .video-testimonial {
+    padding: rem(15px);
+    box-sizing: border-box;
+    iframe {
+      width: 100%;
+      height: rem(325px);
+    }
+  }
+}
+

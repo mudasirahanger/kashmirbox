@@ -1,0 +1,36 @@
+.testimonial-slider {
+  margin: $unit-layout * 1.25 0;
+  .testimony {
+    background-color: $approx-snow-color;
+    max-width: rem(270px);
+    margin: 0 auto;
+    box-sizing: border-box;
+    .testimony-image {
+      height: rem(95px);
+    }
+    .desc {
+      padding: $unit-layout * 1.25;
+      .name{
+        font-size: rem(15px);
+        display: block;
+        color: $text-color-dark;
+      }
+      .from {
+        font-size: rem(15px);
+        display: block;
+        color: #7f7f7f;
+      }
+      p {
+        font-weight: 300;
+        margin-top: $unit-layout;
+      }
+    }
+  }
+  .slick-dots {
+    bottom: -60px;
+    li button:before {
+      font-size: 12px;
+    }
+  }
+
+}

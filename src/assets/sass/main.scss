@@ -23,7 +23,8 @@
 @import
   'layout/header',
   'layout/footer',
-  'layout/tagline';
+  'layout/tagline',
+  'layout/testimonial-section';
 
 // 5. Components
 @import
@@ -37,7 +38,8 @@
   'components/product-slider',
   'components/product-category-grid',
   'components/story-view1',
-  'components/story-view2';
+  'components/story-view2',
+  'components/testimonial-slider';
 
 // 6. Page-specific styles
 @import

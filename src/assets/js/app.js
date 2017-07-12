@@ -191,3 +191,16 @@ $(document).ready(function(){
   }, 1000);
 
 });
+
+
+// Testimonial slider
+$(document).ready(function() {
+  $('.testimonial-slider').slick({
+    dots : true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    slidesToShow: 4,
+    slidesToScroll: 4
+  });
+});
