@@ -204,3 +204,71 @@ $(document).ready(function() {
     slidesToScroll: 4
   });
 });
+
+
+//mega menu
+$(document).ready(function(){
+  var megaMenu = $('#mega-menu');
+  var menuWrapper = megaMenu.find('.menu-wrapper');
+  var menuToggle = megaMenu.find('.menu-toggle');
+  var shopByMenu = megaMenu.find('#shop-by-menu');
+  var shopBySubCatlink = shopByMenu.find('.dropdown-menu.multi-level > .dropdown-submenu > a');
+  var shopByMainMenuItem = shopByMenu.find('.navbar-nav > li');
+  var windowWidth = $(window).width();
+
+  function resizeScreen() {
+    var width = $(window).width();
+
+    if(width <= 767) {
+      if(menuWrapper.hasClass('in')) {
+        menuWrapper.removeClass('in');
+      } 
+    } else {
+      if(!menuWrapper.hasClass('in')) {
+        menuWrapper.addClass('in');
+      } 
+    }
+  }
+
+  $(window).resize(resizeScreen);
+
+
+  var extraHeight = 60; // for padding
+  shopBySubCatlink.hover(
+    function(){
+      var multiLevelDD = $(this).closest('.dropdown-menu.multi-level');
+      if(windowWidth > 767) {
+        shopBySubCatlink.removeClass('active-submenu');
+        shopBySubCatlink.siblings('ul').removeClass('inline-element');
+        $(this).addClass('active-submenu');
+        $(this).siblings('ul').addClass('inline-element');
+        var h1 = $(this).siblings('ul').css('height');
+        var oh = multiLevelDD.css('height');
+        multiLevelDD.css('min-height', (h1 > oh ? h1 : oh));
+      } else {
+        multiLevelDD.css('min-height', 'auto');
+      }
+        
+    }
+  );
+
+  shopByMainMenuItem.hover(
+    function() {
+      var multiLevelDD = $(this).find('.dropdown-menu.multi-level');
+      if(windowWidth > 767) {
+        var h1 = parseInt( multiLevelDD.find('.dropdown-submenu:first-child > ul').height()) + extraHeight;
+        var oh = parseInt(multiLevelDD.height()) + extraHeight;
+        
+        multiLevelDD.css('min-height', (h1 > oh ? h1 : oh));
+        multiLevelDD.find('.dropdown-submenu>ul').css('margin-top', extraHeight/2);
+
+        multiLevelDD.find('.dropdown-submenu > a').removeClass('active-submenu');
+        multiLevelDD.find('.dropdown-submenu > ul').removeClass('inline-element');
+        multiLevelDD.find('.dropdown-submenu:first-child > a').addClass('active-submenu');
+        multiLevelDD.find('.dropdown-submenu:first-child > ul').addClass('inline-element');
+      } else {
+        multiLevelDD.css('min-height', 'auto');
+      }
+    }
+  );
+});

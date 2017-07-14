@@ -53,7 +53,6 @@
 
 #site-header-primary{
   padding: $double-unit-layout * 1.25 0;
-  border-bottom: rem(2px) solid #f0f0f0;
 
   .container {
     max-width: rem($lg-container);
@@ -98,7 +97,7 @@
 
 
 #site-header-navigation {
-  padding: $unit-layout;
+  /* padding: $unit-layout;
   ul {
     list-style-type: none;
     li {
@@ -110,5 +109,5 @@
         font-size: rem(13px);
       }
     }
-  }
+  } */
 }
