@@ -232,6 +232,11 @@ $(document).ready(function(){
 
   $(window).resize(resizeScreen);
 
+  function intPX(str) {
+    if(!str) 
+      return 0;
+    return parseInt(str.replace('px'));
+  }
 
   var extraHeight = 60; // for padding
   shopBySubCatlink.hover(
@@ -242,8 +247,8 @@ $(document).ready(function(){
         shopBySubCatlink.siblings('ul').removeClass('inline-element');
         $(this).addClass('active-submenu');
         $(this).siblings('ul').addClass('inline-element');
-        var h1 = $(this).siblings('ul').css('height');
-        var oh = multiLevelDD.css('height');
+        var h1 = intPX($(this).siblings('ul').css('height')) + extraHeight;
+        var oh = parseInt( multiLevelDD.attr('data-oh') ) + extraHeight;
         multiLevelDD.css('min-height', (h1 > oh ? h1 : oh));
       } else {
         multiLevelDD.css('min-height', 'auto');
@@ -256,12 +261,18 @@ $(document).ready(function(){
     function() {
       var multiLevelDD = $(this).find('.dropdown-menu.multi-level');
       if(windowWidth > 767) {
-        var h1 = parseInt( multiLevelDD.find('.dropdown-submenu:first-child > ul').height()) + extraHeight;
-        var oh = parseInt(multiLevelDD.height()) + extraHeight;
-        
+        var h1 = multiLevelDD.find('.dropdown-submenu:first-child > ul').css('height');
+        h1 = intPX(h1);
+        if(!multiLevelDD.attr('data-oh')) {
+          var oh = intPX(multiLevelDD.css('height'));
+          multiLevelDD.attr('data-oh', oh);
+        } else {
+          var oh = parseInt(multiLevelDD.attr('data-oh'));
+        }
+        h1 += extraHeight;
+        oh += extraHeight;
         multiLevelDD.css('min-height', (h1 > oh ? h1 : oh));
         multiLevelDD.find('.dropdown-submenu>ul').css('margin-top', extraHeight/2);
-
         multiLevelDD.find('.dropdown-submenu > a').removeClass('active-submenu');
         multiLevelDD.find('.dropdown-submenu > ul').removeClass('inline-element');
         multiLevelDD.find('.dropdown-submenu:first-child > a').addClass('active-submenu');
