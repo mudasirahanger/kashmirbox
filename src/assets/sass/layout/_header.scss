@@ -1,11 +1,15 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+
+// default style
 #site-header {
 
 }
 
 #site-header-top {
+  display: none;
   background-color: $approx-snow-color;
   padding: $quarter-unit-layout rem(0px);
   border-bottom: rem(2px) solid #f0f0f0;
@@ -18,6 +22,8 @@
     font-family : $ff-playfair-display;
     font-size: rem(14px);
     font-style: italic;
+    max-width: 40%;
+    display: inline-block;
   }  
 
   .quick-links {
@@ -97,17 +103,19 @@
 
 
 #site-header-navigation {
-  /* padding: $unit-layout;
-  ul {
-    list-style-type: none;
-    li {
-      float: left;
-      width: 10%;
-      color: $text-color;
-      a {
-        text-transform: uppercase;
-        font-size: rem(13px);
-      }
+}
+
+
+@include respond-to(medium) {
+  #site-header-top {
+    display: block;
+  }
+}
+
+@include respond-to(large) {
+  #site-header-top {
+    .tagline {
+      max-width: 50%;
     }
-  } */
+  }
 }

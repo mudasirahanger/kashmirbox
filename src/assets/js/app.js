@@ -159,7 +159,17 @@ jQuery(document).ready(function($){
     ]
    
   });
-  
+  $(document).on('click', '.product-slider .add-to-wishlist', function(){
+    // ajax call to add to wish list
+    var result = true;
+    if(result) {
+      var heart = $(this).find('.fa-heart-o');
+      heart.removeClass('fa-heart-o');
+      heart.addClass('fa-heart');
+      $(this).removeClass('add-to-wishlist');
+      $(this).addClass('liked');
+    }
+  });
 
 });
 

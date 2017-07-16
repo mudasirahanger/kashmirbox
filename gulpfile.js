@@ -61,19 +61,19 @@ var jsFiles = [
 var jsDest = 'dist/js/';
 
 gulp.task('compile-js', function (cb) {
-  gulp.src(jsFiles)
-  .pipe(plumber((error) => {
-    gutil.log(gutil.colors.red(error.message));
-    gulp.task('compile-js').emit('end');
-  }))
-  .pipe(sourcemaps.init())
-  .pipe(concat('main.js'))
-  .pipe(rename('main.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest(jsDest))
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(jsDest))
-  .pipe(connect.reload());
+  pump([
+        gulp.src(jsFiles),
+        sourcemaps.init(),
+        concat('main.js'),
+        rename('main.min.js'),
+        uglify(),
+        gulp.dest(jsDest),
+        sourcemaps.write('.'),
+        gulp.dest(jsDest),
+        connect.reload()
+    ],
+    cb
+  );
 });
 
 

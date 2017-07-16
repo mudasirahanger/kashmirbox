@@ -5,6 +5,9 @@
     max-width: 270px;
     width: 100%;
     margin: 0 auto;
+    &:hover .add-to-wishlist{
+      visibility: visible;
+    }
     .product-link:hover + .slide-footer .name{
       color: $brand-color;
       text-decoration: underline;
@@ -14,6 +17,17 @@
       right: $unit-layout;
       top: $unit-layout;
       .fa-heart {
+        color: #fd461c;
+      }
+    }
+    .add-to-wishlist {
+      position: absolute;
+      right: $unit-layout;
+      top: $unit-layout;
+      visibility: hidden;
+      transition: all 1s linear;
+      cursor: pointer;
+      .fa-heart-o {
         color: #fd461c;
       }
     }

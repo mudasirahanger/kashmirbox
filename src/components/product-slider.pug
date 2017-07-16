@@ -25,7 +25,13 @@
             while product.rating-- > 0
               span.fa.fa-star
         if product.liked
-          .liked: span.fa.fa-heart
+          .liked
+            a(data-product-id='123')
+              span.fa.fa-heart
+        else
+          .add-to-wishlist
+            a(data-product-id='123')
+              span.fa.fa-heart-o
         if product.sale
           .for-sale: span Sale 20% OFF
 
