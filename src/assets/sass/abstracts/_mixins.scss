@@ -32,22 +32,9 @@
   }
 }
 
-@mixin bp($point) {
-  @if $point == xs-screeen {
-    @media (max-width: 320px) { @content; }
-  }
-  @else if $point == sm-screen {
-    @media (max-width: 768px) { @content; }
-  }
-  @else if $point == md-screen {
-    @media (max-width: 991px)  { @content; }
-  }
-  @else if $point == lg-screen {
-    @media (max-width: 1199px)  { @content; }
-  }
-}
 
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+
+@mixin kb-box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $color;
     -moz-box-shadow:inset $top $left $blur $color;
@@ -58,5 +45,6 @@
     box-shadow: $top $left $blur $color;
   }
 }
+
 
 
