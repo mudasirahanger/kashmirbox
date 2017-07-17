@@ -19,9 +19,7 @@
   }
 
   .tagline {
-    font-family : $ff-playfair-display;
     font-size: rem(14px);
-    font-style: italic;
     max-width: 40%;
     display: inline-block;
   }  
@@ -33,14 +31,9 @@
       float: left;
       color: $pine-green-color;
       margin-right: $double-unit-layout;
-      i {
-        display: inline-block;
-        margin-right: 5px;
-        font-size: rem(13);
-      }
       a {
         font-size: rem(13);
-        color: $pine-green-color;
+        font-weight: 300;
       }
     }
     li:last-child{
@@ -58,7 +51,7 @@
 
 
 #site-header-primary{
-  padding: $double-unit-layout * 1.25 0;
+  padding: $unit-layout 0;
 
   .container {
     max-width: rem($lg-container);
@@ -67,7 +60,11 @@
   .kbsearch {
     margin: rem(10px) 0;
   }
-
+  .logo-wrap {
+    img {
+      max-width: 90%;
+    }
+  }
   .mini-cart-wrap {
     .cart {
       .wishlist-icon, .mini-cart-icon {
@@ -102,13 +99,172 @@
 }
 
 
-#site-header-navigation {
+
+
+#site-header-mobile-menu {
+  background-color: $light-grey;
+  .icons {
+    .icon {
+      width: 33.33%;
+      float: left;
+      cursor: pointer;
+      &:hover {
+        background-color: $brand-color;
+      }
+      a {
+        display: block;
+        text-align: center;
+        min-height: 50px;
+        line-height: 50px;
+        color: $brand-color;
+        font-size: rem(20px);
+        border: 0;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    .profile-dd-toggle {
+      position: static;
+      .dropdown-toggle {
+        padding: 0;
+      }
+      .dropdown-menu {
+        padding: 0;
+
+        top: inherit;
+        width: 100%;
+        border: 0;  
+        border-radius: 0;
+        margin:0;
+        li {
+          &:hover {
+            background-color: $brand-color;
+          }
+        }
+        > li:hover a {
+          background-color: $brand-color;
+          color: white;
+        } 
+      }
+    }
+    .profile-dd-toggle.open {
+      background-color: $brand-color;
+      color: $white-color;
+      > a {
+        .fa {
+          color: $white-color;
+        }
+      }
+    }
+    .search-toggle {
+      .kbsearch {
+        border: 2px solid $brand-color;
+        width: 100%;
+        max-width: 100%;
+        z-index: 50;
+        left: 0;
+        position: absolute;
+        min-height: 54px;
+        display: none;
+        input {
+          float: left;
+          min-height: 50px;
+        }
+        .btn {
+          float: left; 
+        }
+      }
+    }
+    .search-toggle.open {
+       background-color: $brand-color;
+       color: white;
+      > a {
+        background-color: $brand-color;
+        color: $white-color;
+      }
+      .kbsearch {
+        display: block;
+      }
+    }
+  }
 }
 
+#site-header-navigation {
+  width: 83%;
+}
+#include respond-to(small-2) {
+  width: 88%;
+}
+
+@include respond-to(medium-only) {
+  #site-header-navigation {
+    position: absolute;
+    top:0;
+    z-index: 1000;
+    .container {
+      padding: 0;
+    }
+    .navbar-default {
+      margin-bottom: 0;
+      min-height: auto;
+      border:0;
+      .navbar-nav {
+        margin: 0;
+      }
+      .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .navbar-header {
+        display: none;
+      }
+      .menu-toggle {
+        position: relative;
+        .nav-pills {
+          > li {
+            width: 50%;
+            margin:0;
+            text-align: center;
+            > a {
+              font-weight: 300;
+              text-transform: lowercase;
+              border-radius: 0;
+            }
+          }
+        }
+        .close-menu {
+          position: absolute;
+          background-color: $white-color;
+          height: rem(50px);
+          width: rem(50px);
+          line-height: rem(50px);
+          text-align: center;
+          top: 0;
+          right: rem(-55px);
+          cursor: pointer;
+          a {
+            display: block;
+          }
+          .fa {
+            font-size: rem(20px);
+            color: $mid-grey;
+          }
+        }
+      }
+    }
+  }
+}
 
 @include respond-to(medium) {
   #site-header-top {
     display: block;
+  }
+  #site-header-primary {
+     padding: $double-unit-layout * 1.25 0;
+  }
+  #site-header-navigation {
+    width: 100%;
   }
 }
 

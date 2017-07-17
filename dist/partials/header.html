@@ -4,23 +4,41 @@
   <div id="site-header-top">
     <div class="container"><span class="tagline">Over $70 million sent to artisans arround the world! - offering &amp; Empowering Kashmir</span>
       <ul class="quick-links">
-        <li><i class="fa fa-info-circle"></i><a href="#"><span>Help </span></a></li>
-        <li><i class="fa fa-th"></i><a href="#"><span>Service </span></a></li>
-        <li><i class="fa fa-inr"></i><a href="#"><span>Currency </span></a></li>
-        <li><i class="fa fa-user-circle-o"></i><a href="#"><span>Register</span></a><a href="#"><span>Login</span></a></li>
+        <li><a href="#"><span>help </span></a></li>
+        <li><a href="#"><span>service </span></a></li>
+        <li><a href="#"><span>currency </span></a></li>
+        <li><a href="#"><span>register</span></a></li>
+        <li><a href="#"><span>sign-in</span></a></li>
       </ul>
     </div>
   </div>
   <div id="site-header-primary">
     <div class="container">
-      <div class="logo-wrap col-sm-4 padding-0"><img src="images/logo.png" alt="Kashmir Box"/></div>
-      <div class="search-wrap col-sm-4 padding-0">
+      <div class="logo-wrap col-xs-6 col-sm-5 col-md-4 padding-0"><img src="images/logo.png" alt="Kashmir Box"/></div>
+      <div class="search-wrap col-xs-6 col-sm-5 col-md-4 hidden-xs padding-0">
         <div class="kbsearch">
-          <input type="text" placeholder="What can Kashmir offer you today?"/><a class="btn btn-primary search-btn"><i class="fa fa-search"> </i></a>
+          <input type="text" placeholder="What can Kashmir offer you today?"/><a class="btn btn-white search-btn"><i class="fa fa-search"> </i></a>
         </div>
       </div>
-      <div class="mini-cart-wrap col-sm-4 padding-0">
-        <div class="cart"><a class="mini-cart-icon" href="#"><i class="fa fa-shopping-bag"></i><i class="mini-cart-count">6 </i></a><a class="wishlist-icon" href="#"> <i class="fa fa-heart-o"> </i></a></div>
+      <div class="mini-cart-wrap col-xs-6 col-sm-2 col-md-4 padding-0">
+        <div class="cart"><a class="mini-cart-icon" href="#"><i class="fa fa-shopping-bag"></i><i class="mini-cart-count">6 </i></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="visible-xs clearfix" id="site-header-mobile-menu">
+    <div class="icons">
+      <div class="icon menu-toggle"><a type="button" data-toggle="collapse" data-target=".menu-wrapper"><span class="fa fa-bars"></span></a></div>
+      <div class="icon search-toggle"><a><span class="fa fa-search"></span></a>
+        <div class="kbsearch clearfix">
+          <input type="text" placeholder="What can Kashmir offer you today?"/><a class="btn btn-white search-btn"><i class="fa fa-search"> </i></a>
+        </div>
+      </div>
+      <div class="icon dropdown profile-dd-toggle"> <a class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-user"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -31,13 +49,14 @@
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".menu-wrapper"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
-        <div class="menu-wrapper collapse in">
+        <div class="menu-wrapper collapse">
           <!-- Menu Toggle-->
           <div class="menu-toggle">
             <ul class="nav nav-pills">
-              <li class="active"><a data-toggle="pill" href="#shop-by-menu">Shop By</a></li>
+              <li class="active"><a data-toggle="pill" href="#shop-by-menu">Shop</a></li>
               <li><a data-toggle="pill" href="#service-menu">Services</a></li>
             </ul>
+            <div class="close-menu"><a type="button" data-toggle="collapse" data-target=".menu-wrapper"><span class="fa fa-close"></span></a></div>
           </div>
           <!-- Menus-->
           <div class="menu-content tab-content">
@@ -49,7 +68,7 @@
                   <li><a class="dropdown-toggle" href="#" data-toggle="dropdown">Men</a>
                     <ul class="dropdown-menu multi-level">
                       <li class="dropdown-submenu"><a class="dropdown-toggle active-submenu" href="#" data-toggle="dropdown">Accessories <span class="fa fa-angle-right"></span></a>
-                        <ul class="dropdown-menu inline-element">
+                        <ul class="dropdown-menu">
                           <li>
                             <ul class="sub-submenu">
                               <li><a class="sub-submenu-title">Wraps</a>
@@ -103,7 +122,7 @@
                         </ul>
                       </li>
                       <li class="dropdown-submenu"><a class="dropdown-toggle active-submenu" href="#" data-toggle="dropdown">Clothing <span class="fa fa-angle-right"></span></a>
-                        <ul class="dropdown-menu inline-element">
+                        <ul class="dropdown-menu">
                           <li>
                             <ul class="sub-submenu">
                               <li><a class="sub-submenu-title">Wraps</a>
@@ -157,7 +176,7 @@
                         </ul>
                       </li>
                       <li class="dropdown-submenu"><a class="dropdown-toggle active-submenu" href="#" data-toggle="dropdown">Electronics <span class="fa fa-angle-right"></span></a>
-                        <ul class="dropdown-menu inline-element">
+                        <ul class="dropdown-menu">
                           <li>
                             <ul class="sub-submenu">
                               <li><a class="sub-submenu-title">Wraps</a>
@@ -207,7 +226,7 @@
                   <li><a class="dropdown-toggle" href="#" data-toggle="dropdown">Healthy Living</a>
                     <ul class="dropdown-menu multi-level">
                       <li class="dropdown-submenu"><a class="dropdown-toggle active-submenu" href="#" data-toggle="dropdown">Accessories <span class="fa fa-angle-right"></span></a>
-                        <ul class="dropdown-menu inline-element">
+                        <ul class="dropdown-menu">
                           <li>
                             <ul class="sub-submenu">
                               <li><a class="sub-submenu-title">Wraps</a>
@@ -266,7 +285,7 @@
                         </ul>
                       </li>
                       <li class="dropdown-submenu"><a class="dropdown-toggle active-submenu" href="#" data-toggle="dropdown">Clothing <span class="fa fa-angle-right"></span></a>
-                        <ul class="dropdown-menu inline-element">
+                        <ul class="dropdown-menu">
                           <li>
                             <ul class="sub-submenu">
                               <li><a class="sub-submenu-title">Wraps</a>

@@ -1,13 +1,14 @@
 block app_variables
 doctype html
 html(lang='en')
-	block app_head
-	body
-		block app_header
+  block app_head
+  body
+    .site-overlay    
+    block app_header
 
-		block app_content
+    block app_content
 
-		block app_footer
+    block app_footer
 
-		block app_scripts
-			script(src='js/main.min.js')
+    block app_scripts
+      script(src='js/main.min.js')

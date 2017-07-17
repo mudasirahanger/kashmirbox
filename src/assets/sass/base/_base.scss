@@ -22,6 +22,9 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  position: relative;
+}
 
 /**
  * Basic styles for links
@@ -64,8 +67,25 @@ p {
 .row {
   margin: 0;
 }
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: $brand-color;
+}
 
 /* slick slider overrides */
 .slick-initialized .slick-slide {
   outline: none;
+}
+
+
+.site-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  height: 100%;
+  z-index: 999;
 }

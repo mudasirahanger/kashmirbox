@@ -5,40 +5,57 @@ header#site_header
       span.tagline Over $70 million sent to artisans arround the world! - offering &amp; Empowering Kashmir
       ul.quick-links
         li
-          i(class='fa fa-info-circle')
           a(href='#')
-            span Help 
+            span help 
         li
-          i(class='fa fa-th')
           a(href='#')
-            span Service 
+            span service 
         li
-          i(class='fa fa-inr')
           a(href='#')
-            span Currency 
+            span currency 
         li
-          i(class='fa fa-user-circle-o')
           a(href='#')
-            span Register
+            span register
+        li
           a(href='#')
-            span Login
+            span sign-in
   #site-header-primary
     .container
-      .logo-wrap(class='col-sm-4 padding-0')
+      .logo-wrap(class='col-xs-6 col-sm-5 col-md-4 padding-0')
         img(src='images/logo.png' alt="Kashmir Box")
-      .search-wrap(class='col-sm-4 padding-0')
+      .search-wrap(class='col-xs-6 col-sm-5 col-md-4 hidden-xs padding-0')
         .kbsearch
           input(type='text' placeholder='What can Kashmir offer you today?')
-          a(class='btn btn-primary search-btn')
+          a(class='btn btn-white search-btn')
             i(class='fa fa-search')  
-      .mini-cart-wrap(class='col-sm-4 padding-0')
+      .mini-cart-wrap(class='col-xs-6 col-sm-2 col-md-4 padding-0')
          .cart
             a.mini-cart-icon(href='#')
               i(class='fa fa-shopping-bag')
               i(class='mini-cart-count') 6 
-            a.wishlist-icon(href='#') 
-              i(class="fa fa-heart-o") 
           
+  #site-header-mobile-menu(class='visible-xs clearfix')
+    .icons
+      .icon.menu-toggle
+        a(type='button', data-toggle='collapse', data-target='.menu-wrapper')
+          span.fa.fa-bars
+      .icon.search-toggle
+        a
+          span.fa.fa-search
+        .kbsearch.clearfix
+          input(type='text' placeholder='What can Kashmir offer you today?')
+          a(class='btn btn-white search-btn')
+            i(class='fa fa-search') 
+      .icon.dropdown.profile-dd-toggle 
+        a(class='btn dropdown-toggle' type='button' data-toggle='dropdown')
+          span.fa.fa-user
+        ul.dropdown-menu
+            li
+              a(href='#') Register
+            li
+              a(href='#') Sign In
+            li
+              a(href='#') Profile
 
   #site-header-navigation
     include ../components/mega-menu.pug

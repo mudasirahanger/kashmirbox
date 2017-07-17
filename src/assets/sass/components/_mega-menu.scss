@@ -42,9 +42,65 @@
     border-radius: 6px 0 6px 6px;
 }
 
+#mega-menu {
+  background-color: white;
+  .menu-toggle {
+    display: block;
+  }
+  .navbar-nav {
+    li {
+      > a {
+        background-color: $white-color;
+        &:hover {
+          color: $brand-color;
+        }
+      }
+    }
+  }
+  #shop-by-menu {
+    .dropdown-menu.multi-level {
+      > .dropdown-submenu {
+        &:hover {
+          .dropdown-menu {
+            display: block;
+          }
+        }
+        > ul {
+          > li {
+            &:first-child {
+              padding-left: 35px;
+              ul {
+                list-style-type: none;
+              }
+            }
+            &:last-child {
+              display: none;
+              ul {
+                list-style-type: none;
+              }
+            }
+          }
+        }
+      }
+      > .dropdown-submenu > a {
+        &:after {
+          display: none;
+        }
+        .fa-angle-right {
+          float: right;
+          line-height: rem(21px);
+          font-size: rem(16px);
+        }
+      }
+    }
+  }
+  #services-menu {
+   
+  }
+} 
 
 /* custom style */
-@media only screen and (min-width: 768px) {
+@include respond-to(medium) {
     #mega-menu {
       margin-bottom: 0;
       background-color: $white-color;
@@ -65,16 +121,23 @@
         .navbar-nav {
           width: 100%;
           padding: 0;
+          margin: 0;
         }
         .navbar-nav > li {
           position: static;
           width: 10%;
           text-align: center;
+          display: table-cell;
+          height: 100%;
+          float: none;
           > a {
             color: $text-color-dark;
             font-size: rem(12px);
             text-transform: uppercase;
             font-weight: 300;
+            height: 100%;
+            vertical-align: middle;
+            display: inline-block;
           }
           &.active, &.open {
             background-color: $brand-color;
@@ -129,6 +192,7 @@
                   &:last-child {
                     width: 40%;
                     float: left;
+                    display: block;
                   }
                 }
                 .sub-submenu {
@@ -191,17 +255,23 @@
     }
 
   .active-submenu {
-    background-color: $brand-color;
+    background-color: $brand-color !important;
     color: $white-color !important;
     background-image: none;
   }
 
 }
 
-@media only screen and (max-width: 767px) {
-   #mega-menu {
-    .menu-toggle {
-      display: block;
+@include respond-to(large) {
+  #mega-menu {
+    #shop-by-menu {
+      .navbar-nav {
+        li {
+          a {
+            font-size: rem(12px);
+          }
+        }
+      }
     }
-   } 
+  }
 }

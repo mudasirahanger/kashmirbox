@@ -66,11 +66,12 @@ $lg-container: 1300px !default;
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-  'small': (min-width : 20rem),
-  'small-2' : (min-width: 30rem),
-  'medium': (min-width: 48rem),
-  'large': (min-width: 62rem),
-  'large-2' : (min-width: 75rem)
+  'small': (min-width : 320px),
+  'small-2' : (min-width: 480px),
+  'medium': (min-width: 768px),
+  'medium-only' : (max-width: 767px),
+  'large': (min-width: 992px),
+  'large-2' : (min-width: 1200px)
 ) !default;
 
 

@@ -7,14 +7,17 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-    .menu-wrapper.collapse.in
+    .menu-wrapper.collapse
       // Menu Toggle
       .menu-toggle
         ul.nav.nav-pills
           li.active
-            a(data-toggle='pill', href='#shop-by-menu') Shop By
+            a(data-toggle='pill', href='#shop-by-menu') Shop
           li
             a(data-toggle='pill', href='#service-menu') Services
+        .close-menu
+          a(type='button', data-toggle='collapse', data-target='.menu-wrapper')
+            span.fa.fa-close
       // Menus
       .menu-content.tab-content
         // Shop Menu
@@ -28,7 +31,7 @@
                 ul.dropdown-menu.multi-level
                   li.dropdown-submenu
                     a.dropdown-toggle.active-submenu(href='#', data-toggle='dropdown') Accessories <span class="fa fa-angle-right"></span>
-                    ul.dropdown-menu.inline-element
+                    ul.dropdown-menu
                       li
                         ul.sub-submenu
                           li
@@ -84,7 +87,7 @@
                               img(src='images/offer.png')
                   li.dropdown-submenu
                     a.dropdown-toggle.active-submenu(href='#', data-toggle='dropdown') Clothing <span class="fa fa-angle-right"></span>
-                    ul.dropdown-menu.inline-element
+                    ul.dropdown-menu
                       li
                         ul.sub-submenu
                           li
@@ -140,7 +143,7 @@
                               img(src='images/offer.png')
                   li.dropdown-submenu
                     a.dropdown-toggle.active-submenu(href='#', data-toggle='dropdown') Electronics <span class="fa fa-angle-right"></span>
-                    ul.dropdown-menu.inline-element
+                    ul.dropdown-menu
                       li
                         ul.sub-submenu
                           li
@@ -191,7 +194,7 @@
                 ul.dropdown-menu.multi-level
                   li.dropdown-submenu
                     a.dropdown-toggle.active-submenu(href='#', data-toggle='dropdown') Accessories <span class="fa fa-angle-right"></span>
-                    ul.dropdown-menu.inline-element
+                    ul.dropdown-menu
                       li
                         ul.sub-submenu
                           li
@@ -257,7 +260,7 @@
                               img(src='images/offer.png')
                   li.dropdown-submenu
                     a.dropdown-toggle.active-submenu(href='#', data-toggle='dropdown') Clothing <span class="fa fa-angle-right"></span>
-                    ul.dropdown-menu.inline-element
+                    ul.dropdown-menu
                       li
                         ul.sub-submenu
                           li
