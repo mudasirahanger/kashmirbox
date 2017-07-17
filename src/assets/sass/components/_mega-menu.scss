@@ -62,7 +62,7 @@
       > .dropdown-submenu {
         &:hover {
           .dropdown-menu {
-            display: block;
+            //display: block;
           }
         }
         > ul {
@@ -77,6 +77,15 @@
               display: none;
               ul {
                 list-style-type: none;
+              }
+            }
+            .sub-submenu {
+              ul {
+                li {
+                  a {
+                    font-weight: 300;
+                  }
+                }
               }
             }
           }
@@ -98,6 +107,20 @@
    
   }
 } 
+@include respond-to(medium-only) {
+  #mega-menu {
+    .dropdown-menu.multi-level {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      display: block;
+    }
+  }
+}
 
 /* custom style */
 @include respond-to(medium) {
