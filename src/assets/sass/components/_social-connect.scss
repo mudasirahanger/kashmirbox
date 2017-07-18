@@ -1,18 +1,16 @@
 #social-connect-wrap {
   .title-wrap {
-    width: 50%;
-    float: left;
-    text-align: right;
     line-height: $unit-layout * 1.875;
     padding-right: $unit-layout*1.25;
+    text-align: center;
   }
   .social-icons {
     list-style-type: none;
     display: inline-block;
-    width: 50%;
-    float: left;
+    text-align: center;
+    width: 100%;
     li {
-      float: left;
+      display: inline-block;
       .social-icon {
         width: rem(30px);
         height: rem(30px);
@@ -22,7 +20,7 @@
         font-size: rem(18px);
         color: white;
         display: inline-block;
-        margin: 0 $quarter-unit-layout;
+        margin: $quarter-unit-layout;
         transition: all 0.5s;
         &:hover, &:active, &:focus{
           @include kb-box-shadow(0px, 2px, 10px, $dark-grey);
@@ -45,6 +43,24 @@
       }
       .social-icon-pi {
         background-color: #cb2027;
+      }
+    }
+  }
+}
+
+@include respond-to(medium) {
+  #social-connect-wrap {
+    .title-wrap {
+      width: 50%;
+      float: left;
+      text-align: right;
+    }
+    .social-icons {
+      width: 50%;
+      margin: 0;
+      float: left;
+      li {
+        float: left;
       }
     }
   }

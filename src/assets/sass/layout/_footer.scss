@@ -4,6 +4,9 @@
 #site-footer-top {
   padding: $unit-layout * 1.25 0;
   background-color: $approx-snow-color;
+  #social-connect-wrap{
+    margin-top: $unit-layout * 4;
+  }
 }
 
 
@@ -11,8 +14,16 @@
   padding-top: $double-unit-layout;
   padding-bottom: $unit-layout;
   border-bottom: 1px solid $mid-grey;
-  .logo {
-    margin-bottom: $double-unit-layout;
+  .logo-wrap {
+    text-align: center;
+    a {
+      display: inline-block;
+      .logo {
+        margin-bottom: $double-unit-layout;
+        max-width: 100%;
+      }
+    }
+    
   }
   .about-kashmir-box {
     width: 90%;
@@ -58,6 +69,21 @@
       &:hover {
         color: $brand-color;
       }
+    }
+  }
+}
+
+
+@include respond-to(medium) {
+  #site-footer-top {
+    #social-connect-wrap {
+      margin-top: 0;
+    }
+  }
+
+  #site-footer-primary {
+    .logo-wrap {
+      text-align: left;
     }
   }
 }
