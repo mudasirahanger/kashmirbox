@@ -48,8 +48,9 @@
     display: block;
   }
   .navbar-nav {
-    li {
+    > li {
       > a {
+        color: $text-color-dark;
         background-color: $white-color;
         &:hover {
           color: $brand-color;
@@ -109,15 +110,30 @@
 } 
 @include respond-to(medium-only) {
   #mega-menu {
-    .dropdown-menu.multi-level {
-      position: static;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      display: block;
+    .navbar-nav {
+      > li {
+         border-top: 1px solid $light-grey;
+      }
+    }
+    #shop-by-menu {
+      .dropdown-menu.multi-level {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        display: block;
+        padding: 0;
+        > .dropdown-submenu {
+          border-top: 1px solid $light-grey;
+          > a {
+            padding: 10px 20px;
+            line-height: 20px;
+          }
+        }
+      }
     }
   }
 }
