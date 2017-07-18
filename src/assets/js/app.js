@@ -51,11 +51,8 @@ jQuery(document).ready(function(){
   });
 });
 
+ /* product slider  */
 jQuery(document).ready(function($){
-	
-
-
-  /* product slider  */
   
   function initProductSlider(index) {
     var slider = $('.product-slider:eq('+index+')');
@@ -106,7 +103,7 @@ jQuery(document).ready(function($){
         breakpoint: 370,
         settings: {
           slidesToShow: 1,
-            centerPadding: '10px'
+            centerPadding: '30px'
         }
       },
       {
