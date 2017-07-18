@@ -1,5 +1,6 @@
 .story-view2 {
   margin-bottom: $unit-layout * 1.25;
+  text-align: center;
   .overlay {
     position: absolute;
     bottom: 0;
@@ -19,6 +20,28 @@
     display: inline-block;
     img {
       width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@include respond-to(small-2) {
+  .story-view2 {
+    a {
+      img {
+        height: auto;
+      }
+    }
+  }
+}
+
+@include respond-to(medium) {
+  .story-view2 {
+    text-align: left;
+    a {
+      img {
+        height: 100%;
+      }
     }
   }
 }
