@@ -42,9 +42,16 @@
       line-height: $unit-layout * 2.5;
     }
     .desc {
-      margin: $double-unit-layout 0;
+      margin-top: $double-unit-layout;
+      margin-bottom: $unit-layout;
       p {
         font-weight: 300;
+      }
+      .offer {
+        font-weight: 400;
+        font-size: rem(14px);
+        color: $text-color-dark;
+        margin-top: $unit-layout;
       }
     }
     .rating .fa{
@@ -52,8 +59,11 @@
     }
     .shop-now {
       border-radius: rem(5px);
-      width: rem(250px);
       font-size: rem(18px);
+      display: block;
+      width: 100%;
+      height: rem(45px);
+      line-height: rem(45px);
       span {
         display: inline-block;
         padding: 0px 5px;
@@ -61,6 +71,16 @@
       #deal-countdown {
          font-weight: 800;
         font-family: $ff-open-sans;
+      }
+    }
+  }
+  .right-col {
+    text-align: center;
+    a {
+      display: block;
+      img {
+        max-width: 100%;
+        width: 100%;
       }
     }
   }
@@ -77,6 +97,15 @@
   }
 }
 
+@include respond-to('small-2') {
+  .deals-section {
+    .left-col {
+      .shop-now {
+        width: rem(250px);
+      }
+    }
+  }
+}
 
 @include respond-to(medium) {
   .artisan-collection-section {
@@ -95,6 +124,26 @@
 
   .testimonial-section {
     padding: $unit-layout*3 0 $unit-layout*5 0;
+  }
+
+  .deals-section {
+    .left-col {
+      .desc {
+        .offer {
+          margin-top: $double-unit-layout;
+          margin-bottom: $double-unit-layout;
+        }
+      }
+    }
+    .right-col {
+      float: right;
+    }
+  }
+
+  .right-col {
+    a {
+      display: inline-block;
+    }
   }
 
 }
