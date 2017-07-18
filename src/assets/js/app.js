@@ -314,19 +314,24 @@ $(document).ready(function(){
 
   //functions
   function onResizeScreen() {
-    var width = $(window).width();
-
-    if(width <= 767) {
+    if(windowWidth <= 767) {
       $('#site-header-navigation .navbar-default').css('height', 'auto');
       $('#site-header-navigation').css('height', 'auto')
+      
       if(menuWrapper.hasClass('in')) {
         menuWrapper.removeClass('in');
         siteOverlayToggle();
-      } 
+      }
+
+      shopBySubCatlink.siblings('ul').removeClass('inline-element'); 
+      $('.dropdown-menu.multi-level').css('min-height', 'auto');
+
     } else {
+      
       if(!menuWrapper.hasClass('in')) {
         menuWrapper.addClass('in');
-      } 
+      }
+
     }
   }
   
