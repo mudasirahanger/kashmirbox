@@ -243,8 +243,8 @@ $(document).ready(function(){
   });
 
   $(document).on('click', '#site-header-mobile-menu .menu-toggle', function(){
+    $(this).siblings().removeClass('open');
     if(!$(this).hasClass('open')) {
-      $(this).siblings().removeClass('open');
       $(this).addClass('open');
     } else {
       $(this).removeClass('open');
@@ -253,14 +253,12 @@ $(document).ready(function(){
 
 
   $(document).on('click', '#site-header-mobile-menu .profile-dd-toggle > a', function(){
-    if($(this).parent().hasClass('open')) {
-      $(this).parent().siblings().removeClass('open');
-    }
+    $(this).parent().siblings().removeClass('open');
   });
 
   $(document).on('click', '#site-header-mobile-menu .search-toggle', function(){
+    $(this).siblings().removeClass('open');
     if(!$(this).hasClass('open')) {
-      $(this).siblings().removeClass('open');
       $(this).addClass('open');
     } else {
       $(this).removeClass('open');
