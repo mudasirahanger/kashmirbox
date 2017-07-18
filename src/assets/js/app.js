@@ -405,3 +405,28 @@ $(document).ready(function(){
   }
 
 });
+
+
+jQuery(document).ready(function($){
+  $('#newsletter-form').submit(function(){
+    var email = $(this).find('input').val();
+    var form = $('#newsletter-form');
+    form.find('.field-error').remove();
+    if(!email || email.trim() === '') {
+      form.find('input[name="email"]')
+      .after('<span class="field-error">This field is required</span>');
+      return false;
+    }
+    if(!validateEmail(email)) {
+      form.find('input[name="email"]')
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
+    return true;
+  });
+});
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
