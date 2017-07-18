@@ -161,6 +161,7 @@
           width: 100%;
           padding: 0;
           margin: 0;
+          display: table;
         }
         .navbar-nav > li {
           position: static;
@@ -337,4 +338,7 @@
       }
     }
   }
+}
+
+@include respond-to(large-2) {
 }
