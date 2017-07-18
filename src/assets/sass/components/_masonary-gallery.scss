@@ -7,14 +7,11 @@
     background-size: cover;
     box-sizing: border-box;
     overflow: hidden;
-    &:hover .overlay {
-      top: 0;
-    }
     &:hover .gallery-item-content {
       display: none;
     }
     .gallery-item-content {
-      display: table;
+      display: none;
       height: 100%;
       width: 100%;
       text-align: center;
@@ -33,7 +30,6 @@
       bottom: 0;
       right: 0;
       left: 0;
-      top: 100%;
       text-align: center;
       background-color: rgba(175, 127, 97, 0.5);
       -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
@@ -90,6 +86,17 @@
 
 @include respond-to(medium) {
   .masonary-gallery {
+    .gallery-item {
+      &:hover .overlay {
+        top: 0;
+      }
+      .gallery-item-content{
+        display: table;
+      }
+      .overlay {
+        top: 100%;
+      }
+    }
     .center-col {
       .gallery-item:first-child {
         margin-bottom: rem(8px);
