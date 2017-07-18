@@ -1,3 +1,4 @@
+
 .artisan-collection-slider {
   .slide {
     .slide-content {
@@ -5,6 +6,7 @@
       margin: 0 auto;
       .slide-img {
         display: inline-block;
+        width: 100%;
       }
       .title {
         display: inline-block;
@@ -36,6 +38,13 @@
     font-size: 23px;
     z-index: 100;
   }
+  .slick-slide {
+    opacity: 0.4;
+    transition: opacity 1s;
+  }
+  .slick-active {
+    opacity: 1;
+  }
   .slick-prev:before, .slick-next:before {
     color: $brand-color;
   }
@@ -44,5 +53,12 @@
   }
   .slide-next {
     right: -10px;
+  }
+}
+
+@include respond-to(medium) {
+   .slick-slide {
+    opacity: 1;
+    transition: opacity 1s;
   }
 }
