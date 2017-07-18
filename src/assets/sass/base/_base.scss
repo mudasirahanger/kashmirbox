@@ -10,6 +10,18 @@ html {
   font: normal 100% / 1.75 $text-font-stack;
 }
 
+@include respond-to(small) {
+  html {
+    font-size: rem(14px) !important;
+  }
+}
+
+@include respond-to(medium) {
+  html {
+    font-size: rem(16px) !important;
+  }
+}
+
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
  * Since `*` has a specificity of 0, it does not override the `html` value
