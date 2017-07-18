@@ -1,12 +1,15 @@
-jQuery(document).ready(function($){
-	
-  $('.hero-slider').slick({
+//hero slider 
+jQuery(document).ready(function($) {
+   $('.hero-slider').slick({
     dots : true,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 4000
   });
+});
 
+//artisan slider
+jQuery(document).ready(function(){
   $('.artisan-collection-slider').slick({
     'prevArrow' : '<span class="fa fa-chevron-left slide-back"></span>',
     'nextArrow' : '<span class="fa fa-chevron-right slide-next"></span>',
@@ -14,8 +17,32 @@ jQuery(document).ready(function($){
     autoplay: true,
     autoplaySpeed: 4000,
     slidesToShow: 4,
-    slidesToScroll: 4
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   });
+});
+
+jQuery(document).ready(function($){
+	
 
 
   /* product slider  */

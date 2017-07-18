@@ -1,16 +1,12 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+
 .hero-slider-section {
   .slick-dotted.slick-slider {
     margin-bottom: 0;
   }
 }
-
-.artisan-collection-section {
-  padding: $unit-layout*9 0 $unit-layout*5;
-}
-
 
 .pashmina-section,
 .latest-arrivals-section,
@@ -18,12 +14,10 @@
 .special-product-section,
 .best-sellers-section,
 .stories-section,
-.deals-section {
-  padding: $unit-layout*3 0 $unit-layout*4 0;
-}
-
-.testimonial-section {
-  padding: $unit-layout*3 0 $unit-layout*5 0;
+.deals-section,
+.testimonial-section,
+.artisan-collection-section {
+  padding: $unit-layout*2 0 $unit-layout*2 0;
 }
 
 
@@ -81,4 +75,26 @@
       display: block;
     }
   }
+}
+
+
+@include respond-to(medium) {
+  .artisan-collection-section {
+    padding: $unit-layout*9 0 $unit-layout*5;
+  }
+
+  .pashmina-section,
+  .latest-arrivals-section,
+  .kashmiri-product-section,
+  .special-product-section,
+  .best-sellers-section,
+  .stories-section,
+  .deals-section {
+    padding: $unit-layout*3 0 $unit-layout*4 0;
+  }
+
+  .testimonial-section {
+    padding: $unit-layout*3 0 $unit-layout*5 0;
+  }
+
 }
