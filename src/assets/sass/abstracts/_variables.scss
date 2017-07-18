@@ -71,6 +71,7 @@ $breakpoints: (
   'medium': (min-width: 768px),
   'medium-only' : (max-width: 767px),
   'large': (min-width: 992px),
+  'large-only' : (max-width: 991px),
   'large-2' : (min-width: 1200px)
 ) !default;
 

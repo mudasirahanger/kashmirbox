@@ -177,20 +177,18 @@
             height: 100%;
             vertical-align: middle;
             display: inline-block;
+            width: 100%;
           }
           &.active, &.open {
-            background-color: $brand-color;
-            color: $white-color;
             > a {
-              background-color: $brand-color;
-              color: $white-color;
+              border-bottom: 2px solid $brand-color;
+              color: $brand-color;
             }
           }
           &:hover, &:active, &:focus {
-            background-color: $brand-color;
             > a {
-              background-color: $brand-color;
-              color: $white-color;
+              border-bottom: 2px solid $brand-color;
+              color: $brand-color;
             }
             > .dropdown-menu.multi-level {
               display: block;
@@ -299,6 +297,32 @@
     background-image: none;
   }
 
+}
+
+@include respond-to(large-only) {
+  #mega-menu {
+    #shop-by-menu {
+      .dropdown-menu.multi-level {
+        > .dropdown-submenu {
+          ul {
+            li {
+              &:first-child {
+                width: 70%;
+              }
+              &:last-child {
+                width: 30%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .offer-box {
+      .offer {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @include respond-to(large) {
