@@ -161,15 +161,13 @@
           width: 100%;
           padding: 0;
           margin: 0;
-          display: table;
         }
         .navbar-nav > li {
           position: static;
           width: 10%;
           text-align: center;
-          display: table-cell;
           height: 100%;
-          float: none;
+          float: left;
           > a {
             color: $text-color-dark;
             font-size: rem(12px);
