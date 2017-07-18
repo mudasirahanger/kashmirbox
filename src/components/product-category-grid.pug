@@ -14,8 +14,9 @@
         .product-img(href='#')
           img.slide-img(src='images/products/'+product.img)
           .overlay
-            .overlay-content
-              a(href='#' class="btn btn-white view-products") View Products <span class="fa fa-caret-right">
+            .overlay-vertical
+              .overlay-content
+                a(href='#' class="btn btn-white view-products") View Products <span class="fa fa-caret-right">
         .product-footer
           .left-col
             a.category(href='#')= product.category

@@ -78,7 +78,7 @@
     background-image: url($images-path + 'section-title-separator.png');
     display: inline-block;
     height: rem(45px);
-    width: 100%;
+    width: 80%;
     background-repeat: no-repeat;
     background-position: center center;
   }
@@ -101,4 +101,13 @@
 
 .inline-element {
   display: inline;
+}
+
+
+@include respond-to(medium) {
+  .section-title {
+    &:after {
+      width: 100%;
+    }
+  }
 }
