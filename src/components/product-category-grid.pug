@@ -17,8 +17,11 @@
             .overlay-content
               a(href='#' class="btn btn-white view-products") View Products <span class="fa fa-caret-right">
         .product-footer
-          a.category(href='#')= product.category
-          span.price= 'From '+product.price
-          span.tag= product.tag
+          .left-col
+            a.category(href='#')= product.category
+            span.tag= product.tag
+          .right-col
+            span.price= 'From '+product.price
+          
         if product.sale
           .for-sale: span Sale 20% OFF

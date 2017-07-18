@@ -1,8 +1,13 @@
 .product-grid {
+  > .grid-item:nth-child(2n+1) {
+    clear: left;
+  }
   .grid-item {
-    width: 33.33%;
+    width: 50%;
     float: left;
     margin-bottom: $unit-layout*3;
+    box-sizing: border-box;
+    padding: 0 $unit-layout * 0.5;
   }
   .product {
     background-color: white;
@@ -19,7 +24,8 @@
       }
       img {
         width: 100%;
-        height: rem(360px);
+        margin: 0 auto;
+        display: block;
       }
     }
     .product-img:hover + .product-footer .category{
@@ -98,7 +104,8 @@
       .price {
         font-size: rem(16px);
         color: $text-color-dark;
-        float: right;
+        display: inline-block;
+        margin-top: $unit-layout * 0.5;
       }
       .tag {
         color: $text-color-dark;
@@ -106,5 +113,45 @@
         font-size: rem(14px);
       }
     }
+  }
+}
+
+@include respond-to(medium) {
+  .product-grid {
+    > .grid-item:nth-child(3n+1) {
+      clear: left;
+    }
+    > .grid-item:nth-child(2n+1) {
+      clear: none;
+    }
+    .grid-item {
+      width: 33.33%;
+      padding: 0 $unit-layout ;
+    }
+    .product {
+      .product-footer {
+        .left-col {
+          width: 70%;
+          float: left; 
+        }
+        .right-col {
+          width: 30%;
+          float: left; 
+        }
+        .price {
+          margin-top: 0;
+        }
+      }
+    } 
+  }
+}
+
+@include respond-to(large-2) {
+  .product {
+     .product-img {
+        img {
+          height: rem(360px);
+        }
+     }
   }
 }
