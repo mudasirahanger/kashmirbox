@@ -4,8 +4,18 @@
     box-sizing: border-box;
     iframe {
       width: 100%;
-      height: rem(325px);
+      height: rem(200px);
     }
   }
 }
 
+
+@include respond-to(medium) {
+  .testimonial-section {
+    .video-testimonial {
+      iframe {
+        height: rem(325px);
+      }
+    }
+  }
+}
