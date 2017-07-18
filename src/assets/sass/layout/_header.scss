@@ -156,6 +156,13 @@
           color: $white-color;
         }
       }
+      .dropdown-menu {
+        > li {
+          > a {
+            font-size: rem(16px);
+          }
+        }
+      }
     }
     .search-toggle {
       .kbsearch {
