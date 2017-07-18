@@ -2,7 +2,7 @@
   .slide {
     .slide-frame {
       background-size: cover;
-      height: rem(460px);
+      height: rem(300px);
       background-position: center center;
       width: 100%;
       display: table;
@@ -19,6 +19,7 @@
           text-transform: uppercase;
           font-size: rem(20px);
           font-weight: 300;
+          margin-top: $unit-layout;
         }
         h1 {
           color: white;
@@ -57,3 +58,12 @@
 }
 
 
+@include respond-to(medium) {
+  .hero-slider {
+    .slide {
+      .slide-frame {
+        height: rem(460px);
+      }
+    }
+  }
+}
