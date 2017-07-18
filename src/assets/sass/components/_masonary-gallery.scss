@@ -84,11 +84,19 @@
         display: none;
       }
     }
-    .gallery-item:first-child {
-      margin-bottom: rem(8px);
-    }
-    .gallery-item:last-child {
-      margin-top: rem(8px);
+  }
+}
+
+
+@include respond-to(medium) {
+  .masonary-gallery {
+    .center-col {
+      .gallery-item:first-child {
+        margin-bottom: rem(8px);
+      }
+      .gallery-item:last-child {
+        margin-top: rem(8px);
+      }
     }
   }
 }
