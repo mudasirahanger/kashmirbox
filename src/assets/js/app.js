@@ -284,6 +284,8 @@ $(document).ready(function(){
   var shopBySubCatlink = shopByMenu.find('.dropdown-menu.multi-level > .dropdown-submenu > a');
   var shopByMainMenuItem = shopByMenu.find('.navbar-nav > li');
   var windowWidth = $(window).width();
+  var siteHeaderNav = $('#site-header-navigation');
+  var siteHeaderNavDefault = siteHeaderNav.find('navbar-default');
 
   //events
   $(document).on('click', '#site-header-mobile-menu .menu-toggle', function(){
@@ -294,8 +296,8 @@ $(document).ready(function(){
 
   $(document).on('click', '#site-header-navigation .close-menu', function(){
     siteOverlayToggle();
-    $('#site-header-navigation .navbar-default').css('height', '76px');
-    $('#site-header-navigation').css('height', '76px');
+    $('#site-header-navigation .navbar-default').css('height', 'auto');
+    $('#site-header-navigation').css('height', 'auto');
   });
 
   $(document).on('click', '#site-header-mobile-menu .menu-toggle', function(){
@@ -372,7 +374,7 @@ $(document).ready(function(){
   function onResizeScreen() {
     windowWidth = $(window).width();
     if(windowWidth <= 767) {
-
+      
       if(menuWrapper.hasClass('in')) {
         menuWrapper.removeClass('in');
         siteOverlayToggle();
@@ -383,8 +385,17 @@ $(document).ready(function(){
 
       shopByMenu.find('.navbar-collapse').addClass('in');
       serviceMenu.find('.navbar-service').addClass('in');
-    } else {
-      
+
+      siteHeaderNavDefault.css('height', 'auto');
+      siteHeaderNav.css('height', 'auto');
+
+       //multiLevelDD.find('.dropdown-submenu>ul').css('margin-top', 0);
+
+    } else if(windowWidth <=1199) {
+
+      siteHeaderNavDefault.css('height', '76px');
+      siteHeaderNav.css('height', '76px');
+
       if(!menuWrapper.hasClass('in')) {
         menuWrapper.addClass('in');
       }
@@ -392,6 +403,13 @@ $(document).ready(function(){
       shopByMenu.addClass('active').addClass('in');
       shopByMenu.find('.navbar-collapse').addClass('in');
       serviceMenu.find('.navbar-service').removeClass('in');
+
+       //multiLevelDD.find('.dropdown-submenu>ul').css('margin-top', extraHeight/2);
+
+    } else {
+
+      siteHeaderNavDefault.css('height', '55px');
+      siteHeaderNav.css('height', '55px');
 
     }
 

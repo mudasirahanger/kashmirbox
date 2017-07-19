@@ -96,8 +96,12 @@
         &:after {
           display: none;
         }
+        span:first-child {
+          display: inline-block;
+          width: 100%;
+          vertical-align: top;
+        }
         .fa-angle-right {
-          float: right;
           line-height: rem(21px);
           font-size: rem(16px);
         }
@@ -128,6 +132,9 @@
         padding: 0;
         > .dropdown-submenu {
           border-top: 1px solid $light-grey;
+          > ul {
+            margin-top: 0 !important;
+          }
           > a {
             padding: 10px 20px;
             line-height: 20px;
@@ -268,7 +275,7 @@
           > .dropdown-submenu > a {
             width: 20%;
             float: left;
-            padding: 10px 20px !important;
+            padding: 20px !important;
             font-size: rem(15px);
             font-weight: 300;
             &:hover, &:active, &:focus {
@@ -280,8 +287,11 @@
             &:after {
               display: none;
             }
+            span:first-child {
+              display: inline-block;
+              width: 85%;
+            }
             .fa-angle-right {
-              float: right;
               color: $white-color;
               line-height: rem(21px);
               font-size: rem(16px);
