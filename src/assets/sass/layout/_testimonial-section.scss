@@ -3,11 +3,13 @@
     padding: rem(15px);
     box-sizing: border-box;
     iframe {
-      width: 100%;
       height: rem(200px);
+      display: block;
+      margin: 0 auto;
     }
   }
 }
+
 
 
 @include respond-to(medium) {

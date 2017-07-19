@@ -204,7 +204,7 @@
   width: 88%;
 }
 
-@include respond-to(medium-only) {
+@include respond-to('large-only') {
   #site-header-navigation {
     position: absolute;
     top:0;
@@ -263,7 +263,7 @@
   }
 }
 
-@include respond-to(medium) {
+@include respond-to(large) {
   #site-header-top {
     display: block;
   }
