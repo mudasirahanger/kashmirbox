@@ -326,8 +326,8 @@
     #shop-by-menu {
       .dropdown-menu.multi-level {
         > .dropdown-submenu {
-          ul {
-            li {
+          > ul {
+            > li {
               &:first-child {
                 width: 70%;
               }

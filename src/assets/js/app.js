@@ -389,8 +389,6 @@ $(document).ready(function(){
       siteHeaderNavDefault.css('height', 'auto');
       siteHeaderNav.css('height', 'auto');
 
-       //multiLevelDD.find('.dropdown-submenu>ul').css('margin-top', 0);
-
     } else if(windowWidth <=1199) {
 
       siteHeaderNavDefault.css('height', '76px');
@@ -404,9 +402,11 @@ $(document).ready(function(){
       shopByMenu.find('.navbar-collapse').addClass('in');
       serviceMenu.find('.navbar-service').removeClass('in');
 
-       //multiLevelDD.find('.dropdown-submenu>ul').css('margin-top', extraHeight/2);
-
     } else {
+      
+      if(!menuWrapper.hasClass('in')) {
+        menuWrapper.addClass('in');
+      }
 
       siteHeaderNavDefault.css('height', '55px');
       siteHeaderNav.css('height', '55px');
