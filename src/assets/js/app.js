@@ -280,6 +280,7 @@ $(document).ready(function(){
   var menuWrapper = megaMenu.find('.menu-wrapper');
   var menuToggle = megaMenu.find('.menu-toggle');
   var shopByMenu = megaMenu.find('#shop-by-menu');
+  var serviceMenu = megaMenu.find('#service-menu');
   var shopBySubCatlink = shopByMenu.find('.dropdown-menu.multi-level > .dropdown-submenu > a');
   var shopByMainMenuItem = shopByMenu.find('.navbar-nav > li');
   var windowWidth = $(window).width();
@@ -293,8 +294,8 @@ $(document).ready(function(){
 
   $(document).on('click', '#site-header-navigation .close-menu', function(){
     siteOverlayToggle();
-    $('#site-header-navigation .navbar-default').css('height', 'auto');
-    $('#site-header-navigation').css('height', 'auto')
+    $('#site-header-navigation .navbar-default').css('height', '76px');
+    $('#site-header-navigation').css('height', '76px');
   });
 
   $(document).on('click', '#site-header-mobile-menu .menu-toggle', function(){
@@ -369,10 +370,9 @@ $(document).ready(function(){
 
   //functions
   function onResizeScreen() {
+    windowWidth = $(window).width();
     if(windowWidth <= 767) {
-      $('#site-header-navigation .navbar-default').css('height', 'auto');
-      $('#site-header-navigation').css('height', 'auto')
-      
+
       if(menuWrapper.hasClass('in')) {
         menuWrapper.removeClass('in');
         siteOverlayToggle();
@@ -381,13 +381,20 @@ $(document).ready(function(){
       shopBySubCatlink.siblings('ul').removeClass('inline-element'); 
       $('.dropdown-menu.multi-level').css('min-height', 'auto');
 
+      shopByMenu.find('.navbar-collapse').addClass('in');
+      serviceMenu.find('.navbar-service').addClass('in');
     } else {
       
       if(!menuWrapper.hasClass('in')) {
         menuWrapper.addClass('in');
       }
+      serviceMenu.removeClass('active').removeClass('in');
+      shopByMenu.addClass('active').addClass('in');
+      shopByMenu.find('.navbar-collapse').addClass('in');
+      serviceMenu.find('.navbar-service').removeClass('in');
 
     }
+
   }
   
   function intPX(str) {
@@ -406,7 +413,7 @@ $(document).ready(function(){
 
 });
 
-
+/* subscribe form */
 jQuery(document).ready(function($){
   $('#newsletter-form').submit(function(){
     var email = $(this).find('input').val();
