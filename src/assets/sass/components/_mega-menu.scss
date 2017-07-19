@@ -161,13 +161,20 @@
           width: 100%;
           padding: 0;
           margin: 0;
+          > li {
+            line-height: rem(43px);
+          }
         }
         .navbar-nav > li {
           position: static;
           width: 10%;
           text-align: center;
           height: 100%;
-          float: left;
+          float: none;
+          min-height: rem(75px); 
+          display: inline-block;
+          margin-left: -4px;
+          vertical-align: top;
           > a {
             color: $text-color-dark;
             font-size: rem(12px);
@@ -175,8 +182,10 @@
             font-weight: 300;
             height: 100%;
             vertical-align: middle;
-            display: inline-block;
+            display: block;
             width: 100%;
+            min-height: inherit;
+            padding: $unit-layout rem(5px);
           }
           &.active, &.open {
             > a {
@@ -206,7 +215,7 @@
           border-radius: 0;
           overflow: hidden;
           border-top: 1px solid $light-grey;
-           > .dropdown-submenu {
+          > .dropdown-submenu {
               margin-bottom: 20px;
               display: block;
               > ul {
@@ -219,6 +228,9 @@
                 border-radius: 0;
                 border: 0;
                 padding: 0;
+                li {
+                  line-height: normal;
+                }
                 > li {
                   &:first-child {
                     width: 60%;
@@ -325,18 +337,18 @@
 }
 
 @include respond-to(large) {
+
+}
+
+@include respond-to('large-2') {
   #mega-menu {
     #shop-by-menu {
       .navbar-nav {
-        li {
-          a {
-            font-size: rem(12px);
-          }
+        > li {
+          line-height: normal;
+          min-height: auto;
         }
       }
     }
   }
-}
-
-@include respond-to(large-2) {
 }
