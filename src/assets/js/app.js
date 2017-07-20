@@ -91,7 +91,7 @@ jQuery(document).ready(function($){
     arrows: true,
     autoplay: false,
     autoplaySpeed: 4000,
-    slidesToShow: 10,
+    slidesToShow: 9,
     slidesToScroll: 4,
     centerMode: true,
     centerPadding: '100px',
@@ -110,21 +110,21 @@ jQuery(document).ready(function($){
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-            centerPadding: '40px'
+            centerPadding: '70px'
         }
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-            centerPadding: '60px'
+            centerPadding: '100px'
         }
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-            centerPadding: '110px',
+            centerPadding: '160px',
         }
       },
       {
@@ -135,53 +135,28 @@ jQuery(document).ready(function($){
         }
       },
       {
-        breakpoint: 1201,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 3,
           centerPadding: '110px'
         }
       },
       {
-        breakpoint: 1400,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 4,
-          centerPadding: '110px'
-        }
-      },
-      {
-        breakpoint: 1500,
-        settings: {
-          slidesToShow: 4,
-        }
-      },
-      {
-        breakpoint: 1700,
-        settings: {
-          slidesToShow: 4,
-        }
-      },
-      {
-        breakpoint: 1900,
-        settings: {
-          slidesToShow: 5,
         }
       },
       {
         breakpoint: 2100,
         settings: {
-          slidesToShow: 6,
-        }
-      },
-      {
-        breakpoint: 2400,
-        settings: {
-          slidesToShow: 7,
+          slidesToShow: 5,
         }
       },
       {
         breakpoint: 2700,
         settings: {
-          slidesToShow: 8,
+          slidesToShow: 7,
         }
       },
       {
