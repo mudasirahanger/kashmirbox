@@ -468,6 +468,23 @@ jQuery(document).ready(function($){
   });
 });
 
+
+//defer youtube iframes
+$(window).on('load', function(){
+  var youtubeVideos = $( ".youtube-iframe" );
+  var embedUrl = 'https://www.youtube.com/embed/';
+  for(var i = 0; i < youtubeVideos.length; i++) {
+    var currentFrame = $( '.youtube-iframe:eq('+i+')' );
+    var frameborder = currentFrame.attr('frameborder');
+    //create iframe
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('frameborder',  currentFrame.attr('data-frameborder'));
+    iframe.setAttribute('allowfullscreen', 'allowfullscreen');
+    iframe.setAttribute('src', embedUrl+currentFrame.attr('data-query'));
+    currentFrame.append(iframe);
+  }
+});
+
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
