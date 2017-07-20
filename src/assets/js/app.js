@@ -420,8 +420,8 @@ $(document).ready(function(){
       serviceMenu.find('.navbar-service').removeClass('in');
 
 
-      siteHeaderNavDefault.css('height', '55px');
-      siteHeaderNav.css('height', '55px');
+      siteHeaderNavDefault.css('height', '56px');
+      siteHeaderNav.css('height', '56px');
 
     }
 
