@@ -107,10 +107,17 @@ jQuery(document).ready(function($){
         }
       },
       {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+            centerPadding: '40px'
+        }
+      },
+      {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-            centerPadding: '70px'
+            centerPadding: '60px'
         }
       },
       {
