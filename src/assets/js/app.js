@@ -425,6 +425,11 @@ $(document).ready(function(){
 
     }
 
+    if(windowWidth > 1400) {
+      siteHeaderNavDefault.css('height', '56px');
+      siteHeaderNav.css('height', '56px');
+    }
+
   }
   
   function intPX(str) {
