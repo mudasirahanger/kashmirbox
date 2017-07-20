@@ -8,7 +8,7 @@
   }
 }
 
-.pashmina-section,
+/* .pashmina-section,
 .latest-arrivals-section,
 .kashmiri-product-section,
 .special-product-section,
@@ -18,15 +18,20 @@
 .testimonial-section,
 .artisan-collection-section {
   padding: $unit-layout*2 0 $unit-layout*2 0;
+} */
+.home-content > section:nth-child(n+2) {
+  padding: $unit-layout*2 0 $unit-layout*2 0;
 }
 
-
-.pashmina-section,
+/* .pashmina-section,
 .kashmiri-product-section,
 .special-product-section,
 .deals-section,
 .seen-section {
   background-color: $approx-snow-color;
+} */
+.home-content > section:nth-child(2n+1) {
+   background-color: $approx-snow-color;
 }
 
 .special-product-section .product-category-grid .product{
@@ -108,22 +113,19 @@
 }
 
 @include respond-to(medium) {
-  .artisan-collection-section {
-    padding: $unit-layout*9 0 $unit-layout*5;
-  }
-
-  .pashmina-section,
+  /* .pashmina-section,
   .latest-arrivals-section,
   .kashmiri-product-section,
   .special-product-section,
   .best-sellers-section,
   .stories-section,
-  .deals-section {
-    padding: $unit-layout*3 0 $unit-layout*4 0;
-  }
-
+  .deals-section,
+  .artisan-collection-section,
   .testimonial-section {
-    padding: $unit-layout*3 0 $unit-layout*5 0;
+    padding: $unit-layout*3 0 $unit-layout*4 0;
+  } */
+  .home-content > section:nth-child(n+2) {
+    padding: $unit-layout*3 0 $unit-layout*4 0;
   }
 
   .deals-section {
