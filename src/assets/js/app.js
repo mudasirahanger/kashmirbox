@@ -391,16 +391,25 @@ $(document).ready(function(){
       if(!menuWrapper.hasClass('in')) {
         menuWrapper.addClass('in');
       }
+      
       serviceMenu.removeClass('active').removeClass('in');
       shopByMenu.addClass('active').addClass('in');
       shopByMenu.find('.navbar-collapse').addClass('in');
       serviceMenu.find('.navbar-service').removeClass('in');
 
     } else {
+
+      siteOverlayToggle();
       
       if(!menuWrapper.hasClass('in')) {
         menuWrapper.addClass('in');
       }
+
+      serviceMenu.removeClass('active').removeClass('in');
+      shopByMenu.addClass('active').addClass('in');
+      shopByMenu.find('.navbar-collapse').addClass('in');
+      serviceMenu.find('.navbar-service').removeClass('in');
+
 
       siteHeaderNavDefault.css('height', '55px');
       siteHeaderNav.css('height', '55px');
