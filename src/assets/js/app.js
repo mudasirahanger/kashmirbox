@@ -316,6 +316,9 @@ $(document).ready(function(){
   shopBySubCatlink.hover(
     function(){
       var multiLevelDD = $(this).closest('.dropdown-menu.multi-level');
+      if(!multiLevelDD) {
+        return;
+      }
       if(windowWidth > 991) {
         shopBySubCatlink.removeClass('active-submenu');
         shopBySubCatlink.siblings('ul').removeClass('inline-element');
@@ -333,6 +336,9 @@ $(document).ready(function(){
   shopByMainMenuItem.hover(
     function() {
       var multiLevelDD = $(this).find('.dropdown-menu.multi-level');
+      if(multiLevelDD.length === 0) {
+        return;
+      }
       if(windowWidth > 991) {
         var h1 = multiLevelDD.find('.dropdown-submenu:first-child > ul').css('height');
         h1 = intPX(h1);
@@ -351,6 +357,7 @@ $(document).ready(function(){
         multiLevelDD.find('.dropdown-submenu:first-child > a').addClass('active-submenu');
         multiLevelDD.find('.dropdown-submenu:first-child > ul').addClass('inline-element');
         multiLevelDD.css('top', 'auto');
+
       } else {
         multiLevelDD.css('min-height', 'auto');
       }
