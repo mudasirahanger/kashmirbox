@@ -200,12 +200,21 @@
 #site-header-navigation {
   width: 83%;
 }
+
 #include respond-to(small-2) {
   width: 88%;
 }
 
 @include respond-to('large-only') {
   #site-header-navigation {
+    left: -100%;
+    position: absolute;
+    transition: left 0.5s;
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation-direction: alternate;
+    &.open {
+      left: 0%;
+    }
     position: absolute;
     top:0;
     z-index: 1000;

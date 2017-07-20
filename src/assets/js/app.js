@@ -267,12 +267,17 @@ $(document).ready(function(){
     siteOverlayToggle(true);
     siteHeaderNavDefault.css('height', '100%');
     siteHeaderNav.css('height', '100%')
+    siteHeaderNav.addClass('open');
   });
 
   $(document).on('click', '#site-header-navigation .close-menu', function(){
     siteOverlayToggle();
-    siteHeaderNavDefault.css('height', 'auto');
-    siteHeaderNav.css('height', 'auto');
+    siteHeaderNav.removeClass('open');
+    setTimeout(function() {
+      siteHeaderNav.css('height', 'auto');
+      siteHeaderNavDefault.css('height', 'auto');
+    }, 1000);
+    
   });
 
   $(document).on('click', '#site-header-mobile-menu .menu-toggle', function(){
