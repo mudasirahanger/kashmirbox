@@ -368,7 +368,7 @@ $(document).ready(function(){
   function onResizeScreen() {
     windowWidth = $(window).width();
     if(windowWidth <= 991) {
-      
+      alert("resized");
       if(menuWrapper.hasClass('in')) {
         menuWrapper.removeClass('in');
         siteOverlayToggle();
@@ -391,7 +391,7 @@ $(document).ready(function(){
       if(!menuWrapper.hasClass('in')) {
         menuWrapper.addClass('in');
       }
-      
+
       serviceMenu.removeClass('active').removeClass('in');
       shopByMenu.addClass('active').addClass('in');
       shopByMenu.find('.navbar-collapse').addClass('in');
