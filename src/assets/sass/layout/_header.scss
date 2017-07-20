@@ -199,6 +199,9 @@
 
 #site-header-navigation {
   width: 83%;
+  .navbar-default {
+    border-radius: 0;
+  }
 }
 
 #include respond-to(small-2) {
