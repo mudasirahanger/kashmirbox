@@ -52,6 +52,7 @@
       > a {
         color: $text-color-dark;
         background-color: $white-color;
+        font-weight: 300;
         &:hover {
           color: $brand-color;
         }
@@ -112,6 +113,20 @@
    
   }
 } 
+
+@include respond-to('medium-only') {
+  #mega-menu {
+    .navbar-nav {
+      > li {
+        border-top: 1px solid $light-grey;
+        > .fa-angle-right {
+          top: 10px;
+        }
+      }
+    }
+  }
+}
+
 @include respond-to('large-only') {
   .navbar-header {
       float: none;
@@ -159,7 +174,7 @@
           left: -8px;
           z-index: 10;
           font-size: rem(21px);
-          top: 10px;
+          top: 8px;
           transition: left 0.5s;
         }
         &:hover {
