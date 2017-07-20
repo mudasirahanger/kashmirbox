@@ -78,13 +78,20 @@ gulp.task('compile-js', function (cb) {
 
 
 /* IMAGES */
+var imageminPlugins = [
+  imagemin.gifsicle({interlaced: true}),
+  imagemin.jpegtran({progressive: true}),
+  imagemin.optipng({optimizationLevel: 5}),
+  imagemin.svgo({plugins: [{removeViewBox: true}]})
+];
+
 gulp.task('optimize-images', function () {
     return gulp.src('src/assets/images/**/*')
         .pipe(plumber((error) => {
           gutil.log(gutil.colors.red(error.message));
           gulp.task('optimize-images').emit('end');
         }))
-        .pipe(imagemin())
+        .pipe(imagemin(imageminPlugins))
         .pipe(gulp.dest('dist/images'))
         .pipe(connect.reload());
 });
