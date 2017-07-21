@@ -1,0 +1,16 @@
+.seen-section {
+  background-color: $approx-snow-color;
+  padding: $unit-layout*2 0 $unit-layout*2 0;
+  .list-wrapper {
+    text-align: center;
+    .seen-on-list {
+      display: block;
+    }
+  }
+}
+
+@include respond-to(medium) {
+  .seen-section {
+    padding: $unit-layout*3 0 $unit-layout*4 0;
+  }
+}

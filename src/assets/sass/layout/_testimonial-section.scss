@@ -1,4 +1,5 @@
 .testimonial-section {
+  padding: $unit-layout*2 0 $unit-layout*2 0;
   .video-testimonial {
     padding: rem(15px);
     box-sizing: border-box;
@@ -14,6 +15,7 @@
 
 @include respond-to(medium) {
   .testimonial-section {
+    padding: $unit-layout*3 0 $unit-layout*4 0;
     .video-testimonial {
       iframe {
         height: rem(325px);

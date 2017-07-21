@@ -92,15 +92,14 @@
 }
 
 
-.seen-section {
-  padding: $unit-layout*2 0 $unit-layout*3 0;
+/* .seen-section {
   .list-wrapper {
     text-align: center;
     .seen-on-list {
       display: block;
     }
   }
-}
+} */
 
 @include respond-to('small-2') {
   .deals-section {
