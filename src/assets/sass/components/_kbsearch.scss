@@ -13,6 +13,7 @@
     font-weight: 300;
     font-size: rem(13px);
     padding-left: 10px;
+    color: $text-color-dark;
   }
   .search-btn {
     width: 15%;
@@ -22,5 +23,9 @@
     line-height: rem(40px);
     border-radius: 0;
     box-shadow: none;
+    svg {
+      margin: rem(5px) auto;
+      pointer-events: none;
+    }
   }
 }

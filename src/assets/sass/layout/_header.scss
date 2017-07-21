@@ -108,19 +108,47 @@
       width: 33.33%;
       float: left;
       cursor: pointer;
+      &.open {
+        #Avatar-icon, #Hamburger-icon, #Search-icon {
+          stroke: white;
+        }
+      }
       &:hover {
         background-color: $brand-color;
       }
       a {
         display: block;
         text-align: center;
-        min-height: 50px;
+        height: 50px;
         line-height: 50px;
         color: $brand-color;
         font-size: rem(20px);
         border: 0;
         &:hover {
           color: white;
+        }
+      }
+      > a {
+        > svg {
+          margin-top: $unit-layout * 0.8;
+          pointer-events: none;
+        }
+        &:hover {
+          #Avatar-icon, #Hamburger-icon, #Search-icon {
+            stroke: white;
+          }
+        }
+      }
+      .kbsearch {
+        a {
+          background-color: white;
+          display: inline-block;
+          svg {
+            margin-top: $unit-layout * 0.8;
+          }
+          #Search-icon {
+            stroke: $brand-color;
+          }
         }
       }
     }
@@ -265,6 +293,10 @@
           cursor: pointer;
           a {
             display: block;
+            svg {
+              margin-top: $half-unit-layout;
+              pointer-events: none;
+            }
           }
           .fa {
             font-size: rem(20px);

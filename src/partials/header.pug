@@ -26,29 +26,30 @@ header#site_header
       .search-wrap(class='col-xs-6  col-md-4 hidden-xs hidden-sm padding-0')
         .kbsearch
           input(type='text' placeholder='What can Kashmir offer you today?')
-          a(class='btn btn-white search-btn')
-            i(class='fa fa-search')  
+          a(class='search-btn')
+            include ../components/svgicons/search.pug 
       .mini-cart-wrap(class='col-xs-6 col-sm-6 col-md-4 padding-0')
          .cart
             a.mini-cart-icon(href='#')
-              i(class='fa fa-shopping-bag')
+              include ../components/svgicons/shoppingbag.pug
               i(class='mini-cart-count') 6 
           
   #site-header-mobile-menu(class='visible-xs visible-sm clearfix')
     .icons
       .icon.menu-toggle
         a(type='button', data-toggle='collapse', data-target='.menu-wrapper')
-          span.fa.fa-bars
+          include ../components/svgicons/hamburger.pug
       .icon.search-toggle
         a
-          span.fa.fa-search
+          include ../components/svgicons/search.pug
         .kbsearch.clearfix
           input(type='text' placeholder='What can Kashmir offer you today?')
-          a(class='btn btn-white search-btn')
-            i(class='fa fa-search') 
+          a(class='search-btn')
+            include ../components/svgicons/search.pug
       .icon.dropdown.profile-dd-toggle 
         a(class='btn dropdown-toggle' type='button' data-toggle='dropdown')
-          span.fa.fa-user
+          include ../components/svgicons/user.pug
+          
         ul.dropdown-menu
             li
               a(href='#') Register
