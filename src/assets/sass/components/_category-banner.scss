@@ -1,0 +1,33 @@
+.category-banner {
+  .content-wrap {
+    height: rem(160px);
+    background-position: center center;
+    background-position: cover;
+    display: table;
+    width: 100%;
+    .content {
+      display: table-cell;
+      vertical-align: middle;
+      .category-name {
+        font-family: $ff-playfair-display;
+        color: $white-color;
+        line-height: rem(41px);
+        font-weight: 700;
+        margin: $unit-layout 0;
+      }
+      .category-excerpt {
+        font-size: rem(15px);
+        color: $white-color;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@include respond-to(medium) {
+  .category-banner {
+    .content-wrap{
+      height: rem(290px);
+    }
+  }
+}
