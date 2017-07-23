@@ -23,9 +23,11 @@
     line-height: rem(40px);
     border-radius: 0;
     box-shadow: none;
+    cursor: pointer;
     svg {
       margin: rem(5px) auto;
       pointer-events: none;
+      display: block;
     }
   }
 }
