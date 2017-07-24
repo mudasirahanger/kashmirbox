@@ -150,11 +150,13 @@
 }
 
 @include respond-to(large-2) {
-  .product {
-     .product-img {
+  .product-grid {
+    .product {
+      .product-img {
         img {
           height: rem(360px);
         }
-     }
+      }
+    }
   }
 }

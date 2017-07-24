@@ -12,8 +12,12 @@
     text-align: center;
     right: 0;
     border-left: 1px solid $mid-grey;
+    z-index: 1;
   }
   select {
+    background: rgba(0,0,0,0);
+    z-index: 2;
+    position: absolute;
     background: transparent;
     font-size: rem(14px);
     line-height: 1;

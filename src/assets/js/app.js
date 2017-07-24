@@ -496,7 +496,7 @@ jQuery(document).ready(function($){
 
   var catProdList = $('.category-products-list');
   var catListContent = catProdList.find('.list-content');
-  var catProduct = catListContent.find('.product');
+  var catProduct;
   var products = [];
 
   //toggle product view
@@ -523,6 +523,7 @@ jQuery(document).ready(function($){
     success : function(data, status, xhr) {
       var view = catProdList.find('.views > li.active').attr('data-view-type');
       showProducts(data, view);
+      catProduct = catProdList.find('.product');
       productNameHover();
       products = data;
     }
@@ -536,12 +537,12 @@ jQuery(document).ready(function($){
       if(view === 'grid')
         catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
       else
-        catListContent.append('<div class="grid-item">'+getProductListView(product)+'</div>');
+        catListContent.append('<div class="list-item">'+getProductListView(product)+'</div>');
     });
   }
 
   function getProductTileView(product) {
-    var html = '<div class="product">';
+    var html = '<div class="product clearfix">';
     //product image
     html += '<div class="product-img">';
     html += '<a href="#"><img src="'+product.img+'" alt="'+product.name+'"></a>';
@@ -604,7 +605,7 @@ jQuery(document).ready(function($){
 
 
   function getProductListView(product) {
-    var html = '<div class="product">';
+    var html = '<div class="product clearfix">';
 
     //product image
     html += '<div class="product-img">';
@@ -612,15 +613,81 @@ jQuery(document).ready(function($){
     html += '</div>';
     //end product image
     
+    //product details
+    html += '<div class="product-details clearfix">';
+
+    //left col
+    html += '<div class="left-col">'
+    html += '<a href="#" class="name">'+product.name+'</a>';
+    
+    html += '<div class="rating">';
+    var rating = product.rating;
+    while(rating--) {
+      html += '<span class="fa fa-star"></span>';
+    }
     html += '</div>';
+    
+    html += '<div class="price-box">';
+    if(product.discount_price && parseFloat(product.discount_price) > 0) {
+      html += '<del>'+product.price+'</del>';
+      html += '<span class="price">'+product.currency_symbol+product.discount_price+'</span>';
+    } else  {
+      html += '<span class="price">'+product.currency_symbol+product.price+'</span>';
+    }
+    html += '</div>';
+
+    html += '</div>';
+    //end left col
+    
+    //right col
+    html += '<div class="right-col">';
+
+    //wishlist
+    if(product.liked) {
+      html += '<div class="add-to-wishlist liked">';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart"> add to wishlist</a>';
+      html += '</div>';
+    } else {
+      html += '<div class="add-to-wishlist">';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart-o"> add to wishlist</a>';
+      html += '</div>';
+    }
+    //end wishlist
+    
+    //ready to ship
+    if(product.readyToShip) {
+      html += '<div class="ready-to-ship">';
+      html += '<span class="fa fa-paper-plane-o"></span><span class="text">Ready to ship</span>';
+      html += '</div>';
+    }
+    //end read to ship
+    
+    html += '</div>';
+    //end right col
+    
+    //description
+    html += '<div class="description">';
+    html += '<p>'+product.description+'</p>';
+    html += '</div>'; 
+    //end description
+
+    html += '<a href="#" class="btn btn-orange shop-now">Shop Now</a>';
+    
+    html += '</div>';
+    //end product detail
+    
+    html += '</div>';
+    return html;
   }
 
   function refreshCategoryProductView(view) {
+    catProduct.addClass('hidden');
+    catListContent.html('');
     $.each(products, function(index, product){
       if(view === 'grid')
         catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
       else
-        catListContent.append('<div class="grid-item">'+getProductListView(product)+'</div>');
+        catListContent.append('<div class="list-item">'+getProductListView(product)+'</div>');
     });
   }
 
