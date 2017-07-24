@@ -485,17 +485,11 @@ $(document).ready(function(){
   var catListContent = catProdList.find('.list-content');
   var catProduct = catListContent.find('.product');
 
-  
-
   $.ajax({
     'url' : 'products.json',
     success : function(data, status, xhr) {
-      console.log(data);
-      showProducts(data);
+      showProducts(data, productNameHover);
       productNameHover();
-    },
-    error: function(xhr, status, error) {
-
     }
   });
 
@@ -584,8 +578,9 @@ $(document).ready(function(){
   }
 
   function productNameHover() {
-    $('.product').hover(
+    $('.product .name').hover(
       function() {
+        console.log("ddd");
         $(this).closest('.product').find('.overlay').css('top', '0');
       },
       function(){
