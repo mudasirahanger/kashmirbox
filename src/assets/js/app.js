@@ -1,3 +1,17 @@
+/*******************************************************************************
+Home page
+********************************************************************************/
+jQuery(document).ready(function($){
+  $('.product-grid .product .category').hover(
+    function() {
+      $(this).closest('.product').find('.overlay').css('top', '0');
+    },
+    function(){
+      $(this).closest('.product').find('.overlay').css('top', '100%');
+    }
+  );
+});
+
 //hero slider 
 jQuery(document).ready(function($) {
    $('.hero-slider').slick({
@@ -9,7 +23,7 @@ jQuery(document).ready(function($) {
 });
 
 //artisan slider
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
   $('.artisan-collection-slider').slick({
     'prevArrow' : '<span class="fa fa-chevron-left slide-back"></span>',
     'nextArrow' : '<span class="fa fa-chevron-right slide-next"></span>',
@@ -202,7 +216,7 @@ jQuery(document).ready(function($){
 
 
 // Deal Countdown
-$(document).ready(function(){
+jQuery(document).ready(function($){
   
   function zeroFill(digit) {
     var digit = parseInt(digit);
@@ -231,7 +245,7 @@ $(document).ready(function(){
 
 
 // Testimonial slider
-$(document).ready(function() {
+jQuery(document).ready(function($) {
   $('.testimonial-slider').slick({
     dots : true,
     arrows: false,
@@ -266,8 +280,9 @@ $(document).ready(function() {
 });
 
 
+
 //mega menu
-$(document).ready(function(){
+jQuery(document).ready(function($){
   var megaMenu = $('#mega-menu');
   var menuWrapper = megaMenu.find('.menu-wrapper');
   var menuToggle = megaMenu.find('.menu-toggle');
@@ -471,15 +486,13 @@ $(window).on('load', function(){
     iframe.setAttribute('src', embedUrl+currentFrame.attr('data-query'));
     currentFrame.append(iframe);
   }
-
-
 });
 
 /*******************************************************************************
   Category page
 ********************************************************************************/
 
-$(document).ready(function(){
+jQuery(document).ready(function($){
 
   var catProdList = $('.category-products-list');
   var catListContent = catProdList.find('.list-content');
