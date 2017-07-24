@@ -9,6 +9,13 @@ block category_content
   .breadcrums-wrap
     .container
       include components/breadcrums.pug
+  //Category products
+  .category-products-section
+    .container.padding-0
+      .col-md-3
+        include components/category-products-filter.pug
+      .col-md-9 
+        include components/category-products-list.pug
   //Testimonial Section
   include partials/testimonial-section.pug
   //Seen on Section

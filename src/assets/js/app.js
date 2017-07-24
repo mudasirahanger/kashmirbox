@@ -176,15 +176,25 @@ jQuery(document).ready(function($){
    
   });
 
-  $(document).on('click', '.product-slider .add-to-wishlist', function(){
-    // ajax call to add to wish list
-    var result = true;
+  $(document).on('click', '.add-to-wishlist', function(){
+    // result of ajax call to wishlist api
+    var result = true; 
     if(result) {
       var heart = $(this).find('.fa-heart-o');
       heart.removeClass('fa-heart-o');
       heart.addClass('fa-heart');
-      $(this).removeClass('add-to-wishlist');
       $(this).addClass('liked');
+    }
+  });
+
+   $(document).on('click', '.add-to-wishlist.liked', function(){
+    // result of ajax call to wishlist api
+    var result = true; 
+    if(result) {
+      var heart = $(this).find('.fa-heart');
+      heart.removeClass('fa-heart');
+      heart.addClass('fa-heart-o');
+      $(this).removeClass('liked');
     }
   });
 
@@ -461,6 +471,94 @@ $(window).on('load', function(){
     iframe.setAttribute('src', embedUrl+currentFrame.attr('data-query'));
     currentFrame.append(iframe);
   }
+});
+
+//category page
+$(document).ready(function(){
+
+  $.ajax({
+    'url' : 'products.json',
+    success : function(data, status, xhr) {
+      console.log(data);
+      showProducts(data);
+    },
+    error: function(xhr, status, error) {
+
+    }
+  });
+
+  function showProducts(data) {
+    if(!data || data.length === 0) {
+      return;
+    }
+    var container = $('.category-products-list .list-content');
+    $.each(data, function(index, product){
+      container.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+    });
+  }
+
+  function getProductTileView(product) {
+    var html = '<div class="product">';
+    //product image
+    html += '<div class="product-img">';
+    html += '<a href="#"><img src="'+product.img+'" alt="'+product.name+'"></a>';
+
+    //overlay
+    html += '<div class="overlay"><div class="overlay-vertical"><div class="overlay-content">';
+    html += '<a href="#" class="btn btn-white view-products">';
+    html += 'View Products <span class="fa fa-caret"></span>';
+    html += '</a>';
+    //wishlist
+    if(product.liked) {
+      html += '<div class="add-to-wishlist liked">';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart"></a>';
+      html += '</div>';
+    } else {
+      html += '<div class="add-to-wishlist">';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart-o"></a>';
+      html += '</div>';
+    }
+    //end wishlist
+    html += '</div></div></div>';
+    //end overlay
+    
+    //sale
+    if(product.discount && product.discount > 0) {
+      html += '<div class="for-sale">';
+      html += '<span>Sale '+product.discount+'% OFF</span>';
+      html += '</div>';
+    }
+    //end sale
+    
+    //ready to ship
+    if(product.readyToShip) {
+      html += '<div class="ready-to-ship">';
+      html += '<span class="fa fa-paper-plane-o"></span><span class="text">Ready to ship</span>';
+      html += '</div>';
+    }
+    //end read to ship
+
+    html += '</div>';
+    //end product image
+    
+    //product footer
+    html += '<div class="product-footer">';
+    html += '<a href="#" class="name">'+product.name+'</a>';
+    html += '<span class="price">'+product.currency_symbol+product.price+'</span>';
+    html += '<div class="rating">';
+    var rating = product.rating;
+    while(rating--) {
+      html += '<span class="fa fa-star"></span>';
+    }
+    html += '</div>';
+    html += '</div>';
+    //end product footer
+
+    html += '</div>'; 
+    //end product
+    return html;
+  }
+
 });
 
 function validateEmail(email) {

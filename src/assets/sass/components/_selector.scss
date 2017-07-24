@@ -1,0 +1,28 @@
+.selector {
+  position: relative;
+  border: 1px solid $mid-grey;
+  height: rem(34px);
+  overflow: hidden;
+  width: rem(170px);
+  .arrow {
+    position: absolute;
+    height: rem(34px);
+    width: rem(34px);
+    line-height: rem(34px);
+    text-align: center;
+    right: 0;
+    border-left: 1px solid $mid-grey;
+  }
+  select {
+    background: transparent;
+    font-size: rem(14px);
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: rem(34px);
+    -webkit-appearance: none;
+    width: 100%;
+    max-width: 100%;
+    padding-left: $half-unit-layout;
+  }
+}
