@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 .btn {
   outline: none;
+  font-size: rem(14px);
   &:hover, &:active, &:focus, 
   &:hover:focus, &:hover:active,
   &:focus:active, &:focus:hover,
@@ -70,6 +71,23 @@
   &:hover, &:active, &:focus {
     background-color: #ff5400;
     border-color: #ff5400;
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.btn-black {
+  background-color: black;
+  border-color: black;
+  transition: all 0.5s;
+  padding: 0;
+  color: white;
+  width: rem(140px);
+  height: rem(40px);
+  line-height: rem(40px);
+  &:hover, &:active, &:focus {
+    background-color: black;
+    border-color: black;
     color: white;
     opacity: 0.8;
   }

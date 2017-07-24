@@ -267,7 +267,13 @@
       }
     }
   }
-
+  .loadmore {
+    margin-top: $unit-layout*4;
+    text-align: center;
+    #loadmore {
+      width: rem(180px);
+    }
+  }
 }
 
 

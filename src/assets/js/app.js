@@ -535,9 +535,13 @@ jQuery(document).ready(function($){
     }
     $.each(data, function(index, product){
       if(view === 'grid')
-        catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+        catListContent
+        .children('.products-wrapper')
+        .append('<div class="grid-item">'+getProductTileView(product)+'</div>');
       else
-        catListContent.append('<div class="list-item">'+getProductListView(product)+'</div>');
+        catListContent
+        .children('.products-wrapper')
+        .append('<div class="list-item">'+getProductListView(product)+'</div>');
     });
   }
 
@@ -682,12 +686,16 @@ jQuery(document).ready(function($){
 
   function refreshCategoryProductView(view) {
     catProduct.addClass('hidden');
-    catListContent.html('');
+    catListContent.find('.products-wrapper').html('');
     $.each(products, function(index, product){
       if(view === 'grid')
-        catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+        catListContent
+        .children('.products-wrapper')
+        .append('<div class="grid-item">'+getProductTileView(product)+'</div>');
       else
-        catListContent.append('<div class="list-item">'+getProductListView(product)+'</div>');
+        catListContent
+        .children('.products-wrapper')
+        .append('<div class="list-item">'+getProductListView(product)+'</div>');
     });
   }
 
