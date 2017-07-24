@@ -7,7 +7,7 @@ jQuery(document).ready(function($){
       $(this).closest('.product').find('.overlay').css('top', '0');
     },
     function(){
-      $(this).closest('.product').find('.overlay').css('top', '100%');
+      $(this).closest('.product').find('.overlay').attr('style', '');
     }
   );
 });
@@ -497,7 +497,9 @@ jQuery(document).ready(function($){
   var catProdList = $('.category-products-list');
   var catListContent = catProdList.find('.list-content');
   var catProduct = catListContent.find('.product');
+  var products = [];
 
+  //toggle product view
   $(document).on('click', '.category-products-list .views > li', function(){
     var selectView = $(this).attr('data-view-type');
     if(catListContent.hasClass(selectView)) {
@@ -512,22 +514,29 @@ jQuery(document).ready(function($){
       catListContent.removeClass('grid-view');
       catListContent.addClass('list-view');
     }
+    var view = catProdList.find('.views > li.active').attr('data-view-type');
+    refreshCategoryProductView(view);
   });
 
   $.ajax({
     'url' : 'products.json',
     success : function(data, status, xhr) {
-      showProducts(data, productNameHover);
+      var view = catProdList.find('.views > li.active').attr('data-view-type');
+      showProducts(data, view);
       productNameHover();
+      products = data;
     }
   });
 
-  function showProducts(data) {
+  function showProducts(data, view) {
     if(!data || data.length === 0) {
       return;
     }
     $.each(data, function(index, product){
-      catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+      if(view === 'grid')
+        catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+      else
+        catListContent.append('<div class="grid-item">'+getProductListView(product)+'</div>');
     });
   }
 
@@ -606,14 +615,22 @@ jQuery(document).ready(function($){
     html += '</div>';
   }
 
+  function refreshCategoryProductView(view) {
+    $.each(products, function(index, product){
+      if(view === 'grid')
+        catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+      else
+        catListContent.append('<div class="grid-item">'+getProductListView(product)+'</div>');
+    });
+  }
+
   function productNameHover() {
     $('.product .name').hover(
       function() {
-        console.log("ddd");
         $(this).closest('.product').find('.overlay').css('top', '0');
       },
       function(){
-        $(this).closest('.product').find('.overlay').css('top', '100%');
+        $(this).closest('.product').find('.overlay').attr('style', '');
       }
     );
   }
