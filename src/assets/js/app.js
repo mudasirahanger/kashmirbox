@@ -485,6 +485,22 @@ $(document).ready(function(){
   var catListContent = catProdList.find('.list-content');
   var catProduct = catListContent.find('.product');
 
+  $(document).on('click', '.category-products-list .views > li', function(){
+    var selectView = $(this).attr('data-view-type');
+    if(catListContent.hasClass(selectView)) {
+      return;
+    }
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    if($(this).attr('data-view-type') === 'grid') {
+      catListContent.addClass('grid-view');
+      catListContent.removeClass('list-view');
+    } else {
+      catListContent.removeClass('grid-view');
+      catListContent.addClass('list-view');
+    }
+  });
+
   $.ajax({
     'url' : 'products.json',
     success : function(data, status, xhr) {
