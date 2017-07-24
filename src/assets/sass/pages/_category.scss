@@ -32,13 +32,15 @@
       font-weight: 300;
     }
   }
-
   .grid-view {
     .grid-item {
       width: 50%;
       float: left;
       margin-bottom: $unit-layout;
+      animation: zoomin;
+      animation-duration: 1s;
     }
+    
     .grid-item:nth-child(2n+1) {
       clear: left;
     }
@@ -184,6 +186,8 @@
       background-color: $white-color;
       padding: $unit-layout;
       margin-bottom: $unit-layout;
+      animation: zoomin;
+      animation-duration: 1s;
     }
     .product {
       .name {
@@ -273,6 +277,14 @@
     #loadmore {
       width: rem(180px);
     }
+  }
+}
+
+.category-products-filter {
+  .title {
+    padding: $unit-layout 0;
+    font-family: $ff-playfair-display;
+    color: $text-color-dark;
   }
 }
 

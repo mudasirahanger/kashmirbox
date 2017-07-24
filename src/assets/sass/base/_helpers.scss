@@ -109,6 +109,23 @@
   font-size: rem(12px);
 }
 
+//animations
+@keyframes zoomin {
+  from {
+    -webkit-transition: all 0.5s ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 0.5s ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 0.5s ease-in;
+    -moz-transform: scale(1);
+    transition: all 0.5s ease-in;
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+  
 @include respond-to(medium) {
   .section-title {
     &:after {
@@ -116,3 +133,5 @@
     }
   }
 }
+
+
