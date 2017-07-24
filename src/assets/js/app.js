@@ -471,16 +471,28 @@ $(window).on('load', function(){
     iframe.setAttribute('src', embedUrl+currentFrame.attr('data-query'));
     currentFrame.append(iframe);
   }
+
+
 });
 
-//category page
+/*******************************************************************************
+  Category page
+********************************************************************************/
+
 $(document).ready(function(){
+
+  var catProdList = $('.category-products-list');
+  var catListContent = catProdList.find('.list-content');
+  var catProduct = catListContent.find('.product');
+
+  
 
   $.ajax({
     'url' : 'products.json',
     success : function(data, status, xhr) {
       console.log(data);
       showProducts(data);
+      productNameHover();
     },
     error: function(xhr, status, error) {
 
@@ -491,9 +503,8 @@ $(document).ready(function(){
     if(!data || data.length === 0) {
       return;
     }
-    var container = $('.category-products-list .list-content');
     $.each(data, function(index, product){
-      container.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
+      catListContent.append('<div class="grid-item">'+getProductTileView(product)+'</div>');
     });
   }
 
@@ -559,7 +570,35 @@ $(document).ready(function(){
     return html;
   }
 
+
+  function getProductListView(product) {
+    var html = '<div class="product">';
+
+    //product image
+    html += '<div class="product-img">';
+    html += '<a href="#"><img src="'+product.img+'" alt="'+product.name+'"></a>';
+    html += '</div>';
+    //end product image
+    
+    html += '</div>';
+  }
+
+  function productNameHover() {
+    $('.product').hover(
+      function() {
+        $(this).closest('.product').find('.overlay').css('top', '0');
+      },
+      function(){
+        $(this).closest('.product').find('.overlay').css('top', '100%');
+      }
+    );
+  }
+
 });
+
+/*******************************************************************************
+Global Helper Functions
+********************************************************************************/
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
