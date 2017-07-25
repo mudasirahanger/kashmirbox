@@ -51,6 +51,7 @@
       > a {
         display: block;
         text-transform: uppercase;
+        text-decoration: none;
       }
       &:first-child a {
         border-right: 1px solid $mid-grey;
@@ -93,6 +94,34 @@
       .checkbox {
         label:before {
           top: 0;
+        }
+      }
+    }
+  }
+
+  #product-sort-modal {
+    .modal-dialog {
+      max-width: rem(250px);
+      margin-left: auto;
+      margin-right: auto;
+      top: 30%;
+    }
+    .modal-header {
+      text-align: center;
+    }
+    .modal-body {
+      padding: 0;
+      .sortby-list {
+        list-style-type: none;
+        li {
+          padding: $half-unit-layout;
+          border-bottom: 1px solid $light-grey;
+          text-align: center;
+          a {
+            text-decoration: none;
+            font-weight: 300;
+            font-size: (14px);
+          }
         }
       }
     }

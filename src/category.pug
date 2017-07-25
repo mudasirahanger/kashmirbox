@@ -26,8 +26,8 @@ block category_content
         a(href='#' data-toggle='modal' data-target='#product-sort-modal') <span class="fa fa-sort"></span> Sort
       .filterby
         a(href='#' data-toggle='modal' data-target='#product-filter-modal') <span class="fa fa-filter"></span> Filter
-    //Product Category Filter
-    .modal.fade#product-filter-modal(tabindex='-1', role='dialog', aria-labelledby='prodcutModalLabel')
+    //Product Filter Modal
+    .modal.fade#product-filter-modal(tabindex='-1', role='dialog', aria-labelledby='productFilterModalLabel')
       .modal-dialog.modal-lg(role='document')
         .modal-content
           .modal-header
@@ -107,3 +107,22 @@ block category_content
                         .checkbox
                           input#checkbox8-m(type='checkbox')
                           label(for='checkbox8-m') RV Spices
+    //Product Sort Modal
+    .modal.fade#product-sort-modal(tabindex='-1', role='dialog', aria-labelledby='productSortModalLabel')
+      .modal-dialog.modal-lg(role='document')
+        .modal-content
+          .modal-header
+            h6.title SORT
+          .modal-body
+            ul.sortby-list
+              li
+                a(href='#') Popularity
+              li
+                a(href='#') New
+              li
+                a(href='#') Discount
+              li
+                a(href='#') Low
+              li
+                a(href='#') High
+            
