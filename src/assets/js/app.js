@@ -499,6 +499,19 @@ jQuery(document).ready(function($){
   var catProduct;
   var products = [];
 
+  //toggle product filter 
+  $(document).on('click', '.product-category-filter .toggle-list', function(){
+    if($(this).hasClass('fa-plus-circle')) {
+      $(this).removeClass('fa-plus-circle');
+      $(this).addClass('fa-minus-circle');
+      $(this).closest('category-products-filter').addClass('open');
+    } else {
+      $(this).addClass('fa-plus-circle');
+      $(this).removeClass('fa-minus-circle');
+      $(this).closest('category-products-filter').removeClass('open');
+    }
+  });
+
   //toggle product view
   $(document).on('click', '.category-products-list .views > li', function(){
     var selectView = $(this).attr('data-view-type');

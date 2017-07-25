@@ -3,20 +3,21 @@ extends ./layouts/category.pug
 block app_variables
   - var pageTitle = "Kashmir Box";
 block category_content
-  //Category Banner
-  include components/category-banner.pug
-  //Breadcrums
-  .breadcrums-wrap
-    .container
-      include components/breadcrums.pug
-  //Category products
-  .category-products-section
-    .container.padding-0
-      .col-md-3
-        include components/category-products-filter.pug
-      .col-md-9 
-        include components/category-products-list.pug
-  //Testimonial Section
-  include partials/testimonial-section.pug
-  //Seen on Section
-  include partials/seen-on-section.pug 
+  main.category-content
+    //Category Banner
+    include components/category-banner.pug
+    //Breadcrums
+    .breadcrums-wrap
+      .container
+        include components/breadcrums.pug
+    //Category products
+    .category-products-section
+      .container.padding-0
+        .col-md-3
+          include components/category-products-filter.pug
+        .col-md-9 
+          include components/category-products-list.pug
+    //Testimonial Section
+    include partials/testimonial-section.pug
+    //Seen on Section
+    include partials/seen-on-section.pug 

@@ -469,147 +469,228 @@
         </div>
       </div>
     </header>
-    <!--Category Banner-->
-    <div class="category-banner" style="background-image:url(images/category-banner.jpg);">
-      <div class="container">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="content-wrap">
-            <div class="content text-center">
-              <h3 class="category-name">Exotic Foods</h3>
-              <p class="category-excerpt">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet. Nam porttitor nisi lectus, quis pretium turpis consequat ut. Nam et bibendum odio.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Breadcrums-->
-    <div class="breadcrums-wrap">
-      <div class="container">
-        <ul class="site-breadcrums">
-          <li><a href="#"><span class="fa fa-home"></span></a></li>
-          <li><a href="#">Healthy Living</a></li>
-          <li><a href="#">Exotic Foods</a></li>
-          <li><a href="#">Dry Fruits</a></li>
-        </ul>
-      </div>
-    </div>
-    <!--Category products-->
-    <div class="category-products-section">
-      <div class="container padding-0">
-        <div class="col-md-3">
-          <div class="category-products-filter">
-            <h4 class="title">Filters</h4>
-            <div class="filters">
-              <div class="price-filter clearfix">
-                <p class="filter-label">Price</p>
-                <div class="range-from number-input">
-                  <input class="form-control" id="price-from" type="number" value="99">
-                  <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"> </span></div>
-                </div>
-                <div class="range-to number-input">
-                  <input class="form-control" id="price-to" type="number" value="999">
-                  <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"> </span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-9"> 
-          <div class="category-products-list">
-            <div class="list-header clearfix">
-              <ul class="views">
-                <li class="grid-view active" data-view-type="grid"><span class="fa fa-th"></span></li>
-                <li class="list-view" data-view-type="list"><span class="fa fa-list">   </span></li>
-              </ul>
-              <div class="selector">
-                <div class="arrow"><span class="fa fa-angle-down"></span></div>
-                <select>
-                  <option value="">sort by</option>
-                  <option value="low">Low</option>
-                  <option value="high">High</option>
-                  <option value="price">New</option>
-                  <option value="discount">Discount</option>
-                  <option value="popular">Popularity</option>
-                </select>
-              </div>
-            </div>
-            <div class="list-content grid-view clearfix">
-              <div class="products-wrapper clearfix"></div>
-              <div class="loadmore"><a class="btn btn-black" id="loadmore">Load More <span class='remaining'>(1010)</span></a></div>
-              <div class="loadmore"><a class="btn btn-black" id="loadmore">Loading <span class="fa fa-spin fa-spinner"></span></a></div>
-            </div>
-            <div class="list-footer clearfix"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Testimonial Section-->
-    <section class="testimonial-section row">
-      <div class="container padding-0">
-        <div class="section-title">
-          <h2 class="title">What our Customers say</h2>
-        </div>
-        <div class="video-testimonial col-md-6 col-md-offset-3">
-          <div class="youtube-iframe" data-embed="bpCvXtpIvpA" data-framebolder="0" data-query="modestbranding=1&amp;rel=0"></div>
-        </div>
-        <div class="col-xs-12 padding-0">
-          <div class="testimonial-slider">
-            <div class="slide">
-              <div class="testimony"><img class="testimony-image" src="images/testimonial/red-carpet.png" alt="Red Carpet">
-                <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimony"><img class="testimony-image" src="images/testimonial/paper-mache.png" alt="Paper Mache">
-                <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimony"><img class="testimony-image" src="images/testimonial/red-carpet.png" alt="Red Carpet">
-                <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimony"><img class="testimony-image" src="images/testimonial/paper-mache.png" alt="Paper Mache">
-                <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimony"><img class="testimony-image" src="images/testimonial/red-carpet.png" alt="Red Carpet">
-                <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
-                </div>
+    <main class="category-content">
+      <!--Category Banner-->
+      <div class="category-banner" style="background-image:url(images/category-banner.jpg);">
+        <div class="container">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="content-wrap">
+              <div class="content text-center">
+                <h3 class="category-name">Exotic Foods</h3>
+                <p class="category-excerpt">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet. Nam porttitor nisi lectus, quis pretium turpis consequat ut. Nam et bibendum odio.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!--Seen on Section-->
-    <section class="seen-section row">
-      <div class="container padding-0">
-        <div class="section-title">
-          <h2 class="title">As seen on</h2>
-        </div>
-        <div class="col-md-10 col-md-offset-1 list-wrapper">
-          <ul class="seen-on-list">
-            <li><span class="hindustan-times"></span></li>
-            <li><span class="mid-day"></span></li>
-            <li><span class="bloomberg"></span></li>
-            <li><span class="your-story"></span></li>
-            <li><span class="cert"> </span></li>
+      <!--Breadcrums-->
+      <div class="breadcrums-wrap">
+        <div class="container">
+          <ul class="site-breadcrums">
+            <li><a href="#"><span class="fa fa-home"></span></a></li>
+            <li><a href="#">Healthy Living</a></li>
+            <li><a href="#">Exotic Foods</a></li>
+            <li><a href="#">Dry Fruits</a></li>
           </ul>
         </div>
       </div>
-    </section>
+      <!--Category products-->
+      <div class="category-products-section">
+        <div class="container padding-0">
+          <div class="col-md-3">
+            <div class="category-products-filter">
+              <h4 class="title">Filters</h4>
+              <div class="filters">
+                <!--price filter-->
+                <div class="price-filter clearfix">
+                  <p class="filter-label">Price</p>
+                  <div class="range-from number-input">
+                    <input class="form-control" id="price-from" type="number" value="99">
+                    <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"> </span></div>
+                  </div>
+                  <div class="range-to number-input">
+                    <input class="form-control" id="price-to" type="number" value="999">
+                    <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"> </span></div>
+                  </div>
+                </div>
+                <!--category filter-->
+                <div class="product-category-filter open clearfix">
+                  <p class="filter-label">Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturer" class="fa fa-plus-circle toggle-list"></p>
+                  <div class="collapse in" id="collapseManufacturer">
+                    <ul class="category-list">
+                      <li>
+                        <div class="checkbox">
+                          <input id="checkbox1" type="checkbox">
+                          <label for="checkbox1">Kashmir Exotic </label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox2" type="checkbox">
+                          <label for="checkbox2">Kashur</label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox3" type="checkbox">
+                          <label for="checkbox3">Pine</label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox4" type="checkbox">
+                          <label for="checkbox4">RV Spices </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--category filter-->
+                <div class="product-category-filter clearfix">
+                  <p class="filter-label">Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturer2" class="fa fa-plus-circle toggle-list"></p>
+                  <div class="collapse" id="collapseManufacturer2">
+                    <ul class="category-list">
+                      <li>
+                        <div class="checkbox">
+                          <input id="checkbox5" type="checkbox">
+                          <label for="checkbox5">Kashmir Exotic </label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox6" type="checkbox">
+                          <label for="checkbox6">Kashur</label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox7" type="checkbox">
+                          <label for="checkbox7">Pine</label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox8" type="checkbox">
+                          <label for="checkbox8">RV Spices </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--category filter-->
+                <div class="product-category-filter clearfix">
+                  <p class="filter-label">Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturer3" class="fa fa-plus-circle toggle-list"></p>
+                  <div class="collapse" id="collapseManufacturer3">
+                    <ul class="category-list">
+                      <li>
+                        <div class="checkbox">
+                          <input id="checkbox5" type="checkbox">
+                          <label for="checkbox5">Kashmir Exotic </label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox6" type="checkbox">
+                          <label for="checkbox6">Kashur</label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox7" type="checkbox">
+                          <label for="checkbox7">Pine</label>
+                        </div>
+                        <div class="checkbox">
+                          <input id="checkbox8" type="checkbox">
+                          <label for="checkbox8">RV Spices  </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9"> 
+            <div class="category-products-list">
+              <div class="list-header clearfix">
+                <ul class="views">
+                  <li class="grid-view active" data-view-type="grid"><span class="fa fa-th"></span></li>
+                  <li class="list-view" data-view-type="list"><span class="fa fa-list">   </span></li>
+                </ul>
+                <div class="selector">
+                  <div class="arrow"><span class="fa fa-angle-down"></span></div>
+                  <select>
+                    <option value="">sort by</option>
+                    <option value="low">Low</option>
+                    <option value="high">High</option>
+                    <option value="price">New</option>
+                    <option value="discount">Discount</option>
+                    <option value="popular">Popularity</option>
+                  </select>
+                </div>
+              </div>
+              <div class="list-content grid-view clearfix">
+                <div class="products-wrapper clearfix"></div>
+                <div class="loadmore"><a class="btn btn-black" id="loadmore">Load More <span class='remaining'>(1010)</span></a></div>
+                <div class="loadmore"><a class="btn btn-black" id="loadmore">Loading <span class="fa fa-spin fa-spinner"></span></a></div>
+              </div>
+              <div class="list-footer clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Testimonial Section-->
+      <section class="testimonial-section row">
+        <div class="container padding-0">
+          <div class="section-title">
+            <h2 class="title">What our Customers say</h2>
+          </div>
+          <div class="video-testimonial col-md-6 col-md-offset-3">
+            <div class="youtube-iframe" data-embed="bpCvXtpIvpA" data-framebolder="0" data-query="modestbranding=1&amp;rel=0"></div>
+          </div>
+          <div class="col-xs-12 padding-0">
+            <div class="testimonial-slider">
+              <div class="slide">
+                <div class="testimony"><img class="testimony-image" src="images/testimonial/red-carpet.png" alt="Red Carpet">
+                  <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="testimony"><img class="testimony-image" src="images/testimonial/paper-mache.png" alt="Paper Mache">
+                  <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="testimony"><img class="testimony-image" src="images/testimonial/red-carpet.png" alt="Red Carpet">
+                  <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="testimony"><img class="testimony-image" src="images/testimonial/paper-mache.png" alt="Paper Mache">
+                  <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="testimony"><img class="testimony-image" src="images/testimonial/red-carpet.png" alt="Red Carpet">
+                  <div class="desc"><span class="name">Wenddy Obrien</span><span class="from">USA</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at orci eget nunc scelerisque fringilla a non tortor.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Seen on Section-->
+      <section class="seen-section row">
+        <div class="container padding-0">
+          <div class="section-title">
+            <h2 class="title">As seen on</h2>
+          </div>
+          <div class="col-md-10 col-md-offset-1 list-wrapper">
+            <ul class="seen-on-list">
+              <li><span class="hindustan-times"></span></li>
+              <li><span class="mid-day"></span></li>
+              <li><span class="bloomberg"></span></li>
+              <li><span class="your-story"></span></li>
+              <li><span class="cert"> </span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
     <!-- Site Footer-->
     <footer id="site-footer">
       <div id="tagline-strip">

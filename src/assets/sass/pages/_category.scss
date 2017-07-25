@@ -2,6 +2,9 @@
   padding: $unit-layout*1 0 $unit-layout*1 0;
   background-color: $approx-snow-color;
 }
+.breadcrums-wrap {
+  background-color: $approx-snow-color;
+}
 .category-products-list {
   max-width: 580px;
   margin: 0 auto;
@@ -297,7 +300,9 @@
     color: $text-color-dark;
   }
   .filters {
+    margin: $unit-layout 0;
     .price-filter {
+      margin-bottom: $half-unit-layout;
       background-color: $white-color;
       padding: $unit-layout;
       .range-from {
@@ -315,6 +320,32 @@
           background-color: $approx-snow-color;
           border-radius: 0;
           font-size: rem(13px);
+        }
+      }
+    }
+    .product-category-filter {
+      margin-bottom: $half-unit-layout;
+      background-color: $white-color;
+      padding: $unit-layout;
+      .category-list {
+        list-style-type: none;
+        .checkbox {
+          label {
+            font-size: rem(13px);
+            font-weight: 300;
+          }
+        }
+      }
+      &.open {
+        .toggle-list {
+          display: none;
+        }
+      }
+      .filter-label {
+        .toggle-list {
+          float: right;
+          line-height: 24px;
+          cursor: pointer;
         }
       }
     }
