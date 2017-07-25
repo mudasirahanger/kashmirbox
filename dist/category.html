@@ -734,6 +734,128 @@
           </div>
         </div>
       </section>
+      <div class="category-sticky-filter">
+        <div class="sortby"><a href="#" data-toggle="modal" data-target="#product-sort-modal"><span class="fa fa-sort"></span> Sort</a></div>
+        <div class="filterby"><a href="#" data-toggle="modal" data-target="#product-filter-modal"><span class="fa fa-filter"></span> Filter</a></div>
+      </div>
+      <!--Product Category Filter-->
+      <div class="modal fade" id="product-filter-modal" tabindex="-1" role="dialog" aria-labelledby="prodcutModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="col-xs-2"><a data-dismiss="modal" aria-label="Close" href=""> 
+                  <svg width="30px" height="30px" viewbox="0 0 49 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch-->
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="Close" transform="translate(1.000000, 0.000000)" stroke="#108B3C">
+                        <path id="Stroke-1" d="M0.1452,0.1452 L46.7244,46.7244"></path>
+                        <path id="Stroke-3" d="M0.1452,46.72512 L46.7244,0.14592"></path>
+                      </g>
+                    </g>
+                  </svg></a></div>
+              <div class="col-xs-10"><a class="btn btn-default clear-btn">Clear</a><a class="btn btn-orange apply-btn" data-dismiss="modal">Apply</a></div>
+            </div>
+            <div class="modal-body">
+              <div class="category-products-filter">
+                <div class="filters">
+                  <!--price filter-->
+                  <div class="price-filter clearfix">
+                    <p class="filter-label">Price</p>
+                    <div class="range-from number-input">
+                      <input class="form-control" id="price-from" type="number" value="99">
+                      <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"> </span></div>
+                    </div>
+                    <div class="range-to number-input">
+                      <input class="form-control" id="price-to" type="number" value="999">
+                      <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"> </span></div>
+                    </div>
+                  </div>
+                  <!--category filter-->
+                  <div class="product-category-filter open clearfix">
+                    <p class="filter-label">Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturerMobile" class="fa fa-plus-circle toggle-list"></p>
+                    <div class="collapse in" id="collapseManufacturerMobile">
+                      <ul class="category-list">
+                        <li>
+                          <div class="checkbox">
+                            <input id="checkbox1-m" type="checkbox">
+                            <label for="checkbox1-m">Kashmir Exotic </label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox2-m" type="checkbox">
+                            <label for="checkbox2-m">Kashur</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox3-m" type="checkbox">
+                            <label for="checkbox3-m">Pine</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox4-m" type="checkbox">
+                            <label for="checkbox4-m">RV Spices </label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--category filter-->
+                  <div class="product-category-filter clearfix">
+                    <p class="filter-label">Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturerMobile2" class="fa fa-plus-circle toggle-list"></p>
+                    <div class="collapse" id="collapseManufacturerMobile2">
+                      <ul class="category-list">
+                        <li>
+                          <div class="checkbox">
+                            <input id="checkbox5-m" type="checkbox">
+                            <label for="checkbox5-m">Kashmir Exotic </label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox6-m" type="checkbox">
+                            <label for="checkbox6-m">Kashur</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox7-m" type="checkbox">
+                            <label for="checkbox7-m">Pine</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox8-m" type="checkbox">
+                            <label for="checkbox8-m">RV Spices </label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--category filter-->
+                  <div class="product-category-filter clearfix">
+                    <p class="filter-label">Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturerMobile3" class="fa fa-plus-circle toggle-list"></p>
+                    <div class="collapse" id="collapseManufacturerMobile3">
+                      <ul class="category-list">
+                        <li>
+                          <div class="checkbox">
+                            <input id="checkbox5-m" type="checkbox">
+                            <label for="checkbox5-m">Kashmir Exotic </label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox6-m" type="checkbox">
+                            <label for="checkbox6-m">Kashur</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox7-m" type="checkbox">
+                            <label for="checkbox7-m">Pine</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="checkbox8-m" type="checkbox">
+                            <label for="checkbox8-m">RV Spices</label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- Site Footer-->
     <footer id="site-footer">

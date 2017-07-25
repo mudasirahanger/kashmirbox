@@ -20,4 +20,90 @@ block category_content
     //Testimonial Section
     include partials/testimonial-section.pug
     //Seen on Section
-    include partials/seen-on-section.pug 
+    include partials/seen-on-section.pug
+    .category-sticky-filter
+      .sortby
+        a(href='#' data-toggle='modal' data-target='#product-sort-modal') <span class="fa fa-sort"></span> Sort
+      .filterby
+        a(href='#' data-toggle='modal' data-target='#product-filter-modal') <span class="fa fa-filter"></span> Filter
+    //Product Category Filter
+    .modal.fade#product-filter-modal(tabindex='-1', role='dialog', aria-labelledby='prodcutModalLabel')
+      .modal-dialog.modal-lg(role='document')
+        .modal-content
+          .modal-header
+            .col-xs-2
+              a(data-dismiss="modal" aria-label="Close" href='') 
+                include components/svgicons/cross.pug
+            .col-xs-10
+                a(class='btn btn-default clear-btn') Clear
+                a(class='btn btn-orange apply-btn' data-dismiss='modal') Apply
+          .modal-body
+            .category-products-filter
+              .filters
+                //price filter
+                .price-filter.clearfix
+                  p.filter-label Price
+                  .range-from.number-input
+                    input#price-from.form-control(type='number' value='99')
+                    .counter
+                      span.fa.fa-angle-up.increment
+                      span.fa.fa-angle-down.decrement  
+                  .range-to.number-input
+                    input#price-to.form-control(type='number' value='999')
+                    .counter
+                      span.fa.fa-angle-up.increment
+                      span.fa.fa-angle-down.decrement 
+                //category filter
+                .product-category-filter.open.clearfix
+                  p.filter-label Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturerMobile" class="fa fa-plus-circle toggle-list">
+                  #collapseManufacturerMobile.collapse.in
+                    ul.category-list
+                      li
+                        .checkbox
+                          input#checkbox1-m(type='checkbox')
+                          label(for='checkbox1-m') Kashmir Exotic 
+                        .checkbox
+                          input#checkbox2-m(type='checkbox')
+                          label(for='checkbox2-m') Kashur
+                        .checkbox
+                          input#checkbox3-m(type='checkbox')
+                          label(for='checkbox3-m') Pine
+                        .checkbox
+                          input#checkbox4-m(type='checkbox')
+                          label(for='checkbox4-m') RV Spices 
+                //category filter
+                .product-category-filter.clearfix
+                  p.filter-label Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturerMobile2" class="fa fa-plus-circle toggle-list">
+                  #collapseManufacturerMobile2.collapse
+                    ul.category-list
+                      li
+                        .checkbox
+                          input#checkbox5-m(type='checkbox')
+                          label(for='checkbox5-m') Kashmir Exotic 
+                        .checkbox
+                          input#checkbox6-m(type='checkbox')
+                          label(for='checkbox6-m') Kashur
+                        .checkbox
+                          input#checkbox7-m(type='checkbox')
+                          label(for='checkbox7-m') Pine
+                        .checkbox
+                          input#checkbox8-m(type='checkbox')
+                          label(for='checkbox8-m') RV Spices 
+                //category filter
+                .product-category-filter.clearfix
+                  p.filter-label Manufacturers <span data-toggle="collapse" data-target="#collapseManufacturerMobile3" class="fa fa-plus-circle toggle-list">
+                  #collapseManufacturerMobile3.collapse
+                    ul.category-list
+                      li
+                        .checkbox
+                          input#checkbox5-m(type='checkbox')
+                          label(for='checkbox5-m') Kashmir Exotic 
+                        .checkbox
+                          input#checkbox6-m(type='checkbox')
+                          label(for='checkbox6-m') Kashur
+                        .checkbox
+                          input#checkbox7-m(type='checkbox')
+                          label(for='checkbox7-m') Pine
+                        .checkbox
+                          input#checkbox8-m(type='checkbox')
+                          label(for='checkbox8-m') RV Spices

@@ -1,7 +1,9 @@
 .category-page-content {
+  
   .breadcrums-wrap {
     background-color: $approx-snow-color;
   }
+
   .offer-banner {
     padding: $unit-layout * 2 0;
     .offer {
@@ -10,6 +12,7 @@
       }
     }
   }
+
   .top-rated-products {
     .product {
       padding: $unit-layout $half-unit-layout;
@@ -32,7 +35,71 @@
       }
     }
   }
+
+  .category-sticky-filter {
+    background-color: $white-color;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: $half-unit-layout;
+    z-index: 100;
+    @include kb-box-shadow(0, -3px, 5px, $mid-grey)  
+    > div {
+      width: 50%;
+      float: left;
+      text-align: center;
+      > a {
+        display: block;
+        text-transform: uppercase;
+      }
+      &:first-child a {
+        border-right: 1px solid $mid-grey;
+      }
+      .fa {
+        color: $dark-grey;
+        display: inline-block;
+        margin-right: rem(5px);
+      }
+    }
+  }
+
+  #product-filter-modal {
+    padding: 0 !important;
+    background-color: white;
+    .modal-dialog {
+      margin: 0;
+      width: 100%;
+      .modal-content {
+        border: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    .modal-header {
+      > div:last-child {
+        text-align: right;
+      }
+      .clear-btn, .apply-btn {
+        width: rem(100px);
+        height: rem(40px);
+        line-height: rem(40px);
+        padding: 0px;
+        margin: 0 rem(5px);
+      }
+    }
+    .category-products-filter {
+      display: block;
+      .checkbox {
+        label:before {
+          top: 0;
+        }
+      }
+    }
+  }
+
 }
+
 .category-products-section {
   padding: $unit-layout*1 0 $unit-layout*1 0;
   background-color: $approx-snow-color;
@@ -323,8 +390,6 @@
       width: rem(180px);
     }
   }
-
-
 }
 
 .category-products-filter {
@@ -392,6 +457,18 @@
 
 
 @include respond-to(medium) {
+  .category-page-content {
+    #product-filter-modal {
+      .category-products-filter {
+        display: block;
+        .checkbox {
+          label:before {
+            top: 5px;
+          }
+        }
+      }
+    }
+  }
   .category-products-section {
     padding: $unit-layout*2 0 $unit-layout*3 0;
   }
@@ -431,6 +508,11 @@
 }
 
 @include respond-to('large') {
+  .category-page-content {
+    .category-sticky-filter {
+      display: none;
+    }
+  }
   .category-products-list {
     .list-header {
       .selector {
