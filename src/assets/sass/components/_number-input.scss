@@ -1,0 +1,35 @@
+.number-input {
+  height: rem(34px);
+  border: 1px solid $mid-grey;
+  overflow: hidden;
+  input[type="number"]::-webkit-inner-spin-button, 
+  input[type="number"]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0; 
+  }
+  input[type="number"] {
+    border-right: 1px solid $mid-grey;
+    width: 85%;
+    float: left;
+    -moz-appearance: textfield;
+  }
+  .counter {
+    width: 15%;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    .fa {
+      display: block;
+      vertical-align: top;
+      width: 100%;
+      border-left: 0;
+    }
+    .fa:first-child {
+      border-bottom: 0;
+    }
+    .fa.last-child {
+      border-top: 0;
+    }
+  }
+}

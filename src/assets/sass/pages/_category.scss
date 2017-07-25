@@ -301,16 +301,15 @@
       background-color: $white-color;
       padding: $unit-layout;
       .range-from {
-        padding-right: $quarter-unit-layout;
+        margin-right: 2%;
       }
       .range-to {
-        padding-left: $quarter-unit-layout;
+        margin-left: 2%;
       }
       .range-from, .range-to {
-        width: 50%;
+        width: 48%;
         float: left;
         input {
-          border: 1px solid $mid-grey;
           height: rem(34px);
           padding-left: rem(5px);
           background-color: $approx-snow-color;

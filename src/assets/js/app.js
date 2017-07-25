@@ -710,7 +710,28 @@ jQuery(document).ready(function($){
     );
   }
 
+  $(document).on('click', '.number-input .increment', function(){
+    var input = $(this).closest('.number-input').find('input');
+    var inputVal = parseFloat(input.val());
+    if(isNaN(inputVal)) {
+      input.val(0);
+    } else {
+      input.val(inputVal+1);
+    }
+  });
+
+  $(document).on('click', '.number-input .decrement', function(){
+    var input = $(this).closest('.number-input').find('input');
+    var inputVal = parseFloat(input.val());
+    if(isNaN(inputVal)) {
+      input.val(0);
+    } else {
+      input.val(inputVal-1);
+    }
+  });
+
 });
+
 
 /*******************************************************************************
 Global Helper Functions

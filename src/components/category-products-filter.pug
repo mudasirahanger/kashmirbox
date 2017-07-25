@@ -3,7 +3,13 @@
   .filters
     .price-filter.clearfix
       p.filter-label Price
-      .range-from
+      .range-from.number-input
         input#price-from.form-control(type='number' value='99')
-      .range-to
+        .counter
+          span.fa.fa-angle-up.increment
+          span.fa.fa-angle-down.decrement  
+      .range-to.number-input
         input#price-to.form-control(type='number' value='999')
+        .counter
+          span.fa.fa-angle-up.increment
+          span.fa.fa-angle-down.decrement 
