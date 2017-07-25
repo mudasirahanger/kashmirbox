@@ -697,6 +697,7 @@ jQuery(document).ready(function($){
         .children('.products-wrapper')
         .append('<div class="list-item">'+getProductListView(product)+'</div>');
     });
+    productNameHover();
   }
 
   function productNameHover() {
