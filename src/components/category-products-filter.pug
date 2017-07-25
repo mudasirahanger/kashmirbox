@@ -67,6 +67,32 @@
               label(for='checkbox7') Pine
             .checkbox
               input#checkbox8(type='checkbox')
-              label(for='checkbox8') RV Spices  
+              label(for='checkbox8') RV Spices 
+  //Offer Banner
+  .offer-banner
+    .offer
+      a(href='#')
+        img(src='images/offer-banner.png' alt="Offer 30%")
+  //Top Rated Products
+  .top-rated-products
+    h6.title Top rated products
+    - var productCount = 4;
+    while productCount-- > 0
+      - var rating = 4;
+      .product.clearfix
+        .product-img
+          a(href='#')
+            img(src='images/top-rated-walnuts.png' alt='Walnuts')
+        .product-details
+          a(href='#')
+            p.name Kashur Walnuts Boxy
+          p.weight 400 Grams
+          .rating(href='#')
+              while rating-- > 0
+                span.fa.fa-star
+
+
+
+
 
 

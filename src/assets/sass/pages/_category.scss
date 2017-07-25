@@ -1,10 +1,43 @@
+.category-page-content {
+  .breadcrums-wrap {
+    background-color: $approx-snow-color;
+  }
+  .offer-banner {
+    padding: $unit-layout * 2 0;
+    .offer {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .top-rated-products {
+    .product {
+      padding: $unit-layout $half-unit-layout;
+      margin-bottom: $half-unit-layout;
+      background-color: white;
+      .product-img {
+        width: 35%;
+        float: left;
+        img {
+          width: 100%;
+        }
+      }
+      .product-details {
+        padding-left: $quarter-unit-layout;
+        width: 65%;
+        float: left;
+        .rating {
+          color: $pantone-color;
+        }
+      }
+    }
+  }
+}
 .category-products-section {
   padding: $unit-layout*1 0 $unit-layout*1 0;
   background-color: $approx-snow-color;
 }
-.breadcrums-wrap {
-  background-color: $approx-snow-color;
-}
+
 .category-products-list {
   max-width: 580px;
   margin: 0 auto;
@@ -290,6 +323,8 @@
       width: rem(180px);
     }
   }
+
+
 }
 
 .category-products-filter {
