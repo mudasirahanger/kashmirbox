@@ -1,37 +1,44 @@
 .category-products-section {
-  padding: $unit-layout*2 0 $unit-layout*3 0;
+  padding: $unit-layout*1 0 $unit-layout*1 0;
   background-color: $approx-snow-color;
 }
 .category-products-list {
   max-width: 580px;
   margin: 0 auto;
-  .views {
-    list-style-type: none;
-    li {
-      float: left;
-      width: rem(30px);
-      height: rem(30px);
-      cursor: pointer;
-      text-align: center;
-      background-color: white;
-      span {
-        display: block;
-        line-height: rem(30px);
-        font-size: rem(13px);
+
+  .list-header {
+    .views {
+      display: none;
+      list-style-type: none;
+      li {
+        float: left;
+        width: rem(30px);
+        height: rem(30px);
+        cursor: pointer;
+        text-align: center;
+        background-color: white;
+        span {
+          display: block;
+          line-height: rem(30px);
+          font-size: rem(13px);
+        }
+      }
+      li.active {
+        background-color: $black-color;
+        color: white;
       }
     }
-    li.active {
-      background-color: $black-color;
-      color: white;
+    .selector {
+      display: none;
+      float: right;
+      select {
+        font-size: rem(14px);
+        font-weight: 300;
+      }
     }
   }
-  .selector {
-    float: right;
-    select {
-      font-size: rem(14px);
-      font-weight: 300;
-    }
-  }
+
+  /* Grid View */
   .grid-view {
     .grid-item {
       width: 50%;
@@ -180,7 +187,8 @@
       }
     }
   }
-
+  
+  /* List View */
   .list-view {
     .list-item {
       background-color: $white-color;
@@ -271,6 +279,7 @@
       }
     }
   }
+
   .loadmore {
     margin-top: $unit-layout*4;
     text-align: center;
@@ -281,45 +290,92 @@
 }
 
 .category-products-filter {
+  display: none;
   .title {
     padding: $unit-layout 0;
     font-family: $ff-playfair-display;
     color: $text-color-dark;
   }
+  .filters {
+    .price-filter {
+      background-color: $white-color;
+      padding: $unit-layout;
+      .range-from {
+        padding-right: $quarter-unit-layout;
+      }
+      .range-to {
+        padding-left: $quarter-unit-layout;
+      }
+      .range-from, .range-to {
+        width: 50%;
+        float: left;
+        input {
+          border: 1px solid $mid-grey;
+          height: rem(34px);
+          padding-left: rem(5px);
+          background-color: $approx-snow-color;
+          border-radius: 0;
+          font-size: rem(13px);
+        }
+      }
+    }
+    .filter-label {
+      font-size: rem(13px);
+    }
+  }
 }
 
 
 @include respond-to(medium) {
-   .category-products-list{
-      max-width: 100%;
-      .list-header {
-        padding: $unit-layout 0;
+  .category-products-section {
+    padding: $unit-layout*2 0 $unit-layout*3 0;
+  }
+ .category-products-list{
+    max-width: 100%;
+    .list-header {
+      padding: $unit-layout 0;
+      .views {
+        display: block;
       }
-      .grid-view {
-        .grid-item {
-          width: 33.33%;
+    }
+    .grid-view {
+      .grid-item {
+        width: 33.33%;
+        float: left;
+      }
+      .grid-item:nth-child(2n+1) {
+        clear: none;
+      }
+      .grid-item:nth-child(3n+1) {
+        clear: left;
+        .product {
           float: left;
         }
-        .grid-item:nth-child(2n+1) {
-          clear: none;
-        }
-        .grid-item:nth-child(3n+1) {
-          clear: left;
-          .product {
-            float: left;
-          }
-        }
-        .grid-item:nth-child(3n+3) {
-          .product {
-            float: right;
-          }
-        }
+      }
+      .grid-item:nth-child(3n+3) {
         .product {
-          margin: 0 auto;
-          max-width: 96%;
+          float: right;
         }
       }
-   }
+      .product {
+        margin: 0 auto;
+        max-width: 96%;
+      }
+    }
+  }
+}
+
+@include respond-to('large') {
+  .category-products-list {
+    .list-header {
+      .selector {
+        display: block;
+      }
+    }
+  }
+  .category-products-filter {
+    display: block;
+  }
 }
 
 @include respond-to('large-2') {

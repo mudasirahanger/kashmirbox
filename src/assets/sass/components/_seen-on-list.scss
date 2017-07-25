@@ -4,7 +4,7 @@
   list-style-type: none;
   li {
     float: left;
-    width: 33.33%;
+    width: 50%;
     height: 130px;
     span {
       background-image: url('../images/seen-on.png');
@@ -29,11 +29,20 @@
       background-position: 133px 5px;
     }
   }
-  li:nth-child(n+4) {
-    width: 50%;
+  li:last-child {
+    width: 100%;
   }
 }
-
+@include respond-to('small-2') {
+  .seen-on-list {
+    li {
+      width: 33.33%;
+    }
+    li:nth-child(n+4) {
+      width: 50%;
+    }
+  }
+}
 @include respond-to(medium) {
   .seen-on-list {
     li {
@@ -44,3 +53,4 @@
     }
   }
 }
+
