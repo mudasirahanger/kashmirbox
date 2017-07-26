@@ -1,0 +1,12 @@
+.related-products-section {
+  background-color: $approx-snow-color;
+  padding: $unit-layout*2 0 $unit-layout*2 0;
+}
+
+@include respond-to(medium) {
+
+  .related-products-section {
+    padding: $unit-layout*3 0 $unit-layout*4 0;
+  }
+
+}

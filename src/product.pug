@@ -4,6 +4,15 @@ block app_variables
   - var pageTitle = "Kashmir Box";
 block product_content
   main.product-page.content
+    // Related Products Section
+    section.related-products-section.row
+      .container
+        .section-title
+          h2.title You May Also Like
+          p.desc Health. Exotic Indulgence. Stylish Apparels.
+      .product-slider-wrap
+        - var productSliderId = 'related-product-slider';
+        include components/product-slider.pug
     //Testimonial Section
     include partials/testimonial-section.pug
     //Seen on Section
