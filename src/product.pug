@@ -3,7 +3,11 @@ extends ./layouts/product.pug
 block app_variables
   - var pageTitle = "Kashmir Box";
 block product_content
-  main.product-page.content
+  main.product-page-content
+    //Breadcrums
+    .breadcrums-wrap
+      .container
+        include components/breadcrums.pug
     // Related Products Section
     section.related-products-section.row
       .container
