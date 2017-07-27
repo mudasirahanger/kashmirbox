@@ -56,6 +56,7 @@ var jsFiles = [
   jsPath+'jquery-3.2.1.min.js',
   jsPath+'bootstrap.min.js',
   jsPath+'vendor/slick-slider/slick.min.js',
+  jsPath+'vendor/elevatezoom/jquery.elevateZoom-3.0.8.min.js',
   jsPath+'app.js'
 ];
 var jsDest = 'dist/js/';

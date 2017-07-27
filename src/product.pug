@@ -8,6 +8,41 @@ block product_content
     .breadcrums-wrap
       .container
         include components/breadcrums.pug
+    // Product Details Section
+    section.product-details-section.row
+      .container.padding-0
+        .left-col.col-md-6.padding-0.clearfix
+          //Mobile Slider
+          #product-img-slider
+            //insert slider content using jquery
+          //Large Screen Thumbnail Gallery
+          #product-img-gal.clearfix
+            a.active(href='#', data-image='images/products/product-img-1.jpg', data-zoom-image='images/products/product-img-1.jpg')
+              img#img_01(src='images/products/product-img-1.jpg' alt="Product 1")
+            a(href='#', data-image='images/products/product-img-2.jpg', data-zoom-image='images/products/product-img-2.jpg')
+              img#img_02(src='images/products/product-img-2.jpg' alt="Product 2")
+            a(href='#', data-image='images/products/product-img-1.jpg', data-zoom-image='images/products/product-img-1.jpg')
+              img#img_03(src='images/products/product-img-1.jpg' alt="Product 3")
+            a(href='#', data-image='images/products/product-img-1.jpg', data-zoom-image='images/products/product-img-1.jpg')
+              img#img_04(src='images/products/product-img-2.jpg' alt="Product 4")
+          .product-img
+            img#product-img(src='images/products/product-img-1.jpg' data-zoom-image="images/products/product-img-1.jpg" alt='Product 1')
+            .product-img-footer
+              .vendor.col-xs-4
+                span Sold by <a href='#' class="name">Naar</a>
+              .requests.col-xs-8
+                a(href='#') Customise-This
+                a(href='#') Trade-Query
+          //For Mobile
+          .product-img-footer
+              .vendor.col-xs-4
+                span Sold by <a href='#' class="name">Naar</a>
+              .requests.col-xs-8
+                a(href='#') Customise-This
+                a(href='#') Trade-Query
+
+        .right-col.col-md-6.padding-0
+          | Product name
     // Related Products Section
     section.related-products-section.row
       .container

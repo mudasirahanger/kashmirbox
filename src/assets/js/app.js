@@ -746,6 +746,28 @@ jQuery(document).ready(function($){
 
 });
 
+/*******************************************************************************
+Product Page
+*******************************************************************************/
+jQuery(document).ready(function($){
+  $("#product-img").elevateZoom({
+    zoomType : "inner",
+    cursor: "crosshair",
+    gallery : 'product-img-gal',
+    galleryActiveClass: 'active', 
+  });
+  //console.log($('#product-img').data('elevateZoom').getGalleryList());
+  //intialize slider
+  var sliderContent = $('#product-img-gal').html();
+  $('#product-img-slider').append(sliderContent);
+  $('#product-img-slider').slick({
+    'prevArrow' : '<span class="fa fa-chevron-left slide-back"></span>',
+    'nextArrow' : '<span class="fa fa-chevron-right slide-next"></span>',
+    arrows: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  });
+});
 
 /*******************************************************************************
 Global Helper Functions
