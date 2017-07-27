@@ -66,6 +66,96 @@
         }
       }
     }
+    .right-col {
+      .product-name {
+        font-family: $ff-playfair-display;
+        font-weight: 700;
+      }
+      .rating {
+        color: $pantone-color;
+        float: left;
+        padding-right: $half-unit-layout;
+      }
+      .reviews {
+        float: left;
+        clear: right;
+        a {
+          color: #153ec3;
+          text-align: center;
+        }
+      }
+      .price {
+        padding: $half-unit-layout 0;
+        clear: both;
+        .price-value  {
+          color: $text-color-dark;
+        }
+      }
+      .product-details {
+        .heading {
+          color: $text-color-dark;
+          padding: $unit-layout 0;
+        }
+        .detail-list {
+          list-style-type: none;
+          li {
+            span {
+              font-size: rem(14px);
+              display: block;
+              float: left;
+              width: 50%;
+            }
+            span:first-child {
+              font-weight: 300;
+            }
+            span:last-child {
+              color: $text-color-dark;
+            }
+          }
+        }
+      }
+      .extra-options {
+        z-index: 100;
+        max-width: rem(245px);
+        background-color: $white-color;
+        padding: $unit-layout;
+        .heading {
+          color: $text-color-dark;
+          padding-bottom: $half-unit-layout;
+        }
+        .option {
+          padding-bottom: $half-unit-layout;
+          input, select {
+            border-radius: 0;
+            background-color: $approx-snow-color;
+          }
+        }
+        .add-to-cart{
+          margin-top: $unit-layout;
+          .add-to-cart-btn {
+            width: 78%;
+            float: left;
+            margin-right: 2%;
+            border-radius: 0;
+            span {
+              font-size: rem(12px);
+            }
+            .fa {
+              padding-right: rem(5px);
+            }
+          }
+          .add-to-wishlist {
+            width: 20%;
+            float: left;
+            height: rem(45px);
+            line-height: rem(45px);
+            border: 1px solid $brand-color;
+            color: $brand-color; 
+            border-radius: 0;
+          }
+        }
+      }
+    }
   }
 
   .related-products-section {

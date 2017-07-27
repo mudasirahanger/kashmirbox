@@ -749,15 +749,18 @@ jQuery(document).ready(function($){
 /*******************************************************************************
 Product Page
 *******************************************************************************/
+
 jQuery(document).ready(function($){
+
+  // product image
   $("#product-img").elevateZoom({
     zoomType : "inner",
     cursor: "crosshair",
     gallery : 'product-img-gal',
     galleryActiveClass: 'active', 
   });
-  //console.log($('#product-img').data('elevateZoom').getGalleryList());
-  //intialize slider
+
+  //intialize slider for mobile
   var sliderContent = $('#product-img-gal').html();
   $('#product-img-slider').append(sliderContent);
   $('#product-img-slider').slick({
@@ -767,6 +770,41 @@ jQuery(document).ready(function($){
     slidesToShow: 1,
     slidesToScroll: 1
   });
+
+  // fixed box
+  var extraOptions = $('.product-details-section .extra-options');
+  var positionFixed = true;
+  var productDetailSection = $('.product-details-section');
+
+  function makeExtraOptionsFixed() {
+    var cw = parseFloat($('.product-details-section .container').css('width').replace('px'));
+    var vw = $(window).width();
+    var mw = (vw-cw) / 2;
+    var fp_l = mw+cw-parseFloat(extraOptions.css('width').replace('px'))-3;
+    console.log(vw, mw, cw, fp_l, getScrollbarWidth());
+    extraOptions.css('position', 'fixed').css('top', 10).css('left',fp_l);
+  }
+
+  $(window).scroll(function(){
+    var scrollTop = $(window).scrollTop();
+    var sectionHeight = parseFloat(productDetailSection.css('height').replace('px'));
+    var extraOptionsHeight = parseFloat(extraOptions.css('height').replace('px'));
+    if(Math.abs(sectionHeight-extraOptionsHeight) < 300) {
+      return;
+    }
+    var fixedFrom = 460;
+    var fixedTo = productDetailSection[0].offsetTop+sectionHeight-extraOptionsHeight;
+    if(scrollTop >= fixedFrom && scrollTop <= fixedTo) {
+      makeExtraOptionsFixed();
+      positionFixed = true;
+    } else {
+      if(positionFixed) {
+        extraOptions.css('position', 'static').css('top', 0);
+        positionFixed = false
+      }
+    }
+  });
+
 });
 
 /*******************************************************************************

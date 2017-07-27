@@ -40,9 +40,87 @@ block product_content
               .requests.col-xs-8
                 a(href='#') Customise-This
                 a(href='#') Trade-Query
-
         .right-col.col-md-6.padding-0
-          | Product name
+          .col-xs-12
+            h3.product-name Black Maroon Swarovski Stole
+            .rating
+              - var rating = 4
+              while rating-- > 0
+                span.fa.fa-star
+            p.reviews
+              a(href='#product-reviews-section') (17 Reviews)
+            .price
+              h5.price-value $3,096
+          .product-details.col-xs-7
+            p.heading product details
+            ul.detail-list
+              li
+                span.kbcode KB Code
+                span KBF0285
+              li
+                span.material Fabric
+                span Summer Wool
+              li
+                span.color Color
+                span Black, Maroon
+              li
+                span.size Size
+                span 70xm x 200cm
+              li
+                span.embroidery Embroidery
+                span Swarovski
+              li
+                span.care Care
+                span Dry Clean Only
+              li
+                span.stock Availibility
+                span 4  
+          .extra-options.col-xs-5
+            .option
+              p.heading Check delivery options
+              .form-group.has-success.has-feedback
+                input#inputSuccess2.form-control(type='text', aria-describedby='inputSuccess2Status')
+                span.fa.fa-check.form-control-feedback(aria-hidden='true')
+                span#inputSuccess2Status.sr-only (success)
+            .option
+              p.heading Choose the suit type
+              .form-group
+                select#sel1.form-control
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+            .option
+              p.heading Choose the suit type
+              .form-group
+                select#sel1.form-control
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+            .option
+              p.heading Quantity
+              .number-input
+                input#product-quantity.form-control(type='number' value='3096' data-target='#total-price')
+                .counter
+                  span.fa.fa-angle-up.increment
+                  span.fa.fa-angle-down.decrement
+            .option
+              p.heading Total Price
+              .form-group
+                input#total-price.form-control(data-unit-value='3096' data-total='3096' data-currency-symbol='$' value='$3,096' readonly)
+            .add-to-cart
+              a.btn.btn-primary.add-to-cart-btn
+                span.fa.fa-shopping-bag 
+                span Add to your box
+              a.btn.btn-white.add-to-wishlist(data-product-id='123')
+                span.fa.fa-heart-o
+
+
+
+
+
+
     // Related Products Section
     section.related-products-section.row
       .container
