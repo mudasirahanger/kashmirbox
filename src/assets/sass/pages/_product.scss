@@ -289,7 +289,7 @@
             img {
               width: 100%;
             }
-            &.active {
+            &.active, &:hover {
               border: rem(2px) solid $brand-color;
               border-radius: rem(5px);
             }
