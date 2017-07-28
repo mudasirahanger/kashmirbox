@@ -840,6 +840,12 @@ jQuery(document).ready(function($){
     $(target).val(symbol+(new Number(total)).toLocaleString());
   });
 
+  if($(window).width() <= 767) {
+    //collapse description, shipping and seller details on mobile
+    $('.product-page-content .product-details-section .footer-col .title .fa')
+    .trigger('click')
+  }
+
   function intPX(str) {
     if(!str) 
       return 0;
