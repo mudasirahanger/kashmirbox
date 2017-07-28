@@ -89,6 +89,8 @@
                 li {
                   a {
                     font-weight: 300;
+                    padding: $quarter-unit-layout 0;
+                    display: inline-block;
                   }
                 }
               }
@@ -430,6 +432,7 @@
         > li {
           line-height: normal;
           min-height: auto;
+          margin-bottom: -1px;
         }
       }
     }
