@@ -51,9 +51,9 @@ block product_content
               a(href='#product-reviews-section') (17 Reviews)
             .price
               h5.price-value $3,096
-          .product-details.col-xs-7
+          .product-details.col-sm-6.col-md-7
             p.heading product details
-            ul.detail-list
+            ul.detail-list.clearfix
               li
                 span.kbcode KB Code
                 span KBF0285
@@ -75,7 +75,35 @@ block product_content
               li
                 span.stock Availibility
                 span 4  
-          .extra-options.col-xs-5
+            p.heading Build pack
+              ul.build-pack-list.clearfix
+                li
+                  a(href='#')
+                    span.fa.fa-rocket
+                li
+                  a(href='#')
+                    span.fa.fa-rocket
+                li
+                  a(href='#')
+                    span.fa.fa-rocket
+                li
+                  a(href='#')
+                    span.fa.fa-rocket
+            p.heading Share this product
+              ul.social-share-list.clearfix
+                li
+                  a.fb(href='#')
+                    span.fa.fa-facebook
+                li
+                  a.tw(href='#')
+                    span.fa.fa-twitter
+                li
+                  a.gp(href='#')
+                    span.fa.fa-google-plus
+                li
+                  a.pt(href='#')
+                    span.fa.fa-pinterest
+          .extra-options.col-sm-6.col-md-5
             .option
               p.heading Check delivery options
               .form-group.has-success.has-feedback
@@ -98,23 +126,44 @@ block product_content
                   option 2
                   option 3
                   option 4
-            .option
+            .option.product-quantity.clearfix
               p.heading Quantity
               .number-input
-                input#product-quantity.form-control(type='number' value='3096' data-target='#total-price')
+                input#product-quantity-input.form-control(type='number' value='1' data-target='#total-price-input')
                 .counter
                   span.fa.fa-angle-up.increment
                   span.fa.fa-angle-down.decrement
-            .option
+            .option.total-price.clearfix
               p.heading Total Price
               .form-group
-                input#total-price.form-control(data-unit-value='3096' data-total='3096' data-currency-symbol='$' value='$3,096' readonly)
+                input#total-price-input.form-control(data-unit-price='3096' data-total='3096' data-currency-symbol='$' value='$3,096' readonly)
             .add-to-cart
               a.btn.btn-primary.add-to-cart-btn
                 span.fa.fa-shopping-bag 
                 span Add to your box
               a.btn.btn-white.add-to-wishlist(data-product-id='123')
                 span.fa.fa-heart-o
+        .footer-col.col-md-9.padding-0
+          .about
+            p.title(href='#') Description <span data-toggle="collapse" data-target="#product-desc" class="fa fa-plus-circle toggle-details"></span>
+            #product-desc.collapse.in
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus odio massa, ac luctus massa consequat id. Curabitur id tortor ut justo lobortis finibus. In gravida, ante et efficitur fringilla, sem sapien tempus nisi, ac malesuada eros mi imperdiet erat. Vestibulum est ex, porttitor sit amet convallis quis, gravida et libero. Ut maximus, erat a tempus pellentesque, sapien diam cursus tortor, at accumsan nunc ligula vitae quam. 
+          .shipping-details
+            p.title(href='#') Shipping <span data-toggle="collapse" data-target="#product-shipping-details" class="fa fa-plus-circle toggle-details"></span>
+            #product-shipping-details.collapse.in
+              p
+                span.light-text Estimated Arrival: 
+                span Between 0 to India 
+              p 
+                span.light-text Return Policy:  
+                span Returns Accepted Within 7 Days Of Delivery. No Returns for On Sale Products. 
+              p
+                span.light-text Availability:   
+                span Ships Internationally 
+          .seller-details
+            p.title(href='#') Seller Details <span data-toggle="collapse" data-target="#product-seller-details" class="fa fa-plus-circle toggle-details"></span>
+            #product-seller-details.collapse.in
+              p mi imperdiet erat. Vestibulum est ex, porttitor sit amet convallis quis, gravida et libero. Ut maximus, erat a tempus. mi imperdiet erat. Vestibulum est ex, porttitor sit amet convallis quis, gravida et libero. Ut maximus, erat a tempus  
 
 
 

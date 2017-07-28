@@ -513,9 +513,9 @@
                 <h5 class="price-value">$3,096</h5>
               </div>
             </div>
-            <div class="product-details col-xs-7">
+            <div class="product-details col-sm-6 col-md-7">
               <p class="heading">product details</p>
-              <ul class="detail-list">
+              <ul class="detail-list clearfix">
                 <li><span class="kbcode">KB Code</span><span>KBF0285</span></li>
                 <li><span class="material">Fabric</span><span>Summer Wool</span></li>
                 <li><span class="color">Color</span><span>Black, Maroon</span></li>
@@ -524,8 +524,24 @@
                 <li><span class="care">Care</span><span>Dry Clean Only</span></li>
                 <li><span class="stock">Availibility</span><span>4  </span></li>
               </ul>
+              <p class="heading">Build pack
+                <ul class="build-pack-list clearfix">
+                  <li><a href="#"><span class="fa fa-rocket"></span></a></li>
+                  <li><a href="#"><span class="fa fa-rocket"></span></a></li>
+                  <li><a href="#"><span class="fa fa-rocket"></span></a></li>
+                  <li><a href="#"><span class="fa fa-rocket"></span></a></li>
+                </ul>
+              </p>
+              <p class="heading">Share this product
+                <ul class="social-share-list clearfix">
+                  <li><a class="fb" href="#"><span class="fa fa-facebook"></span></a></li>
+                  <li><a class="tw" href="#"><span class="fa fa-twitter"></span></a></li>
+                  <li><a class="gp" href="#"><span class="fa fa-google-plus"></span></a></li>
+                  <li><a class="pt" href="#"><span class="fa fa-pinterest"></span></a></li>
+                </ul>
+              </p>
             </div>
-            <div class="extra-options col-xs-5">
+            <div class="extra-options col-sm-6 col-md-5">
               <div class="option">
                 <p class="heading">Check delivery options</p>
                 <div class="form-group has-success has-feedback">
@@ -554,20 +570,42 @@
                   </select>
                 </div>
               </div>
-              <div class="option">
+              <div class="option product-quantity clearfix">
                 <p class="heading">Quantity</p>
                 <div class="number-input">
-                  <input class="form-control" id="product-quantity" type="number" value="3096" data-target="#total-price">
+                  <input class="form-control" id="product-quantity-input" type="number" value="1" data-target="#total-price-input">
                   <div class="counter"><span class="fa fa-angle-up increment"></span><span class="fa fa-angle-down decrement"></span></div>
                 </div>
               </div>
-              <div class="option">
+              <div class="option total-price clearfix">
                 <p class="heading">Total Price</p>
                 <div class="form-group">
-                  <input class="form-control" id="total-price" data-unit-value="3096" data-total="3096" data-currency-symbol="$" value="$3,096" readonly>
+                  <input class="form-control" id="total-price-input" data-unit-price="3096" data-total="3096" data-currency-symbol="$" value="$3,096" readonly>
                 </div>
               </div>
               <div class="add-to-cart"><a class="btn btn-primary add-to-cart-btn"><span class="fa fa-shopping-bag"> </span><span>Add to your box</span></a><a class="btn btn-white add-to-wishlist" data-product-id="123"><span class="fa fa-heart-o"></span></a></div>
+            </div>
+          </div>
+          <div class="footer-col col-md-9 padding-0">
+            <div class="about">
+              <p class="title" href="#">Description <span data-toggle="collapse" data-target="#product-desc" class="fa fa-plus-circle toggle-details"></span></p>
+              <div class="collapse in" id="product-desc">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus odio massa, ac luctus massa consequat id. Curabitur id tortor ut justo lobortis finibus. In gravida, ante et efficitur fringilla, sem sapien tempus nisi, ac malesuada eros mi imperdiet erat. Vestibulum est ex, porttitor sit amet convallis quis, gravida et libero. Ut maximus, erat a tempus pellentesque, sapien diam cursus tortor, at accumsan nunc ligula vitae quam. </p>
+              </div>
+            </div>
+            <div class="shipping-details">
+              <p class="title" href="#">Shipping <span data-toggle="collapse" data-target="#product-shipping-details" class="fa fa-plus-circle toggle-details"></span></p>
+              <div class="collapse in" id="product-shipping-details">
+                <p><span class="light-text">Estimated Arrival: </span><span>Between 0 to India </span></p>
+                <p> <span class="light-text">Return Policy:  </span><span>Returns Accepted Within 7 Days Of Delivery. No Returns for On Sale Products. </span></p>
+                <p><span class="light-text">Availability:   </span><span>Ships Internationally </span></p>
+              </div>
+            </div>
+            <div class="seller-details">
+              <p class="title" href="#">Seller Details <span data-toggle="collapse" data-target="#product-seller-details" class="fa fa-plus-circle toggle-details"></span></p>
+              <div class="collapse in" id="product-seller-details">
+                <p>mi imperdiet erat. Vestibulum est ex, porttitor sit amet convallis quis, gravida et libero. Ut maximus, erat a tempus. mi imperdiet erat. Vestibulum est ex, porttitor sit amet convallis quis, gravida et libero. Ut maximus, erat a tempus  </p>
+              </div>
             </div>
           </div>
         </div>
