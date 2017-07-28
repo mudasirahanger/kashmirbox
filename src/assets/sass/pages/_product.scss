@@ -174,10 +174,28 @@
           color: $text-color-dark;
           padding-bottom: $half-unit-layout;
         }
+        .pincode {
+          .has-success .form-control-feedback {
+            color: $brand-color !important;
+          }
+        }
         .option {
           padding-bottom: $half-unit-layout;
+          
+          .number-input {
+            border-color: $light-grey;
+          }
+          .selector {
+            width: 100%;
+            .arrow {
+              z-index: 10;
+              border-left: 0;
+            }
+            border-color: $light-grey;
+          }
           input, select {
             border-radius: 0;
+            border-color: $light-grey;
             background-color: $approx-snow-color;
           }
         }

@@ -104,7 +104,7 @@ block product_content
                   a.pt(href='#')
                     span.fa.fa-pinterest
           .extra-options.col-sm-6.col-md-5
-            .option
+            .option.pincode
               p.heading Check delivery options
               .form-group.has-success.has-feedback
                 input#inputSuccess2.form-control(type='text', aria-describedby='inputSuccess2Status')
@@ -112,20 +112,22 @@ block product_content
                 span#inputSuccess2Status.sr-only (success)
             .option
               p.heading Choose the suit type
-              .form-group
-                select#sel1.form-control
-                  option 1
-                  option 2
-                  option 3
-                  option 4
+              .selector
+                .arrow
+                  span.fa.fa-caret-down
+                select
+                  option(value='1') 1
+                  option(value='2') 2
+                  option(value='3') 3
             .option
               p.heading Choose the suit type
-              .form-group
-                select#sel1.form-control
-                  option 1
-                  option 2
-                  option 3
-                  option 4
+              .selector
+                .arrow
+                  span.fa.fa-caret-down
+                select
+                  option(value='1') 1
+                  option(value='2') 2
+                  option(value='3') 3
             .option.product-quantity.clearfix
               p.heading Quantity
               .number-input
