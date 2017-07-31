@@ -5,12 +5,21 @@
     max-width: rem($lg-container);
   } 
   .logo-wrap {
-    max-width: 100%;
+    img {
+      max-width: 90%;
+    }
   }
   .safe-and-secure {
     text-align: right;
-    line-height: rem(60px);
     font-size: rem(13px);
     font-weight: 300;
+  }
+}
+
+@include respond-to('small-2') {
+  #site-header-checkout { 
+    .safe-and-secure {
+      line-height: rem(60px);
+    }
   }
 }
