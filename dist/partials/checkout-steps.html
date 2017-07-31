@@ -1,0 +1,88 @@
+
+<div class="step open" id="step1">
+  <div class="step-title"><span class="index">1</span><span>Login</span></div>
+  <div class="step-complete-panel"></div>
+  <div class="step-content collapse in"> 
+    <div class="view logged-out clearfix">
+      <div class="col-sm-6 col-left">
+        <div class="login-form-wrap">
+          <h6>Returning Customer</h6>
+          <form id="login-form">
+            <div class="form-group">
+              <input class="form-control" id="login-email" type="email" placeholder="email address"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="login-password" type="password" placeholder="password"/>
+            </div>
+            <div class="form-group">
+              <button class="submit-btn btn btn-orange" type="submit">Login</button><a class="forgot-password-link" href="#">forgot password</a>
+            </div>
+          </form>
+        </div>
+        <div class="register-form-wrap">
+          <h6>Create Account</h6>
+          <form id="register-form">
+            <div class="form-group">
+              <input class="form-control" id="register-name" type="text" name="fullname" placeholder="full name"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="register-email" type="email" email="email" placeholder="email address"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="register-password" type="password" name="password" placeholder="password"/>
+            </div>
+            <div class="form-group">
+              <button class="submit-btn btn btn-orange" type="submit">Register</button><a class="signin-link">Already have account? Signin</a>
+            </div>
+          </form>
+        </div>
+        <div class="guest-form-wrap">
+          <h6>Checkout as Guest</h6>
+          <form id="guest-form">
+            <div class="form-group">
+              <input class="form-control" id="guest-name" type="text" name="name" placeholder="full name"/>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="guest-email" type="email" name="email" placeholder="email address"/>
+            </div>
+            <div class="form-group">
+              <button class="submit-btn btn btn-orange" type="submit">Next</button><a class="signin-link">Already have account? Signin</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-6 col-right">
+        <h6>New Customer</h6>
+        <div class="checkout-options">
+          <p>Checkout Options:</p>
+          <div class="radio radio-primary">
+            <input id="register-account" type="radio" name="customer-type" value="new"/>
+            <label for="register-account">Register Account</label>
+          </div>
+          <div class="radio radio-primary">
+            <input id="guest-checkout" type="radio" name="customer-type" value="guest"/>
+            <label for="guest-checkout">Guest Checkout</label>
+          </div>
+          <p>
+            By creating an account you will be able to shop faster, be up to date
+            on order's status, and keep track of the orders you have previously made.
+          </p>
+        </div><a class="btn btn-border btn-border-orange" id="checkout-type-btn">Continue </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step">
+  <div class="step-title"><span class="index">2</span><span>Address</span></div>
+  <div class="step-complete-panel"></div>
+  <div class="step-content collapse">
+    <p>step1 content</p>
+  </div>
+</div>
+<div class="step">
+  <div class="step-title"><span class="index">3</span><span>Payment</span></div>
+  <div class="step-complete-panel"></div>
+  <div class="step-content collapse"> 
+    <p>step1 content</p>
+  </div>
+</div>

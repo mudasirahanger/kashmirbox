@@ -1,0 +1,74 @@
+.checkout-steps {
+  .step {
+    .step-title {
+      margin: $unit-layout 0;
+      padding: $half-unit-layout;
+      background-color: $white-color;
+      span {
+        font-size: rem(17px);
+      }
+      .index {
+        width: rem(30px);
+        height: rem(30px);
+        line-height: rem(30px);
+        display: inline-block;
+        margin-right: $unit-layout;
+        background-color: $brand-color;
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+
+  .step.open {
+    .step-title {
+      background-color: $approx-snow-color;
+    }
+  }
+
+  .step#step1 {
+    .step-content {
+      .view.logged-out {
+        background-color: $white-color;
+        padding: $double-unit-layout $unit-layout;
+        .col-left,.col-right {
+          > h6 {
+            margin-bottom: $unit-layout;
+          }
+        }
+        .col-right {
+          .checkout-options .radio label{
+            font-size: rem(14px);
+          }
+          #checkout-type-btn {
+           font-size: rem(16px);
+           margin: $unit-layout 0;
+           border-radius: 0;
+          }
+        }
+        form {
+          .form-group {
+            margin: $unit-layout 0;
+          }
+          .form-control {
+            border-radius: 0;
+            max-width: rem(300px);
+            height: rem(45px);
+          }
+          .submit-btn{
+            width: 100%;
+            border-radius: 0;
+            height: rem(45px);
+            max-width: rem(300px);
+            display: block;
+          }
+          .forgot-password-link, .signin-link {
+            color: $crimson-color;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+}

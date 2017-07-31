@@ -3,7 +3,10 @@
   .checkout-steps-section {
     background-color: $approx-snow-color;
     padding: $unit-layout * 3 0 $unit-layout * 12 0;
-
+    .container {
+      max-width: rem($lg-container);
+      width: 100%;
+    }
     .checkout-sidebar {
       .features {
         .features-list {
@@ -18,7 +21,7 @@
               vertical-align: top;
             }
             span:last-child {
-              width: 82%;
+              width: 80%;
               font-weight: 300;
             }
             .fa {
@@ -68,3 +71,21 @@
   }
 }
 
+@include respond-to(large) {
+  
+  .checkout-page-content {
+    .checkout-steps-section {
+      .checkout-sidebar {
+        .features {
+          .features-list {
+            span:last-child {
+              width: 82%;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

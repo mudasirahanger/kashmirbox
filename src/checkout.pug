@@ -7,16 +7,17 @@ block checkout_content
     .checkout-steps-section
       .container
         .checkout-steps.col-sm-8
-          h1 Checkout Steps
+          include ./partials/checkout-steps.pug
+
         .checkout-sidebar.col-sm-4
-          .features
+          .features.hidden-xs
             ul.features-list
               li 
                 span.fa.fa-check
                 span Authenticity Guaranteed
               li 
                 span.fa.fa-lock
-                span 100% Safe & Secure Payments Process
+                span 100% Safe &amp; Secure Payments Process
               li 
                 span.fa.fa-refresh
                 span Easy Returns

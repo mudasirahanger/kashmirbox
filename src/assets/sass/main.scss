@@ -26,7 +26,8 @@
   'layout/tagline',
   'layout/testimonial-section',
   'layout/seen-on-section',
-  'layout/header-checkout';
+  'layout/header-checkout',
+  'layout/checkout-steps';
 
 // 5. Components
 @import
@@ -48,7 +49,8 @@
   'components/breadcrums',
   'components/selector',
   'components/number-input',
-  'components/checkbox-input';
+  'components/checkbox-input',
+  'components/radio-input';
 
 // 6. Page-specific styles
 @import

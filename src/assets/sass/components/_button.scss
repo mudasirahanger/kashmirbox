@@ -4,11 +4,15 @@
 .btn {
   outline: none;
   font-size: rem(14px);
+  -webkit-box-shadow: none;
+  box-shadow: none;
   &:hover, &:active, &:focus, 
   &:hover:focus, &:hover:active,
   &:focus:active, &:focus:hover,
   &:active:hover, &:active:focus{
     outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 }
 
@@ -60,8 +64,8 @@
 }
 
 .btn-orange {
-  background-color: #ff5400;
-  border-color: #ff5400;
+  background-color: $orange-color;
+  border-color: $orange-color;
   transition: all 0.5s;
   padding: 0;
   color: white;
@@ -69,8 +73,8 @@
   height: rem(40px);
   line-height: rem(40px);
   &:hover, &:active, &:focus {
-    background-color: #ff5400;
-    border-color: #ff5400;
+    background-color: $orange-color;
+    border-color: $orange-color;
     color: white;
     opacity: 0.8;
   }
@@ -99,6 +103,9 @@
   color: white;
   transition: all 0.5s;
   padding: 0;
+  height: rem(45px);
+  width: 100%;
+  line-height: rem(45px);
 }
 
 .btn-border-pink {
@@ -107,6 +114,17 @@
 
   &:hover, &:active, &:focus {
     background-color: #f05d5e;
-    color: white;
+    color: $white-color;
+  }
+}
+
+.btn-border-orange {
+  border-width: rem(2px);
+  border: rem(2px) solid $orange-color;
+  color: $orange-color;
+
+  &:hover, &:active, &:focus {
+    background-color: $orange-color;
+    color: $white-color;
   }
 }

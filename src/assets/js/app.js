@@ -855,6 +855,44 @@ jQuery(document).ready(function($){
 });
 
 /*******************************************************************************
+Checkout Page
+********************************************************************************/
+$(document).ready(function() {
+  var step1 = $('#step1');
+
+  $(document).on('click', '#step1 #checkout-type-btn', function(){
+    switchCheckoutForms();
+  });
+
+  $(document).on('click', '#step1 .signin-link', function(){
+    step1.find('form').parent().addClass('hidden');
+    step1.find('#login-form').parent().removeClass('hidden');
+    step1.find('.step-title span:nth-of-type(2)').html('Login');
+  });
+
+  function switchCheckoutForms() {
+    var isChecked = step1.find('input[name="customer-type"]').is(':checked');
+    step1.find('form').parent().addClass('hidden');
+    if(isChecked) {
+      var checkoutType = step1.find('input[name="customer-type"]:checked').val();
+      if(checkoutType === 'guest') {
+        step1.find('#guest-form').parent().removeClass('hidden');
+        step1.find('.step-title span:nth-of-type(2)').html('Guest');
+      } else {
+        step1.find('#register-form').parent().removeClass('hidden');
+        step1.find('.step-title span:nth-of-type(2)').html('Register');
+      }
+    } else {
+      step1.find('#login-form').parent().removeClass('hidden');
+      step1.find('.step-title span:nth-of-type(2)').html('Login');
+    }
+  }
+
+  switchCheckoutForms();
+
+});
+
+/*******************************************************************************
 Global Helper Functions
 ********************************************************************************/
 

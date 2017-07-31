@@ -1,0 +1,71 @@
+.step.open#step1
+  .step-title
+    span.index 1
+    span Login
+  .step-complete-panel
+  .step-content.collapse.in 
+    .view.logged-out.clearfix
+      .col-sm-6.col-left
+        .login-form-wrap
+          h6 Returning Customer
+          form#login-form
+            .form-group
+              input.form-control#login-email(type='email' placeholder='email address')
+            .form-group
+              input.form-control#login-password(type='password' placeholder='password')
+            .form-group
+              button.submit-btn(type='submit').btn.btn-orange Login
+              a.forgot-password-link(href='#') forgot password
+        .register-form-wrap
+          h6 Create Account
+          form#register-form
+            .form-group
+              input.form-control#register-name(type='text' name="fullname" placeholder='full name')
+            .form-group
+              input.form-control#register-email(type='email' email='email' placeholder='email address')
+            .form-group
+              input.form-control#register-password(type='password' name='password' placeholder='password')
+            .form-group
+              button.submit-btn(type='submit').btn.btn-orange Register
+              a.signin-link Already have account? Signin
+        .guest-form-wrap
+          h6 Checkout as Guest
+          form#guest-form
+            .form-group
+              input.form-control#guest-name(type='text' name='name' placeholder='full name')
+            .form-group
+              input.form-control#guest-email(type='email' name='email' placeholder='email address')
+            .form-group
+              button.submit-btn(type='submit').btn.btn-orange Next
+              a.signin-link Already have account? Signin
+      .col-sm-6.col-right
+        h6 New Customer
+        .checkout-options
+          p Checkout Options:
+          .radio.radio-primary
+            input#register-account(type='radio', name='customer-type', value='new')
+            label(for='register-account')
+              | Register Account
+          .radio.radio-primary
+            input#guest-checkout(type='radio', name='customer-type', value='guest')
+            label(for='guest-checkout')
+              | Guest Checkout
+          p.
+            By creating an account you will be able to shop faster, be up to date
+            on order's status, and keep track of the orders you have previously made.
+        a.btn.btn-border.btn-border-orange#checkout-type-btn Continue 
+
+.step
+  .step-title
+    span.index 2
+    span Address
+  .step-complete-panel
+  .step-content.collapse
+    p step1 content
+.step
+  .step-title
+    span.index 3
+    span Payment
+  .step-complete-panel
+  .step-content.collapse 
+    p step1 content
