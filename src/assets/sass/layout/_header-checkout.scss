@@ -1,0 +1,16 @@
+#site-header-checkout {
+  padding: $unit-layout * 1.25 0;
+  .container {
+    width: 100%;
+    max-width: rem($lg-container);
+  } 
+  .logo-wrap {
+    max-width: 100%;
+  }
+  .safe-and-secure {
+    text-align: right;
+    line-height: rem(60px);
+    font-size: rem(13px);
+    font-weight: 300;
+  }
+}
