@@ -18,11 +18,51 @@
         text-align: center;
       }
     }
+
+    .step-complete-panel {
+      display: none;
+      background-color: $brand-color;
+      padding: $unit-layout*0.625 $unit-layout;
+      .index {
+        max-width: rem(20px);
+        width: 100%;
+        float: left;
+        padding: 0 $unit-layout;
+        span {
+          color: white;
+        }
+      }
+      .details {
+        p {
+          color: white;
+        }
+        .name, .email {
+          padding-right: $unit-layout;
+          display: inline-block;
+        }
+        .email {
+          font-weight: 300;
+        }
+      } 
+    }
   }
 
   .step.open {
     .step-title {
       background-color: $approx-snow-color;
+      padding: $half-unit-layout 0;
+    }
+  }
+
+  .step.done {
+    .step-title {
+      display: none;
+    }
+    .step-complete-panel {
+      display: block;
+    }
+    .step-content {
+      display: none;
     }
   }
 
