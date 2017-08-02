@@ -1,8 +1,9 @@
+//STEP1
 .step.open#step1
   .step-title
     span.index 1
     span Login
-  .step-complete-panel.clearfix
+  .step-complete-panel.clearfix(data-step-id='#step1')
     .index
       span 1
     .details
@@ -16,7 +17,7 @@
       .col-sm-6.col-left
         .login-form-wrap
           h6 Returning Customer
-          form#login-form
+          form#checkout-login-form
             .form-group
               input.form-control#login-email(type='email' placeholder='email address')
             .form-group
@@ -26,7 +27,7 @@
               a.forgot-password-link(href='#') forgot password
         .register-form-wrap
           h6 Create Account
-          form#register-form
+          form#checkout-register-form
             .form-group
               input.form-control#register-name(type='text' name="fullname" placeholder='full name')
             .form-group
@@ -38,7 +39,7 @@
               a.signin-link Already have account? Signin
         .guest-form-wrap
           h6 Checkout as Guest
-          form#guest-form
+          form#checkout-guest-form
             .form-group
               input.form-control#guest-name(type='text' name='name' placeholder='full name')
             .form-group
@@ -62,18 +63,87 @@
             By creating an account you will be able to shop faster, be up to date
             on order's status, and keep track of the orders you have previously made.
         a.btn.btn-border.btn-border-orange#checkout-type-btn Continue 
-
-.step
+//STEP2
+.step#step2
   .step-title
     span.index 2
     span Address
-  .step-complete-panel
+  .step-complete-panel.clearfix(data-step-id='#step1')
+    .index
+      span 2
+    .details
+      p.step-complete-title Address <span class="fa fa-check"></span>
+      p.user
+        span.street-address BarBarshah
+        span.city Srinagar
+        span.state Jammu and Kashmir
+        span.pincode 190001 
   .step-content.collapse
-    p step1 content
-.step
-  .step-title
-    span.index 3
-    span Payment
-  .step-complete-panel
-  .step-content.collapse 
-    p step1 content
+    .address
+      .address-forms
+        .address-form-wrap.clearfix
+          .address-form-edit-panel
+            .address-toggle
+              .radio.radio-primary
+                input#edit-panel-address-toggle1.address-toggle(type='radio' name='edit-address-toggle' value='new')
+                label(for='edit-panel-address-toggle1')  
+            .address-summary
+              p
+                span.name Muheet Mehraj
+                span.phone 9596888888
+              p.delivery-address
+                span.street-address BarBarshah
+                span.city Srinagar
+                span.state Jammu and Kashmir
+                span.pincode 190001
+            .address-edit
+              a
+                span.fa.fa-edit
+                span Edit
+          .address-form.clearfix 
+            .col-xs-12 
+              .radio.radio-primary
+                input#edit-address-toggle1.address-toggle(type='radio' name='address-toggle' value='new')
+                label(for='edit-address-toggle1')
+                  | Edit Address
+            form
+              .form-group.clearfix
+                .col-sm-6
+                  input.form-control(placeholder='Name')
+                .col-sm-6
+                  input.form-control(type='email' placeholder='Email')
+              .form-group.clearfix
+                .col-sm-6
+                  input.form-control(placeholder='Pincode')
+                .col-sm-6
+                  input.form-control(placeholder='Locality')
+              .form-group.clearfix
+                .col-xs-12
+                  textarea.form-control(placeholder='Address(Area and Street)') 
+              .form-group.clearfix
+                .col-sm-6
+                  input.form-control(placeholder='City/District/Town')
+                .col-sm-6
+                  input.form-control(placeholder='State') 
+              .form-group.clearfix
+                .col-sm-6
+                  input.form-control(placeholder='Landmark(Optional)')
+                .col-sm-6
+                  input.form-control(placeholder='Alternate Phone(Optional)')   
+              .form-group.clearfix
+                .col-xs-12
+                  label Address Type
+                .col-sm-6
+                  .radio.radio-primary
+                    input#home-address-radio1.address-toggle(type='radio' name='address-type' value='new')
+                    label(for='home-address-radio1')
+                      | Home(All day delivery)
+                .col-sm-6
+                  .radio.radio-primary
+                    input#work-address-radio1.address-type(type='radio' name='address-type' value='new')
+                    label(for='work-address-radio1')
+                      | Work(Delivery between 10 AM - 5 PM)
+    #add-new-address.clearfix
+      a
+        span.fa.fa-plus
+        span Add new address                    

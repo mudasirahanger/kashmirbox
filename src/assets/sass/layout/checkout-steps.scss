@@ -13,8 +13,6 @@
         line-height: rem(30px);
         display: inline-block;
         margin-right: $unit-layout;
-        background-color: $brand-color;
-        color: white;
         text-align: center;
       }
     }
@@ -22,26 +20,27 @@
     .step-complete-panel {
       display: none;
       background-color: $brand-color;
-      padding: $unit-layout*0.625 $unit-layout;
+      padding: $unit-layout;
+      margin-bottom: $unit-layout;
+      cursor: pointer;
       .index {
         max-width: rem(20px);
         width: 100%;
         float: left;
-        padding: 0 $unit-layout;
         span {
           color: white;
         }
       }
       .details {
+        .step-complete-title {
+          .fa {
+            display: inline-block;
+            margin-left: $quarter-unit-layout;
+          }
+        }
         p {
           color: white;
-        }
-        .name, .email {
-          padding-right: $unit-layout;
-          display: inline-block;
-        }
-        .email {
-          font-weight: 300;
+          font-size: rem(17px);
         }
       } 
     }
@@ -51,6 +50,10 @@
     .step-title {
       background-color: $approx-snow-color;
       padding: $half-unit-layout 0;
+      .index {
+        background-color: $brand-color;
+        color: white;
+      }
     }
   }
 
@@ -61,12 +64,20 @@
     .step-complete-panel {
       display: block;
     }
-    .step-content {
-      display: none;
-    }
   }
 
   .step#step1 {
+    .step-complete-panel {
+      .details {
+        .name, .email {
+          padding-right: $unit-layout;
+          display: inline-block;
+        }
+        .email {
+          font-weight: 300;
+        }
+      }
+    }
     .step-content {
       .view.logged-out {
         background-color: $white-color;
@@ -110,5 +121,72 @@
       }
     }
   }
+
+  .step#step2 {
+    .step-complete-panel {
+      .details {
+        span {
+          font-weight: 300;
+          padding-right: $quarter-unit-layout;
+        }
+        span:after {
+          content: ',';
+        }
+        span:last-child:after {
+          content: '';
+        }
+      }
+    }
+    .step-content {
+      .address-form-wrap {
+        .address-form-edit-panel {
+          @include clearfix;
+          background-color: $white-color;
+          padding: $unit-layout;
+          margin-bottom: $half-unit-layout;
+          .address-toggle {
+            width: 5%;
+            float: left;
+          }
+          .address-summary {
+            float: left;
+            span {
+              font-weight: 300;
+            }
+            span.name {
+              font-weight: 400;
+              padding-right: $unit-layout;
+              display: inline-block;
+            }
+            p.delivery-address {
+              span:after {
+                content: ', ';
+              }
+              span:last-child:after{
+                display: none;
+              }
+            }
+          }
+          .address-edit {
+            float: right;
+            padding-top: rem(12px);
+            cursor: pointer;
+            a {
+              color: $blue-color;
+              text-decoration: none;
+              span {
+                display: block;
+                text-align: center;
+              }
+            }
+          }
+        }
+        .address-form {
+       
+        }
+      }
+    }
+
+  } // .step#step2
 
 }

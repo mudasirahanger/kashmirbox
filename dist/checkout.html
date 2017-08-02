@@ -26,9 +26,10 @@
       <div class="checkout-steps-section">
         <div class="container">
           <div class="checkout-steps col-sm-8">
+            <!--STEP1-->
             <div class="step open" id="step1">
               <div class="step-title"><span class="index">1</span><span>Login</span></div>
-              <div class="step-complete-panel clearfix">
+              <div class="step-complete-panel clearfix" data-step-id="#step1">
                 <div class="index"><span>1</span></div>
                 <div class="details">
                   <p class="step-complete-title">Login <span class="fa fa-check"></span></p>
@@ -40,7 +41,7 @@
                   <div class="col-sm-6 col-left">
                     <div class="login-form-wrap">
                       <h6>Returning Customer</h6>
-                      <form id="login-form">
+                      <form id="checkout-login-form">
                         <div class="form-group">
                           <input class="form-control" id="login-email" type="email" placeholder="email address">
                         </div>
@@ -54,7 +55,7 @@
                     </div>
                     <div class="register-form-wrap">
                       <h6>Create Account</h6>
-                      <form id="register-form">
+                      <form id="checkout-register-form">
                         <div class="form-group">
                           <input class="form-control" id="register-name" type="text" name="fullname" placeholder="full name">
                         </div>
@@ -71,7 +72,7 @@
                     </div>
                     <div class="guest-form-wrap">
                       <h6>Checkout as Guest</h6>
-                      <form id="guest-form">
+                      <form id="checkout-guest-form">
                         <div class="form-group">
                           <input class="form-control" id="guest-name" type="text" name="name" placeholder="full name">
                         </div>
@@ -105,18 +106,101 @@
                 </div>
               </div>
             </div>
-            <div class="step">
+            <!--STEP2-->
+            <div class="step" id="step2">
               <div class="step-title"><span class="index">2</span><span>Address</span></div>
-              <div class="step-complete-panel"></div>
-              <div class="step-content collapse">
-                <p>step1 content</p>
+              <div class="step-complete-panel clearfix" data-step-id="#step1">
+                <div class="index"><span>2</span></div>
+                <div class="details">
+                  <p class="step-complete-title">Address <span class="fa fa-check"></span></p>
+                  <p class="user"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001 </span></p>
+                </div>
               </div>
-            </div>
-            <div class="step">
-              <div class="step-title"><span class="index">3</span><span>Payment</span></div>
-              <div class="step-complete-panel"></div>
-              <div class="step-content collapse"> 
-                <p>step1 content</p>
+              <div class="step-content collapse">
+                <div class="address">
+                  <div class="address-forms">
+                    <div class="address-form-wrap clearfix">
+                      <div class="address-form-edit-panel">
+                        <div class="address-toggle">
+                          <div class="radio radio-primary">
+                            <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" value="new">
+                            <label for="edit-panel-address-toggle1"> </label>
+                          </div>
+                        </div>
+                        <div class="address-summary">
+                          <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
+                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>
+                        </div>
+                        <div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>
+                      </div>
+                      <div class="address-form clearfix"> 
+                        <div class="col-xs-12"> 
+                          <div class="radio radio-primary">
+                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="new">
+                            <label for="edit-address-toggle1">Edit Address</label>
+                          </div>
+                        </div>
+                        <form>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" type="email" placeholder="Email">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="Pincode">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="Locality">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-xs-12">
+                              <textarea class="form-control" placeholder="Address(Area and Street)"> </textarea>
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="City/District/Town">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="State">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="Landmark(Optional)">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" placeholder="Alternate Phone(Optional)">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-xs-12">
+                              <label>Address Type</label>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="radio radio-primary">
+                                <input class="address-toggle" id="home-address-radio1" type="radio" name="address-type" value="new">
+                                <label for="home-address-radio1">Home(All day delivery)</label>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="radio radio-primary">
+                                <input class="address-type" id="work-address-radio1" type="radio" name="address-type" value="new">
+                                <label for="work-address-radio1">Work(Delivery between 10 AM - 5 PM)</label>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix" id="add-new-address"><a><span class="fa fa-plus"></span><span>Add new address                    </span></a></div>
               </div>
             </div>
           </div>

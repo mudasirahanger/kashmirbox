@@ -858,7 +858,11 @@ jQuery(document).ready(function($){
 Checkout Page
 ********************************************************************************/
 $(document).ready(function() {
-  var step1 = $('#step1');
+  var checkoutPage = $('.checkout-page-content');
+  var step1 = checkoutPage.find('#step1');
+  var step2 = checkoutPage.find('#step2');
+  var step3 = checkoutPage.find('#step3');
+
 
   $(document).on('click', '#step1 #checkout-type-btn', function(){
     switchCheckoutForms();
@@ -866,8 +870,49 @@ $(document).ready(function() {
 
   $(document).on('click', '#step1 .signin-link', function(){
     step1.find('form').parent().addClass('hidden');
-    step1.find('#login-form').parent().removeClass('hidden');
+    step1.find('#checkout-login-form').parent().removeClass('hidden');
     step1.find('.step-title span:nth-of-type(2)').html('Login');
+  });
+
+
+  $(document).on('click', '.checkout-page-content #add-new-address', function(){
+    var formsCount = step2.find('.address-forms > div').length;
+    console.log(formsCount);
+    var formHtml = getAddressFormHtml(formsCount+1);
+    step2.find('.address-forms').append(formHtml);
+  });
+
+   //Checkout Login Form
+  $(document).on('submit', '#checkout-login-form', function(){
+    //login new user
+    console.log('submit checkout login form');
+    //step1 is complete
+    moveToNextStep(1, 2);
+    return false;
+  });
+
+  //Checkout Register Form
+  $(document).on('submit', '#checkout-register-form', function(){
+    //login new user
+    console.log('register new account');
+    //step1 is complete
+    moveToNextStep(1, 2);
+    return false;
+  });
+
+  //Checkout Guest Form
+  $(document).on('submit', '#checkout-guest-form', function(){
+    //login new user
+    console.log('save guest details');
+    //step1 is complete
+    moveToNextStep(1, 2);
+    return false;
+  });
+
+  $(document).on(
+    'click', 
+    '.checkout-page-content .step >.step-complete-panel', function(){
+
   });
 
   function switchCheckoutForms() {
@@ -876,19 +921,136 @@ $(document).ready(function() {
     if(isChecked) {
       var checkoutType = step1.find('input[name="customer-type"]:checked').val();
       if(checkoutType === 'guest') {
-        step1.find('#guest-form').parent().removeClass('hidden');
+        step1.find('#checkout-guest-form').parent().removeClass('hidden');
         step1.find('.step-title span:nth-of-type(2)').html('Guest');
       } else {
-        step1.find('#register-form').parent().removeClass('hidden');
+        step1.find('#checkout-register-form').parent().removeClass('hidden');
         step1.find('.step-title span:nth-of-type(2)').html('Register');
       }
     } else {
-      step1.find('#login-form').parent().removeClass('hidden');
+      step1.find('#checkout-login-form').parent().removeClass('hidden');
       step1.find('.step-title span:nth-of-type(2)').html('Login');
     }
   }
 
   switchCheckoutForms();
+
+  function goToStep(id) {
+    /*step.addClass('done');
+    step.find('.step-content').removeClass('in');
+    if(id == 1) {
+      step1.addClass('')
+    }*/
+  }
+
+  function moveToNextStep(oldId, newId) {
+    var oldStep = checkoutPage.find('#step'+oldId);
+    var newStep = checkoutPage.find('#step'+newId);
+    oldStep.addClass('done');
+    oldStep.find('.step-content').removeClass('in');
+    newStep.addClass('open');
+    newStep.find('.step-content').addClass('in');
+  }
+
+  function getAddressFormHtml(id) {
+    if(!id)
+      return '';
+
+    var editPanel='';
+    editPanel += '<div class="address-form-edit-panel">';
+    editPanel += '<div class="address-toggle">';
+    editPanel += '<div class="radio radio-primary">';
+    editPanel += '<input class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="new">';
+    editPanel += '<label for="edit-panel-address-toggle'+id+'"> </label>';
+    editPanel += '</div>';
+    editPanel += '</div>';
+    editPanel += '<div class="address-summary">';
+    editPanel += '<p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>';
+    editPanel += '<p><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>';
+    editPanel += '</div>';
+    editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
+    editPanel += '</div>';
+
+    var formVar = '<div class="address-form-wrap clearfix">';
+
+    formVar += editPanel;
+
+    formVar += '<div class="address-form">';
+    formVar += '<div class="col-xs-12"> ';
+    formVar += '<div class="radio radio-primary">';
+    formVar += '<input class="address-toggle" id="edit-address-toggle'+id+'" type="radio" name="address-toggle" value="new">';
+    formVar += '<label for="edit-address-toggle'+id+'">Edit Address</label>';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<form>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="Name">';
+    formVar += '</div>';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" type="email" placeholder="Email">';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="Pincode">';
+    formVar += '</div>';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="Locality">';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-xs-12">';
+    formVar += '<textarea class="form-control" placeholder="Address(Area and Street)"> </textarea>';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="City/District/Town">';
+    formVar += '</div>';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="State">';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="Landmark(Optional)">';
+    formVar += '</div>';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<input class="form-control" placeholder="Alternate Phone(Optional)">';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-xs-12">';
+    formVar += '<label>Address Type</label>';
+    formVar += '</div>';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<div class="radio radio-primary">';
+    formVar += '<input class="address-toggle" id="home-address-radio'+id+'" type="radio" name="address-type'+id+'" value="new">';
+    formVar += '<label for="home-address-radio'+id+'">Home(All day delivery)</label>';
+    formVar += '</div>';
+    formVar += '</div>';
+    formVar += '<div class="col-sm-6">';
+    formVar += '<div class="radio radio-primary">';
+    formVar += '<input class="address-type" id="work-address-radio'+id+'" type="radio" name="address-type'+id+'" value="new">';
+    formVar += '<label for="work-address-radio'+id+'">Work(Delivery between 10 AM - 5 PM)</label>';
+    formVar += '</div>';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '</form>';
+    formVar += '</div>';
+
+    formVar += '</div>'; 
+    return formVar;
+  }
 
 });
 
@@ -900,3 +1062,5 @@ function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
+
+
