@@ -865,15 +865,24 @@ $(document).ready(function() {
 
 
   $(document).on('click', '#step1 #checkout-type-btn', function(){
+    step1.find('.col-right #checkout-options-forms').addClass('open');
     switchCheckoutForms();
   });
 
-  $(document).on('click', '#step1 .signin-link', function(){
+  $(document).on('change', '#step1 input[name="customer-type"]', function(){
+    var isOpen = $('#step1 #checkout-options-forms').hasClass('open');
+    console.log('isOpen');
+    if(isOpen) {
+      switchCheckoutForms();
+    }
+  });
+
+ /* $(document).on('click', '#step1 .signin-link', function(){
     step1.find('form').parent().addClass('hidden');
     step1.find('#checkout-login-form').parent().removeClass('hidden');
     step1.find('.step-title span:nth-of-type(2)').html('Login');
   });
-
+*/
 
   $(document).on('click', '.checkout-page-content #add-new-address', function(){
     var formsCount = step2.find('.address-forms > div').length;
@@ -917,7 +926,7 @@ $(document).ready(function() {
 
   function switchCheckoutForms() {
     var isChecked = step1.find('input[name="customer-type"]').is(':checked');
-    step1.find('form').parent().addClass('hidden');
+    step1.find('.col-right form').parent().addClass('hidden');
     if(isChecked) {
       var checkoutType = step1.find('input[name="customer-type"]:checked').val();
       if(checkoutType === 'guest') {
@@ -927,9 +936,6 @@ $(document).ready(function() {
         step1.find('#checkout-register-form').parent().removeClass('hidden');
         step1.find('.step-title span:nth-of-type(2)').html('Register');
       }
-    } else {
-      step1.find('#checkout-login-form').parent().removeClass('hidden');
-      step1.find('.step-title span:nth-of-type(2)').html('Login');
     }
   }
 
@@ -971,10 +977,8 @@ $(document).ready(function() {
     editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
     editPanel += '</div>';
 
-    var formVar = '<div class="address-form-wrap clearfix">';
-
+    var formVar = '<div class="address-form-wrap new editing clearfix">';
     formVar += editPanel;
-
     formVar += '<div class="address-form">';
     formVar += '<div class="col-xs-12"> ';
     formVar += '<div class="radio radio-primary">';

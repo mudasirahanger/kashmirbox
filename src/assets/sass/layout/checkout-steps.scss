@@ -96,6 +96,12 @@
            margin: $unit-layout 0;
            border-radius: 0;
           }
+          #checkout-options-forms.open {
+            padding-top: $unit-layout;
+            #checkout-type-btn {
+              display: none;
+            }
+          }
         }
         form {
           .form-group {
@@ -169,7 +175,6 @@
           }
           .address-edit {
             float: right;
-            padding-top: rem(12px);
             cursor: pointer;
             a {
               color: $blue-color;
@@ -183,6 +188,19 @@
         }
         .address-form {
        
+        }
+      }
+      .address-form-wrap.editing {
+        .address-form-edit-panel {
+          display: none;
+        }
+        .address-form {
+          display: block;
+        }
+      }
+      .address-form-wrap.new {
+        .address-form-edit-panel {
+          display: none;
         }
       }
     }

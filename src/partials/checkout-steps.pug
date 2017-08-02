@@ -25,28 +25,6 @@
             .form-group
               button.submit-btn(type='submit').btn.btn-orange Login
               a.forgot-password-link(href='#') forgot password
-        .register-form-wrap
-          h6 Create Account
-          form#checkout-register-form
-            .form-group
-              input.form-control#register-name(type='text' name="fullname" placeholder='full name')
-            .form-group
-              input.form-control#register-email(type='email' email='email' placeholder='email address')
-            .form-group
-              input.form-control#register-password(type='password' name='password' placeholder='password')
-            .form-group
-              button.submit-btn(type='submit').btn.btn-orange Register
-              a.signin-link Already have account? Signin
-        .guest-form-wrap
-          h6 Checkout as Guest
-          form#checkout-guest-form
-            .form-group
-              input.form-control#guest-name(type='text' name='name' placeholder='full name')
-            .form-group
-              input.form-control#guest-email(type='email' name='email' placeholder='email address')
-            .form-group
-              button.submit-btn(type='submit').btn.btn-orange Next
-              a.signin-link Already have account? Signin
       .col-sm-6.col-right
         h6 New Customer
         .checkout-options
@@ -62,7 +40,28 @@
           p.
             By creating an account you will be able to shop faster, be up to date
             on order's status, and keep track of the orders you have previously made.
-        a.btn.btn-border.btn-border-orange#checkout-type-btn Continue 
+        #checkout-options-forms
+          .register-form-wrap
+            h6 Create Account
+            form#checkout-register-form
+              .form-group
+                input.form-control#register-name(type='text' name="fullname" placeholder='full name')
+              .form-group
+                input.form-control#register-email(type='email' email='email' placeholder='email address')
+              .form-group
+                input.form-control#register-password(type='password' name='password' placeholder='password')
+              .form-group
+                button.submit-btn(type='submit').btn.btn-orange Continue
+          .guest-form-wrap
+            h6 Checkout as Guest
+            form#checkout-guest-form
+              .form-group
+                input.form-control#guest-name(type='text' name='name' placeholder='full name')
+              .form-group
+                input.form-control#guest-email(type='email' name='email' placeholder='email address')
+              .form-group
+                button.submit-btn(type='submit').btn.btn-orange Continue
+          a.btn.btn-border.btn-border-orange#checkout-type-btn Continue 
 //STEP2
 .step#step2
   .step-title
@@ -81,7 +80,7 @@
   .step-content.collapse
     .address
       .address-forms
-        .address-form-wrap.clearfix
+        .address-form-wrap.new.editing.clearfix
           .address-form-edit-panel
             .address-toggle
               .radio.radio-primary
@@ -101,35 +100,40 @@
                 span.fa.fa-edit
                 span Edit
           .address-form.clearfix 
-            .col-xs-12 
+            .col-xs-12
               .radio.radio-primary
-                input#edit-address-toggle1.address-toggle(type='radio' name='address-toggle' value='new')
+                input.address-toggle#edit-address-toggle1(type='radio', name='address-toggle',  value='1')
                 label(for='edit-address-toggle1')
-                  | Edit Address
+                  | Edit Address 
+            .col-xs-12
+              .radio.radio-primary
+                input.address-toggle#new-address-toggle1(type='radio', name='new-address-toggle',  value='1')
+                label(for='new-address-toggle1')
+                  | New Address 
             form
               .form-group.clearfix
                 .col-sm-6
-                  input.form-control(placeholder='Name')
+                  input.form-control(name='name' placeholder='Name')
                 .col-sm-6
-                  input.form-control(type='email' placeholder='Email')
+                  input.form-control(name='phone' placeholder='Phone Number')
               .form-group.clearfix
                 .col-sm-6
-                  input.form-control(placeholder='Pincode')
+                  input.form-control(name='pincode' placeholder='Pincode')
                 .col-sm-6
-                  input.form-control(placeholder='Locality')
+                  input.form-control(name='locality' placeholder='Locality')
               .form-group.clearfix
                 .col-xs-12
-                  textarea.form-control(placeholder='Address(Area and Street)') 
+                  textarea.form-control(name='street-address' placeholder='Address(Area and Street)') 
               .form-group.clearfix
                 .col-sm-6
-                  input.form-control(placeholder='City/District/Town')
+                  input.form-control(name='city' placeholder='City/District/Town')
                 .col-sm-6
-                  input.form-control(placeholder='State') 
+                  input.form-control(name='state' placeholder='State') 
               .form-group.clearfix
                 .col-sm-6
-                  input.form-control(placeholder='Landmark(Optional)')
+                  input.form-control(name='landmark' placeholder='Landmark(Optional)')
                 .col-sm-6
-                  input.form-control(placeholder='Alternate Phone(Optional)')   
+                  input.form-control(name='alt-phone' placeholder='Alternate Phone(Optional)')   
               .form-group.clearfix
                 .col-xs-12
                   label Address Type
@@ -143,7 +147,11 @@
                     input#work-address-radio1.address-type(type='radio' name='address-type' value='new')
                     label(for='work-address-radio1')
                       | Work(Delivery between 10 AM - 5 PM)
-    #add-new-address.clearfix
+              .form-group
+                .col-xs-12
+                  button.btn.btn-orange(type='submit') Save
+                  button.btn.btn-white(type='submit') Cancel
+    #add-new-address.hidden.clearfix
       a
         span.fa.fa-plus
         span Add new address                    
