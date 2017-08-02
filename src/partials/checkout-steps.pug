@@ -106,6 +106,9 @@
                 span.city Srinagar
                 span.state Jammu and Kashmir
                 span.pincode 190001
+              p.pin-error
+                | The pincode is not servicable
+
             .address-edit
               a
                 span.fa.fa-edit
@@ -146,12 +149,12 @@
                   p Address Type
                 .col-sm-6
                   .radio.radio-primary
-                    input#home-address-radio1.address-toggle(type='radio' name='address-type' value='new')
+                    input#home-address-radio1.address-toggle(type='radio' name='address-type' value='home' checked)
                     label(for='home-address-radio1')
                       | Home(All day delivery)
                 .col-sm-6
                   .radio.radio-primary
-                    input#work-address-radio1.address-type(type='radio' name='address-type' value='new')
+                    input#work-address-radio1.address-type(type='radio' name='address-type' value='work')
                     label(for='work-address-radio1')
                       | Work(Delivery between 10 AM - 5 PM)
               .form-group

@@ -886,12 +886,7 @@ $(document).ready(function() {
 
   $(document).on('submit', '#checkout-login-form', function(){
     //login new user
-    $('.field-error').remove();
-    var loginform = $(this);
-    var email = loginform.find('input[name="email"]').val();
-    if(!email || !validateEmail(email)) {
-      loginform.find('input[name="email"]')
-      .after('<span class="field-error">Email Addresss is invalid.</span>');
+    if(!validateCheckoutLoginForm($(this))) {
       return false;
     }
     //step1 is complete
@@ -899,14 +894,10 @@ $(document).ready(function() {
     return false;
   });
 
+
   $(document).on('submit', '#checkout-register-form', function(){
     //register new user
-   $('.field-error').remove();
-    var loginform = $(this);
-    var email = loginform.find('input[name="email"]').val();
-    if(!email || !validateEmail(email)) {
-      loginform.find('input[name="email"]')
-      .after('<span class="field-error">Email Addresss is invalid.</span>');
+    if(!validateCheckoutRegisterForm($(this))) {
       return false;
     }
     //step1 is complete
@@ -916,12 +907,7 @@ $(document).ready(function() {
 
   $(document).on('submit', '#checkout-guest-form', function(){
     //guest user
-    $('.field-error').remove();
-    var loginform = $(this);
-    var email = loginform.find('input[name="email"]').val();
-    if(!email || !validateEmail(email)) {
-      loginform.find('input[name="email"]')
-      .after('<span class="field-error">Email Addresss is invalid.</span>');
+    if(!validateCheckoutGuestForm($(this))) {
       return false;
     }
     //step1 is complete
@@ -1049,6 +1035,104 @@ $(document).ready(function() {
     step2.find('.address-form-wrap.new').remove();
   }
 
+
+  function validateCheckoutLoginForm(form) {
+    $('.field-error').remove();
+    var isRequeredEmpty = false;
+    var email = form.find('input[name="email"]');
+    var password = form.find('input[name="password"]');
+
+    if(!password.val() || password.val().trim() === '') {
+      password.after('<span class="field-error">Password is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!email.val() || email.val().trim() === '') {
+      email.after('<span class="field-error">Email Address is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(isRequeredEmpty) {
+      return false;
+    }
+
+    if(!validateEmail(email.val())) {
+      email
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function validateCheckoutRegisterForm(form) {
+    $('.field-error').remove();
+    var isRequeredEmpty = false;
+    var name = form.find('input[name="name"]');
+    var email = form.find('input[name="email"]');
+    var password = form.find('input[name="password"]');
+
+    if(!name.val() || name.val().trim() === '') {
+      name.after('<span class="field-error">Name is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!password.val() || password.val().trim() === '') {
+      password.after('<span class="field-error">Password is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!email.val() || email.val().trim() === '') {
+      email.after('<span class="field-error">Email Address is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(isRequeredEmpty) {
+      return false;
+    }
+
+    if(!validateEmail(email.val())) {
+      email
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function validateCheckoutGuestForm(form) {
+    $('.field-error').remove();
+    var isRequeredEmpty = false;
+    var name = form.find('input[name="name"]');
+    var email = form.find('input[name="email"]');
+
+    if(!name.val() || name.val().trim() === '') {
+      name.after('<span class="field-error">Name is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!email.val() || email.val().trim() === '') {
+      email.after('<span class="field-error">Email Address is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(isRequeredEmpty) {
+      return false;
+    }
+
+    if(!validateEmail(email.val())) {
+      email
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
+
+    return true;
+  }
+
+
+
   function getAddressFormHtml(id) {
     if(!id)
       return '';
@@ -1064,6 +1148,7 @@ $(document).ready(function() {
     editPanel += '<div class="address-summary">';
     editPanel += '<p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>';
     editPanel += '<p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>';
+    editPanel += '<p class="pin-error">The pincode is not servicable.</p>';
     editPanel += '</div>';
     editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
     editPanel += '</div>';
@@ -1128,13 +1213,13 @@ $(document).ready(function() {
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
     formVar += '<div class="radio radio-primary">';
-    formVar += '<input class="address-toggle" id="home-address-radio'+id+'" type="radio" name="address-type'+id+'" value="new">';
+    formVar += '<input class="address-toggle" id="home-address-radio'+id+'" type="radio" name="address-type'+id+'" value="home" checked>';
     formVar += '<label for="home-address-radio'+id+'">Home(All day delivery)</label>';
     formVar += '</div>';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
     formVar += '<div class="radio radio-primary">';
-    formVar += '<input class="address-type" id="work-address-radio'+id+'" type="radio" name="address-type'+id+'" value="new">';
+    formVar += '<input class="address-type" id="work-address-radio'+id+'" type="radio" name="address-type'+id+'" value="work">';
     formVar += '<label for="work-address-radio'+id+'">Work(Delivery between 10 AM - 5 PM)</label>';
     formVar += '</div>';
     formVar += '</div>';
