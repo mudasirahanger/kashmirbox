@@ -125,6 +125,35 @@
           }
         }
       }
+      .view.logged-in {
+        background-color: $white-color;
+        padding: $double-unit-layout $unit-layout;
+        .userdetails {
+          p {
+            padding: $unit-layout 0;
+            span:first-child {
+              color: $mid-grey;
+              display: inline-block;
+              padding-right: $quarter-unit-layout;
+            }
+          }
+          .logout-link {
+            color: $blue-color;
+          }
+        }
+        .nextstep {
+          height: rem(45px);
+          line-height: rem(45px);
+          max-width: rem(250px);
+          width: 100%;
+          text-transform: uppercase;
+          border-radius: 0;
+          margin: $unit-layout 0;
+        }
+        .disclaimer {
+          color: $mid-grey;
+        }
+      }
     }
   }
 
