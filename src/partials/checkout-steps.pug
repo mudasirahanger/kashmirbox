@@ -19,9 +19,9 @@
           h6 Returning Customer
           form#checkout-login-form
             .form-group
-              input.form-control#login-email(type='email' placeholder='email address')
+              input.form-control#login-email(type='email' name='email' placeholder='email address')
             .form-group
-              input.form-control#login-password(type='password' placeholder='password')
+              input.form-control#login-password(type='password' name='password' placeholder='password')
             .form-group
               button.submit-btn(type='submit').btn.btn-orange Login
               a.forgot-password-link(href='#') forgot password
@@ -45,9 +45,9 @@
             h6 Create Account
             form#checkout-register-form
               .form-group
-                input.form-control#register-name(type='text' name="fullname" placeholder='full name')
+                input.form-control#register-name(type='text' name="name" placeholder='name')
               .form-group
-                input.form-control#register-email(type='email' email='email' placeholder='email address')
+                input.form-control#register-email(type='email' name='email' placeholder='email address')
               .form-group
                 input.form-control#register-password(type='password' name='password' placeholder='password')
               .form-group
@@ -62,7 +62,7 @@
               .form-group
                 button.submit-btn(type='submit').btn.btn-orange Continue
           a.btn.btn-border.btn-border-orange#checkout-type-btn Continue 
-    .view.logged-in.clearfix
+    .view.logged-in.hidden.clearfix
       .col-sm-12
         .userdetails
           p <span>Name</span> <span class="login-name">Muheet Mehraj</span>

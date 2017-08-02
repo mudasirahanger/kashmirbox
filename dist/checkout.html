@@ -43,10 +43,10 @@
                       <h6>Returning Customer</h6>
                       <form id="checkout-login-form">
                         <div class="form-group">
-                          <input class="form-control" id="login-email" type="email" placeholder="email address">
+                          <input class="form-control" id="login-email" type="email" name="email" placeholder="email address">
                         </div>
                         <div class="form-group">
-                          <input class="form-control" id="login-password" type="password" placeholder="password">
+                          <input class="form-control" id="login-password" type="password" name="password" placeholder="password">
                         </div>
                         <div class="form-group">
                           <button class="submit-btn btn btn-orange" type="submit">Login</button><a class="forgot-password-link" href="#">forgot password</a>
@@ -76,10 +76,10 @@
                         <h6>Create Account</h6>
                         <form id="checkout-register-form">
                           <div class="form-group">
-                            <input class="form-control" id="register-name" type="text" name="fullname" placeholder="full name">
+                            <input class="form-control" id="register-name" type="text" name="name" placeholder="name">
                           </div>
                           <div class="form-group">
-                            <input class="form-control" id="register-email" type="email" email="email" placeholder="email address">
+                            <input class="form-control" id="register-email" type="email" name="email" placeholder="email address">
                           </div>
                           <div class="form-group">
                             <input class="form-control" id="register-password" type="password" name="password" placeholder="password">
@@ -106,7 +106,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="view logged-in clearfix">
+                <div class="view logged-in hidden clearfix">
                   <div class="col-sm-12">
                     <div class="userdetails">
                       <p><span>Name</span> <span class="login-name">Muheet Mehraj</span></p>

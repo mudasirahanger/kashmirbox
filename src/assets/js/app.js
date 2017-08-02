@@ -886,7 +886,14 @@ $(document).ready(function() {
 
   $(document).on('submit', '#checkout-login-form', function(){
     //login new user
-    console.log('submit checkout login form');
+    $('.field-error').remove();
+    var loginform = $(this);
+    var email = loginform.find('input[name="email"]').val();
+    if(!email || !validateEmail(email)) {
+      loginform.find('input[name="email"]')
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
     //step1 is complete
     moveToNextStep(1, 2);
     return false;
@@ -894,7 +901,14 @@ $(document).ready(function() {
 
   $(document).on('submit', '#checkout-register-form', function(){
     //register new user
-    console.log('register new account');
+   $('.field-error').remove();
+    var loginform = $(this);
+    var email = loginform.find('input[name="email"]').val();
+    if(!email || !validateEmail(email)) {
+      loginform.find('input[name="email"]')
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
     //step1 is complete
     moveToNextStep(1, 2);
     return false;
@@ -902,7 +916,14 @@ $(document).ready(function() {
 
   $(document).on('submit', '#checkout-guest-form', function(){
     //guest user
-    console.log('save guest details');
+    $('.field-error').remove();
+    var loginform = $(this);
+    var email = loginform.find('input[name="email"]').val();
+    if(!email || !validateEmail(email)) {
+      loginform.find('input[name="email"]')
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
     //step1 is complete
     moveToNextStep(1, 2);
     return false;
