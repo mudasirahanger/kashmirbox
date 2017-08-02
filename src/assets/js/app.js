@@ -909,12 +909,66 @@ $(document).ready(function() {
   });
 
   /* Step2 Events */
+  /*var addressFormWrap = step2.find('.address-form-wrap');*/
+  var addNewAddressBtn = step2.find('#add-new-address');
+  var formsCount = step2.find('.address-forms > div').length;
+  var lastFormId = 1;
+  for(var i = 1; i <= formsCount; i++) {
+    var formId = step2
+                .find('.address-forms > div:nth-of-type('+i+') form')
+                .attr('data-form-id');
+    lastFormId = parseInt(formId);
+    registerAddressFormSubmit(formId);
+  }
+
   $(document).on('click', '.checkout-page-content #add-new-address', function(){
     var formsCount = step2.find('.address-forms > div').length;
-    var formHtml = getAddressFormHtml(formsCount+1);
+    lastFormId++;
+    $('.address-form-wrap').removeClass('editing');
+    var formHtml = getAddressFormHtml(lastFormId);
     step2.find('.address-forms').append(formHtml);
+    registerAddressFormSubmit(lastFormId);
+    $(this).addClass('hidden');
   });
 
+  $(document).on('click', '.checkout-page-content #step2 .cancel-address', function(){
+    var wrapper = $(this).closest('.address-form-wrap');
+    isNewAddress = wrapper.hasClass('new');
+    if(isNewAddress){
+      var formId = step2
+                  .find('.address-form-wrap:eq(0) form')
+                  .attr('data-form-id');
+      removeNewAddress();
+    }
+    else {
+      var formId = wrapper
+                  .find('form')
+                  .attr('data-form-id');
+      wrapper.removeClass('editing');
+    }
+    activateAddressForm(formId);
+    addNewAddressBtn.removeClass('hidden');
+  });
+
+  $(document).on(
+    'change', 
+    '.checkout-page-content #step2 input[name="edit-address-toggle"]', function(){
+      removeNewAddress();
+      addNewAddressBtn.removeClass('hidden');
+  });
+
+  $(document).on(
+    'click', 
+    '.checkout-page-content #step2 .address-form-wrap .address-edit', function(){
+      removeNewAddress();
+      addNewAddressBtn.removeClass('hidden');
+      $('.checkout-page-content #step2 .address-form-wrap').removeClass('editing');
+      var formId = $(this).closest('.address-form-wrap')
+                    .find('form')
+                    .attr('data-form-id');
+      activateAddressForm(formId);
+      $(this).closest('.address-form-wrap').addClass('editing');
+  });
   
   /* Helper Functions*/
   function switchCheckoutForms() {
@@ -933,9 +987,9 @@ $(document).ready(function() {
   }
   switchCheckoutForms();
 
-  function goToStep(id) {
+  /*function goToStep(id) {
     
-  }
+  }*/
 
   function moveToNextStep(oldId, newId) {
     var oldStep = checkoutPage.find('#step'+oldId);
@@ -946,6 +1000,31 @@ $(document).ready(function() {
     newStep.find('.step-content').addClass('in');
   }
 
+  function registerAddressFormSubmit(id) {
+    $('#address-form'+id).submit(function(){
+      var wrapper = $(this).closest('.address-form-wrap');
+      isNewAddress = wrapper.hasClass('new');
+      if(isNewAddress) {
+        $('#add-new-address').removeClass('hidden');
+      }
+      wrapper.removeClass('new');
+      wrapper.removeClass('editing');
+      wrapper.addClass('saved');
+      wrapper.find('#edit-panel-address-toggle'+id).prop('checked', true);
+      return false;
+    });
+  }
+
+  function activateAddressForm(formId) {
+    console.log(formId);
+    step2.find('#edit-panel-address-toggle'+formId).prop('checked', true);
+    step2.find('#edit-address-toggle'+formId).prop('checked', true);
+  }
+
+  function removeNewAddress() {
+    step2.find('.address-form-wrap.new').remove();
+  }
+
   function getAddressFormHtml(id) {
     if(!id)
       return '';
@@ -954,7 +1033,7 @@ $(document).ready(function() {
     editPanel += '<div class="address-form-edit-panel">';
     editPanel += '<div class="address-toggle">';
     editPanel += '<div class="radio radio-primary">';
-    editPanel += '<input class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="new">';
+    editPanel += '<input class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="new" checked>';
     editPanel += '<label for="edit-panel-address-toggle'+id+'"> </label>';
     editPanel += '</div>';
     editPanel += '</div>';
@@ -970,12 +1049,12 @@ $(document).ready(function() {
     formVar += '<div class="address-form">';
     formVar += '<div class="col-xs-12"> ';
     formVar += '<div class="radio radio-primary">';
-    formVar += '<input class="address-toggle" id="edit-address-toggle'+id+'" type="radio" name="address-toggle" value="new">';
-    formVar += '<label for="edit-address-toggle'+id+'">Edit Address</label>';
+    formVar += '<input class="address-toggle" id="edit-address-toggle'+id+'" type="radio" name="address-toggle" value="new" checked>';
+    formVar += '<label for="edit-address-toggle'+id+'"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address</span></label>';
     formVar += '</div>';
     formVar += '</div>';
 
-    formVar += '<form>';
+    formVar += '<form id="address-form'+id+'" data-form-id="'+id+'">';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
@@ -1034,6 +1113,13 @@ $(document).ready(function() {
     formVar += '<input class="address-type" id="work-address-radio'+id+'" type="radio" name="address-type'+id+'" value="new">';
     formVar += '<label for="work-address-radio'+id+'">Work(Delivery between 10 AM - 5 PM)</label>';
     formVar += '</div>';
+    formVar += '</div>';
+    formVar += '</div>';
+
+    formVar += '<div class="form-group">';
+    formVar += '<div class="col-xs-12">';
+    formVar += '<button class="btn btn-orange save-address" type="submit">Save</button>';
+    formVar += '<button class="btn btn-white cancel-address" type="button">Cancel</button>';
     formVar += '</div>';
     formVar += '</div>';
 

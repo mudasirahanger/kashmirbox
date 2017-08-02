@@ -80,7 +80,7 @@
   .step-content.collapse
     .address
       .address-forms
-        .address-form-wrap.new.editing.clearfix
+        .address-form-wrap.new.editing.first.clearfix
           .address-form-edit-panel
             .address-toggle
               .radio.radio-primary
@@ -102,11 +102,11 @@
           .address-form.clearfix 
             .col-xs-12
               .radio.radio-primary
-                input.address-toggle#edit-address-toggle1(type='radio', name='address-toggle',  value='1')
+                input.address-toggle#edit-address-toggle1(type='radio', name='address-toggle',  value='1' checked)
                 label(for='edit-address-toggle1')
                   span.edit-label Edit Address
                   span.new-label Add a new Address 
-            form
+            form#address-form1(data-form-id='1')
               .form-group.clearfix
                 .col-sm-6
                   input.form-control(name='name' placeholder='Name')
@@ -147,6 +147,8 @@
                 .col-xs-12
                   button.btn.btn-orange.save-address(type='submit') Save
                   button.btn.btn-white.cancel-address(type='button') Cancel
+    #proceed-to-payment-step
+      button.btn.btn-orange Proceed to Payment
     #add-new-address.hidden.clearfix
       a
         span.fa.fa-plus

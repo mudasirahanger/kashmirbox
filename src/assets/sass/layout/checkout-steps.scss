@@ -187,7 +187,7 @@
           }
         }
         .address-form {
-       
+          display: none;
         }
       }
       .address-form-wrap.editing {
@@ -205,14 +205,24 @@
         }
       }
       .address-form-wrap.new {
-        .address-form-edit-panel {
-          display: none;
-        }
         .edit-label {
           display: none;
         }
         .new-label {
           display: inline;
+        }
+      }
+      .address-form-wrap.first {
+        .edit-label {
+          display: none;
+        }
+        .new-label {
+          display: inline;
+        }
+      }
+      .address-form-wrap.first.new {
+        .cancel-address {
+          display: none;
         }
       }
     }

@@ -121,7 +121,7 @@
               <div class="step-content collapse">
                 <div class="address">
                   <div class="address-forms">
-                    <div class="address-form-wrap new editing clearfix">
+                    <div class="address-form-wrap new editing first clearfix">
                       <div class="address-form-edit-panel">
                         <div class="address-toggle">
                           <div class="radio radio-primary">
@@ -138,11 +138,11 @@
                       <div class="address-form clearfix"> 
                         <div class="col-xs-12">
                           <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1">
+                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1" checked>
                             <label for="edit-address-toggle1"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address </span></label>
                           </div>
                         </div>
-                        <form>
+                        <form id="address-form1" data-form-id="1">
                           <div class="form-group clearfix">
                             <div class="col-sm-6">
                               <input class="form-control" name="name" placeholder="Name">
@@ -207,6 +207,9 @@
                       </div>
                     </div>
                   </div>
+                </div>
+                <div id="proceed-to-payment-step">
+                  <button class="btn btn-orange">Proceed to Payment</button>
                 </div>
                 <div class="hidden clearfix" id="add-new-address"><a><span class="fa fa-plus"></span><span>Add new address                    </span></a></div>
               </div>
