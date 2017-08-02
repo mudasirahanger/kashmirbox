@@ -1039,7 +1039,7 @@ $(document).ready(function() {
     editPanel += '</div>';
     editPanel += '<div class="address-summary">';
     editPanel += '<p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>';
-    editPanel += '<p><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>';
+    editPanel += '<p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>';
     editPanel += '</div>';
     editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
     editPanel += '</div>';
@@ -1100,7 +1100,7 @@ $(document).ready(function() {
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-xs-12">';
-    formVar += '<label>Address Type</label>';
+    formVar += '<p>Address Type</p>';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
     formVar += '<div class="radio radio-primary">';
@@ -1119,7 +1119,7 @@ $(document).ready(function() {
     formVar += '<div class="form-group">';
     formVar += '<div class="col-xs-12">';
     formVar += '<button class="btn btn-orange save-address" type="submit">Save</button>';
-    formVar += '<button class="btn btn-white cancel-address" type="button">Cancel</button>';
+    formVar += '<button class="btn btn-default cancel-address" type="button">Cancel</button>';
     formVar += '</div>';
     formVar += '</div>';
 

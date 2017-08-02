@@ -145,6 +145,9 @@
     }
     .step-content {
       .address-form-wrap {
+        padding: $unit-layout 0;
+        background-color: $white-color;
+        margin-bottom: $half-unit-layout;
         .address-form-edit-panel {
           @include clearfix;
           background-color: $white-color;
@@ -187,7 +190,33 @@
           }
         }
         .address-form {
+          @include clearfix;
           display: none;
+          form {
+            .form-group {
+              @include clearfix;
+              margin: $unit-layout 0;
+              label {
+                font-size: rem(14px);
+              }
+              input {
+                height: rem(45px);
+                border-radius: 0;
+                background-color: $white-color;
+              }
+              textarea {
+                height: rem(100px);
+              }
+            }
+            .save-address {
+              margin-right: $quarter-unit-layout;
+            }
+            .save-address, .cancel-address {
+              width: rem(40px);
+              height: rem(40px);
+              width: rem(100px);
+            }
+          }
         }
       }
       .address-form-wrap.editing {
@@ -223,6 +252,31 @@
       .address-form-wrap.first.new {
         .cancel-address {
           display: none;
+        }
+      }
+      #proceed-to-payment-step {
+        margin: $unit-layout 0;
+        button {
+          max-width: rem(300px);
+          width: 100%;
+          height: rem(45px);
+          line-height: rem(45px);
+        }
+      }
+      #add-new-address {
+        padding: $unit-layout;
+        margin: $unit-layout 0;
+        background-color: $white-color;
+        cursor: pointer;
+        a {
+          text-decoration: none; 
+          span {
+            color: $blue-color;
+          }
+          span:first-child {
+            display: inline-block;
+            margin-right: $quarter-unit-layout;
+          }
         }
       }
     }
