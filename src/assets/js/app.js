@@ -863,35 +863,27 @@ $(document).ready(function() {
   var step2 = checkoutPage.find('#step2');
   var step3 = checkoutPage.find('#step3');
 
+  $(document).on(
+    'click', 
+    '.checkout-page-content .step >.step-complete-panel', function(){
+  });
 
+  /* Step1 Events */
   $(document).on('click', '#step1 #checkout-type-btn', function(){
-    step1.find('.col-right #checkout-options-forms').addClass('open');
-    switchCheckoutForms();
+    var isChecked = step1.find('input[name="customer-type"]').is(':checked');
+    if(isChecked) {
+      step1.find('.col-right #checkout-options-forms').addClass('open');
+      switchCheckoutForms();
+    }
   });
 
   $(document).on('change', '#step1 input[name="customer-type"]', function(){
     var isOpen = $('#step1 #checkout-options-forms').hasClass('open');
-    console.log('isOpen');
     if(isOpen) {
       switchCheckoutForms();
     }
   });
 
- /* $(document).on('click', '#step1 .signin-link', function(){
-    step1.find('form').parent().addClass('hidden');
-    step1.find('#checkout-login-form').parent().removeClass('hidden');
-    step1.find('.step-title span:nth-of-type(2)').html('Login');
-  });
-*/
-
-  $(document).on('click', '.checkout-page-content #add-new-address', function(){
-    var formsCount = step2.find('.address-forms > div').length;
-    console.log(formsCount);
-    var formHtml = getAddressFormHtml(formsCount+1);
-    step2.find('.address-forms').append(formHtml);
-  });
-
-   //Checkout Login Form
   $(document).on('submit', '#checkout-login-form', function(){
     //login new user
     console.log('submit checkout login form');
@@ -900,30 +892,31 @@ $(document).ready(function() {
     return false;
   });
 
-  //Checkout Register Form
   $(document).on('submit', '#checkout-register-form', function(){
-    //login new user
+    //register new user
     console.log('register new account');
     //step1 is complete
     moveToNextStep(1, 2);
     return false;
   });
 
-  //Checkout Guest Form
   $(document).on('submit', '#checkout-guest-form', function(){
-    //login new user
+    //guest user
     console.log('save guest details');
     //step1 is complete
     moveToNextStep(1, 2);
     return false;
   });
 
-  $(document).on(
-    'click', 
-    '.checkout-page-content .step >.step-complete-panel', function(){
-
+  /* Step2 Events */
+  $(document).on('click', '.checkout-page-content #add-new-address', function(){
+    var formsCount = step2.find('.address-forms > div').length;
+    var formHtml = getAddressFormHtml(formsCount+1);
+    step2.find('.address-forms').append(formHtml);
   });
 
+  
+  /* Helper Functions*/
   function switchCheckoutForms() {
     var isChecked = step1.find('input[name="customer-type"]').is(':checked');
     step1.find('.col-right form').parent().addClass('hidden');
@@ -938,15 +931,10 @@ $(document).ready(function() {
       }
     }
   }
-
   switchCheckoutForms();
 
   function goToStep(id) {
-    /*step.addClass('done');
-    step.find('.step-content').removeClass('in');
-    if(id == 1) {
-      step1.addClass('')
-    }*/
+    
   }
 
   function moveToNextStep(oldId, newId) {

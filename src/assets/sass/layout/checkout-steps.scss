@@ -194,6 +194,12 @@
         .address-form-edit-panel {
           display: none;
         }
+        .edit-label {
+          display: inline;
+        }
+        .new-label {
+          display: none;
+        }
         .address-form {
           display: block;
         }
@@ -201,6 +207,12 @@
       .address-form-wrap.new {
         .address-form-edit-panel {
           display: none;
+        }
+        .edit-label {
+          display: none;
+        }
+        .new-label {
+          display: inline;
         }
       }
     }

@@ -104,12 +104,8 @@
               .radio.radio-primary
                 input.address-toggle#edit-address-toggle1(type='radio', name='address-toggle',  value='1')
                 label(for='edit-address-toggle1')
-                  | Edit Address 
-            .col-xs-12
-              .radio.radio-primary
-                input.address-toggle#new-address-toggle1(type='radio', name='new-address-toggle',  value='1')
-                label(for='new-address-toggle1')
-                  | New Address 
+                  span.edit-label Edit Address
+                  span.new-label Add a new Address 
             form
               .form-group.clearfix
                 .col-sm-6
@@ -149,8 +145,8 @@
                       | Work(Delivery between 10 AM - 5 PM)
               .form-group
                 .col-xs-12
-                  button.btn.btn-orange(type='submit') Save
-                  button.btn.btn-white(type='submit') Cancel
+                  button.btn.btn-orange.save-address(type='submit') Save
+                  button.btn.btn-white.cancel-address(type='button') Cancel
     #add-new-address.hidden.clearfix
       a
         span.fa.fa-plus
