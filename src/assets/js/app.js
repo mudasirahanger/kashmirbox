@@ -1017,6 +1017,9 @@ $(document).ready(function() {
       if(isNewAddress) {
         $('#add-new-address').removeClass('hidden');
       }
+      if(!validateCheckoutAddressForm($(this))) {
+        return false;
+      }
       wrapper.removeClass('new');
       wrapper.removeClass('editing');
       wrapper.addClass('saved');
@@ -1131,6 +1134,57 @@ $(document).ready(function() {
     return true;
   }
 
+  function validateCheckoutAddressForm(form) {
+    $('.field-error').remove();
+    var isRequeredEmpty = false;
+    var name = form.find('input[name="name"]');
+    var phone = form.find('input[name="phone"]');
+    var pincode = form.find('input[name="pincode"]');
+    var locality = form.find('input[name="locality"]');
+    var city = form.find('input[name="city"]');
+    var state = form.find('input[name="state"]');
+    var streetAddress = form.find('textarea[name="street-address"]');
+
+    if(!name.val() || name.val().trim() === '') {
+      name.after('<span class="field-error">Name is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!pincode.val() || pincode.val().trim() === '') {
+      pincode.after('<span class="field-error">Pincode is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!phone.val() || phone.val().trim() === '') {
+      phone.after('<span class="field-error">Phone is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!locality.val() || locality.val().trim() === '') {
+      locality.after('<span class="field-error">Locality is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!city.val() || city.val().trim() === '') {
+      city.after('<span class="field-error">City is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!state.val() || state.val().trim() === '') {
+      state.after('<span class="field-error">State is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!streetAddress.val() || streetAddress.val().trim() === '') {
+      streetAddress.after('<span class="field-error">Sreet Address is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(isRequeredEmpty) {
+      return false;
+    }
+    return true;
+  }
 
 
   function getAddressFormHtml(id) {
@@ -1167,43 +1221,43 @@ $(document).ready(function() {
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="Name">';
+    formVar += '<input class="form-control" name="name" placeholder="name">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" type="email" placeholder="Email">';
+    formVar += '<input class="form-control" type="tel" name="phone" placeholder="phone">';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="Pincode">';
+    formVar += '<input class="form-control" name="pincode" placeholder="pincode">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="Locality">';
+    formVar += '<input class="form-control" name="locality" placeholder="locality">';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-xs-12">';
-    formVar += '<textarea class="form-control" placeholder="Address(Area and Street)"> </textarea>';
+    formVar += '<textarea class="form-control" name="street-address" placeholder="address(area and street)"> </textarea>';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="City/District/Town">';
+    formVar += '<input class="form-control" name="city" placeholder="city/district/town">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="State">';
+    formVar += '<input class="form-control" name="state" placeholder="state">';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="Landmark(Optional)">';
+    formVar += '<input class="form-control" name="landmark" placeholder="landmark(Optional)">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" placeholder="Alternate Phone(Optional)">';
+    formVar += '<input class="form-control" name="alt-phone" placeholder="alternate Phone(Optional)">';
     formVar += '</div>';
     formVar += '</div>';
 
