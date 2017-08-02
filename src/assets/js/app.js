@@ -1221,43 +1221,43 @@ $(document).ready(function() {
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="name" placeholder="name">';
+    formVar += '<input class="form-control" name="name" placeholder="Name">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" type="tel" name="phone" placeholder="phone">';
+    formVar += '<input class="form-control" type="tel" name="phone" placeholder="Phone">';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="pincode" placeholder="pincode">';
+    formVar += '<input class="form-control" name="pincode" placeholder="Pincode">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="locality" placeholder="locality">';
+    formVar += '<input class="form-control" name="locality" placeholder="Locality">';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-xs-12">';
-    formVar += '<textarea class="form-control" name="street-address" placeholder="address(area and street)"> </textarea>';
+    formVar += '<textarea class="form-control" name="street-address" placeholder="Address(Area and Street)"></textarea>';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="city" placeholder="city/district/town">';
+    formVar += '<input class="form-control" name="city" placeholder="City/District/Town">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="state" placeholder="state">';
+    formVar += '<input class="form-control" name="state" placeholder="State">';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="landmark" placeholder="landmark(Optional)">';
+    formVar += '<input class="form-control" name="landmark" placeholder="Landmark(Optional)">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="alt-phone" placeholder="alternate Phone(Optional)">';
+    formVar += '<input class="form-control" name="alt-phone" placeholder="Alternate Phone(Optional)">';
     formVar += '</div>';
     formVar += '</div>';
 

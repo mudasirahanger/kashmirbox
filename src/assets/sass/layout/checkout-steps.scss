@@ -109,14 +109,12 @@
           }
           .form-control {
             border-radius: 0;
-            max-width: rem(300px);
             height: rem(45px);
           }
           .submit-btn{
             width: 100%;
             border-radius: 0;
             height: rem(45px);
-            max-width: rem(300px);
             display: block;
           }
           .forgot-password-link, .signin-link {
@@ -223,6 +221,12 @@
           display: none;
           form {
             .form-group {
+              > div {
+                margin-bottom: $unit-layout;
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
               @include clearfix;
               margin: $unit-layout 0;
               label {
@@ -339,4 +343,40 @@
       }
     }
   }
+}
+
+
+@include respond-to(medium) {
+  .checkout-steps{
+    .step#step1 {
+      .step-content {
+        .view.logged-out {
+          form {
+            .form-control {
+              max-width: rem(300px);
+            }
+            .submit-btn{ 
+              max-width: rem(300px);
+            }
+          }
+        }
+      }
+    }
+
+    .step#step2 {
+      .step-content {
+        .address-form-wrap {
+          .address-form {
+            form {
+              .form-group {
+
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }      
+
 }

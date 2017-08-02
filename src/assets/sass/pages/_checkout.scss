@@ -8,6 +8,7 @@
       width: 100%;
     }
     .checkout-sidebar {
+      padding-top: $unit-layout;
       .features {
         .features-list {
           list-style-type: none;
@@ -67,6 +68,16 @@
         }
       }
 
+    }
+  }
+}
+
+@include respond-to(medium) { 
+  .checkout-page-content {
+    .checkout-steps-section {
+      .checkout-sidebar {
+        padding-top: 0;
+      }
     }
   }
 }
