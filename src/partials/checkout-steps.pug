@@ -153,3 +153,34 @@
       a
         span.fa.fa-plus
         span Add new address                    
+
+//STEP3
+.step#step3
+  .step-title
+    span.index 3
+    span Payment
+  .step-content.collapse
+    .col-xs-12.payment-gateway
+      .radio.radio-primary
+        input#cc-avenue-payment-option(type='radio', name='payment-gateway',  value='cc-avenue' checked)
+        label(for='cc-avenue-payment-option')
+          span.edit-label CC Avenue
+          img(src='images/icons/cc-avenue-gateway.png' alt='CC Avenue')
+    .col-xs-12.payment-gateway
+      .radio.radio-primary
+        input#payu-money-payment-option(type='radio', name='payment-gateway',  value='payu-money')
+        label(for='payu-money-payment-option')
+          span.edit-label PayU Money
+          img(src='images/icons/payu-money.png' alt='CC Avenue')
+    .col-xs-12.payment-gateway
+      .radio.radio-primary
+        input#cod-payment-option(type='radio', name='payment-gateway',  value='cod')
+        label(for='cod-payment-option')
+          span.edit-label Cash On Delivery
+    .col-xs-12.payment-gateway
+      .radio.radio-primary
+        input#mobikwik-payment-option(type='radio', name='payment-gateway',  value='mobikwik')
+        label(for='mobikwik-payment-option')
+          span.edit-label MobiKwik
+    #proceed-to-payment-gateway
+      a(href='#').btn.btn-orange Pay Now

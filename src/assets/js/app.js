@@ -969,6 +969,13 @@ $(document).ready(function() {
       activateAddressForm(formId);
       $(this).closest('.address-form-wrap').addClass('editing');
   });
+
+  $(document).on(
+    'click', 
+    '.checkout-page-content #step2 #proceed-to-payment-step button', function(){
+      //validate activated address form
+      moveToNextStep(2, 3);
+  });
   
   /* Helper Functions*/
   function switchCheckoutForms() {
@@ -986,10 +993,6 @@ $(document).ready(function() {
     }
   }
   switchCheckoutForms();
-
-  /*function goToStep(id) {
-    
-  }*/
 
   function moveToNextStep(oldId, newId) {
     var oldStep = checkoutPage.find('#step'+oldId);

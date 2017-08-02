@@ -257,9 +257,11 @@
       #proceed-to-payment-step {
         margin: $unit-layout 0;
         button {
-          max-width: rem(300px);
+          max-width: rem(250px);
           width: 100%;
           height: rem(45px);
+          border-radius: 0;
+          font-size: rem(16px);
           line-height: rem(45px);
         }
       }
@@ -283,4 +285,29 @@
 
   } // .step#step2
 
+  .step#step3 {
+    .step-content {
+      .payment-gateway {
+        background-color: white;
+        padding-right: $unit-layout;
+        margin-bottom: $half-unit-layout;
+        label {
+          width: 100%;
+          img {
+            float: right;
+          }
+        }
+      }
+    }
+    #proceed-to-payment-gateway {
+      a {
+        max-width: rem(250px);
+        height: rem(45px);
+        width: 100%;
+        font-size: rem(16px);
+        border-radius: 0;
+        line-height: rem(45px);
+      }
+    }
+  }
 }
