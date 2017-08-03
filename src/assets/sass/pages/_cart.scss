@@ -1,6 +1,9 @@
 .cart-content {
   .breadcrum-section {
     padding: $unit-layout 0;
+    a {
+      font-size: rem(13px);
+    }
   }
   .trust-label-section {
     padding: $unit-layout 0;

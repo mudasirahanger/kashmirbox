@@ -186,6 +186,8 @@
           }
           .address-summary {
             float: left;
+            width: 85%;
+            padding-left: $unit-layout;
             span {
               font-weight: 300;
             }
@@ -206,6 +208,7 @@
           .address-edit {
             float: right;
             cursor: pointer;
+            width: 10%;
             a {
               color: $blue-color;
               text-decoration: none;
