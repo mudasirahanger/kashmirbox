@@ -862,10 +862,21 @@ $(document).ready(function() {
   var step1 = checkoutPage.find('#step1');
   var step2 = checkoutPage.find('#step2');
   var step3 = checkoutPage.find('#step3');
+  var step = checkoutPage.find('.step');
 
   $(document).on(
     'click', 
     '.checkout-page-content .step >.step-complete-panel', function(){
+      $(this).closest('.step').nextAll('.step')
+      .removeClass('open')
+      .removeClass('done')
+      .find('.step-content')
+      .removeClass('in');
+      $(this).closest('.step')
+      .addClass('open')
+      .removeClass('done')
+      .find('.step-content')
+      .addClass('in');
   });
 
   /* Step1 Events */
