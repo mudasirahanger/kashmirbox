@@ -16,5 +16,40 @@ block cart_content
             span KashmirBox is trusted by more than 1 million customers worldwide 
     .box-section
       .container.padding-0
-        
-
+        .cart-summary.col-sm-4
+          .features.hidden-xs
+            ul.features-list
+              li 
+                span.fa.fa-check
+                span Authenticity Guaranteed
+              li 
+                span.fa.fa-lock
+                span 100% Safe &amp; Secure Payments Process
+              li 
+                span.fa.fa-refresh
+                span Easy Returns
+          .order-summary
+            h6 Order Summary
+            div
+              ul.order-summary-list
+                li.item
+                  span.item-title KashmirBox Price
+                  span.item-value(data-currency_symbol='$', data-price='846') $846
+                li.item.discount-coupon
+                  span.item-title Coupon Discount
+                  span.item-value() <a href=''>Apply Coupon</a>
+                li.item
+                  span.item-title TAX Amount
+                  span.item-value(data-currency_symbol='$', data-price='80') $80
+                li.item
+                  span.item-title Shipping Charges
+                  span.item-value(data-currency_symbol='$', data-price='0') $00
+                li.item.total
+                  span.item-title Total Amount Payable
+                  span.item-value(data-currency_symbol='$', data-price='926') $926
+              .summary-footer
+                button.btn.btn-orange.process-checkout-btn Proceed To Checkout
+                span (inclusive of shipping, handling and taxes)
+                img(src='images/icons/cc-avenue-gateway.png')
+        .cart-products.col-sm-8
+          h1 cart products
