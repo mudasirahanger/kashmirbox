@@ -927,7 +927,6 @@ $(document).ready(function() {
   });
 
   /* Step2 Events */
-  /*var addressFormWrap = step2.find('.address-form-wrap');*/
   var addNewAddressBtn = step2.find('#add-new-address');
   var formsCount = step2.find('.address-forms > div').length;
   var lastFormId = 1;
