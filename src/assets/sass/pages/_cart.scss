@@ -6,6 +6,7 @@
       font-size: rem(13px);
     }
   }
+  
   .trust-label-section {
     background-color: $approx-snow-color;
     padding: $unit-layout 0;
@@ -39,6 +40,7 @@
       }
     }
   }
+  
   .box-section {
     background-color: $approx-snow-color;
     padding: $unit-layout*2 0;
@@ -266,6 +268,27 @@
     }
 
   }
+
+  .social-impact-section {
+    padding: $unit-layout*4 0;
+    background-color: $white-color;
+    .img-wrap {
+      text-align: center;
+      img {
+        max-width: 100%;
+      }
+    }
+    .content {
+      margin-top: $unit-layout * 2;
+      h6 {
+        font-family: $ff-playfair-display;
+      }
+      p {
+        padding: $unit-layout *2 0;
+      }
+    }
+  }
+
 }
 
 @include respond-to('small-3-only') {
@@ -328,6 +351,19 @@
   }
 }
 
+@include respond-to(medium) {
+  .cart-content {
+    .social-impact-section {
+      .img-wrap {
+        text-align: right;
+      }
+      .content {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 @include respond-to(large) {
   .cart-content {
     .box-section {
@@ -339,6 +375,11 @@
       }
       .cart-products {
         float: left;
+      }
+    }
+    .social-impact-section {
+      .content {
+        margin-top: $unit-layout * 2;
       }
     }
   }

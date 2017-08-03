@@ -67,7 +67,7 @@ block cart_content
                     input.form-control(type='number' value='2')
                   span.fa.fa-plus.increment
               .product-price
-                span.price-value(data-price='100') $100
+                span.price-value(data-unit-price='100') $200
                 span.tax-value(data-tax-amount='10') + $10 GST
                 span.discount-value(data-discount-percent='0')
               .product-delete
@@ -86,7 +86,7 @@ block cart_content
                     input.form-control(type='number' value='1')
                   span.fa.fa-plus.increment
               .product-price
-                span.price-value(data-price='99') $99
+                span.price-value(data-unit-price='99') $99
                 span.tax-value(data-tax-amount='10') + $10 GST
                 span.discount-value(data-discount-percent='5') - 5%
               .product-delete
@@ -116,3 +116,13 @@ block cart_content
                   .item-info
                     p Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams    
               include ./components/giftcard-form.pug        
+
+    .social-impact-section
+      .container
+        .row.padding-0
+          .col-sm-4.img-wrap
+            img(src='images/social-impact.png' alt='')
+          .col-sm-8
+            .content
+              h6.title Social impact message heading
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris laoreet lectus et fermentum porttitor. Aenean imperdiet massa vel erat aliquet, quis hendrerit augue egestas. Vivamus venenatis, libero at molestie eleifend, nisl lorem egestas velit, in faucibus nunc velit sed lacus. Sed sed ante tincidunt, malesuada erat quis, rhoncus diam. Pellentesque accumsan eget urna vel faucibus. Phasellus aliquet nibh ac leo porta ultricies. Curabitur quis laoreet dui. Phasellus at condimentum enim. Donec consequat tempus justo egestas viverra. Curabitur euismod lobortis enim, at venenatis velit ferme.

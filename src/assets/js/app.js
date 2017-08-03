@@ -1331,7 +1331,7 @@ jQuery(document).ready(function($){
     function(){
       var priceEl = $(this).closest('.product').find('.price-value');
       var units = parseFloat($(this).val());
-      var price = parseFloat(priceEl.attr('data-price'));
+      var price = parseFloat(priceEl.attr('data-unit-price'));
       var total = units * price;
       total = total.toFixed(2);
       priceEl.html(kb_shop_currency_symbol+total);
@@ -1357,7 +1357,7 @@ jQuery(document).ready(function($){
     //calculate price
     for(var i = 1; i <= count; i++) {
       var product = cartPage.find('.box-products > .product:nth-of-type('+i+')');
-      var productPrice = product.find('.price-value').attr('data-price');
+      var productPrice = product.find('.price-value').attr('data-unit-price');
       var quantity = product.find('.counter-input input').val();
       var productTotal = productPrice * quantity;
       var discountPercent = parseFloat(product.find('.discount-value').attr('data-discount-percent'));
