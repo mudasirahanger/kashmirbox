@@ -980,6 +980,17 @@ $(document).ready(function() {
   $(document).on(
     'click', 
     '.checkout-page-content #step2 #proceed-to-payment-step button', function(){
+      var isFormOpen = step2.find('.address-form-wrap.editing').length > 0;
+      var formId = step2
+      .find('.address-form-wrap.editing:eq(0)')
+      .find('form')
+      .attr('data-form-id');
+      var form = $('#address-form'+formId);
+      form.submit();
+      if(form.find('.field-error').length > 0) {
+        form.find('.field-error:eq(0)').siblings('input').focus();
+        return;
+      }
       //validate activated address form
       moveToNextStep(2, 3);
   });

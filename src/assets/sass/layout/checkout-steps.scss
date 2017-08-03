@@ -290,12 +290,12 @@
       #proceed-to-payment-step {
         margin: $unit-layout 0;
         button {
-          max-width: rem(250px);
+          max-width: rem(235px);
           width: 100%;
-          height: rem(45px);
+          height: rem(40px);
           border-radius: 0;
           font-size: rem(16px);
-          line-height: rem(45px);
+          line-height: rem(40px);
         }
       }
       #add-new-address {
@@ -334,12 +334,12 @@
     }
     #proceed-to-payment-gateway {
       a {
-        max-width: rem(250px);
-        height: rem(45px);
+        max-width: rem(235px);
+        height: rem(40px);
         width: 100%;
         font-size: rem(16px);
         border-radius: 0;
-        line-height: rem(45px);
+        line-height: rem(40px);
       }
     }
   }
