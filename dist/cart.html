@@ -47,11 +47,11 @@
               <h6>Order Summary</h6>
               <div>
                 <ul class="order-summary-list">
-                  <li class="item"><span class="item-title">KashmirBox Price</span><span class="item-value" data-currency_symbol="$" data-price="846">$846</span></li>
+                  <li class="item"><span class="item-title">KashmirBox Price</span><span class="item-value" id="kbprice" data-price=""> </span></li>
                   <li class="item discount-coupon"><span class="item-title">Coupon Discount</span><span class="item-value"><a href=''>Apply Coupon</a></span></li>
-                  <li class="item"><span class="item-title">TAX Amount</span><span class="item-value" data-currency_symbol="$" data-price="80">$80</span></li>
-                  <li class="item"><span class="item-title">Shipping Charges</span><span class="item-value" data-currency_symbol="$" data-price="0">$00</span></li>
-                  <li class="item total"><span class="item-title">Total Amount Payable</span><span class="item-value" data-currency_symbol="$" data-price="926">$926</span></li>
+                  <li class="item"><span class="item-title">TAX Amount</span><span class="item-value" id="taxAmount" data-price=""></span></li>
+                  <li class="item"><span class="item-title">Shipping Charges</span><span class="item-value" data-price="0">$00</span></li>
+                  <li class="item total"><span class="item-title">Total Amount Payable</span><span class="item-value" id="cartTotal" data-price=""></span></li>
                 </ul>
                 <div class="summary-footer">
                   <button class="btn btn-orange process-checkout-btn">Proceed To Checkout</button><span>(inclusive of shipping, handling and taxes)</span><img src="images/icons/cc-avenue-gateway.png">
@@ -60,7 +60,65 @@
             </div>
           </div>
           <div class="cart-products col-sm-8">
-            <h1>cart products</h1>
+            <h6>My Box - <span id="cart-item-count"></span> items</h6>
+            <div class="box-products">
+              <div class="product clearfix">
+                <div class="product-img"><img src="images/cart-product-img.png"></div>
+                <div class="product-info"><span class="name">Koshur Dried Fig 400 Grams (Anjeer)</span><span class="kbcode">KB0017</span></div>
+                <div class="product-counter">
+                  <div class="counter-input"><span class="fa fa-minus decrement"></span><span> 
+                      <input class="form-control" type="number" value="2"></span><span class="fa fa-plus increment"></span></div>
+                </div>
+                <div class="product-price"><span class="price-value" data-price="100">$100</span><span class="tax-value" data-tax-amount="10">+ $10 GST</span><span class="discount-value" data-discount-percent="0"></span></div>
+                <div class="product-delete">
+                  <div><span class="fa fa-times"></span></div>
+                </div>
+              </div>
+              <div class="product clearfix">
+                <div class="product-img"><img src="images/cart-product-img.png"></div>
+                <div class="product-info"><span class="name">Koshur Dried Fig 400 Grams (Anjeer)</span><span class="kbcode">KB0017</span></div>
+                <div class="product-counter">
+                  <div class="counter-input"><span class="fa fa-minus decrement"></span><span> 
+                      <input class="form-control" type="number" value="1"></span><span class="fa fa-plus increment"></span></div>
+                </div>
+                <div class="product-price"><span class="price-value" data-price="99">$99</span><span class="tax-value" data-tax-amount="10">+ $10 GST</span><span class="discount-value" data-discount-percent="5">- 5%</span></div>
+                <div class="product-delete">
+                  <div><span class="fa fa-times"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="box-offers">
+              <h6>Offers</h6>
+              <div class="box-offers-content">
+                <p>Purchase offers with this cart</p>
+                <div class="offer-items">
+                  <div class="offer-item">
+                    <div class="radio-wrap">
+                      <div class="radio radio-primary">
+                        <input id="guest-checkout" type="radio" name="customer-type" value="guest">
+                        <label for="guest-checkout"></label>
+                      </div>
+                    </div>
+                    <div class="item-image"><img src="images/cart-offer-img.png"></div>
+                    <div class="item-info">
+                      <p>Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams</p>
+                    </div>
+                  </div>
+                  <div class="offer-item">
+                    <div class="radio-wrap">
+                      <div class="radio radio-primary">
+                        <input id="guest-checkout" type="radio" name="customer-type" value="guest">
+                        <label for="guest-checkout"></label>
+                      </div>
+                    </div>
+                    <div class="item-image"><img src="images/cart-offer-img.png"></div>
+                    <div class="item-info">
+                      <p>Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+window.kb_shop_currency_symbol = '$';
 /*******************************************************************************
 Home page
 ********************************************************************************/
@@ -747,6 +748,7 @@ jQuery(document).ready(function($){
     input.trigger('change');
   });
 
+
 });
 
 /*******************************************************************************
@@ -1313,6 +1315,110 @@ $(document).ready(function() {
     formVar += '</div>'; 
     return formVar;
   }
+
+});
+
+/*******************************************************************************
+Cart Page 
+********************************************************************************/
+jQuery(document).ready(function($){
+  var cartPage = $('.cart-content');
+  var productItem = $('.product');
+
+  $(document).on(
+    'change', 
+    '.cart-content .product .counter-input input', 
+    function(){
+      var priceEl = $(this).closest('.product').find('.price-value');
+      var units = parseFloat($(this).val());
+      var price = parseFloat(priceEl.attr('data-price'));
+      var total = units * price;
+      total = total.toFixed(2);
+      priceEl.html(kb_shop_currency_symbol+total);
+      calculateCartSummary();
+  });
+
+  $(document).on('click', '.cart-content .product .product-delete', function(){
+    $(this).closest('.product').remove();
+    calculateCartSummary();
+  });
+
+  function calculateCartItems() {
+    var count = cartPage.find('.box-products > .product').length;
+    $('#cart-item-count').html(count);
+  }
+
+  function calculateCartSummary() {
+    var products = cartPage.find('.box-products > .product');
+    var count = products.length;
+    var price = 0;
+    var taxAmount = 0;
+    
+    //calculate price
+    for(var i = 1; i <= count; i++) {
+      var product = cartPage.find('.box-products > .product:nth-of-type('+i+')');
+      var productPrice = product.find('.price-value').attr('data-price');
+      var quantity = product.find('.counter-input input').val();
+      var productTotal = productPrice * quantity;
+      var discountPercent = parseFloat(product.find('.discount-value').attr('data-discount-percent'));
+      if(discountPercent > 0 && discountPercent <= 100) {
+        productTotal -= ( productTotal / 100 ) * discountPercent; 
+      }
+      price += parseFloat(productTotal);
+      taxAmount +=  parseFloat(product.find('.tax-value').attr('data-tax-amount'));
+    }
+    
+    $('#kbprice').attr('data-price', price.toFixed(2))
+    $('#kbprice').html(kb_shop_currency_symbol+price.toFixed(2));
+
+    $('#taxAmount').attr('data-price', taxAmount.toFixed(2));
+    $('#taxAmount').html(kb_shop_currency_symbol+taxAmount.toFixed(2));
+
+    var cartTotal = (price + taxAmount).toFixed(2);
+    $('#cartTotal').attr('data-price', cartTotal);
+    $('#cartTotal').html(kb_shop_currency_symbol+cartTotal);
+  }
+
+  calculateCartItems();
+  calculateCartSummary();
+
+});
+
+/******************************************************************************
+Common functionality
+*******************************************************************************/
+jQuery(document).ready(function($){
+
+  $(document).on('click', '.counter-input .increment', function(){
+    var input = $(this).closest('.counter-input').find('input');
+    var inputVal = parseFloat(input.val());
+    if(isNaN(inputVal)) {
+      input.val(1);
+    } else {
+      input.val(inputVal+1);
+    }
+    input.trigger('change');
+  });
+
+  $(document).on('click', '.counter-input .decrement', function(){
+    var input = $(this).closest('.counter-input').find('input');
+    var inputVal = parseFloat(input.val());
+    if(isNaN(inputVal)) {
+      input.val(1);
+    } else {
+      if(inputVal > 1)
+        input.val(inputVal-1);
+    }
+    input.trigger('change');
+  });
+
+  $(document).on('change', '.counter-input input', function(){
+    var inputVal = $(this).val();
+    if(isNaN(inputVal) || inputVal <= 0) { 
+      $(this).val(1);
+      $(this).trigger('change');
+    }
+  });
 
 });
 

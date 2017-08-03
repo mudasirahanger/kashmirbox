@@ -34,22 +34,85 @@ block cart_content
               ul.order-summary-list
                 li.item
                   span.item-title KashmirBox Price
-                  span.item-value(data-currency_symbol='$', data-price='846') $846
+                  span.item-value#kbprice(data-price='') 
                 li.item.discount-coupon
                   span.item-title Coupon Discount
                   span.item-value() <a href=''>Apply Coupon</a>
                 li.item
                   span.item-title TAX Amount
-                  span.item-value(data-currency_symbol='$', data-price='80') $80
+                  span.item-value#taxAmount(data-price='')
                 li.item
                   span.item-title Shipping Charges
-                  span.item-value(data-currency_symbol='$', data-price='0') $00
+                  span.item-value(data-price='0') $00
                 li.item.total
                   span.item-title Total Amount Payable
-                  span.item-value(data-currency_symbol='$', data-price='926') $926
+                  span.item-value#cartTotal(data-price='')
               .summary-footer
                 button.btn.btn-orange.process-checkout-btn Proceed To Checkout
                 span (inclusive of shipping, handling and taxes)
                 img(src='images/icons/cc-avenue-gateway.png')
         .cart-products.col-sm-8
-          h1 cart products
+          h6 My Box - <span id="cart-item-count"></span> items
+          .box-products
+            .product.clearfix
+              .product-img
+                img(src='images/cart-product-img.png')
+              .product-info
+                span.name Koshur Dried Fig 400 Grams (Anjeer)
+                span.kbcode KB0017
+              .product-counter
+                .counter-input
+                  span.fa.fa-minus.decrement
+                  span 
+                    input.form-control(type='number' value='2')
+                  span.fa.fa-plus.increment
+              .product-price
+                span.price-value(data-price='100') $100
+                span.tax-value(data-tax-amount='10') + $10 GST
+                span.discount-value(data-discount-percent='0')
+              .product-delete
+                div
+                  span.fa.fa-times
+            .product.clearfix
+              .product-img
+                img(src='images/cart-product-img.png')
+              .product-info
+                span.name Koshur Dried Fig 400 Grams (Anjeer)
+                span.kbcode KB0017
+              .product-counter
+                .counter-input
+                  span.fa.fa-minus.decrement
+                  span 
+                    input.form-control(type='number' value='1')
+                  span.fa.fa-plus.increment
+              .product-price
+                span.price-value(data-price='99') $99
+                span.tax-value(data-tax-amount='10') + $10 GST
+                span.discount-value(data-discount-percent='5') - 5%
+              .product-delete
+                div
+                  span.fa.fa-times
+          .box-offers
+            h6 Offers
+            .box-offers-content
+              p Purchase offers with this cart
+              .offer-items
+                .offer-item
+                  .radio-wrap
+                    .radio.radio-primary
+                      input#guest-checkout(type='radio', name='customer-type', value='guest')
+                      label(for='guest-checkout')
+                  .item-image
+                    img(src='images/cart-offer-img.png')
+                  .item-info
+                    p Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams
+                .offer-item
+                  .radio-wrap
+                    .radio.radio-primary
+                      input#guest-checkout(type='radio', name='customer-type', value='guest')
+                      label(for='guest-checkout')
+                  .item-image
+                    img(src='images/cart-offer-img.png')
+                  .item-info
+                    p Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams    
+

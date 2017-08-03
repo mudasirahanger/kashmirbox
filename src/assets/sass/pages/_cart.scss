@@ -136,7 +136,128 @@
     }
 
     .cart-products {
+      h6 {
+        font-size: rem(17px);
+        padding: $unit-layout 0;
+        font-weight: 400;
+      }
+      .box-products {
+        .product {
+          background-color: $white-color;
+          padding: $unit-layout;
+          border: 1px solid $light-grey;
+          margin-bottom: $half-unit-layout;
+          > div {
+            box-sizing: border-box;
+          }
+          > .product-img {
+            width: 15%;
+            float: left;
+            img {
+              max-width: 100%;
+            }
+          }
+          > .product-info {
+            width: 45%;
+            float: left;
+            padding-left: $half-unit-layout;
+            .name, .kbcode {
+              font-size: rem(15px);
+              font-weight: 300;
+              display: block;
+            }
+            .kbcode {
+              color: $mid-grey;
+            }
+          }
+          > .product-counter {
+            width: 15%;
+            float: left;
+            height: rem(60px);
+            display: table;
+            .counter-input {
+              display: table-cell;
+              vertical-align: middle;
+              input {
+                padding: 0;
+              }
+            }
+          }
+          > .product-price {
+            width: 20%;
+            float: left;
+            > span {
+              display: block;
+              text-align: right;
+              padding: $quarter-unit-layout 0;
+            }
+          }
+          > .product-delete {
+            width: 5%;
+            float: left;
+            text-align: right;
+            > div {
+              display: table;
+              height: rem(60px);
+              width: 100%;
+              > span {
+                display: table-cell;
+                vertical-align: middle;
+                color: $crimson-color;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
     }
+
+    .box-offers {
+      h6 {
+        font-size: rem(17px);
+        padding: $unit-layout 0;
+         font-weight: 400;
+      }
+      .box-offers-content {
+        padding: $unit-layout;
+        background-color: $white-color;
+        > p {
+          font-size: rem(15px);
+          font-weight: 400;
+          padding: $unit-layout 0;
+        }
+        .offer-items {
+          .offer-item {
+            background: #f6f6f6;
+            padding: $unit-layout;
+            border: 1px solid $light-grey;
+            margin-bottom: $unit-layout * 2;
+            @include clearfix;
+            .radio-wrap {
+              width: 5%;
+              float: left;
+              .radio {
+                margin-top:  $unit-layout;
+              }
+            }
+            .item-image {
+              width: 15%;
+              float: left;
+            }
+            .item-info {
+              width: 80%;
+              float: left;
+              height: rem(60px);
+              line-height: rem(60px);
+              p {
+                color: $text-color-dark;
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
 

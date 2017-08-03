@@ -1,0 +1,48 @@
+.counter-input {
+  @include clearfix;
+  height: rem(30px);
+  max-width: rem(80px);
+  line-height: rem(30px);
+  input[type="number"]::-webkit-inner-spin-button, 
+  input[type="number"]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0; 
+  }
+  input[type="number"] {
+    border-right: 1px solid $mid-grey;
+    width: 85%;
+    float: left;
+    -moz-appearance: textfield;
+  }
+  span {
+    width: 50%;
+    float: left;
+    display: block;
+    height: rem(30px);
+    line-height: rem(30px);
+    text-align: center;
+  }
+  span .form-control {
+    width: rem(30px);
+    height: rem(30px);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    float: none;
+    border: 1px solid $light-grey;
+  }
+  span.fa {
+    width: 25%;
+    cursor: pointer;
+  }
+  span.fa-minus {
+    color: $crimson-color;
+  }
+  span.fa-plus {
+    color: $brand-color;
+  }
+}
