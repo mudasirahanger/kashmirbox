@@ -45,6 +45,8 @@
     
     .cart-summary {
       .features {
+        display: none;
+        padding-top: $unit-layout;
         .features-list {
           list-style-type: none;
           padding: $unit-layout 0;
@@ -191,6 +193,10 @@
               text-align: right;
               padding: $quarter-unit-layout 0;
             }
+            .tax-value, .discount-value {
+              color: $mid-grey;
+              font-weight: 300;
+            }
           }
           > .product-delete {
             width: 5%;
@@ -219,6 +225,7 @@
          font-weight: 400;
       }
       .box-offers-content {
+        @include clearfix;
         padding: $unit-layout;
         background-color: $white-color;
         > p {
@@ -261,11 +268,73 @@
   }
 }
 
-@include respond-to(medium) {
+@include respond-to('small-3-only') {
+  .cart-content {
+    .box-section {
+      
+      .cart-products {
+        .box-products {
+          .product {
+            > .product-info {
+              width: 85%;
+            }
+            > .product-counter {
+              width: 30%;
+              clear: left;
+            }
+            > .product-price {
+              width: 50%;
+            }
+            > .product-delete {
+              width: 20%;
+            }
+          }
+        }
+      }
+
+      .box-offers {
+        .box-offers-content {
+          .offer-items {
+            .offer-item {
+              .item-image {
+                width: 95%;
+                img {
+                  max-width: 100%;
+                }
+              }
+              .item-info {
+                width: 100%;
+                clear: left;
+                height: auto;
+                line-height: rem(24px);
+              }
+            }
+          }
+          #gift-card-form {
+            .form-control {
+              max-width: 100%;
+              margin-bottom: $unit-layout;
+            }
+            button {
+              max-width: 100%;
+              display: block;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@include respond-to(large) {
   .cart-content {
     .box-section {
       .cart-summary {
         float: right;
+        .features {
+          display: block;
+        }
       }
       .cart-products {
         float: left;

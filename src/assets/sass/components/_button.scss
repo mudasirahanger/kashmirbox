@@ -128,3 +128,14 @@
     color: $white-color;
   }
 }
+
+.btn-border-primary {
+  border-width: rem(2px);
+  border: rem(1px) solid $brand-color;
+  color: $brand-color;
+
+  &:hover, &:active, &:focus {
+    background-color: $brand-color;
+    color: $white-color;
+  }
+}

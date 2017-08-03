@@ -16,7 +16,7 @@ block cart_content
             span KashmirBox is trusted by more than 1 million customers worldwide 
     .box-section
       .container.padding-0
-        .cart-summary.col-sm-4
+        .cart-summary.col-md-4
           .features.hidden-xs
             ul.features-list
               li 
@@ -51,7 +51,7 @@ block cart_content
                 button.btn.btn-orange.process-checkout-btn Proceed To Checkout
                 span (inclusive of shipping, handling and taxes)
                 img(src='images/icons/cc-avenue-gateway.png')
-        .cart-products.col-sm-8
+        .cart-products.col-md-8
           h6 My Box - <span id="cart-item-count"></span> items
           .box-products
             .product.clearfix
@@ -115,4 +115,4 @@ block cart_content
                     img(src='images/cart-offer-img.png')
                   .item-info
                     p Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams    
-
+              include ./components/giftcard-form.pug        
