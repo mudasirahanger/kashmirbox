@@ -312,11 +312,12 @@
           }
           #gift-card-form {
             .form-control {
-              max-width: 100%;
+              max-width: 55%;
+              margin-right: 5%;
               margin-bottom: $unit-layout;
             }
             button {
-              max-width: 100%;
+              max-width: 35%;
               display: block;
             }
           }
