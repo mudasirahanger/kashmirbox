@@ -10,8 +10,15 @@
   .trust-label-section {
     background-color: $approx-snow-color;
     padding: $unit-layout 0;
+    .container {
+      > div {
+        padding: 0 $quarter-unit-layout;
+      }
+    }
     .trust-label {
       position: relative;
+      display: table;
+      width: 100%;
       span:first-child {
         display: inline-block;
         background: white;
@@ -28,12 +35,14 @@
       }
       span:last-child {
         display: inline-block;
-        padding: $half-unit-layout;
-        padding-right: $unit-layout * 2;
+        height: rem(45px);
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 0;
         padding-left: $unit-layout * 4;
-        background-color: rgba(58, 170, 150, 0.3);
+        background-color: #d1ffe1;
         font-family: $ff-playfair-display;
-        font-size: rem(18px);
+        font-size: rem(10px);
         color: #096e5c;
         width: 100%;
         font-weight: 700;
@@ -44,7 +53,6 @@
   .box-section {
     background-color: $approx-snow-color;
     padding: $unit-layout*2 0;
-    
     .cart-summary {
       .features {
         display: none;
@@ -291,8 +299,78 @@
 
 }
 
+
+
+@include respond-to(medium) {
+  .cart-content {
+    .trust-label-section  {
+      .trust-label {
+        span:last-child {
+          font-size: rem(18px);
+        }
+      }
+    }
+    .social-impact-section {
+      .img-wrap {
+        text-align: right;
+      }
+      .content {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@include respond-to(large) {
+  .cart-content {
+    .trust-label-section {
+      .container {
+        > div {
+          padding: 0;
+        }
+      }
+    }
+    .box-section {
+      .cart-summary {
+        float: right;
+        .features {
+          display: block;
+        }
+      }
+      .cart-products {
+        float: left;
+      }
+    }
+    .social-impact-section {
+      .content {
+        margin-top: $unit-layout * 2;
+      }
+    }
+  }
+}
+
+@include respond-to('medium-only') {
+  .cart-content {
+    .trust-label-section  {
+      .trust-label {
+        span:last-child {
+          font-size: rem(14px);
+        }
+      }
+    }
+  }
+}
+
 @include respond-to('small-3-only') {
   .cart-content {
+    .trust-label-section  {
+      .trust-label {
+        span:last-child {
+          font-size: rem(11px);
+        }
+      }
+    }
+
     .box-section {
       
       .cart-products {
@@ -347,40 +425,6 @@
         }
       }
 
-    }
-  }
-}
-
-@include respond-to(medium) {
-  .cart-content {
-    .social-impact-section {
-      .img-wrap {
-        text-align: right;
-      }
-      .content {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
-@include respond-to(large) {
-  .cart-content {
-    .box-section {
-      .cart-summary {
-        float: right;
-        .features {
-          display: block;
-        }
-      }
-      .cart-products {
-        float: left;
-      }
-    }
-    .social-impact-section {
-      .content {
-        margin-top: $unit-layout * 2;
-      }
     }
   }
 }
