@@ -1,0 +1,156 @@
+#register-login-modal {
+  .modal-dialog {
+    max-width: 800px;
+    width: 100%;
+  }
+  .modal-content {
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    height: rem(485px);
+    .col-left {
+      background-image: url('../images/popup-bg.png');
+      background-size: cover;
+      background-position-y: 100%;
+      height: rem(485px);
+      display: table;
+      .content {
+        padding: 0 $unit-layout * 1.5;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        h4 {
+          font-size: rem(26px);
+          font-weight: 700;
+          color: white;
+          font-family: $ff-playfair-display;
+          margin-bottom: $unit-layout * 2.3;
+        }
+        p {
+          color: white;
+          font-size: rem(16px);
+          font-weight: 300;
+        }
+      }
+    }
+    .col-right {
+      background-color: $white-color;
+      padding: $unit-layout * 1.5;
+      .links {
+        @include clearfix;
+        list-style-type:  none;
+        margin-bottom: $double-unit-layout;
+        li {
+          float: left;
+          a {
+            color: #8c8c8c;
+            font-family: $ff-playfair-display;
+            font-size: rem(17px);
+            font-weight: 700;
+            &.active {
+              color: #308e42;
+            }
+            text-decoration: none;
+          }
+          &:first-child {
+            a:after {
+              content : '/';
+              color: #8c8c8c;
+              display: inline-block;
+              padding: 0 rem(2px);
+            }
+          }
+          &:last-child{ 
+            a {cursor: pointer;}
+          }
+        }
+      }
+      form {
+        .form-group {
+          @include clearfix;
+        }
+        .form-control {
+          height: rem(43px);
+          background-color: #f3f3f3;
+          border-radius: 0;
+          font-size: rem(14px);
+          margin-bottom: $half-unit-layout;
+        }
+        .checkbox {
+          margin: 0;
+          label {
+            font-size: rem(13px);
+            color: $dark-grey;
+            &:before, &:after {
+              top: rem(3px);
+            }
+          }
+        }
+        .forgot-password-link {
+          text-align: right;
+          a {
+            text-decoration: underline;
+            color: $dark-grey;
+            font-size: rem(13px);
+            display: inline-block;
+          }
+        }
+        .btn-wrap {
+          margin: $unit-layout * 1.75 0;
+          > div:first-child {
+            padding-right: $half-unit-layout;
+          }
+          > div:last-child {
+            padding-left: $half-unit-layout;
+          }
+          .register-btn, .login-btn {
+            height: rem(45px);
+            line-height: rem(45px);
+            text-align: center;
+            display: block;
+            border-radius: 0;
+            width: 100%;
+            font-weight: 500;
+          }
+          .register-btn {
+            border: 1px solid #757575;
+            color: #757575;
+          }
+        }
+      }
+      .separator {
+        color: #757575;
+        font-size: rem(14px);
+        text-transform: uppercase;
+      }
+      .separator:after, .separator:before {
+          content: '';
+          border-top: 1px solid;
+          display: inline-block;
+          width: 45%;
+          height: rem(5px);
+      }
+      .social-login-btns {
+        margin-top: $unit-layout * 1.5;
+        .btn {
+          width: 100%;
+          display: block;
+          line-height: rem(42px);
+          height: rem(42px);
+          border-radius: 0;
+          font-size: rem(14px);
+        }
+        .google-login-btn {
+          border: 1px solid $crimson-color;
+          color: $crimson-color;
+          margin-bottom: $half-unit-layout;
+        }
+        .facebook-login-btn {
+          border: 1px solid  #3a5a98;
+          color:  #3a5a98;
+        }
+      }
+    }
+  }
+}

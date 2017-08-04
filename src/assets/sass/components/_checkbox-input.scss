@@ -62,8 +62,8 @@
   margin-top: 0; 
 }
 .checkbox-primary input[type="checkbox"]:checked + label::before {
-  background-color: #428bca;
-  border-color: #428bca; 
+  background-color: $brand-color;
+  border-color: $brand-color; 
 }
 .checkbox-primary input[type="checkbox"]:checked + label::after {
   color: #fff; 
