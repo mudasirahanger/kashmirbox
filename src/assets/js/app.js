@@ -1323,8 +1323,9 @@ Cart Page
 ********************************************************************************/
 jQuery(document).ready(function($){
   var cartPage = $('.cart-content');
-  var productItem = $('.product');
+  var cartProducts = $('#cart-products-wrapper');
 
+  /* Events */
   $(document).on(
     'change', 
     '.cart-content .product .counter-input input', 
@@ -1343,6 +1344,45 @@ jQuery(document).ready(function($){
     calculateCartSummary();
   });
 
+  $(document).on('change', '.cart-content .box-section .offer-item input', function(){
+    var unitPrice = parseFloat($(this).attr('data-unit-price'));
+    var taxAmount = parseFloat($(this).attr('data-gst-tax-amount'));
+    var discountPercent = parseFloat($(this).attr('data-discount-percent'));
+    var quantity = parseFloat($(this).attr('data-quantity'));
+    if(isNaN(discountPercent) || isNaN(taxAmount) || isNaN(unitPrice) || isNaN(quantity)){
+      console.error('invalid offer item values');
+      return;
+    }
+    var totalPrice = (unitPrice * quantity).toFixed(2);
+    var productName = $(this).attr('data-product-name');
+    var kbcode = $(this).attr('data-kbcode');
+    var productImg = $(this).attr('data-product-img');
+
+    var productHtml='';
+    productHtml += ' <div class="product clearfix">';
+    productHtml += '<div class="product-img"><img src="'+productImg+'"></div>';
+    productHtml += '<div class="product-info"><span class="name">'+productName+'</span><span class="kbcode">'+kbcode+'</span></div>';
+    productHtml += '<div class="product-counter">';
+    productHtml += '<div class="counter-input"><span class="fa fa-minus decrement"></span><span> ';
+    productHtml += '<input class="form-control" type="number" value="'+quantity+'"></span><span class="fa fa-plus increment"></span></div>';
+    productHtml += '</div>';
+    productHtml += '<div class="product-price"><span class="price-value" data-unit-price="'+unitPrice+'">'+kb_shop_currency_symbol+totalPrice+'</span><span class="tax-value" data-gst-tax-amount="'+taxAmount+'">+ '+kb_shop_currency_symbol+taxAmount+' GST</span><span class="discount-value" data-discount-percent="'+discountPercent+'">- '+discountPercent+'%</span></div>';
+    productHtml += '<div class="product-delete">';
+    productHtml += '<div><span class="fa fa-times"></span></div>';
+    productHtml += '</div>';
+    productHtml += '</div>';
+    /* add product to cart session */
+
+    /* show product in cart */
+    var self = $(this);
+    $(this).closest('.offer-item').fadeOut('slow', 'linear', function(){
+       self.closest('.offer-item').remove();
+       cartProducts.append(productHtml);
+       calculateCartSummary();
+    });
+  });
+
+  /* functions */
   function calculateCartItems() {
     var count = cartPage.find('.box-products > .product').length;
     $('#cart-item-count').html(count);
@@ -1365,7 +1405,7 @@ jQuery(document).ready(function($){
         productTotal -= ( productTotal / 100 ) * discountPercent; 
       }
       price += parseFloat(productTotal);
-      taxAmount +=  parseFloat(product.find('.tax-value').attr('data-tax-amount'));
+      taxAmount +=  parseFloat(product.find('.tax-value').attr('data-gst-tax-amount'));
     }
     
     $('#kbprice').attr('data-price', price.toFixed(2))

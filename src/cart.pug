@@ -53,7 +53,7 @@ block cart_content
                 img(src='images/icons/cc-avenue-gateway.png')
         .cart-products.col-md-8
           h6 My Box - <span id="cart-item-count"></span> items
-          .box-products
+          .box-products#cart-products-wrapper
             .product.clearfix
               .product-img
                 img(src='images/cart-product-img.png')
@@ -68,7 +68,7 @@ block cart_content
                   span.fa.fa-plus.increment
               .product-price
                 span.price-value(data-unit-price='100') $200
-                span.tax-value(data-tax-amount='10') + $10 GST
+                span.tax-value(data-gst-tax-amount='10') + $10 GST
                 span.discount-value(data-discount-percent='0')
               .product-delete
                 div
@@ -87,7 +87,7 @@ block cart_content
                   span.fa.fa-plus.increment
               .product-price
                 span.price-value(data-unit-price='99') $99
-                span.tax-value(data-tax-amount='10') + $10 GST
+                span.tax-value(data-gst-tax-amount='10') + $10 GST
                 span.discount-value(data-discount-percent='5') - 5%
               .product-delete
                 div
@@ -100,8 +100,8 @@ block cart_content
                 .offer-item
                   .radio-wrap
                     .radio.radio-primary
-                      input#guest-checkout(type='radio', name='customer-type', value='guest')
-                      label(for='guest-checkout')
+                      input#offer-radio1(type='radio' value="1" data-quantity='2' data-unit-price='100', data-gst-tax-amount='50' data-discount-percent='3' data-product-name='Walnut Kernels' data-kbcode='KB0018' data-product-img='images/cart-offer-img.png' data-product-id='123')
+                      label(for='offer-radio1')
                   .item-image
                     img(src='images/cart-offer-img.png')
                   .item-info
@@ -109,8 +109,8 @@ block cart_content
                 .offer-item
                   .radio-wrap
                     .radio.radio-primary
-                      input#guest-checkout(type='radio', name='customer-type', value='guest')
-                      label(for='guest-checkout')
+                      input#offer-radio2(type='radio' value="1" data-quantity='3' data-unit-price='200', data-gst-tax-amount='50' data-discount-percent='5' data-product-name='Walnut Kernels' data-kbcode='KB0019' data-product-img='images/cart-offer-img.png' data-product-id='123')
+                      label(for='offer-radio2')
                   .item-image
                     img(src='images/cart-offer-img.png')
                   .item-info
