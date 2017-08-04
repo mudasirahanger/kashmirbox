@@ -1,20 +1,35 @@
 #register-login-modal {
+  padding: 0 !important;
   .modal-dialog {
-    max-width: 800px;
+    max-width: 400px;
     width: 100%;
+    margin: rem(30px) auto;
   }
   .modal-content {
     border: 0;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 0;
-    height: rem(485px);
+    position: relative;
+    .close {
+      position: absolute;
+      top: -12px;
+      right: 0px;
+      border: 1px solid;
+      z-index: 100;
+      opacity: 1;
+      background: transparent;
+      border: 0;
+      span {
+        font-size: 44px;
+      }
+    }
     .col-left {
       background-image: url('../images/popup-bg.png');
       background-size: cover;
       background-position-y: 100%;
-      height: rem(485px);
       display: table;
+      padding: $double-unit-layout;
       .content {
         padding: 0 $unit-layout * 1.5;
         display: table-cell;
@@ -25,7 +40,7 @@
           font-weight: 700;
           color: white;
           font-family: $ff-playfair-display;
-          margin-bottom: $unit-layout * 2.3;
+          margin-bottom: $unit-layout;
         }
         p {
           color: white;
@@ -149,6 +164,40 @@
         .facebook-login-btn {
           border: 1px solid  #3a5a98;
           color:  #3a5a98;
+        }
+      }
+    }
+  }
+}
+@include respond-to(medium) { 
+  #register-login-modal { 
+    .modal-dialog {
+      max-width: 800px;
+    }
+    .modal-content {
+      height: rem(485px);
+      .col-left {
+        height: rem(485px);
+        padding: 0;
+        .content {
+          h4 {
+            margin-bottom: $unit-layout * 2.3;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(large) {
+  #register-login-modal { 
+    .modal-dialog {
+      margin: rem(30px) auto;
+      .close  {
+        top: -33px;
+        right: -25px;
+        span {
+          color: white;
         }
       }
     }
