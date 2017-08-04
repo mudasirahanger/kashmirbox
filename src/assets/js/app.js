@@ -837,9 +837,8 @@ jQuery(document).ready(function($){
     var target = $(this).attr('data-target');
     var unitPrice = parseFloat($(target).attr('data-unit-price'));
     var total = unitPrice * quantity;
-    var symbol =  $(target).attr('data-currency-symbol');
     $(target).attr('data-total', total);
-    $(target).val(symbol+(new Number(total)).toLocaleString());
+    $(target).val(kb_shop_currency_symbol+(new Number(total)).toLocaleString());
   });
 
   if($(window).width() <= 767) {
