@@ -1,5 +1,48 @@
 window.kb_shop_currency_symbol = '$';
 /*******************************************************************************
+POPUP login form
+*******************************************************************************/
+jQuery(document).ready(function ($){
+  $('#popup-login-form').submit(function(){
+    if(!validatePopupLoginForm($(this)))
+      return false;
+    
+    return false;
+  });
+
+  function validatePopupLoginForm(form) {
+    $('.field-error').remove();
+    var isRequeredEmpty = false;
+    var email = form.find('input[name="email"]');
+    var password = form.find('input[name="password"]');
+
+    if(!password.val() || password.val().trim() === '') {
+      password.after('<span class="field-error">Password is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(!email.val() || email.val().trim() === '') {
+      email.after('<span class="field-error">Email Address is required</span>');
+      isRequeredEmpty = true;
+    }
+
+    if(isRequeredEmpty) {
+      return false;
+    }
+
+    if(!validateEmail(email.val())) {
+      email
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      return false;
+    }
+
+    return true;
+  }
+});
+
+
+
+/*******************************************************************************
 Home page
 ********************************************************************************/
 jQuery(document).ready(function($){

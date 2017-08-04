@@ -185,6 +185,10 @@
           }
         }
       }
+      .col-right {
+        height: rem(485px);
+        overflow: auto;
+      }
     }
   }
 }
