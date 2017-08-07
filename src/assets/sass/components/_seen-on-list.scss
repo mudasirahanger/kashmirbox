@@ -4,49 +4,59 @@
   list-style-type: none;
   li {
     float: left;
-    width: 50%;
+    width: 33.33%;
     height: 130px;
     span {
       background-image: url('../images/seen-on.png');
       background-size: cover;
       display: inline-block;
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
     }
     span.hindustan-times {
       background-position: 0px;
     }
     span.mid-day{
-      background-position: -173px 5px;
+      background-position: -144px 2px;
     }
     span.bloomberg {
-      background-position: -340px 0px;
+      background-position: -282px 2px;
     }
     span.your-story {
-      background-position: 300px 5px;
+      background-position: 250px 2px
     }
     span.cert {
-      background-position: 133px 5px;
+      background-position: 111px 2px;
     }
   }
-  li:last-child {
-    width: 100%;
-  }
-}
-@include respond-to('small-2') {
-  .seen-on-list {
-    li {
-      width: 33.33%;
-    }
-    li:nth-child(n+4) {
-      width: 50%;
-    }
+  li:nth-child(n+4) {
+    width: 50%;
   }
 }
+
 @include respond-to(medium) {
   .seen-on-list {
     li {
       width: 20%;
+      span {
+        width: 120px;
+        height: 120px;
+      }
+      span.hindustan-times {
+        background-position: 0px;
+      }
+      span.mid-day{
+        background-position: -173px 5px;
+      }
+      span.bloomberg {
+        background-position: -340px 0px;
+      }
+      span.your-story {
+        background-position: 300px 5px;
+      }
+      span.cert {
+        background-position: 133px 5px;
+      }
     }
     li:nth-child(n+4) {
       width: 20%;

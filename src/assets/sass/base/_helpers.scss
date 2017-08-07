@@ -86,7 +86,7 @@
   .title {
     font-weight: 700;
     font-family: $ff-playfair-display;
-    font-size: rem(30px);
+    font-size: rem(24px);
     line-height: rem(41px);
     color: $text-color-dark;
   }
@@ -138,6 +138,9 @@
   
 @include respond-to(medium) {
   .section-title {
+    .title {
+      font-size: rem(30px);
+    }
     &:after {
       width: 100%;
     }

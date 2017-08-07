@@ -5,5 +5,14 @@
   font-style: italic;
   text-align: center;
   padding: $unit-layout * .75;
-  line-height: rem(21px);
+  h6 {
+    line-height: rem(28px);
+  }
+}
+
+@include respond-to(medium) {
+  #tagline-strip {
+
+    line-height: rem(21px);
+  }
 }

@@ -2,11 +2,12 @@
   margin: $unit-layout * 1.25 0;
   .testimony {
     background-color: $approx-snow-color;
-    max-width: rem(270px);
+    max-width: rem(350px);
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
     .testimony-image {
-      height: rem(95px);
+      width: 100%;
     }
     .desc {
       padding: $unit-layout * 1.25;
@@ -27,10 +28,27 @@
     }
   }
   .slick-dots {
-    bottom: -60px;
+    bottom: -40px;
     li button:before {
       font-size: 12px;
     }
   }
 
+}
+
+
+@include respond-to(medium) {
+  .testimonial-slider {
+    .testimony {
+      max-width: rem(270px);
+      width: 100%;
+      .testimony-image {
+        width: auto;
+        height: rem(95px);
+      }
+    }
+    .slick-dots {
+      bottom: -60px;
+    }
+  }
 }

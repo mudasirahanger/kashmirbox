@@ -109,6 +109,7 @@
         color: $brand-color;
         display: inline-block;
         margin-top: $unit-layout * 0.5;
+        font-weight: 500;
       }
       .tag {
         color: $text-color-dark;
@@ -146,6 +147,7 @@
         }
         .price {
           margin-top: 0;
+          font-weight: 400;
         }
       }
     } 
