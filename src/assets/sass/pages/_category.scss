@@ -1,7 +1,8 @@
 .category-page-content {
   
   .breadcrums-wrap {
-    background-color: $approx-snow-color;
+    padding: $unit-layout * 1.25 0;
+    background-color: $white-color;
   }
 
   .offer-banner {
@@ -155,7 +156,7 @@
         span {
           display: block;
           line-height: rem(30px);
-          font-size: rem(13px);
+          font-size: rem(18px);
         }
       }
       li.active {
@@ -163,7 +164,7 @@
         color: white;
       }
     }
-    .selector {
+    .white-selector {
       display: none;
       float: right;
       select {
@@ -302,7 +303,6 @@
       .product-footer {
         padding: $unit-layout;
         .name {
-          font-weight: 300;
           font-size: rem(15px);
           color: $text-color-dark;
           display: inline-block;
@@ -315,6 +315,7 @@
           font-size: rem(15px);
           color: $text-color-dark;
           float: right;
+          font-weight: 500;
         }
         .rating {
           color: $pantone-color;
@@ -392,9 +393,14 @@
             }
             span.fa {
               margin-top: rem(5px);
+              font-size: rem(30px);
+              color: $mid-grey;
             }
             span.text {
               width: rem(40px);
+              text-align: left;
+              display: inline-block;
+              margin-left: $quarter-unit-layout;
             }
           }
         }
@@ -483,6 +489,7 @@
     }
     .filter-label {
       font-size: rem(13px);
+      font-weight: 500;
     }
   }
 }
@@ -547,7 +554,7 @@
   }
   .category-products-list {
     .list-header {
-      .selector {
+      .white-selector {
         display: block;
       }
     }

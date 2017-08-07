@@ -701,7 +701,7 @@ jQuery(document).ready(function($){
     
     html += '<div class="price-box">';
     if(product.discount_price && parseFloat(product.discount_price) > 0) {
-      html += '<del>'+product.price+'</del>';
+      html += '<del>'+product.currency_symbol+product.price+'</del>';
       html += '<span class="price">'+product.currency_symbol+product.discount_price+'</span>';
     } else  {
       html += '<span class="price">'+product.currency_symbol+product.price+'</span>';
@@ -717,11 +717,11 @@ jQuery(document).ready(function($){
     //wishlist
     if(product.liked) {
       html += '<div class="add-to-wishlist liked">';
-      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart"> add to wishlist</a>';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart"></span> add to wishlist</a>';
       html += '</div>';
     } else {
       html += '<div class="add-to-wishlist">';
-      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart-o"> add to wishlist</a>';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart-o"></span> add to wishlist</a>';
       html += '</div>';
     }
     //end wishlist

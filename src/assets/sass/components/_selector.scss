@@ -1,4 +1,4 @@
-.selector {
+.selector, .white-selector {
   position: relative;
   border: 1px solid $mid-grey;
   height: rem(34px);
@@ -29,5 +29,23 @@
     width: 100%;
     max-width: 100%;
     padding-left: $half-unit-layout;
+  }
+}
+
+.white-selector {
+  .arrow {
+    border-left: 0;
+    text-align: right;
+    background-color: $white-color;
+    width: 100%;
+    span {
+      display: block;
+      height: rem(34px);
+      width: rem(34px);
+      line-height: rem(34px);
+      text-align: center;
+      float: right;
+      border-left: 1px solid $mid-grey;
+    }
   }
 }
