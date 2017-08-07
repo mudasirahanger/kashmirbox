@@ -100,6 +100,13 @@
           top: 0;
         }
       }
+      .product-category-filter {
+        .filter-label {
+          .fa {
+            font-size: rem(18px);
+          }
+        }
+      }
     }
   }
 
@@ -306,7 +313,7 @@
           font-size: rem(15px);
           color: $text-color-dark;
           display: inline-block;
-          width: 75%;
+          width: 60%;
           &:hover {
             color: $brand-color;
           }
@@ -316,6 +323,8 @@
           color: $text-color-dark;
           float: right;
           font-weight: 500;
+          width: 40%;
+          text-align: right;
         }
         .rating {
           color: $pantone-color;

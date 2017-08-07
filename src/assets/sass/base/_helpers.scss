@@ -119,6 +119,11 @@
   color: $crimson-color;
 }
 
+.form-control {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
 //animations
 @keyframes zoomin {
   from {

@@ -11,7 +11,7 @@
       .category-name {
         font-family: $ff-playfair-display;
         color: $white-color;
-        line-height: rem(41px);
+        line-height: rem(24px);
         font-weight: 700;
         margin: $unit-layout 0;
       }
@@ -28,6 +28,11 @@
   .category-banner {
     .content-wrap{
       height: rem(290px);
+      .content {
+        .category-name {
+          line-height: rem(41px);
+        }
+      }
     }
   }
 }
