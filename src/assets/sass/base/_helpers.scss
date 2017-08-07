@@ -81,6 +81,7 @@
     width: 80%;
     background-repeat: no-repeat;
     background-position: center center;
+    margin-top: $half-unit-layout;
   }
   .title {
     font-weight: 700;
@@ -91,6 +92,7 @@
   }
   .desc {
     font-weight: 300;
+    line-height: rem(28px);
   }
 }
 

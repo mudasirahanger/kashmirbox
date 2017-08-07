@@ -34,7 +34,7 @@
   .slick-arrow {
     color: black;
     position: absolute;
-    top: 30%;
+    top: 25%;
     font-size: 23px;
     z-index: 100;
   }
@@ -49,10 +49,10 @@
     color: $brand-color;
   }
   .slide-back {
-    left: -10px;
+    left: -30px;
   }
   .slide-next {
-    right: -10px;
+    right: -30px;
   }
 }
 
