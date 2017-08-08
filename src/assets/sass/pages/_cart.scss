@@ -2,6 +2,7 @@
   .breadcrum-section {
     background-color: $approx-snow-color;
     padding: $unit-layout 0;
+    text-align: center;
     a {
       font-size: rem(13px);
     }
@@ -18,7 +19,8 @@
     .trust-label {
       position: relative;
       display: table;
-      width: 100%;
+      width: 90%;
+      margin-left: 5%;
       span:first-child {
         display: inline-block;
         background: white;
@@ -30,6 +32,7 @@
         box-shadow: 0 0 10px;
         position: absolute;
         top: -8px;
+        left: -10px;
         z-index: 10;
       }
       span:last-child {
@@ -259,10 +262,14 @@
             .item-image {
               width: 15%;
               float: left;
+              img {
+                max-width: 100%;
+              }
             }
             .item-info {
               width: 80%;
               float: left;
+              padding-left: $half-unit-layout;
               height: rem(60px);
               line-height: rem(60px);
               p {
@@ -303,6 +310,12 @@
 
 @include respond-to(medium) {
   .cart-content {
+    .breadcrum-section {
+      text-align: left;
+    }
+  }
+
+  .cart-content {
     .trust-label-section  {
       .trust-label {
         span:last-child {
@@ -325,8 +338,10 @@
   .cart-content {
     .trust-label-section {
       .trust-label {
-        left: -20px;
         width: auto;
+        span:first-child {
+          left: -20px;
+        }
         span:last-child {
           padding-right: $unit-layout;
         }
@@ -382,13 +397,6 @@
 
 @include respond-to('small-3-only') {
   .cart-content {
-    .trust-label-section  {
-      .trust-label {
-        span:last-child {
-          font-size: rem(11px);
-        }
-      }
-    }
 
     .box-section {
       
@@ -416,15 +424,18 @@
         .box-offers-content {
           .offer-items {
             .offer-item {
+              .radio-wrap { 
+                width: 10%;
+              }
               .item-image {
-                width: 95%;
+                width: 20%;
+                padding-left: $quarter-unit-layout;
                 img {
                   max-width: 100%;
                 }
               }
               .item-info {
-                width: 100%;
-                clear: left;
+                width: 70%;
                 height: auto;
                 line-height: rem(24px);
               }
@@ -446,4 +457,28 @@
 
     }
   }
+}
+
+
+@include respond-to('small-2-only') {
+  .cart-content {
+
+    .box-section {
+      .box-offers {
+        .box-offers-content {
+          .offer-items {
+            .offer-item {
+              .item-image {
+                width: 40%;
+              }
+              .item-info {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
