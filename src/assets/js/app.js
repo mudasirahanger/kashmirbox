@@ -1089,12 +1089,12 @@ $(document).ready(function() {
   function registerAddressFormSubmit(id) {
     $('#address-form'+id).submit(function(){
       var wrapper = $(this).closest('.address-form-wrap');
-      isNewAddress = wrapper.hasClass('new');
-      if(isNewAddress) {
-        $('#add-new-address').removeClass('hidden');
-      }
+      var isNewAddress = wrapper.hasClass('new');
       if(!validateCheckoutAddressForm($(this))) {
         return false;
+      }
+      if(isNewAddress) {
+        $('#add-new-address').removeClass('hidden');
       }
       wrapper.removeClass('new');
       wrapper.removeClass('editing');

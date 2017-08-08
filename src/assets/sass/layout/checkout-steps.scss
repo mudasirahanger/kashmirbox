@@ -1,6 +1,7 @@
 .checkout-steps {
   .step {
     .step-title {
+      border: 1px solid #ededed;
       margin: $unit-layout 0;
       padding: $half-unit-layout;
       background-color: $white-color;
@@ -32,6 +33,8 @@
         }
       }
       .details {
+        display: inline-block;
+        width: 85%;
         .step-complete-title {
           .fa {
             display: inline-block;
@@ -48,6 +51,7 @@
 
   .step.open {
     .step-title {
+      border: 0;
       background-color: $approx-snow-color;
       padding: $half-unit-layout 0;
       .index {
@@ -80,6 +84,7 @@
     }
     .step-content {
       .view.logged-out {
+        border: 1px solid #ededed;
         background-color: $white-color;
         padding: $double-unit-layout $unit-layout;
         .col-left,.col-right {
@@ -124,6 +129,7 @@
         }
       }
       .view.logged-in {
+        border: 1px solid #ededed;
         background-color: $white-color;
         padding: $double-unit-layout $unit-layout;
         .userdetails {
@@ -189,10 +195,13 @@
             width: 85%;
             padding-left: $unit-layout;
             span {
-              font-weight: 300;
+              font-weight: 400;
+            }
+            span.phone {
+              font-weight: 500;
             }
             span.name {
-              font-weight: 400;
+              font-weight: 500;
               padding-right: $unit-layout;
               display: inline-block;
             }
@@ -266,6 +275,7 @@
           display: none;
         }
         .address-form {
+          border: 1px solid #ededed;
           display: block;
         }
       }
