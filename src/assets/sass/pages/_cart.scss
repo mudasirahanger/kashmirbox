@@ -29,7 +29,6 @@
         text-align: center;
         box-shadow: 0 0 10px;
         position: absolute;
-        left: -20px;
         top: -8px;
         z-index: 10;
       }
@@ -324,6 +323,13 @@
 @include respond-to(large) {
   .cart-content {
     .trust-label-section {
+      .trust-label {
+        left: -20px;
+        width: auto;
+        span:last-child {
+          padding-right: $unit-layout;
+        }
+      }
       .container {
         > div {
           padding: 0;
@@ -344,6 +350,18 @@
     .social-impact-section {
       .content {
         margin-top: $unit-layout * 2;
+      }
+    }
+  }
+}
+
+@include respond-to('large-2') { 
+  .cart-content { 
+    .trust-label-section { 
+      .trust-label {
+        span:last-child {
+          width: auto;
+        }
       }
     }
   }
