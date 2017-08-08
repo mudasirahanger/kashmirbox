@@ -9,6 +9,7 @@
       margin: 0; 
   }
   input[type="number"] {
+    border: 0;
     border-right: 1px solid $mid-grey;
     width: 85%;
     float: left;
