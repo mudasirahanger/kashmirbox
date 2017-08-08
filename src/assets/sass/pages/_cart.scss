@@ -139,7 +139,7 @@
           .item:last-child {
             padding: $unit-layout * 0.625 0;
             .item-title, .item-value { 
-              font-weight: 400;
+              font-weight: 500;
             }
           }
         }
@@ -239,7 +239,7 @@
         background-color: $white-color;
         > p {
           font-size: rem(15px);
-          font-weight: 400;
+          font-weight: 500;
           padding: $unit-layout 0;
         }
         .offer-items {
@@ -292,6 +292,7 @@
       }
       p {
         padding: $unit-layout *2 0;
+        color: #7e7e7e;
       }
     }
   }
