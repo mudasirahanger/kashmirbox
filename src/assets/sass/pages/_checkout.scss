@@ -2,7 +2,7 @@
   
   .checkout-steps-section {
     background-color: $approx-snow-color;
-    padding: $unit-layout * 3 0 $unit-layout * 12 0;
+    padding: $unit-layout * 3 0 $unit-layout * 3 0;
     .container {
       width: 100%;
     }
@@ -73,6 +73,7 @@
 @include respond-to(medium) { 
   .checkout-page-content {
     .checkout-steps-section {
+      padding: $unit-layout * 3 0 $unit-layout * 12 0;
       .checkout-sidebar {
         padding-top: 0;
       }

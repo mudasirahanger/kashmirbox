@@ -7,6 +7,7 @@
       background-color: $white-color;
       span {
         font-size: rem(17px);
+        font-weight: 500;
       }
       .index {
         width: rem(30px);
@@ -219,7 +220,7 @@
             cursor: pointer;
             width: 10%;
             a {
-              color: $blue-color;
+              color: $dodgerblue-color;
               text-decoration: none;
               span {
                 display: block;
@@ -319,7 +320,7 @@
         a {
           text-decoration: none; 
           span {
-            color: $blue-color;
+            color: $dodgerblue-color
           }
           span:first-child {
             display: inline-block;
