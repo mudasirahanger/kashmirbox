@@ -35,18 +35,17 @@ var sassFiles = 'src/assets/sass/main.scss';
 var sassDest = 'dist/css/';
 var sassOptions = {outputStyle: 'compressed'};
 
-gulp.task('compile-sass', function () {
-  return gulp
-    .src(sassFiles)
-    .pipe(plumber((error) => {
-      gutil.log(gutil.colors.red(error.message));
-      gulp.task('compile-sass').emit('end');
-    }))
-    .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(sassDest))
-    .pipe(connect.reload());
+gulp.task('compile-sass', function (cb) {
+    pump([
+        gulp.src(sassFiles),
+        sourcemaps.init(),
+        sass(sassOptions).on('error', sass.logError),
+        sourcemaps.write('.'),
+        gulp.dest(sassDest),
+        connect.reload()
+      ],
+      cb
+    );
 });
 
 

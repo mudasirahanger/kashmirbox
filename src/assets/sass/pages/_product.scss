@@ -74,11 +74,11 @@
           a {
             font-size: rem(14px);
             display: inline-block;
-            color: $text-color-dark;
+            color: $text-color-dark2;
             line-height: 1;
             &:first-child {
-              border-right: 1px solid $text-color-dark;
-               padding-right : $half-unit-layout;
+              border-right: 1px solid $text-color-dark2;
+              padding-right : $half-unit-layout;
             }
             &:last-child {
               padding-left: $half-unit-layout;
@@ -103,6 +103,7 @@
         a {
           color: #153ec3;
           text-align: center;
+          text-decoration: underline;
         }
       }
       .price {
@@ -114,7 +115,7 @@
       }
       .product-details {
         .heading {
-          color: $text-color-dark;
+          color: $text-color-dark2;
           padding: $half-unit-layout 0;
         }
         ul {
@@ -128,12 +129,13 @@
               display: block;
               float: left;
               width: 50%;
-            }
-            span:first-child {
               font-weight: 300;
             }
+            span:first-child {
+              color: #7a7a7a;
+            }
             span:last-child {
-              color: $text-color-dark;
+              color: $text-color-dark2;
             }
           }
         }
@@ -191,7 +193,7 @@
         background-color: $white-color;
         padding: $unit-layout;
         .heading {
-          color: $text-color-dark;
+          color: $text-color-dark2;
           padding-bottom: $half-unit-layout;
         }
         .pincode {
@@ -203,9 +205,10 @@
           padding-bottom: $half-unit-layout;
           
           .number-input {
-            border-color: $light-grey;
+            border: 0;
           }
           .selector {
+            border: 0;
             width: 100%;
             .arrow {
               border-left: 0;
@@ -221,7 +224,9 @@
           }
           input, select {
             border-radius: 0;
-            border-color: $light-grey;
+            border: 0;
+            box-shadow: none;
+            -webkit-box-shadow: none;
           }
         }
         .option.product-quantity {
@@ -380,6 +385,9 @@
           width: 49%;
           margin-left: 1%;
           float: left;
+          p {
+            font-weight: 300;
+          }
         }
       }
     }
