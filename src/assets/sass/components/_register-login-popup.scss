@@ -12,6 +12,7 @@
     border-radius: 0;
     position: relative;
     .close {
+      display: none;
       position: absolute;
       top: -12px;
       right: 0px;
@@ -127,6 +128,7 @@
             border-radius: 0;
             width: 100%;
             font-weight: 500;
+            text-transform: uppercase;
           }
           .register-btn {
             border: 1px solid #757575;
