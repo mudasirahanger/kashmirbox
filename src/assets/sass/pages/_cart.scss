@@ -292,7 +292,7 @@
   }
 
   .social-impact-section {
-    padding: $unit-layout*4 0;
+    padding: $unit-layout*2 0;
     background-color: $white-color;
     .img-wrap {
       text-align: center;
@@ -306,7 +306,7 @@
         font-family: $ff-playfair-display;
       }
       p {
-        padding: $unit-layout *2 0;
+        padding: $unit-layout *1 0;
         color: #7e7e7e;
       }
     }
@@ -332,11 +332,15 @@
       }
     }
     .social-impact-section {
+      padding: $unit-layout*4 0;
       .img-wrap {
         text-align: right;
       }
       .content {
         margin-top: 0;
+        p {
+          padding: $unit-layout *2 0;
+        }
       }
     }
     .box-section {
