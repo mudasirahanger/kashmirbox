@@ -445,3 +445,24 @@
     }
   }
 }
+
+
+@include respond-to('medium-only') {
+  .product-page-content {
+    .product-details-section {
+      .right-col {
+        .extra-options {
+          max-width: 90%;
+          margin: 0 auto;
+        }
+      }
+      .footer-col {
+        > div {
+          max-width: 90%;
+          margin: 0 auto !important;
+          margin-bottom: $unit-layout !important;
+        }
+      }
+    }
+  }
+}
