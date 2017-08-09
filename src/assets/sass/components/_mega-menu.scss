@@ -52,7 +52,7 @@
       > a {
         color: $text-color-dark;
         background-color: $white-color;
-        font-weight: 300;
+        font-weight: 500;
         &:hover {
           color: $brand-color;
         }
@@ -282,6 +282,16 @@
             }
             > .dropdown-menu.multi-level {
               display: block;
+            }
+          }
+          &:last-child {
+            > a {
+              color: $pantone-color;
+            }
+          }
+          &:last-child:hover {
+            > a {
+              border-bottom: 2px solid $pantone-color;
             }
           }
         }
