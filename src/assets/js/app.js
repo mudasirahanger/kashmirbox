@@ -619,7 +619,7 @@ jQuery(document).ready(function($){
     html += '<div class="product-img">';
     html += '<a href="#"><img src="'+product.img+'" alt="'+product.name+'"></a>';
 
-    //overlay
+    /*//overlay
     html += '<div class="overlay"><div class="overlay-vertical"><div class="overlay-content">';
     html += '<a href="#" class="btn btn-white view-products">';
     html += 'View Products <span class="fa fa-caret"></span>';
@@ -636,7 +636,7 @@ jQuery(document).ready(function($){
     }
     //end wishlist
     html += '</div></div></div>';
-    //end overlay
+    //end overlay*/
     
     //sale
     if(product.discount && product.discount > 0) {
@@ -653,6 +653,18 @@ jQuery(document).ready(function($){
       html += '</div>';
     }
     //end read to ship
+    
+    //wishlist
+    if(product.liked) {
+      html += '<div class="add-to-wishlist liked">';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart"></a>';
+      html += '</div>';
+    } else {
+      html += '<div class="add-to-wishlist">';
+      html += '<a data-product-id="'+product.id+'"><span class="fa fa-heart-o"></a>';
+      html += '</div>';
+    }
+    //end wishlist
 
     html += '</div>';
     //end product image
@@ -771,10 +783,10 @@ jQuery(document).ready(function($){
   function productNameHover() {
     $('.product .name').hover(
       function() {
-        $(this).closest('.product').find('.overlay').css('top', '0');
+        $(this).closest('.product').find('.add-to-wishlist').css('display', 'block');
       },
       function(){
-        $(this).closest('.product').find('.overlay').attr('style', '');
+        $(this).closest('.product').find('.add-to-wishlist').attr('style', '');
       }
     );
   }

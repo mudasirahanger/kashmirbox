@@ -210,6 +210,9 @@
           text-decoration: underline;
           color: $brand-color;
         }
+        &:hover .add-to-wishlist{
+          display: block;
+        }
         img {
           width: 100%;
           margin: 0 auto;
@@ -263,6 +266,7 @@
         }
       }
       .add-to-wishlist {
+        display: none;
         position: absolute;
         right: $unit-layout;
         top: $unit-layout;
