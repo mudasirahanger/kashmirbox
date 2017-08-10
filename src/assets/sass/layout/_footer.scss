@@ -36,6 +36,9 @@
       .brand-color {
         font-weight: 500;
       }
+      a:hover {
+        text-decoration-color: $brand-color;
+      }
     }
   }
   .title-wrap {
