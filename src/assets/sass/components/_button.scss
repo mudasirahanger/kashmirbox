@@ -72,6 +72,7 @@
   width: rem(140px);
   height: rem(40px);
   line-height: rem(40px);
+  text-align: center;
   &:hover, &:active, &:focus {
     background-color: $orange-color;
     border-color: $orange-color;

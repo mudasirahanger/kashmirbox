@@ -53,10 +53,13 @@
       line-height: rem(45px);
       span {
         display: inline-block;
-        padding: 0px 5px;
+        padding: 0px $quarter-unit-layout;
+      }
+      span:first-child {
+        padding: 0px $half-unit-layout;
       }
       #deal-countdown {
-         font-weight: 800;
+        font-weight: 800;
         font-family: $ff-open-sans;
       }
     }
