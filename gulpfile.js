@@ -11,7 +11,9 @@ const pug = require('gulp-pug'),
   gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   gutil = require('gulp-util'),
-  connect = require('gulp-connect');
+  connect = require('gulp-connect'),
+  replace = require('gulp-replace'),
+  fs = require('fs');
 
 
 /* PUG */
@@ -108,6 +110,16 @@ gulp.task('copy-fonts', function() {
     .pipe(connect.reload());
 });
 
+/* INLINE CSS */
+gulp.task('inline-css', function() {
+  return gulp.src('dist/*.html')
+    .pipe(replace(/<link href="css\/main.css" rel="stylesheet">/, function(match) {
+        var style = fs.readFileSync('dist/css/main.css', 'utf8');
+        return '<style>' + style + '</style>';
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
 
 /* WATCH */
 gulp.task('watch', function(){
@@ -116,6 +128,7 @@ gulp.task('watch', function(){
   gulp.watch('src/assets/js/**/*.js', {cwd:'./'}, ['compile-js']);
   gulp.watch('src/assets/images/**/*', {cwd:'./'}, ['optimize-images']);
   gulp.watch('src/assets/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}', {cwd:'./'}, ['copy-fonts']);
+  /*gulp.watch('dist/*.html', {cwd:'./'}, ['include-css']);*/
 });
 
 
