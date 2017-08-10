@@ -31,8 +31,11 @@ header#site_header
             include ../components/svgicons/search.pug 
       .mini-cart-wrap(class='col-xs-6 col-sm-6 col-md-4 padding-0')
          .cart
-            a.mini-cart-icon(href='#')
+            a.mini-cart-icon.hidden-xs(href='#')
               include ../components/svgicons/shoppingbag.pug
+              i(class='mini-cart-count') 6 
+            a.mini-cart-icon.mobile.visible-xs(href='#')
+              include ../components/svgicons/shoppingbag-small.pug
               i(class='mini-cart-count') 6 
           
   #site-header-mobile-menu(class='visible-xs visible-sm clearfix')
