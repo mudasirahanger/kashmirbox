@@ -67,11 +67,13 @@
 
   #product-filter-modal {
     padding: 0 !important;
-    background-color: white;
+    background-color: $approx-snow-color;
     .modal-dialog {
+      background-color: $approx-snow-color;
       margin: 0;
       width: 100%;
       .modal-content {
+        background-color: $approx-snow-color;
         border: 0;
         border-radius: 0;
         -webkit-box-shadow: none;
@@ -79,6 +81,7 @@
       }
     }
     .modal-header {
+      background-color: $approx-snow-color;
       > div:last-child {
         text-align: right;
       }
@@ -103,7 +106,7 @@
       .product-category-filter {
         .filter-label {
           .fa {
-            font-size: rem(18px);
+            font-size: rem(20px);
           }
         }
       }
@@ -465,12 +468,18 @@
       .range-from, .range-to {
         width: 48%;
         float: left;
+        height: rem(45px);
+        line-height: rem(45px);
         input {
-          height: rem(34px);
+          height: rem(45px);
+          line-height: rem(45px);
           padding-left: rem(5px);
           background-color: $approx-snow-color;
           border-radius: 0;
           font-size: rem(13px);
+        }
+        .counter {
+          height: rem(45px);
         }
       }
     }
@@ -554,6 +563,21 @@
       .product {
         margin: 0 auto;
         max-width: 96%;
+      }
+    }
+  }
+  .category-products-filter {
+    .filters {
+      .price-filter {
+        .range-from, .range-to {
+          input {
+            height: rem(34px);
+            line-height: rem(34px);
+          }
+          .counter {
+            height: rem(34px);
+          }
+        }
       }
     }
   }

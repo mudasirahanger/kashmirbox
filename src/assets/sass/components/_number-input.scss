@@ -1,6 +1,5 @@
 .number-input {
   height: rem(34px);
-  border: 1px solid $mid-grey;
   overflow: hidden;
   input[type="number"]::-webkit-inner-spin-button, 
   input[type="number"]::-webkit-outer-spin-button { 
@@ -10,16 +9,19 @@
   }
   input[type="number"] {
     border: 0;
-    border-right: 1px solid $mid-grey;
     width: 85%;
     float: left;
     -moz-appearance: textfield;
+    background-color: $approx-snow-color;
   }
   .counter {
+    height: rem(34px);
+    position: relative;
     width: 15%;
     float: left;
     text-align: center;
     cursor: pointer;
+    background-color: $approx-snow-color;
     .fa {
       display: block;
       vertical-align: top;
@@ -28,8 +30,12 @@
     }
     .fa:first-child {
       border-bottom: 0;
+      position: absolute;
+      top: 0;
     }
-    .fa.last-child {
+    .fa:last-child {
+      position: absolute;
+      bottom: 0;
       border-top: 0;
     }
   }

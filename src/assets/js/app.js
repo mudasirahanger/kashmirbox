@@ -586,6 +586,14 @@ jQuery(document).ready(function($){
     refreshCategoryProductView(view);
   });
 
+  // mobile fix for collapse
+  $(document).on(
+      'click', 
+      '.category-page-content #product-filter-modal .category-products-filter .product-category-filter .filter-label .fa',
+      function(){
+        $($(this).data('target')).collapse('toggle');
+  });
+
   $.ajax({
     'url' : 'products.json',
     success : function(data, status, xhr) {

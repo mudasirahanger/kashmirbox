@@ -47,7 +47,7 @@ a {
   text-decoration: none;
 
   @include on-event {
-    color: $text-color;
+    color: $brand-color;
     text-decoration: underline;
   }
 }
