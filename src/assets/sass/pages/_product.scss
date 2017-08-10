@@ -8,7 +8,7 @@
     background-color: $approx-snow-color;
     padding: $unit-layout*2 0 $unit-layout*2 0;
     .add-to-cart-mobile {
-      z-index: 10;
+      z-index: 1000;
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -18,8 +18,8 @@
         color: white;
         border-radius: 0;
         text-transform: uppercase;
-        height: rem(45px);
-        line-height: rem(45px);
+        height: rem(60px);
+        line-height: rem(60px);
         font-size: rem(16px);
         opacity: 1;
         .fa {
@@ -45,7 +45,7 @@
         .slick-arrow {
           color: black;
           position: absolute;
-          top: 35%;
+          top: 50%;
           font-size: 23px;
           z-index: 100;
         }
@@ -210,8 +210,11 @@
           
           .number-input {
             border: 0;
-            height: rem(40px);
-            line-height: rem(40px);
+            height: rem(45px);
+            line-height: rem(45px);
+            .counter {
+              height: rem(45px);
+            }
           }
           .selector {
             border: 0;
@@ -237,8 +240,8 @@
             border: 0;
             box-shadow: none;
             -webkit-box-shadow: none;
-            height: rem(40px);
-            line-height: rem(40px);
+            height: rem(45px);
+            line-height: rem(45px);
           }
         }
         .option.product-quantity {
@@ -391,6 +394,20 @@
           .add-to-cart {
             display: block;
           }
+          .option {
+            .number-input {
+              border: 0;
+              height: rem(40px);
+              line-height: rem(40px);
+              .counter {
+                height: rem(40px);
+              }
+            }
+            input, select { 
+              height: rem(40px);
+              line-height: rem(40px);
+            }
+          }
         }
       }
       .footer-col {
@@ -406,6 +423,9 @@
           padding-right: $unit-layout * 3.75;
           > div  {
             margin-top: 0;
+          }
+          p {
+            font-weight: 300;
           }
         }
         .shipping-details {
