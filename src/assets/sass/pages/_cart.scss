@@ -100,6 +100,13 @@
         }
         .summary-footer {
           .process-checkout-btn {
+            position: fixed;
+            bottom: -15px;
+            width: 100%;
+            z-index: 500;
+            left: 0;
+            right: 0;
+            opacity: 1;
             width: 100%;
             height: rem(50px);
             line-height: rem(50px);
@@ -107,6 +114,9 @@
             border-radius: 0;
             margin-top: $unit-layout * 2;
             margin-bottom: $unit-layout;
+            &:hover {
+              opacity: 1;
+            }
           }
           span {
             display: block;
@@ -344,6 +354,18 @@
       }
     }
     .box-section {
+      .cart-summary {
+        .order-summary {
+          .summary-footer {
+            .process-checkout-btn {
+              position: static;
+              &:hover {
+                opacity: 0.9;
+              }
+            }
+          }
+        }
+      }
       .cart-products {
         .box-products {
           .product {
