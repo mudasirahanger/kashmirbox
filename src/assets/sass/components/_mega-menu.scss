@@ -60,6 +60,18 @@
     }
   }
   #shop-by-menu {
+    .navbar-nav {
+      li {
+        &:last-child {
+          > a {
+            color: $pantone-color;
+          }
+          > a:hover {
+            color: $pantone-color;
+          }
+        }
+      }
+    }
     .navbar-collapse {
       background-color: white;
     }
@@ -282,11 +294,6 @@
             }
             > .dropdown-menu.multi-level {
               display: block;
-            }
-          }
-          &:last-child {
-            > a {
-              color: $pantone-color;
             }
           }
           &:last-child:hover {
