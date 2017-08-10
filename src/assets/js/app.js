@@ -898,7 +898,13 @@ jQuery(document).ready(function($){
   if($(window).width() <= 767) {
     //collapse description, shipping and seller details on mobile
     $('.product-page-content .product-details-section .footer-col .title .fa')
-    .trigger('click')
+    .trigger('click');
+    $(document).on(
+      'click', 
+      '.product-page-content .product-details-section .footer-col .title .collapse',
+      function(){
+        $($(this).data('target')).collapse('toggle');
+    });
   }
 
   function intPX(str) {
