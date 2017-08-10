@@ -61,7 +61,7 @@
   }
   #shop-by-menu {
     .navbar-nav {
-      li {
+      > li {
         &:last-child {
           > a {
             color: $pantone-color;
