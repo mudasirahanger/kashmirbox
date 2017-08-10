@@ -1323,7 +1323,7 @@ $(document).ready(function() {
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="name" placeholder="Name">';
+    formVar += '<input class="form-control" name="name" placeholder="Name" autofocus>';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
     formVar += '<input class="form-control" type="tel" name="phone" placeholder="Phone">';
@@ -1341,13 +1341,13 @@ $(document).ready(function() {
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-xs-12">';
-    formVar += '<textarea class="form-control" name="street-address" placeholder="Address(Area and Street)"></textarea>';
+    formVar += '<textarea class="form-control" name="street-address" placeholder="Address (Area and Street)"></textarea>';
     formVar += '</div>';
     formVar += '</div>';
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="city" placeholder="City/District/Town">';
+    formVar += '<input class="form-control" name="city" placeholder="City / District / Town">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
     formVar += '<input class="form-control" name="state" placeholder="State">';
@@ -1356,10 +1356,10 @@ $(document).ready(function() {
 
     formVar += '<div class="form-group">';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="landmark" placeholder="Landmark(Optional)">';
+    formVar += '<input class="form-control" name="landmark" placeholder="Landmark (Optional)">';
     formVar += '</div>';
     formVar += '<div class="col-sm-6">';
-    formVar += '<input class="form-control" name="alt-phone" placeholder="Alternate Phone(Optional)">';
+    formVar += '<input class="form-control" name="alt-phone" placeholder="Alternate Phone (Optional)">';
     formVar += '</div>';
     formVar += '</div>';
 
