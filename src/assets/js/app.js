@@ -901,7 +901,7 @@ jQuery(document).ready(function($){
     .trigger('click');
     $(document).on(
       'click', 
-      '.product-page-content .product-details-section .footer-col .title .collapse',
+      '.product-page-content .product-details-section .footer-col .title .fa',
       function(){
         $($(this).data('target')).collapse('toggle');
     });
