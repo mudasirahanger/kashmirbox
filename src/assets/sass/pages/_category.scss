@@ -53,14 +53,19 @@
         display: block;
         text-transform: uppercase;
         text-decoration: none;
+        font-size: rem(14px);
+        color: $dark-grey;
+        &:focus, &:active {
+          color: $brand-color;
+        }
       }
       &:first-child a {
         border-right: 1px solid $mid-grey;
       }
       .fa {
-        color: $dark-grey;
         display: inline-block;
-        margin-right: rem(5px);
+        margin-right: $half-unit-layout;
+        font-size: rem(24px);
       }
     }
   }
