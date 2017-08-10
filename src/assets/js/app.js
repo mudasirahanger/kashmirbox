@@ -1403,7 +1403,7 @@ Cart Page
 jQuery(document).ready(function($){
   var cartPage = $('.cart-content');
   var cartProducts = $('#cart-products-wrapper');
-
+  var offerItems = cartPage.find('.box-offers .offer-items');
   /* Events */
   $(document).on(
     'change', 
@@ -1419,7 +1419,27 @@ jQuery(document).ready(function($){
   });
 
   $(document).on('click', '.cart-content .product .product-delete', function(){
+    var product = $(this).closest('.product');
+    isOfferItem = product.eq(0).data('offer');
+    if(isOfferItem) {
+      var productData = {
+        unitPrice : product.eq(0).data('unit-price'),
+        taxAmount : product.eq(0).data('gst-tax-amount'),
+        discountPercent : product.eq(0).data('discount-percent'),
+        quantity : product.eq(0).data('quantity'),
+        productName : product.eq(0).data('product-name'),
+        kbcode : product.eq(0).data('kbcode'),
+        productImg : product.eq(0).data('product-img'),
+        offerDesc : product.eq(0).data('offer-desc'),
+        productId : product.eq(0).data('product-id')
+      };
+      offerHtml = getOfferHtml(productData);
+      //add back to offer items
+      offerItems.append(offerHtml);
+    }
+
     $(this).closest('.product').remove();
+    calculateCartItems();
     calculateCartSummary();
   });
 
@@ -1436,9 +1456,10 @@ jQuery(document).ready(function($){
     var productName = $(this).attr('data-product-name');
     var kbcode = $(this).attr('data-kbcode');
     var productImg = $(this).attr('data-product-img');
-
+    var offerDesc = $(this).data('offer-desc');
+    var productId = $(this).data('product-id');
     var productHtml='';
-    productHtml += ' <div class="product clearfix">';
+    productHtml += ' <div class="product clearfix" data-offer="true" data-offer-desc="'+offerDesc+'" data-quantity="'+quantity+'" data-unit-price="'+unitPrice+'" data-gst-tax-amount="'+taxAmount+'" data-discount-percent="'+discountPercent+'" data-product-name="'+productName+'" data-kbcode="'+kbcode+'" data-product-img="'+productImg+'" data-product-id="'+productId+'">';
     productHtml += '<div class="product-img"><img src="'+productImg+'"></div>';
     productHtml += '<div class="product-info"><span class="name">'+productName+'</span><span class="kbcode">'+kbcode+'</span></div>';
     productHtml += '<div class="product-counter">';
@@ -1450,21 +1471,44 @@ jQuery(document).ready(function($){
     productHtml += '<div><span class="fa fa-times"></span></div>';
     productHtml += '</div>';
     productHtml += '</div>';
-    /* add product to cart session */
-
-    /* show product in cart */
+    
     var self = $(this);
     $(this).closest('.offer-item').fadeOut('slow', 'linear', function(){
        self.closest('.offer-item').remove();
        cartProducts.append(productHtml);
+       calculateCartItems();
        calculateCartSummary();
     });
   });
+
+  function getOfferHtml(data) {
+    if(!data)
+      return "";
+
+    var offerHtml='';
+    offerHtml += '<div class="offer-item">';
+    offerHtml += '<div class="radio-wrap">';
+    offerHtml += '<div class="radio radio-primary">';
+    offerHtml += '<input id="offer-radio'+data.productId+'" type="radio" value="1" data-quantity="'+data.quantity+'" data-unit-price="'+data.unitPrice+'" data-gst-tax-amount="'+data.taxAmount+'" data-discount-percent="'+data.discountPercent+'" data-product-name="'+data.productName+'" data-kbcode="'+data.kbcode+'" data-product-img="'+data.productImg+'" data-product-id="'+data.productId+'" data-offer-desc="'+data.offerDesc+'">';
+    offerHtml += '<label for="offer-radio'+data.productId+'"></label>';
+    offerHtml += '</div>';
+    offerHtml += '</div>';
+    offerHtml += '<div class="item-image"><img src="'+data.productImg+'"></div>';
+    offerHtml += '<div class="item-info">';
+    offerHtml += '<p>'+data.offerDesc+'</p>';
+    offerHtml += '</div>';
+    offerHtml += '</div>';
+    return offerHtml;
+  }
 
   /* functions */
   function calculateCartItems() {
     var count = cartPage.find('.box-products > .product').length;
     $('#cart-item-count').html(count);
+    if(count > 0)
+      cartPage.find('.empty-cart-msg').addClass('hidden');
+    else 
+      cartPage.find('.empty-cart-msg').removeClass('hidden');
   }
 
   function calculateCartSummary() {

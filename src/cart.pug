@@ -53,6 +53,8 @@ block cart_content
                 img(src='images/icons/cc-avenue-gateway.png')
         .cart-products.col-md-8
           h6 My Box - <span id="cart-item-count"></span> items
+          .empty-cart-msg.hidden
+            h3 Your cart is empty
           .box-products#cart-products-wrapper
             .product.clearfix
               .product-img
@@ -100,16 +102,16 @@ block cart_content
                 .offer-item
                   .radio-wrap
                     .radio.radio-primary
-                      input#offer-radio1(type='radio' value="1" data-quantity='2' data-unit-price='100', data-gst-tax-amount='50' data-discount-percent='3' data-product-name='Walnut Kernels' data-kbcode='KB0018' data-product-img='images/cart-offer-img.png' data-product-id='123')
+                      input#offer-radio1(type='radio' value="1" data-quantity='2' data-unit-price='100', data-gst-tax-amount='50' data-discount-percent='3' data-product-name='Walnut Kernels' data-kbcode='KB0018' data-product-img='images/cart-offer-img.png' data-product-id='123' data-offer-desc="Extra 3% off on Walnut Kernels Light Small Pieces 500 Grams")
                       label(for='offer-radio1')
                   .item-image
                     img(src='images/cart-offer-img.png')
                   .item-info
-                    p Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams
+                    p Extra 3% off on Walnut Kernels Light Small Pieces 500 Grams
                 .offer-item
                   .radio-wrap
                     .radio.radio-primary
-                      input#offer-radio2(type='radio' value="1" data-quantity='3' data-unit-price='200', data-gst-tax-amount='50' data-discount-percent='5' data-product-name='Walnut Kernels' data-kbcode='KB0019' data-product-img='images/cart-offer-img.png' data-product-id='123')
+                      input#offer-radio2(type='radio' value="1" data-quantity='3' data-unit-price='200', data-gst-tax-amount='50' data-discount-percent='5' data-product-name='Walnut Kernels' data-kbcode='KB0019' data-product-img='images/cart-offer-img.png' data-product-id='123' data-offer-desc="Extra 5% off on Walnut Kernels Light Small Pieces 500 Grams")
                       label(for='offer-radio2')
                   .item-image
                     img(src='images/cart-offer-img.png')
