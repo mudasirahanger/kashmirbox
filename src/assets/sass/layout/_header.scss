@@ -73,12 +73,19 @@
   }
   .mini-cart-wrap {
     text-align: right;
+    .wishlist-icon {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: $unit-layout* 1.25;
+      span {
+        color: $brand-color;
+        font-size: rem(24px);
+      }
+    }
     .cart {
       display: inline-block;
-      margin-left: $unit-layout;
       .wishlist-icon, .mini-cart-icon {
         float: right;
-        font-size: 48px;
         line-height: 0;
         color: $brand-color;
       }
@@ -245,8 +252,20 @@
   }
 }
 
-#include respond-to(small-2) {
-  width: 88%;
+@include respond-to('small-2') {
+  #site-header-primary{ 
+    .mini-cart-wrap {
+      .wishlist-icon {
+        margin-top: $unit-layout;
+        span {
+          font-size: rem(40px);
+        }
+      }
+      .cart {
+        margin-left: $unit-layout;
+      }
+    }
+  }
 }
 
 @include respond-to('large-only') {
