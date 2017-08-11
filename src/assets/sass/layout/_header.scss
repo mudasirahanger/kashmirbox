@@ -76,10 +76,10 @@
     .wishlist-icon {
       display: inline-block;
       vertical-align: top;
-      margin-top: $unit-layout* 1.25;
+      margin-top: $unit-layout;
       span {
         color: $brand-color;
-        font-size: rem(24px);
+        font-size: rem(36px);
       }
     }
     .cart {
@@ -256,9 +256,9 @@
   #site-header-primary{ 
     .mini-cart-wrap {
       .wishlist-icon {
-        margin-top: $unit-layout;
+        margin-top: $half-unit-layout;
         span {
-          font-size: rem(32px);
+          font-size: rem(48px);
         }
       }
       .cart {
