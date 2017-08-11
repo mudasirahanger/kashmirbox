@@ -30,7 +30,18 @@ header#site_header
           a(class='search-btn')
             include ../components/svgicons/search.pug 
       .mini-cart-wrap(class='col-xs-6 col-sm-6 col-md-4 padding-0')
-         .cart
+          .dropdown.currency-dropdown
+            button.btn.btn-white.dropdown-toggle(type='button', data-toggle='dropdown')
+              span.text INR ₹
+              span.fa.fa-angle-down
+            ul.dropdown-menu
+              li.active
+                a(href="#" data-currency="INR").text INR ₹
+              li
+                a(href="#" data-currency="USD").text USD $ 
+              li
+                a(href="#" data-currency="GBP").text GBP £
+          .cart
             a.mini-cart-icon.hidden-xs(href='#')
               include ../components/svgicons/shoppingbag.pug
               i(class='mini-cart-count') 6 

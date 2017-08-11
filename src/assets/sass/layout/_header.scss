@@ -72,7 +72,10 @@
     }
   }
   .mini-cart-wrap {
+    text-align: right;
     .cart {
+      display: inline-block;
+      margin-left: $unit-layout;
       .wishlist-icon, .mini-cart-icon {
         float: right;
         font-size: 48px;

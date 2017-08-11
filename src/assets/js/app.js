@@ -56,6 +56,15 @@ jQuery(document).ready(function($){
   );
 });
 
+jQuery(document).ready(function($){
+  $(document).on('click','.currency-dropdown .dropdown-menu > li', function(){
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    var text = $(this).find('.text').html();
+    $(this).closest('.currency-dropdown').find('.dropdown-toggle .text').html(text);
+  });
+});
+
 //hero slider 
 jQuery(document).ready(function($) {
    $('.hero-slider').slick({

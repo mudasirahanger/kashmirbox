@@ -1,0 +1,32 @@
+.currency-dropdown {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: $unit-layout;
+  .dropdown-toggle {
+    min-width: rem(85px);
+    height: rem(34px);
+    line-height: rem(34px);
+      span {
+        display: inline-block;
+        margin-left: $quarter-unit-layout;
+        vertical-align: middle;
+      }
+  }
+  .dropdown-menu {
+    min-width: rem(85px);
+    li {
+      cursor: pointer;
+    }
+    .active {
+      display: none;
+    }
+    .text {
+      font-size: rem(14px);
+      display: inline-block;
+      height: rem(34px);
+      line-height: rem(34px);
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
