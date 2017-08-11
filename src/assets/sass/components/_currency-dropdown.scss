@@ -3,7 +3,7 @@
   vertical-align: top;
   margin-top: $unit-layout;
   .dropdown-toggle {
-    min-width: rem(85px);
+    min-width: rem(66px);
     height: rem(34px);
     line-height: rem(34px);
       span {
@@ -36,5 +36,8 @@
 @include respond-to('small-2') {
   .currency-dropdown {
     margin-left: $unit-layout;
+    .dropdown-toggle, .dropdown-menu {
+      min-width: rem(85px);
+    }
   }
 }
