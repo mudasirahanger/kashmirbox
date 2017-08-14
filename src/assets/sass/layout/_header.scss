@@ -79,7 +79,7 @@
       margin-top: $unit-layout;
       span {
         color: $brand-color;
-        font-size: rem(36px);
+        font-size: rem(32px);
       }
     }
     .cart {
@@ -256,9 +256,9 @@
   #site-header-primary{ 
     .mini-cart-wrap {
       .wishlist-icon {
-        margin-top: $half-unit-layout;
+        margin-top: $unit-layout;
         span {
-          font-size: rem(48px);
+          font-size: rem(32px);
         }
       }
       .cart {
