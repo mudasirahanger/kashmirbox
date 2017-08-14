@@ -542,12 +542,14 @@ $(window).on('load', function(){
   var embedUrl = 'https://www.youtube.com/embed/';
   for(var i = 0; i < youtubeVideos.length; i++) {
     var currentFrame = $( '.youtube-iframe:eq('+i+')' );
-    var frameborder = currentFrame.attr('frameborder');
+    var frameborder = currentFrame.data('frameborder');
+    var embedData = currentFrame.data('embed');
+    var embedQuery = '?'+encodeURIComponent(currentFrame.data('query'));
     //create iframe
     var iframe = document.createElement('iframe');
-    iframe.setAttribute('frameborder',  currentFrame.attr('data-frameborder'));
+    iframe.setAttribute('frameborder',  frameborder);
     iframe.setAttribute('allowfullscreen', 'allowfullscreen');
-    iframe.setAttribute('src', embedUrl+currentFrame.attr('data-query'));
+    iframe.setAttribute('src', embedUrl+embedData+embedQuery);
     currentFrame.append(iframe);
   }
 });
