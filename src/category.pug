@@ -1,5 +1,7 @@
 extends ./layouts/category.pug
 
+block append app_scripts
+  script(src='js/category.js' async)
 block app_variables
   - var pageTitle = "Kashmir Box";
 block category_content

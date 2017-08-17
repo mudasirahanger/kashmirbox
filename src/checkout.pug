@@ -1,5 +1,6 @@
 extends ./layouts/checkout.pug
-
+block append app_scripts
+  script(src='js/checkout.js' async)
 block app_variables
   - var pageTitle = "Kashmir Box";
 block checkout_content

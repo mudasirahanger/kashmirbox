@@ -1,5 +1,6 @@
 extends ./layouts/product.pug
-
+block append app_scripts
+  script(src='js/product.js' async)
 block app_variables
   - var pageTitle = "Kashmir Box";
 block product_content

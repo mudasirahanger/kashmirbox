@@ -58,7 +58,7 @@ var jsFiles = [
   jsPath+'bootstrap.min.js',
   jsPath+'vendor/slick-slider/slick.min.js',
   jsPath+'vendor/elevatezoom/jquery.elevateZoom-3.0.8.min.js',
-  jsPath+'app.js'
+  jsPath+'app.js',
 ];
 var jsDest = 'dist/js/';
 
@@ -68,6 +68,27 @@ gulp.task('compile-js', function (cb) {
         sourcemaps.init(),
         concat('main.js'),
         rename('main.min.js'),
+        uglify(),
+        gulp.dest(jsDest),
+        sourcemaps.write('.'),
+        gulp.dest(jsDest),
+        connect.reload()
+    ],
+    cb
+  );
+});
+// per page js file
+var pageJsFiles = [
+  jsPath+'home.js',
+  jsPath+'category.js',
+  jsPath+'product.js',
+  jsPath+'checkout.js',
+  jsPath+'cart.js'
+];
+gulp.task('compile-page-js', function (cb) {
+  pump([
+        gulp.src(pageJsFiles),
+        sourcemaps.init(),
         uglify(),
         gulp.dest(jsDest),
         sourcemaps.write('.'),
@@ -125,7 +146,7 @@ gulp.task('inline-css', function() {
 gulp.task('watch', function(){
   gulp.watch('src/**/*.pug', {cwd:'./'}, ['compile-pug']);
   gulp.watch('src/assets/sass/**/*.scss', {cwd:'./'}, ['compile-sass']);
-  gulp.watch('src/assets/js/**/*.js', {cwd:'./'}, ['compile-js']);
+  gulp.watch('src/assets/js/**/*.js', {cwd:'./'}, ['compile-js', 'compile-page-js']);
   gulp.watch('src/assets/images/**/*', {cwd:'./'}, ['optimize-images']);
   gulp.watch('src/assets/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}', {cwd:'./'}, ['copy-fonts']);
   /*gulp.watch('dist/*.html', {cwd:'./'}, ['include-css']);*/
@@ -146,6 +167,7 @@ gulp.task('default', [
   'compile-pug',
   'compile-sass',
   'compile-js',
+  'compile-page-js',
   'optimize-images',
   'copy-fonts',
   'watch',

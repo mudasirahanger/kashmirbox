@@ -1,5 +1,7 @@
 extends ./layouts/cart.pug
 
+block append app_scripts
+  script(src='js/cart.js' async)
 block app_variables
   - var pageTitle = "Kashmir Box";
 block cart_content
