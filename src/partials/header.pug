@@ -26,10 +26,7 @@ header#site_header
           input(type='text' placeholder='What can Kashmir offer you today?')
           a(class='search-btn')
             include ../components/svgicons/search.pug 
-      .mini-cart-wrap(class='col-xs-6 col-sm-6 col-md-4 padding-0')
-          .wishlist-icon
-            a(href="#")
-              span.fa.fa-heart-o    
+      .mini-cart-wrap(class='col-xs-6 col-sm-6 col-md-4 padding-0')  
           .dropdown.currency-dropdown
             button.btn.btn-white.dropdown-toggle(type='button', data-toggle='dropdown')
               span.text INR ₹
@@ -41,6 +38,9 @@ header#site_header
                 a(href="#" data-currency="USD").text USD $ 
               li
                 a(href="#" data-currency="GBP").text GBP £
+          .wishlist-icon
+            a(href="#")
+              span.fa.fa-heart-o  
           .cart
             a.mini-cart-icon.hidden-xs(href='#')
               include ../components/svgicons/shoppingbag.pug
