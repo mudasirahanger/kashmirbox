@@ -280,6 +280,7 @@
             width: 100%;
             min-height: inherit;
             padding: $unit-layout rem(5px);
+            border-bottom: 2px solid transparent;
           }
           &.active, &.open {
             > a {
