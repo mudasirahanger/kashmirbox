@@ -11,7 +11,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-    <link href="http://kb-qa.apexure.org/dist/css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
     <div class="site-overlay">   </div>
@@ -33,7 +33,7 @@
                 <div class="index"><span>1</span></div>
                 <div class="details">
                   <p class="step-complete-title">Login <span class="fa fa-check"></span></p>
-                  <p class="user"><span id="users_name" class="name">Muheet Mehraj</span><span id="users_email" class="email">muheet@kashmirbox.com</span></p>
+                  <p class="user"><span class="name">Muheet Mehraj</span><span class="email">muheet@kashmirbox.com</span></p>
                 </div>
               </div>
               <div class="step-content collapse in"> 
@@ -43,13 +43,13 @@
                       <h6>Returning Customer</h6>
                       <form id="checkout-login-form">
                         <div class="form-group">
-                          <input class="form-control" id="login_email" type="email" name="email" placeholder="email address">
+                          <input class="form-control" id="login-email" type="email" name="email" placeholder="email address">
                         </div>
                         <div class="form-group">
-                          <input class="form-control" id="login_password" type="password" name="password" placeholder="password">
+                          <input class="form-control" id="login-password" type="password" name="password" placeholder="password">
                         </div>
                         <div class="form-group">
-                          <button class="submit-btn btn btn-orange" id="loginBtn" type="button">Login</button><a id="forgotPassward" class="forgot-password-link" href="#">forgot password</a>
+                          <button class="submit-btn btn btn-orange" type="submit">Login</button><a class="forgot-password-link" href="#">forgot password</a>
                         </div>
                       </form>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="checkout-options">
                       <p>Checkout Options:</p>
                       <div class="radio radio-primary">
-                        <input id="register-account" type="radio" name="customer-type" value="register">
+                        <input id="register-account" type="radio" name="customer-type" value="new">
                         <label for="register-account">Register Account</label>
                       </div>
                       <div class="radio radio-primary">
@@ -72,7 +72,7 @@
                       </p>
                     </div>
                     <div id="checkout-options-forms">
-                      <div class="hidden register-form-wrap">
+                      <div class="register-form-wrap">
                         <h6>Create Account</h6>
                         <form id="checkout-register-form">
                           <div class="form-group">
@@ -85,34 +85,34 @@
                             <input class="form-control" id="register-password" type="password" name="password" placeholder="password">
                           </div>
                           <div class="form-group">
-                            <button class="submit-btn btn btn-orange" id="registerBtn" type="button">Continue</button>
+                            <button class="submit-btn btn btn-orange" type="submit">Continue</button>
                           </div>
                         </form>
                       </div>
-                      <div class="hidden guest-form-wrap">
+                      <div class="guest-form-wrap">
                         <h6>Checkout as Guest</h6>
                         <form id="checkout-guest-form">
                           <div class="form-group">
-                            <input class="form-control" id="guest_name" type="text" name="name" placeholder="full name">
+                            <input class="form-control" id="guest-name" type="text" name="name" placeholder="full name">
                           </div>
                           <div class="form-group">
-                            <input class="form-control" id="guest_email" type="email" name="email" placeholder="email address">
+                            <input class="form-control" id="guest-email" type="email" name="email" placeholder="email address">
                           </div>
                           <div class="form-group">
-                            <button class="submit-btn btn btn-orange" id="guestCheckoutBtn" type="button">Continue</button>
+                            <button class="submit-btn btn btn-orange" type="submit">Continue</button>
                           </div>
                         </form>
-                      </div><a class="btn btn-border btn-border-orange" type="button" id="checkCheckoutType">Continue</a>
+                      </div><a class="btn btn-border btn-border-orange" id="checkout-type-btn">Continue </a>
                     </div>
                   </div>
                 </div>
-                <div class="view hidden logged-in clearfix">
+                <div class="view logged-in hidden clearfix">
                   <div class="col-sm-12">
                     <div class="userdetails">
                       <p><span>Name</span> <span class="login-name">Muheet Mehraj</span></p>
                       <p><span>Email</span> <span class="login-email">muheet@kashmirbox.com</span></p><a class="logout-link">Logout &amp; Sign in to another account</a>
                     </div>
-                    <button class="btn btn-orange nextstep" id="continueCheckout">Continue Checkout</button>
+                    <button class="btn btn-orange nextstep">Continue Checkout</button>
                     <p class="disclaimer">
                       Please note that upon clicking 'Logout' you will lose all items
                       in cart and will be redirected to Kashmir Box HomePage
