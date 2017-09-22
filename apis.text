@@ -1,0 +1,9 @@
+APIs
+
+LOGIN 
+
+login api url : https://www.kashmirbox.com/index.php?route=checkout/api
+success msg : {"msg":"success"}
+error msg : {"msg":"try again"}
+--POST email_id , password
+--GET error_msg,redirect_url
