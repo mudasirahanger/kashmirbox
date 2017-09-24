@@ -5,6 +5,13 @@ $(document).ready(function() {
   var step3 = checkoutPage.find('#step3');
   var step = checkoutPage.find('.step');
 
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
   $(document).on(
     'click', 
     '.checkout-page-content .step >.step-complete-panel', function(){
@@ -36,36 +43,73 @@ $(document).ready(function() {
     }
   });
 
+  $('#logout-link').on('click',function () {
+  	// moveToNextStep(1, 2);
+  })
+
+  $('#nextstep').on('click',function () {
+  	moveToNextStep(1, 2);
+  })
+
   $(document).on('submit', '#checkout-login-form', function(){
     //login new user
     if(!validateCheckoutLoginForm($(this))) {
       return false;
     }
 
+    $('#preloader').show();
+
    	let email = $('#login-email').val()
 	let password = $('#login-password').val()
 
-	if (email === 'muheetmehraj@gmail.com') {
-		if (password === '123') {
-			$('#step1 .details .name').text('Muheet Mehraj')
-			$('#step1 .details .email').text(email)
-			$('#login-email').val('')
-			$('#login-password').val('')
-			moveToNextStep(1, 2);
-		} else {
-			swal({
-				title: "Sorry!",
-				text: "You have entered wrong password!",
-				type: "error"
-			})
-		}
-	} else {
-		swal({
-			title: "Oops!",
-			text: "Entered Email is not registered! please register first!",
-			type: "error"
-		})
-	}
+	$.ajax({   
+        type: "POST",
+        data : {email:email,password:password},
+        cache: false,  
+        url: "https://www.kashmirbox.com/index.php?route=checkout/api/Login",   
+        success: function(data){
+        	$('#preloader').hide();
+        	if (data.responseCode === '200') {
+				$('#step1 .details .name').text(data.firstname + " " + data.lastname)
+				$('#step1 .details .email').text(email)
+				$('#login-email').val('')
+				$('#login-password').val('')
+				$('#logged-out').addClass('hidden')
+				$('#logged-in').removeClass('hidden')
+				$('#logged-in .login-name').text(data.firstname + " " + data.lastname)
+				$('#logged-in .login-email').text(email)
+				let cartData = data.cartDetails;
+				var listItems = ""
+				if(cartData[cartData.length-1].text.trim() === 'Rs.0') {
+					swal({
+						title: 'Sorry!',
+						text: 'Your cart is empty',
+						type: 'warning'
+					})
+					window.location = 'https://www.kashmirbox.com/index.php?route=checkout/checkout'
+				} else {
+					for (var i = 0; i < cartData.length; i++) {
+						if(cartData.title === 'Total') {
+							listItems += `<li class="item total"><span class="item-title">${cartData.title}</span><span class="item-value">${cartData.text}</span></li>`
+						} else {
+							listItems += `<li class="item"><span class="item-title">${cartData.title}</span><span class="item-value">${cartData.text}</span></li>`
+						}
+					}
+				}
+				
+				$('#order-summary .order-summary-list').html(listItems)
+
+				moveToNextStep(1, 2);
+        	} else {
+        		swal({
+					title: "OOPS!",
+					text: data.warning.warning,
+					type: "error"
+				})
+        	}
+            console.log(data)                       
+        } 
+    }); 
     //step1 is complete
     return false;
   });
@@ -376,12 +420,20 @@ function validateCheckoutRegisterForm(form) {
     if(!pincode.val() || pincode.val().trim() === '') {
       pincode.after('<span class="field-error">Pincode is required</span>');
       isRequeredEmpty = true;
-    }
+    } 
+    // else if(pincode.val().length !== '6') {
+    //   pincode.after('<span class="field-error">Invalid Pincode</span>');
+    //   isRequeredEmpty = true;
+    // }
 
     if(!phone.val() || phone.val().trim() === '') {
       phone.after('<span class="field-error">Phone is required</span>');
       isRequeredEmpty = true;
-    }
+    } 
+    // else if(phone.val().length > '12' || phone.val().length < '10') {
+    //   phone.after('<span class="field-error">Invalid Phone Number</span>');
+    //   isRequeredEmpty = true;
+    // }
 
     if(!locality.val() || locality.val().trim() === '') {
       locality.after('<span class="field-error">Locality is required</span>');

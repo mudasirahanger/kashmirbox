@@ -41,7 +41,7 @@
                 </div>
               </div>
               <div class="step-content collapse in"> 
-                <div class="view logged-out clearfix">
+                <div id="logged-out" class="view logged-out clearfix">
                   <div class="col-sm-6 col-left">
                     <div class="login-form-wrap">
                       <h6>Returning Customer</h6>
@@ -110,13 +110,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="view logged-in hidden clearfix">
+                <div id="logged-in" class="view logged-in hidden clearfix">
                   <div class="col-sm-12">
                     <div class="userdetails">
                       <p><span>Name</span> <span class="login-name">Muheet Mehraj</span></p>
-                      <p><span>Email</span> <span class="login-email">muheet@kashmirbox.com</span></p><a class="logout-link">Logout &amp; Sign in to another account</a>
+                      <p><span>Email</span> <span class="login-email">muheet@kashmirbox.com</span></p><a id="logout-link" class="logout-link">Logout &amp; Sign in to another account</a>
                     </div>
-                    <button class="btn btn-orange nextstep">Continue Checkout</button>
+                    <button id="nextstep" class="btn btn-orange nextstep">Continue Checkout</button>
                     <p class="disclaimer">
                       Please note that upon clicking 'Logout' you will lose all items
                       in cart and will be redirected to Kashmir Box HomePage
@@ -138,7 +138,8 @@
               <div class="step-content collapse">
                 <div class="address">
                   <div class="address-forms">
-                    <div class="address-form-wrap first clearfix">                      <div class="address-form-edit-panel">
+                    <div class="address-form-wrap saved clearfix">                      
+                      <div class="address-form-edit-panel">
                         <div class="address-toggle">
                           <div class="radio radio-primary">
                             <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" value="new">
@@ -156,29 +157,32 @@
                         <div class="col-xs-12">
                           <div class="radio radio-primary">
                             <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1" checked>
-                            <label for="edit-address-toggle1"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address </span></label>
+                            <label for="edit-address-toggle1"><span class="edit-label">Edit Shipping Address</span><span class="new-label">Add a new Shipping Address </span></label>
                           </div>
                         </div>
                         <form id="address-form1" data-form-id="1">
                           <div class="form-group">
                             <div class="col-sm-6">
-                              <input class="form-control" name="name" value="junaid" placeholder="Name" autofocus>
+                              <input class="form-control" name="firstname" value="junaid" placeholder="First Name" autofocus>
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" name="phone" value="1234567890" placeholder="Phone Number">
+                              <input class="form-control" name="lastname" value="junaid" placeholder="Last Name" autofocus>
                             </div>
                           </div>
                           <div class="form-group clearfix">
                             <div class="col-sm-6">
-                              <input class="form-control" name="pincode" value="1234567890" placeholder="Pincode">
+                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="pincode" value="1234567890" placeholder="Pincode">
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" name="locality" value="junaid" placeholder="Locality">
+                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="phone" value="1234567890" placeholder="Phone Number">
                             </div>
                           </div>
                           <div class="form-group clearfix">
-                            <div class="col-xs-12">
-                              <textarea class="form-control" name="street-address" placeholder="Address (Area and Street)">kasjhdkjahskj</textarea>
+                            <div class="col-sm-6">
+                              <input class="form-control" name="address_1" value="junaid" placeholder="Address Line 1" autofocus>
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" name="address_2" value="junaid" placeholder="Address Line 2" autofocus>
                             </div>
                           </div>
                           <div class="form-group clearfix">
@@ -186,32 +190,27 @@
                               <input class="form-control" value="junaid" name="city" placeholder="City / District / Town">
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" value="junaid" name="state" placeholder="State">
+                              <select class="form-control" style="height:45px" name="Country" placeholder="State">
+                                <option selected disabled value='-1'>Select Country</option>
+                                <option value="Country 1" >Country 1</option>
+                                <option value="Country 2" >Country 2</option>
+                                <option value="Country 3" >Country 3</option>
+                                <option value="Country 4" >Country 4</option>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group clearfix">
                             <div class="col-sm-6">
-                              <input class="form-control" value="junaid" name="landmark" placeholder="Landmark (Optional)">
+                              <select class="form-control" style="height:45px" name="state" placeholder="State">
+                                <option selected disabled value='-1'>Select State</option>
+                                <option value="State 1" >State 1</option>
+                                <option value="State 2" >State 2</option>
+                                <option value="State 3" >State 3</option>
+                                <option value="State 4" >State 4</option>
+                              </select>
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" value="1234567890" name="alt-phone" placeholder="Alternate Phone (Optional)">
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-xs-12">
-                              <p>Address Type</p>
-                            </div>
-                            <div class="col-sm-6">
-                              <div class="radio radio-primary">
-                                <input class="address-toggle" id="home-address-radio1" type="radio" name="address-type" value="home" checked>
-                                <label for="home-address-radio1">Home(All day delivery)</label>
-                              </div>
-                            </div>
-                            <div class="col-sm-6">
-                              <div class="radio radio-primary">
-                                <input class="address-type" id="work-address-radio1" type="radio" name="address-type" value="work">
-                                <label for="work-address-radio1">Work(Delivery between 10 AM - 5 PM)</label>
-                              </div>
+                              <input class="form-control" value="ABC company" name="alt-phone" placeholder="Company (Optional)">
                             </div>
                           </div>
                           <div class="form-group">
@@ -223,7 +222,7 @@
                         </form>
                       </div>
                     </div>
-                    <div class="address-form-wrap first clearfix">
+                    <div class="address-form-wrap saved clearfix">
                       <div class="address-form-edit-panel">
                         <div class="address-toggle">
                           <div class="radio radio-primary">
@@ -242,7 +241,7 @@
                         <div class="col-xs-12">
                           <div class="radio radio-primary">
                             <input class="address-toggle" id="edit-address-toggle2" type="radio" name="address-toggle" value="2">
-                            <label for="edit-address-toggle1"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address </span></label>
+                            <label for="edit-address-toggle2"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address </span></label>
                           </div>
                         </div>
                         <form id="address-form2" data-form-id="2">
@@ -357,14 +356,13 @@
                 <li> <span class="fa fa-refresh"></span><span>Easy Returns</span></li>
               </ul>
             </div>
-            <div class="order-summary">
+            <div id="order-summary" class="order-summary">
               <h6>Order Summary</h6>
               <ul class="order-summary-list">
-                <li class="item"><span class="item-title">KashmirBox Price</span><span class="item-value" data-price="846">$846</span></li>
-                <li class="item"><span class="item-title">Coupon Discount</span><span class="item-value" data-price="0">$00</span></li>
-                <li class="item"><span class="item-title">TAX Amount</span><span class="item-value" data-price="80">$80</span></li>
-                <li class="item"><span class="item-title">Shipping Charges</span><span class="item-value" data-price="0">$00</span></li>
-                <li class="item total"><span class="item-title">Total Amount Payable</span><span class="item-value" data-price="926">$926</span></li>
+                <li class="item"><span class="item-title">Sub-Total</span><span class="item-value" data-price="846">Rs.00</span></li>
+                <li class="item"><span class="item-title">IGST 12%</span><span class="item-value" data-price="0">Rs.00</span></li>
+                <li class="item"><span class="item-title">Shipping Charges</span><span class="item-value" data-price="0">Rs.00</span></li>
+                <li class="item total"><span class="item-title">Total</span><span class="item-value" data-price="926">Rs.00</span></li>
               </ul>
             </div>
           </div>
@@ -426,5 +424,7 @@
     <script src="js/main.min.js"></script>
     <script src="js/checkout.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>
+
   </body>
 </html>
