@@ -1,9 +1,115 @@
 APIs
 
+'---' => 'responses',
+  	 	'200' => 'Succces',
+  	    '502' => '502 Bad Gateway',
+  	    '500' => '500 Internal Server Error'
+
 LOGIN 
 
-login api url : https://www.kashmirbox.com/index.php?route=checkout/api
-success msg : {"msg":"success"}
-error msg : {"msg":"try again"}
---POST email_id , password
---GET error_msg,redirect_url
+login api url : https://www.kashmirbox.com/index.php?route=checkout/api/Login
+
+=================================== LOGIN ===================================
+
+REQUEST OBJECT :
+{
+   “email”:””,
+   “password”:””
+}
+
+RESPONSE SUCESS OBJECT :
+{
+   “responseCode”:”200”
+   “name”:””,
+   “email”:””,
+   “redirect_url”:””,
+   “customer_id”:””,
+   “cartDetails”:<cartObject>,
+   “addresses”:[<addressObject>,<addressObject>,<addressObject>] (leave empty if no address => [])
+}
+
+RESPONSE ERROR OBJECT :
+{
+   “responseCode”:”” (anything other that 000)
+   “responseMessage”:”<error message>”
+}
+
+
+ADDRESS
+
+api url : https://www.kashmirbox.com/index.php?route=checkout/api/saveShippingAddress
+
+=================================== SAVE ADDRESS ===================================
+
+REQUEST OBJECT :
+{
+   “email”:””,
+   “address”:<addressObject>
+}
+
+RESPONSE SUCESS OBJECT :
+{
+   “responseCode”:”000”,
+   “address”:<addressObject>
+   “pinError”:”<error message>”, (false if no error) 
+}
+
+RESPONSE ERROR OBJECT :
+{
+   “responseCode”:”” (anything other that 000)
+   “responseMessage”:”<error message>”
+}
+
+=================================== UPDATE ADDRESS ===================================
+
+REQUEST OBJECT :
+{
+   “email”:””,
+   “address”:<addressObject>
+}
+
+RESPONSE SUCESS OBJECT :
+{
+   “responseCode”:”000”,
+   “address”:<addressObject>
+   “pinError”:”<error message>”, (false if no error) 
+}
+
+RESPONSE ERROR OBJECT :
+{
+   “responseCode”:”” (anything other that 000)
+   “responseMessage”:”<error message>”
+}
+
+
+CART 
+
+
+login api url : https://www.kashmirbox.com/index.php?route=checkout/api/Login
+
+
+REQUEST OBJECT :
+{
+   “email”:””,
+   “password”:””
+}
+
+RESPONSE SUCESS OBJECT :
+{
+   “responseCode”:”200”
+   “name”:””,
+   “email”:””,
+   “redirect_url”:””,
+   “customer_id”:””,
+   “cartDetails”:<cartObject>,
+}
+
+RESPONSE ERROR OBJECT :
+{
+   “responseCode”:”” (anything other that 000)
+   “responseMessage”:”<error message>”
+}
+
+
+
+
