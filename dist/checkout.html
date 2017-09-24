@@ -7,14 +7,18 @@
     <meta name="theme-color" content="#108b3c">
     <meta name="description" content="We offer Best Quality Saffron (Kesar) &amp;amp; Dryfruits, Authentic Cashmere shawls, Luxurious Pashmina Wraps. The Best Online Shopping Site for Kashmiri Products">
     <meta name="keywords" content="kashmir box, online shopping, kashmiri shawls online shopping ,pashmina shawls online, kashmiri wazwaan online, Apparel For women,kashmirbox.com,saffron online,sarees online, kashmir handcrafted products, kurtas online shopping, pashmina shawls wholesale, handicraft site .art and craft website, kashmiri crafts online">
+    <style type="text/css" >
+      #preloader { position: fixed; left: 0; top: 0; z-index: 999; width: 100%; height: 100%; overflow: visible; background: rgba(51, 51, 51, 0.008) url('https://www.budgetsensors.com/img/ajax-loader.gif') no-repeat center center; }
+    </style>
     <title>Kashmir Box</title><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
-    <div class="site-overlay">   </div>
+    <div hidden id="preloader"></div>
     <!-- Site Header-->
     <header id="site-header-checkout">
       <div class="container padding-0">
@@ -134,15 +138,14 @@
               <div class="step-content collapse">
                 <div class="address">
                   <div class="address-forms">
-                    <div class="address-form-wrap new editing first clearfix">
-                      <div class="address-form-edit-panel">
+                    <div class="address-form-wrap first clearfix">                      <div class="address-form-edit-panel">
                         <div class="address-toggle">
                           <div class="radio radio-primary">
                             <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" value="new">
                             <label for="edit-panel-address-toggle1"> </label>
                           </div>
                         </div>
-                        <div class="address-summary">
+                        <div id="address-summary1" class="address-summary">
                           <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
                           <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>
                           <p class="pin-error">The pincode is not servicable</p>
@@ -157,6 +160,92 @@
                           </div>
                         </div>
                         <form id="address-form1" data-form-id="1">
+                          <div class="form-group">
+                            <div class="col-sm-6">
+                              <input class="form-control" name="name" value="junaid" placeholder="Name" autofocus>
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" name="phone" value="1234567890" placeholder="Phone Number">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" name="pincode" value="1234567890" placeholder="Pincode">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" name="locality" value="junaid" placeholder="Locality">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-xs-12">
+                              <textarea class="form-control" name="street-address" placeholder="Address (Area and Street)">kasjhdkjahskj</textarea>
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" value="junaid" name="city" placeholder="City / District / Town">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" value="junaid" name="state" placeholder="State">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-sm-6">
+                              <input class="form-control" value="junaid" name="landmark" placeholder="Landmark (Optional)">
+                            </div>
+                            <div class="col-sm-6">
+                              <input class="form-control" value="1234567890" name="alt-phone" placeholder="Alternate Phone (Optional)">
+                            </div>
+                          </div>
+                          <div class="form-group clearfix">
+                            <div class="col-xs-12">
+                              <p>Address Type</p>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="radio radio-primary">
+                                <input class="address-toggle" id="home-address-radio1" type="radio" name="address-type" value="home" checked>
+                                <label for="home-address-radio1">Home(All day delivery)</label>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="radio radio-primary">
+                                <input class="address-type" id="work-address-radio1" type="radio" name="address-type" value="work">
+                                <label for="work-address-radio1">Work(Delivery between 10 AM - 5 PM)</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-xs-12">
+                              <button class="btn btn-orange save-address" type="submit">Save</button>
+                              <button class="btn btn-default cancel-address" type="button">Cancel</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="address-form-wrap first clearfix">
+                      <div class="address-form-edit-panel">
+                        <div class="address-toggle">
+                          <div class="radio radio-primary">
+                            <input class="address-toggle" id="edit-panel-address-toggle2" type="radio" name="edit-address-toggle" value="new">
+                            <label for="edit-panel-address-toggle2"> </label>
+                          </div>
+                        </div>
+                        <div id="address-summary2" class="address-summary">
+                          <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
+                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>
+                          <p class="pin-error">The pincode is not servicable</p>
+                        </div>
+                        <div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>
+                      </div>
+                      <div class="address-form">
+                        <div class="col-xs-12">
+                          <div class="radio radio-primary">
+                            <input class="address-toggle" id="edit-address-toggle2" type="radio" name="address-toggle" value="2">
+                            <label for="edit-address-toggle1"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address </span></label>
+                          </div>
+                        </div>
+                        <form id="address-form2" data-form-id="2">
                           <div class="form-group">
                             <div class="col-sm-6">
                               <input class="form-control" name="name" placeholder="Name" autofocus>
@@ -335,6 +424,7 @@
       </div>
     </div>
     <script src="js/main.min.js"></script>
-    <script src="js/checkout.js" async></script>
+    <script src="js/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js"></script>
   </body>
 </html>
