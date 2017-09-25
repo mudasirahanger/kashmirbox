@@ -63,11 +63,16 @@ function isNumberKey(evt){
 	let password = $('#login-password').val()
 
 	$.ajax({   
-        type: "POST",
-        data : {email:email,password:password},
-        cache: false,  
-        url: "https://www.kashmirbox.com/index.php?route=checkout/api/Login",   
-        success: function(data){
+			"async": true,
+			"crossDomain": true,
+			"url": "https://www.kashmirbox.com/index.php?route=checkout%2Fapi%2FLogin",
+			"method": "POST",
+			"headers": {"content-type": "application/x-www-form-urlencoded"},
+			"data": {
+				"email": email,
+				"password": password
+			}
+		}).done(function(data){
         	$('#preloader').hide();
         	if (data.responseCode === '200') {
 				$('#step1 .details .name').text(data.firstname + " " + data.lastname)
@@ -80,7 +85,8 @@ function isNumberKey(evt){
 				$('#logged-in .login-email').text(email)
 				let cartData = data.cartDetails;
 				var listItems = ""
-				if(cartData[cartData.length-1].text.trim() === 'Rs.0') {
+				alert(cartData[cartData.length-1].text.trim())
+				if(cartData[cartData.length-1].title.trim() === 'Rs.0') {
 					swal({
 						title: 'Sorry!',
 						text: 'Your cart is empty',
@@ -90,9 +96,9 @@ function isNumberKey(evt){
 				} else {
 					for (var i = 0; i < cartData.length; i++) {
 						if(cartData.title === 'Total') {
-							listItems += `<li class="item total"><span class="item-title">${cartData.title}</span><span class="item-value">${cartData.text}</span></li>`
+							listItems += `<li class="item total"><span class="item-title">${cartData[i].title}</span><span class="item-value">${cartData[i].text}</span></li>`
 						} else {
-							listItems += `<li class="item"><span class="item-title">${cartData.title}</span><span class="item-value">${cartData.text}</span></li>`
+							listItems += `<li class="item"><span class="item-title">${cartData[i].title}</span><span class="item-value">${cartData[i].text}</span></li>`
 						}
 					}
 				}
@@ -108,8 +114,7 @@ function isNumberKey(evt){
 				})
         	}
             console.log(data)                       
-        } 
-    }); 
+    	}); 
     //step1 is complete
     return false;
   });

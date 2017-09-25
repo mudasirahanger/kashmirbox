@@ -138,17 +138,17 @@
               <div class="step-content collapse">
                 <div class="address">
                   <div class="address-forms">
-                    <div class="address-form-wrap saved clearfix">                      
+                    <div class="address-form-wrap saved clearfix">
                       <div class="address-form-edit-panel">
                         <div class="address-toggle">
                           <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" value="new">
+                            <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" checked value="new">
                             <label for="edit-panel-address-toggle1"> </label>
                           </div>
                         </div>
                         <div id="address-summary1" class="address-summary">
                           <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
-                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>
+                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="country">India</span><span class="pincode">190001</span></p>
                           <p class="pin-error">The pincode is not servicable</p>
                         </div>
                         <div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>
@@ -156,7 +156,7 @@
                       <div class="address-form">
                         <div class="col-xs-12">
                           <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1" checked>
+                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1">
                             <label for="edit-address-toggle1"><span class="edit-label">Edit Shipping Address</span><span class="new-label">Add a new Shipping Address </span></label>
                           </div>
                         </div>
@@ -226,13 +226,13 @@
                       <div class="address-form-edit-panel">
                         <div class="address-toggle">
                           <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-panel-address-toggle2" type="radio" name="edit-address-toggle" value="new">
-                            <label for="edit-panel-address-toggle2"> </label>
+                            <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" value="new">
+                            <label for="edit-panel-address-toggle1"> </label>
                           </div>
                         </div>
-                        <div id="address-summary2" class="address-summary">
+                        <div id="address-summary1" class="address-summary">
                           <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
-                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>
+                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="country">India</span><span class="pincode">190001</span></p>
                           <p class="pin-error">The pincode is not servicable</p>
                         </div>
                         <div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>
@@ -240,63 +240,61 @@
                       <div class="address-form">
                         <div class="col-xs-12">
                           <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-address-toggle2" type="radio" name="address-toggle" value="2">
-                            <label for="edit-address-toggle2"><span class="edit-label">Edit Address</span><span class="new-label">Add a new Address </span></label>
+                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1">
+                            <label for="edit-address-toggle1"><span class="edit-label">Edit Shipping Address</span><span class="new-label">Add a new Shipping Address </span></label>
                           </div>
                         </div>
-                        <form id="address-form2" data-form-id="2">
+                        <form id="address-form1" data-form-id="1">
                           <div class="form-group">
                             <div class="col-sm-6">
-                              <input class="form-control" name="name" placeholder="Name" autofocus>
+                              <input class="form-control" name="firstname" value="junaid" placeholder="First Name" autofocus>
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" name="phone" placeholder="Phone Number">
+                              <input class="form-control" name="lastname" value="junaid" placeholder="Last Name" autofocus>
                             </div>
                           </div>
                           <div class="form-group clearfix">
                             <div class="col-sm-6">
-                              <input class="form-control" name="pincode" placeholder="Pincode">
+                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="pincode" value="1234567890" placeholder="Pincode">
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" name="locality" placeholder="Locality">
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-xs-12">
-                              <textarea class="form-control" name="street-address" placeholder="Address (Area and Street)"></textarea>
+                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="phone" value="1234567890" placeholder="Phone Number">
                             </div>
                           </div>
                           <div class="form-group clearfix">
                             <div class="col-sm-6">
-                              <input class="form-control" name="city" placeholder="City / District / Town">
+                              <input class="form-control" name="address_1" value="junaid" placeholder="Address Line 1" autofocus>
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" name="state" placeholder="State">
+                              <input class="form-control" name="address_2" value="junaid" placeholder="Address Line 2" autofocus>
                             </div>
                           </div>
                           <div class="form-group clearfix">
                             <div class="col-sm-6">
-                              <input class="form-control" name="landmark" placeholder="Landmark (Optional)">
+                              <input class="form-control" value="junaid" name="city" placeholder="City / District / Town">
                             </div>
                             <div class="col-sm-6">
-                              <input class="form-control" name="alt-phone" placeholder="Alternate Phone (Optional)">
+                              <select class="form-control" style="height:45px" name="Country" placeholder="State">
+                                <option selected disabled value='-1'>Select Country</option>
+                                <option value="Country 1" >Country 1</option>
+                                <option value="Country 2" >Country 2</option>
+                                <option value="Country 3" >Country 3</option>
+                                <option value="Country 4" >Country 4</option>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group clearfix">
-                            <div class="col-xs-12">
-                              <p>Address Type</p>
+                            <div class="col-sm-6">
+                              <select class="form-control" style="height:45px" name="state" placeholder="State">
+                                <option selected disabled value='-1'>Select State</option>
+                                <option value="State 1" >State 1</option>
+                                <option value="State 2" >State 2</option>
+                                <option value="State 3" >State 3</option>
+                                <option value="State 4" >State 4</option>
+                              </select>
                             </div>
                             <div class="col-sm-6">
-                              <div class="radio radio-primary">
-                                <input class="address-toggle" id="home-address-radio1" type="radio" name="address-type" value="home" checked>
-                                <label for="home-address-radio1">Home(All day delivery)</label>
-                              </div>
-                            </div>
-                            <div class="col-sm-6">
-                              <div class="radio radio-primary">
-                                <input class="address-type" id="work-address-radio1" type="radio" name="address-type" value="work">
-                                <label for="work-address-radio1">Work(Delivery between 10 AM - 5 PM)</label>
-                              </div>
+                              <input class="form-control" value="ABC company" name="alt-phone" placeholder="Company (Optional)">
                             </div>
                           </div>
                           <div class="form-group">
