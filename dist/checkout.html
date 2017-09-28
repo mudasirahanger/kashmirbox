@@ -59,54 +59,22 @@
                     </div>
                   </div>
                   <div class="col-sm-6 col-right">
-                    <h6>New Customer</h6>
-                    <div class="checkout-options">
-                      <p>Checkout Options:</p>
-                      <div class="radio radio-primary">
-                        <input id="register-account" type="radio" name="customer-type" value="new">
-                        <label for="register-account">Register Account</label>
-                      </div>
-                      <div class="radio radio-primary">
-                        <input id="guest-checkout" type="radio" name="customer-type" value="guest">
-                        <label for="guest-checkout">Guest Checkout</label>
-                      </div>
-                      <p>
-                        By creating an account you will be able to shop faster, be up to date
-                        on order's status, and keep track of the orders you have previously made.
-                      </p>
-                    </div>
-                    <div id="checkout-options-forms">
-                      <div class="register-form-wrap">
-                        <h6>Create Account</h6>
-                        <form id="checkout-register-form">
-                          <div class="form-group">
-                            <input class="form-control" id="register-name" type="text" name="name" placeholder="name">
-                          </div>
-                          <div class="form-group">
-                            <input class="form-control" id="register-email" type="email" name="email" placeholder="email address">
-                          </div>
-                          <div class="form-group">
-                            <input class="form-control" id="register-password" type="password" name="password" placeholder="password">
-                          </div>
-                          <div class="form-group">
-                            <button class="submit-btn btn btn-orange" type="submit">Continue</button>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="guest-form-wrap">
-                        <h6>Checkout as Guest</h6>
-                        <form id="checkout-guest-form">
-                          <div class="form-group">
-                            <input class="form-control" id="guest-name" type="text" name="name" placeholder="full name">
-                          </div>
-                          <div class="form-group">
-                            <input class="form-control" id="guest-email" type="email" name="email" placeholder="email address">
-                          </div>
-                          <div class="form-group">
-                            <button class="submit-btn btn btn-orange" type="submit">Continue</button>
-                          </div>
-                        </form>
-                      </div><a class="btn btn-border btn-border-orange" id="checkout-type-btn">Continue </a>
+                    <div class="register-form-wrap">
+                      <h6>Create Account</h6>
+                      <form id="checkout-register-form">
+                        <div class="form-group">
+                          <input class="form-control" id="register-name" type="text" name="name" placeholder="name">
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" id="register-email" type="email" name="email" placeholder="email address">
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" id="register-password" type="password" name="password" placeholder="password">
+                        </div>
+                        <div class="form-group">
+                          <button class="submit-btn btn btn-orange" type="submit">Continue</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -138,174 +106,6 @@
               <div class="step-content collapse">
                 <div class="address">
                   <div class="address-forms">
-                    <div class="address-form-wrap saved clearfix">
-                      <div class="address-form-edit-panel">
-                        <div class="address-toggle">
-                          <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" checked value="new">
-                            <label for="edit-panel-address-toggle1"> </label>
-                          </div>
-                        </div>
-                        <div id="address-summary1" class="address-summary">
-                          <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
-                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="country">India</span><span class="pincode">190001</span></p>
-                          <p class="pin-error">The pincode is not servicable</p>
-                        </div>
-                        <div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>
-                      </div>
-                      <div class="address-form">
-                        <div class="col-xs-12">
-                          <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1">
-                            <label for="edit-address-toggle1"><span class="edit-label">Edit Shipping Address</span><span class="new-label">Add a new Shipping Address </span></label>
-                          </div>
-                        </div>
-                        <form id="address-form1" data-form-id="1">
-                          <div class="form-group">
-                            <div class="col-sm-6">
-                              <input class="form-control" name="firstname" value="junaid" placeholder="First Name" autofocus>
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" name="lastname" value="junaid" placeholder="Last Name" autofocus>
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="pincode" value="1234567890" placeholder="Pincode">
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="phone" value="1234567890" placeholder="Phone Number">
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <input class="form-control" name="address_1" value="junaid" placeholder="Address Line 1" autofocus>
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" name="address_2" value="junaid" placeholder="Address Line 2" autofocus>
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <input class="form-control" value="junaid" name="city" placeholder="City / District / Town">
-                            </div>
-                            <div class="col-sm-6">
-                              <select class="form-control" style="height:45px" name="Country" placeholder="State">
-                                <option selected disabled value='-1'>Select Country</option>
-                                <option value="Country 1" >Country 1</option>
-                                <option value="Country 2" >Country 2</option>
-                                <option value="Country 3" >Country 3</option>
-                                <option value="Country 4" >Country 4</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <select class="form-control" style="height:45px" name="state" placeholder="State">
-                                <option selected disabled value='-1'>Select State</option>
-                                <option value="State 1" >State 1</option>
-                                <option value="State 2" >State 2</option>
-                                <option value="State 3" >State 3</option>
-                                <option value="State 4" >State 4</option>
-                              </select>
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" value="ABC company" name="alt-phone" placeholder="Company (Optional)">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-xs-12">
-                              <button class="btn btn-orange save-address" type="submit">Save</button>
-                              <button class="btn btn-default cancel-address" type="button">Cancel</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="address-form-wrap saved clearfix">
-                      <div class="address-form-edit-panel">
-                        <div class="address-toggle">
-                          <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-panel-address-toggle1" type="radio" name="edit-address-toggle" value="new">
-                            <label for="edit-panel-address-toggle1"> </label>
-                          </div>
-                        </div>
-                        <div id="address-summary1" class="address-summary">
-                          <p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>
-                          <p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="country">India</span><span class="pincode">190001</span></p>
-                          <p class="pin-error">The pincode is not servicable</p>
-                        </div>
-                        <div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>
-                      </div>
-                      <div class="address-form">
-                        <div class="col-xs-12">
-                          <div class="radio radio-primary">
-                            <input class="address-toggle" id="edit-address-toggle1" type="radio" name="address-toggle" value="1">
-                            <label for="edit-address-toggle1"><span class="edit-label">Edit Shipping Address</span><span class="new-label">Add a new Shipping Address </span></label>
-                          </div>
-                        </div>
-                        <form id="address-form1" data-form-id="1">
-                          <div class="form-group">
-                            <div class="col-sm-6">
-                              <input class="form-control" name="firstname" value="junaid" placeholder="First Name" autofocus>
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" name="lastname" value="junaid" placeholder="Last Name" autofocus>
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="pincode" value="1234567890" placeholder="Pincode">
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" type="number" onkeypress="return isNumberKey(event)" name="phone" value="1234567890" placeholder="Phone Number">
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <input class="form-control" name="address_1" value="junaid" placeholder="Address Line 1" autofocus>
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" name="address_2" value="junaid" placeholder="Address Line 2" autofocus>
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <input class="form-control" value="junaid" name="city" placeholder="City / District / Town">
-                            </div>
-                            <div class="col-sm-6">
-                              <select class="form-control" style="height:45px" name="Country" placeholder="State">
-                                <option selected disabled value='-1'>Select Country</option>
-                                <option value="Country 1" >Country 1</option>
-                                <option value="Country 2" >Country 2</option>
-                                <option value="Country 3" >Country 3</option>
-                                <option value="Country 4" >Country 4</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group clearfix">
-                            <div class="col-sm-6">
-                              <select class="form-control" style="height:45px" name="state" placeholder="State">
-                                <option selected disabled value='-1'>Select State</option>
-                                <option value="State 1" >State 1</option>
-                                <option value="State 2" >State 2</option>
-                                <option value="State 3" >State 3</option>
-                                <option value="State 4" >State 4</option>
-                              </select>
-                            </div>
-                            <div class="col-sm-6">
-                              <input class="form-control" value="ABC company" name="alt-phone" placeholder="Company (Optional)">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-xs-12">
-                              <button class="btn btn-orange save-address" type="submit">Save</button>
-                              <button class="btn btn-default cancel-address" type="button">Cancel</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div class="hidden clearfix" id="add-new-address"><a><span class="fa fa-plus"></span><span>Add new address</span></a></div>
@@ -358,8 +158,6 @@
               <h6>Order Summary</h6>
               <ul class="order-summary-list">
                 <li class="item"><span class="item-title">Sub-Total</span><span class="item-value" data-price="846">Rs.00</span></li>
-                <li class="item"><span class="item-title">IGST 12%</span><span class="item-value" data-price="0">Rs.00</span></li>
-                <li class="item"><span class="item-title">Shipping Charges</span><span class="item-value" data-price="0">Rs.00</span></li>
                 <li class="item total"><span class="item-title">Total</span><span class="item-value" data-price="926">Rs.00</span></li>
               </ul>
             </div>
