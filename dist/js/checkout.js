@@ -552,7 +552,7 @@ $(document).ready(function() {
           type: 'info',
           text: "We don't ship " + availabilityProduct + " internatioanally."
         })
-        $('.address-toggle :checked').prop('checked',false)
+        return
       }
       if ($('#pinError_'+formId).text().trim() != '' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
@@ -561,10 +561,7 @@ $(document).ready(function() {
         } else {
           $('codError').text('Cod is not available on ' + codProduct + ' product.')
         }
-      }
-      console.log('===============>' + address_id)
-      console.log('===============>' + formId)
-      
+      }      
       //validate activated address form
       moveToNextStep(2, 3);
     });
