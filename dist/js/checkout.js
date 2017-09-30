@@ -61,6 +61,20 @@ $(document).ready(function() {
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.firstname + " " + userData.lastname)
               $('#logged-in .login-email').text(userData.email)
+              for (let i=0; i<data.cartDetails.length; i++){
+                if (data.cartDetails[0].cod === 0) {
+                  codFlag = false
+                  codProduct = data.cartDetails[0].name
+                  break;
+                }
+              }
+              for (let i=0; i<data.cartDetails.length; i++){
+                if (data.cartDetails[0].availability_location === 1) {
+                  availabilityFlag = false
+                  availabilityProduct = data.cartDetails[0].name
+                  break;
+                }
+              }
               if(data.shipping_address !== false)
               {
                 $('#add-new-address').removeClass('hidden')
