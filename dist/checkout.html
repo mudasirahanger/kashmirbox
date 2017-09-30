@@ -53,7 +53,7 @@
                           <input class="form-control" id="login-password" type="password" name="password" placeholder="password">
                         </div>
                         <div class="form-group">
-                          <button class="submit-btn btn btn-orange" type="submit">Login</button><a class="forgot-password-link" href="#">forgot password</a>
+                          <button class="submit-btn btn btn-orange" id="loginBtn" type="submit">Login</button><a class="submit-btn btn btn-orange hidden" id="forgotPassword">Submit</a><a class="forgot-password-link" data-value='forgot' id="forgotPasswordLink">forgot password</a>
                         </div>
                       </form>
                     </div>
@@ -63,13 +63,16 @@
                       <h6>Create Account</h6>
                       <form id="checkout-register-form">
                         <div class="form-group">
-                          <input class="form-control" id="register-name" type="text" name="name" placeholder="name">
+                          <input class="form-control" id="register-firstname" type="text" name="firstname" placeholder="First Name">
                         </div>
                         <div class="form-group">
-                          <input class="form-control" id="register-email" type="email" name="email" placeholder="email address">
+                          <input class="form-control" id="register-lastname" type="text" name="lastname" placeholder="Last Name">
                         </div>
                         <div class="form-group">
-                          <input class="form-control" id="register-password" type="password" name="password" placeholder="password">
+                          <input class="form-control" id="register-email" type="email" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" id="register-password" type="password" name="password" placeholder="Password">
                         </div>
                         <div class="form-group">
                           <button class="submit-btn btn btn-orange" type="submit">Continue</button>
@@ -82,7 +85,7 @@
                   <div class="col-sm-12">
                     <div class="userdetails">
                       <p><span>Name</span> <span class="login-name">Muheet Mehraj</span></p>
-                      <p><span>Email</span> <span class="login-email">muheet@kashmirbox.com</span></p><a id="logout-link" class="logout-link">Logout &amp; Sign in to another account</a>
+                      <p><span>Email</span> <span class="login-email">muheet@kashmirbox.com</span></p><a id="logout-link" data-cid='' class="logout-link">Logout &amp; Sign in to another account</a>
                     </div>
                     <button id="nextstep" class="btn btn-orange nextstep">Continue Checkout</button>
                     <p class="disclaimer">
@@ -120,26 +123,27 @@
               <div class="step-content collapse">
                 <div class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
-                    <input id="cc-avenue-payment-option" type="radio" name="payment-gateway" value="cc-avenue" checked>
-                    <label for="cc-avenue-payment-option"><span class="edit-label">CC Avenue</span><img src="images/icons/cc-avenue-gateway.png" alt="CC Avenue"></label>
+                    <input id="cc-avenue-payment-option" type="radio" name="payment-gateway" value="ccavenue" checked>
+                    <label for="cc-avenue-payment-option"><span class="edit-label">CCavenue Cards,Netbanking & EMI</span><img src="images/icons/cc-avenue-gateway.png" alt="CC Avenue"></label>
                   </div>
                 </div>
                 <div class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
-                    <input id="payu-money-payment-option" type="radio" name="payment-gateway" value="payu-money">
-                    <label for="payu-money-payment-option"><span class="edit-label">PayU Money</span><img src="images/icons/payu-money.png" alt="CC Avenue"></label>
+                    <input id="payu-money-payment-option" type="radio" name="payment-gateway" value="payu">
+                    <label for="payu-money-payment-option"><span class="edit-label">PayUMoney Cards & NetBanking</span><img src="images/icons/payu-money.png" alt="CC Avenue"></label>
                   </div>
                 </div>
                 <div class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
                     <input id="cod-payment-option" type="radio" name="payment-gateway" value="cod">
                     <label for="cod-payment-option"><span class="edit-label">Cash On Delivery</span></label>
+                    <p hidden id="codError" style="color: red;">Cod is not available</p>
                   </div>
                 </div>
                 <div class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
                     <input id="mobikwik-payment-option" type="radio" name="payment-gateway" value="mobikwik">
-                    <label for="mobikwik-payment-option"><span class="edit-label">MobiKwik</span></label>
+                    <label for="mobikwik-payment-option"><span class="edit-label">MobiKwik Wallet</span></label>
                   </div>
                 </div>
                 <div id="proceed-to-payment-gateway"><a class="btn btn-orange" href="#">Pay Now</a></div>
@@ -157,8 +161,7 @@
             <div id="order-summary" class="order-summary">
               <h6>Order Summary</h6>
               <ul class="order-summary-list">
-                <li class="item"><span class="item-title">Sub-Total</span><span class="item-value" data-price="846">Rs.00</span></li>
-                <li class="item total"><span class="item-title">Total</span><span class="item-value" data-price="926">Rs.00</span></li>
+                <li class="item total"><span class="item-title" style="font-size: 20px;">Total</span><span style="font-size: 20px;" class="item-value" data-price="926">Rs.00</span></li>
               </ul>
             </div>
           </div>

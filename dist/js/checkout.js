@@ -4,6 +4,18 @@
   var step3 = checkoutPage.find('#step3');
   var step = checkoutPage.find('.step');
   var shippingAddresses = []
+  var countriesOptions = "<option disabled value='-1'>Select Country</option>"
+  var statesOptions = "<option disabled value='-1'>Select State</option>"
+
+  var customerId = ''
+  var addressId = ''
+  var paymentId = ''
+
+  var availabilityFlag = true
+  var codFlag = true
+  var codProduct = ''
+  var availabilityProduct = true
+
     /* Step2 Events */
   var addNewAddressBtn = step2.find('#add-new-address');
   var formsCount = step2.find('.address-forms > div').length;
@@ -22,22 +34,102 @@ $(document).ready(function() {
     $.ajax({   
        "async": true,
        "crossDomain": true,
-       "url": "https://www.kashmirbox.com/index.php?route=checkout/api",
+       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/getCountries",
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
-    }).done(function(data){
-     $('#preloader').hide();
-     if (data.logged != null) {
-        if(data.redirect.split('=')[1] == 'checkout/cart') {
-          window.location = data.redirect
+    }).done(function(countryData){
+      console.log(countryData.countries)
+      
+      $.ajax({   
+         "async": true,
+         "crossDomain": true,
+         "url": "https://www.kashmirbox.com/index.php?route=checkout/api",
+         "method": "POST",
+         "headers": {"content-type": "application/x-www-form-urlencoded"},
+      }).done(function(userData){
+        console.log(userData)
+        // $('#preloader').hide();
+        if(userData.responseCode == '200') {
+          $('#order-summary .order-summary-list .item-value').text(userData.session.total)
+          if (userData.logged != null) {
+            if(userData.redirect.split('=')[1] == 'checkout/cart') {
+              window.location = data.redirect
+            } else {
+              $('#logout-link').data('cid',userData.logged)
+              customer_id = userData.logged;
+              $('#logged-out').addClass('hidden')
+              $('#logged-in').removeClass('hidden')
+              $('#logged-in .login-name').text(userData.firstname + " " + userData.lastname)
+              $('#logged-in .login-email').text(userData.email)
+              if(data.shipping_address !== false)
+              {
+                $('#add-new-address').removeClass('hidden')
+                for (var address in data.shipping_address) {
+                  shippingAddresses.push(data.shipping_address[address]);
+                  var formHtml = setAddressFormHtml(lastFormId, data.shipping_address[address]);
+                  step2.find('.address-forms').append(formHtml);
+                  registerAddressFormSubmit(lastFormId);
+                   $('#countries_'+lastFormId).val(data.shipping_address[address].country_id)
+                   $('#countries_'+lastFormId).data('stateId',data.shipping_address[address].zone_id)
+                   $('#countries_'+lastFormId).trigger("change");
+                  lastFormId++
+                }
+              } else {
+                var formHtml = getAddressFormHtml(lastFormId)
+                step2.find('.address-forms').append(formHtml);
+                registerAddressFormSubmit(lastFormId);
+                $.ajax({   
+                   "async": true,
+                   "crossDomain": true,
+                   "url": "https://www.kashmirbox.com/index.php?route=account/account/country&country_id=99",
+                   "method": "GET",
+                   "headers": {"content-type": "application/x-www-form-urlencoded"},
+                }).done(function(stateData){
+                  console.log(stateData)
+                  $('#preloader').hide();
+                  let zoneData = stateData.zone
+                  for(var i = 0; i < zoneData.length; i++){
+                    let selected = zoneData[i].zone_id == '1488'?'selected':''
+                    statesOptions += '<option ' + selected + ' value=' + zoneData[i].zone_id + '>' + zoneData[i].name + '</option>'
+                  }
+                  $('#countries_'+lastFormId).val('99')
+                  $('#countries_'+lastFormId).data('stateId','1488')
+                  $('#states_'+lastFormId).html(statesOptions)
+                  lastFormId++
+                })
+              }
+            }
+          } else {
+            $.ajax({   
+               "async": true,
+               "crossDomain": true,
+               "url": "https://www.kashmirbox.com/index.php?route=account/account/country&country_id=99",
+               "method": "GET",
+               "headers": {"content-type": "application/x-www-form-urlencoded"},
+            }).done(function(stateData){
+              console.log(stateData)
+              $('#preloader').hide();
+              let countriesData = countryData.countries
+              for(var i = 0; i < countriesData.length; i++){
+                let selected = countriesData[i].country_id == '99'?'selected':''
+                countriesOptions += '<option ' + selected + ' value=' + countriesData[i].country_id + '>' + countriesData[i].name + '</option>'
+              }
+              let zoneData = stateData.zone
+              for(var i = 0; i < zoneData.length; i++){
+                let selected = zoneData[i].zone_id == '1488'?'selected':''
+                statesOptions += '<option ' + selected + ' value=' + zoneData[i].zone_id + '>' + zoneData[i].name + '</option>'
+              }
+            })
+          }
         } else {
-          $('#logged-out').addClass('hidden')
-          $('#logged-in').removeClass('hidden')
-          $('#logged-in .login-name').text(" NO NAME AVAILABLE ")
-          $('#logged-in .login-email').text(" NO EMAIL AVAILABLE ")
+          swal({
+            title: 'OOPS!',
+            type: 'warning',
+            text: 'Something wrong happened!'
+          })
         }
-     } 
-   });
+      });
+    }); 
 });
 
 
@@ -47,6 +139,19 @@ $(document).ready(function() {
       return false;
     return true;
   }
+
+
+  window.onbeforeunload = function (e) {
+    e = e || window.event;
+
+    // For IE and Firefox prior to version 4
+    if (e) {
+        e.returnValue = 'Sure?';
+    }
+
+    // For Safari
+    return 'Sure?';
+  };
 
   $(document).on(
     'click', 
@@ -80,7 +185,83 @@ $(document).ready(function() {
   });
 
   $('#logout-link').on('click',function () {
-  	// moveToNextStep(1, 2);
+  	$.ajax({   
+         "async": true,
+         "crossDomain": true,
+         "url": "https://www.kashmirbox.com/index.php?route=checkout/api/logout",
+         "method": "POST",
+         "headers": {"content-type": "application/x-www-form-urlencoded"},
+         "data": {
+          customer_id: $(this).data('cid')
+         }
+      }).done(function(data){
+        console.log(data)
+        swal({
+          title: 'Success',
+          type: 'success',
+          text: data.success
+        })
+        if(data.success){
+          window.onbeforeunload = true;
+          window.location.reload(true)
+        }
+      })
+  })
+
+  $('#forgotPassword').on('click',function () {
+    $('.field-error').remove();
+    let email = $('#login-email')
+    let isReq = true
+    if(!email.val() || email.val().trim() === '') {
+      email.after('<span class="field-error">Email Address is required</span>');
+      isReq = false;
+    } else if(!validateEmail(email.val())) {
+      email
+      .after('<span class="field-error">Email Addresss is invalid.</span>');
+      isReq = false;
+    }
+
+
+    if(isReq)
+    {
+      $.ajax({   
+         "async": true,
+         "crossDomain": true,
+         "url": "https://www.kashmirbox.com/index.php?route=checkout/api/forgot",
+         "method": "POST",
+         "headers": {"content-type": "application/x-www-form-urlencoded"},
+         "data": {
+          email: email.val()
+         }
+      }).done(function(data){
+        $('#login-password').removeClass('hidden')
+        $('#loginBtn').removeClass('hidden')
+        $('#forgotPassword').addClass('hidden')
+        $('#forgotPasswordLink').data('value','forgot')
+        $('#forgotPasswordLink').text('forgot password')
+        swal({
+          title: 'Success',
+          type: 'success',
+          text: data.success.split(':')[1].trim()
+        })
+      })
+    }
+  })
+
+  $('#forgotPasswordLink').on('click',function () {
+    if($(this).data('value') == 'forgot') {
+      $('#login-password').addClass('hidden')
+      $('#loginBtn').addClass('hidden')
+      $('#forgotPassword').removeClass('hidden')
+      $(this).data('value','cancel')
+      $(this).text('cancel')
+    } else {
+      $('#login-password').removeClass('hidden')
+      $('#loginBtn').removeClass('hidden')
+      $('#forgotPassword').addClass('hidden')
+      $(this).data('value','forgot')
+      $(this).text('forgot password')
+    }
   })
 
   $('#nextstep').on('click',function () {
@@ -109,69 +290,119 @@ $(document).ready(function() {
         "password": password
       }
     }).done(function(data){
-     $('#preloader').hide();
-     if (data.responseCode === '200') {
-      $('#step1 .details .name').text(data.firstname + " " + data.lastname)
-      $('#step1 .details .email').text(email)
-      $('#login-email').val('')
-      $('#login-password').val('')
-      $('#logged-out').addClass('hidden')
-      $('#logged-in').removeClass('hidden')
-      $('#logged-in .login-name').text(data.firstname + " " + data.lastname)
-      $('#logged-in .login-email').text(email)
-      if(data.shipping_address !== false)
-      {
-        $('#add-new-address').removeClass('hidden')
-        for (var address in data.shipping_address) {
-          shippingAddresses.push(data.shipping_address[address]);
-          var formHtml = setAddressFormHtml(lastFormId, data.shipping_address[address]);
+      $('#preloader').hide();
+      if (data.responseCode === '200') {
+        $('#step1 .details .name').text(data.firstname + " " + data.lastname)
+        $('#step1 .details .email').text(email)
+        $('#login-email').val('')
+        $('#logout-link').data('cid',data.customer_id)
+        customerId = data.customer_id
+        $('#login-password').val('')
+        $('#logged-out').addClass('hidden')
+        $('#logged-in').removeClass('hidden')
+        $('#logged-in .login-name').text(data.firstname + " " + data.lastname)
+        $('#logged-in .login-email').text(email)
+        for (let i=0; i<data.cartDetails.length; i++){
+          if (data.cartDetails[0].cod === 0) {
+            codFlag = false
+            codProduct = data.cartDetails[0].name
+            break;
+          }
+        }
+        for (let i=0; i<data.cartDetails.length; i++){
+          if (data.cartDetails[0].availability_location === 1) {
+            availabilityFlag = false
+            availabilityProduct = data.cartDetails[0].name
+            break;
+          }
+        }
+        if(data.shipping_address !== false)
+        {
+          $('#add-new-address').removeClass('hidden')
+          for (var address in data.shipping_address) {
+            shippingAddresses.push(data.shipping_address[address]);
+            var formHtml = setAddressFormHtml(lastFormId, data.shipping_address[address]);
+            step2.find('.address-forms').append(formHtml);
+            registerAddressFormSubmit(lastFormId);
+            $('#countries_'+lastFormId).val(data.shipping_address[address].country_id)
+            $('#countries_'+lastFormId).data('stateId',data.shipping_address[address].zone_id)
+            $('#countries_'+lastFormId).trigger("change");
+            lastFormId++
+          }
+        } else {
+          var formHtml = getAddressFormHtml(lastFormId)
           step2.find('.address-forms').append(formHtml);
           registerAddressFormSubmit(lastFormId);
-          lastFormId++
+          $.ajax({   
+             "async": true,
+             "crossDomain": true,
+             "url": "https://www.kashmirbox.com/index.php?route=account/account/country&country_id=99",
+             "method": "GET",
+             "headers": {"content-type": "application/x-www-form-urlencoded"},
+          }).done(function(stateData){
+            console.log(stateData)
+            $('#preloader').hide();
+            let zoneData = stateData.zone
+            for(var i = 0; i < zoneData.length; i++){
+              let selected = zoneData[i].zone_id == '1488'?'selected':''
+              statesOptions += '<option ' + selected + ' value=' + zoneData[i].zone_id + '>' + zoneData[i].name + '</option>'
+            }
+            $('#countries_'+lastFormId).val('99')
+            $('#countries_'+lastFormId).data('stateId','1488')
+            $('#states_'+lastFormId).html(statesOptions)
+            lastFormId++
+          })
         }
-      } else {
-        var formHtml = getAddressFormHtml(lastFormId)
-        step2.find('.address-forms').append(formHtml);
-        registerAddressFormSubmit(lastFormId);
-        lastFormId++
-      }
       
-      let cartData = data.cartDetails;
-      var listItems = ""
-      alert(cartData[cartData.length-1].text.trim())
-      if(data.redirect) {
-       swal({
-        title: 'Sorry!',
-        text: 'Your cart is empty',
-        type: 'warning'
-      })
-       window.location = data.redirect
-     } else {
-       for (var i = 0; i < cartData.length; i++) {
-        if(cartData.title === 'Total') {
-         listItems += `<li class="item total"><span class="item-title">${cartData[i].title}</span><span class="item-value">${cartData[i].text}</span></li>`
-       } else {
-         listItems += `<li class="item"><span class="item-title">${cartData[i].title}</span><span class="item-value">${cartData[i].text}</span></li>`
-       }
-     }
-   }
+      // alert(cartData[cartData.length-1].text.trim())
+        if(data.redirect) {
+          swal({
+            title: 'Sorry!',
+            text: 'Your cart is empty',
+            type: 'warning'
+          })
+          window.location = data.redirect
+        } 
+        let listItems = `<li class="item total"><span class="item-title">Total</span><span class="item-value">${data.total}</span></li>`
+        $('#order-summary .order-summary-list').html(listItems)
 
-   $('#order-summary .order-summary-list').html(listItems)
-
-   moveToNextStep(1, 2);
-  } else {
-    swal({
-     title: "OOPS!",
-     text: data.warning.warning,
-     type: "error"
-   })
-  }
-  console.log(data)                       
-  }); 
+        moveToNextStep(1, 2);
+        } else {
+          swal({
+            title: "OOPS!",
+            text: data.warning.warning,
+            type: "error"
+          })
+        }
+        console.log(data)                       
+    }); 
     //step1 is complete
     return false;
 });
 
+
+  $(document).on('change', '.countries', function() {
+    let countryId = $(this).val()
+    let stateId =  $(this).data('stateId')
+    let formId = $(this).attr('id').split('_')[1]
+    $.ajax({   
+       "async": false,
+       "crossDomain": true,
+       "url": "https://www.kashmirbox.com/index.php?route=account/account/country&country_id=" + countryId,
+       "method": "GET",
+       "headers": {"content-type": "application/x-www-form-urlencoded"},
+    }).done(function(stateData){
+      console.log(stateData)
+      let zoneData = stateData.zone
+      let statesOptionss = "<option " + stateId == '-1' ? 'selected' : '' + " disabled value='-1'>Select State</option>"
+      for(var i = 0; i < zoneData.length; i++){
+        let selected = zoneData[i].zone_id == stateId?'selected':''
+        statesOptionss += '<option ' + selected + ' value=' + zoneData[i].zone_id + '>' + zoneData[i].name + '</option>'
+      }
+      console.log('#states_'+formId)
+      $('#states_'+formId).html(statesOptionss)
+    })
+  })
 
   $(document).on('submit', '#checkout-register-form', function(){
     //register new user
@@ -179,12 +410,14 @@ $(document).ready(function() {
       return false;
     }
 
-    let name = $('#register-name').val()
+    $('#preloader').show();
+    let firstname = $('#register-firstname').val()
+    let lastname = $('#register-lastname').val()
     let email = $('#register-email').val()
     let password = $('#register-password').val()
 
     swal({
-     title: 'Dear <b>'+name+'</b>',
+     title: 'Dear <b>'+firstname+' '+lastname+'</b>',
      html: 'Are your sure you want to continue with <b>' + email + '</b>?',
      type: 'question',
      showCancelButton: true,
@@ -192,35 +425,57 @@ $(document).ready(function() {
      cancelButtonColor: '#d33',
      confirmButtonText: 'Continue'
    }).then(function () {
-    $('#step1 .details .name').text(name)
-    $('#step1 .details .email').text(email)
-    $('#register-name').val('')
-    $('#register-email').val('')
-    $('#register-password').val('')
-    moveToNextStep(1, 2);
-  })
-
+    $.ajax({   
+      "async": true,
+      "crossDomain": true,
+      "url": "https://www.kashmirbox.com/index.php?route=checkout%2Fapi%2Fregister",
+      "method": "POST",
+      "headers": {"content-type": "application/x-www-form-urlencoded"},
+      "data": {
+        "firstname": firstname,
+        "lastname": lastname,
+        "email": email,
+        "password": password
+      }
+    }).done(function(data){
+      $('#preloader').hide();
+      console.log(data)
+      if (data.hasOwnProperty('success')) {
+        $('#register-firstname').val('')
+        $('#register-lastname').val('')
+        $('#register-email').val('')
+        $('#register-password').val('')
+        $('#step1 .details .name').text(firstname + " " + lastname)
+        $('#step1 .details .email').text(email)
+        $('#logout-link').data('cid',data.customer_id)
+        $('#logged-out').addClass('hidden')
+        $('#logged-in').removeClass('hidden')
+        $('#logged-in .login-name').text(firstname + " " + lastname)
+        $('#logged-in .login-email').text(email)
+        var formHtml = getAddressFormHtml(lastFormId)
+        step2.find('.address-forms').append(formHtml);
+        registerAddressFormSubmit(lastFormId);
+        lastFormId++
+        swal({
+          title: "WELCOME",
+          text: data.success,
+          type: "success"
+        })
+        moveToNextStep(1, 2);
+      } else {
+        swal({
+          title: "OOPS!",
+          text: data.error.warning.split(':')[1].trim(),
+          type: "error"
+        })
+      }
+      console.log(data)                       
+    }); 
+    })
     //step1 is complete
     return false;
   });
 
-  $(document).on('submit', '#checkout-guest-form', function(){
-    //guest user
-    if(!validateCheckoutGuestForm($(this))) {
-      return false;
-    }
-
-    let name = $('#guest-name').val()
-    let email = $('#guest-email').val()
-    $('#step1 .details .name').text(name)
-    $('#step1 .details .email').text(email)
-    $('#guest-name').val('')
-    $('#guest-email').val('')
-
-    //step1 is complete
-    moveToNextStep(1, 2);
-    return false;
-  });
 
   $(document).on('click', '.checkout-page-content #add-new-address', function(){
     var formsCount = step2.find('.address-forms > div').length;
@@ -286,6 +541,30 @@ $(document).ready(function() {
         form.find('.field-error:eq(0)').siblings('input').focus();
         return;
       }
+
+
+
+      address_id = $('.address-toggle :checked').data('id')
+      formId = $('.address-toggle :checked').val()
+      if ($('#countries_'+formId).val() !== '99' && !availabilityFlag) {
+        swal({
+          title: 'Sorry!',
+          type: 'info',
+          text: "We don't ship " + availabilityProduct + " internatioanally."
+        })
+        $('.address-toggle :checked').prop('checked',false)
+      }
+      if ($('#pinError_'+formId).text().trim() != '' || !codFlag) {
+        $('#cod-payment-option').prop('disabled',true)
+        if (codFlag) {
+          $('codError').text('Cod is not available on selected pincode.')
+        } else {
+          $('codError').text('Cod is not available on ' + codProduct + ' product.')
+        }
+      }
+      console.log('===============>' + address_id)
+      console.log('===============>' + formId)
+      
       //validate activated address form
       moveToNextStep(2, 3);
     });
@@ -318,6 +597,7 @@ $(document).ready(function() {
 
   function registerAddressFormSubmit(id) {
     $('#address-form'+id).submit(function(){
+      $('#preloader').show()
       var wrapper = $(this).closest('.address-form-wrap');
       var isNewAddress = wrapper.hasClass('new');
       if(!validateCheckoutAddressForm($(this))) {
@@ -329,14 +609,52 @@ $(document).ready(function() {
       wrapper.removeClass('new');
       wrapper.removeClass('editing');
       wrapper.addClass('saved');
-      wrapper.find('#edit-panel-address-toggle'+id).prop('checked', true);
-      let addressSummary = wrapper.find('#address-summary'+id);
-      addressSummary.find('.name').text($(this).find('input[name="name"]').val())
-      addressSummary.find('.phone').text($(this).find('input[name="phone"]').val())
-      addressSummary.find('.street-address').text($(this).find('textarea[name="street-address"]').text())
-      addressSummary.find('.city').text($(this).find('input[name="city"]').val())
-      addressSummary.find('.state').text($(this).find('input[name="state"]').val())
-      addressSummary.find('.pincode').text($(this).find('input[name="pincode"]').val())
+      var firstname = $(this).find('input[name="firstname"]').val() 
+      var lastname = $(this).find('input[name="lastname"]').val()
+      var postcode = $(this).find('input[name="pincode"]').val()
+      var phone = $(this).find('input[name="phone"]').val()
+      var city = $(this).find('input[name="city"]').val()
+      var address_1 = $(this).find('input[name="address_1"]').val()
+      var address_2 = $(this).find('input[name="address_2"]').val()
+      var state_id = $('#states_'+id).val()
+      var country_id = $('#countries_'+id).val()
+      var country = $(this).find('select[name="country"] :selected').text()
+      var state = $(this).find('select[name="state"] :selected').text()
+      var postData = {
+        firstname: firstname,
+        lastname: lastname,
+        postcode: postcode,
+        custom_field: {'1':phone},
+        city: city,
+        address_1: address_1,
+        address_2: address_2,
+        zone_id: state_id,
+        country_id: country_id
+      }
+      console.log(postData)
+      if(!isNewAddress) {
+        postData.address_id = wrapper.find("#edit-panel-address-toggle"+id).data('id')
+      }
+      $.ajax({   
+        "async": true,
+        "crossDomain": true,
+        "url": 'https://www.kashmirbox.com/index.php?route=checkout/api/saveShippingAddress',
+        "method": "POST",
+        "headers": {"content-type": "application/x-www-form-urlencoded"},
+        "data": postData
+      }).done(function(data){
+        $('#preloader').hide()
+        console.log(data)
+        wrapper.find('#edit-panel-address-toggle'+id).prop('checked', true);
+        let addressSummary = wrapper.find('#address-summary'+id);
+        addressSummary.find('.name').text(firstname + ' ' + lastname)
+        addressSummary.find('.phone').text(phone)
+        addressSummary.find('.street-address').text(address_1 + ',' + address_2)
+        addressSummary.find('.city').text(city)
+        addressSummary.find('.state').text(state)
+        addressSummary.find('.pincode').text(postcode)
+        addressSummary.find('.country').text(country)
+      })
       return false;
     });
   }
@@ -385,12 +703,18 @@ $(document).ready(function() {
   function validateCheckoutRegisterForm(form) {
    $('.field-error').remove();
    var isRequeredEmpty = false;
-   var name = form.find('input[name="name"]');
+   var firstname = form.find('input[name="firstname"]');
+   var lastname = form.find('input[name="lastname"]');
    var email = form.find('input[name="email"]');
    var password = form.find('input[name="password"]');
 
-   if(!name.val() || name.val().trim() === '') {
-     name.after('<span class="field-error">Name is required</span>');
+   if(!firstname.val() || firstname.val().trim() === '') {
+     firstname.after('<span class="field-error">First Name is required</span>');
+     isRequeredEmpty = true;
+   }
+
+   if(!lastname.val() || lastname.val().trim() === '') {
+     lastname.after('<span class="field-error">First Name is required</span>');
      isRequeredEmpty = true;
    }
 
@@ -528,14 +852,14 @@ function getAddressFormHtml(id) {
   editPanel += '<div class="address-form-edit-panel">';
   editPanel += '<div class="address-toggle">';
   editPanel += '<div class="radio radio-primary">';
-  editPanel += '<input class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="new" checked>';
+  editPanel += '<input class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="'+id+'" checked>';
   editPanel += '<label for="edit-panel-address-toggle'+id+'"> </label>';
   editPanel += '</div>';
   editPanel += '</div>';
   editPanel += '<div id="address-summary'+id+'" class="address-summary">';
-  editPanel += '<p><span class="name">Muheet Mehraj</span><span class="phone">9596888888</span></p>';
-  editPanel += '<p class="delivery-address"><span class="street-address">BarBarshah</span><span class="city">Srinagar</span><span class="state">Jammu and Kashmir</span><span class="pincode">190001</span></p>';
-  editPanel += '<p class="pin-error">The pincode is not servicable.</p>';
+  editPanel += '<p><span class="name"></span><span class="phone"></span></p>';
+  editPanel += '<p class="delivery-address"><span class="street-address"></span><span class="city"></span><span class="state"></span><span class="pincode"></span><span class="country"></span></p>';
+  editPanel += '<p id="pinError_"'+id+' class="pin-error">The pincode is not servicable.</p>';
   editPanel += '</div>';
   editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
   editPanel += '</div>';
@@ -572,15 +896,6 @@ function getAddressFormHtml(id) {
 
   formVar += '<div class="form-group clearfix">';
   formVar += '<div class="col-sm-6">';
-  formVar += '<input class="form-control" name="city" placeholder="City / District / Town">';
-  formVar += '</div>';
-  formVar += '<div class="col-sm-6">';
-  formVar += '<input class="form-control" name="state" placeholder="State">';
-  formVar += '</div>';
-  formVar += '</div>';
-
-  formVar += '<div class="form-group clearfix">';
-  formVar += '<div class="col-sm-6">';
   formVar += '<input class="form-control" name="address_1" placeholder="Address Line 1">';
   formVar += '</div>';
   formVar += '<div class="col-sm-6">';
@@ -593,18 +908,16 @@ function getAddressFormHtml(id) {
   formVar += '<input class="form-control" name="city" placeholder="City / District / Town">';
   formVar += '</div>';
   formVar += '<div class="col-sm-6">';
-  formVar += `<select class="form-control" style="height:45px" name="Country" placeholder="State">
-  <option disabled value='-1'>Select Country</option>
-  <option selected value="99" >India</option>
+  formVar += `<select id='countries_${id}' data-statesId='-1' class="form-control countries" style="height:45px" name="country" placeholder="Country">
+              ${countriesOptions}
   </select>`;
   formVar += '</div>';
   formVar += '</div>';
 
   formVar += '<div class="form-group clearfix">';
   formVar += '<div class="col-sm-6">';
-  formVar += `<select class="form-control" style="height:45px" name="state" placeholder="State">
-              <option disabled value='-1'>Select State</option>
-              <option selected value="1488" >Jammu And Kashmir</option>
+  formVar += `<select id='states_${id}' class="form-control states" style="height:45px" name="state" placeholder="State">
+              ${statesOptions}
   </select>`;
   formVar += '</div>';
   formVar += '<div class="col-sm-6">';
@@ -638,14 +951,15 @@ function setAddressFormHtml(id,address) {
   editPanel += '<div class="address-form-edit-panel">';
   editPanel += '<div class="address-toggle">';
   editPanel += '<div class="radio radio-primary">';
-  editPanel += '<input data-id="'+address.address_id+'" class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="new" checked>';
+  editPanel += '<input data-id="'+address.address_id+'" class="address-toggle" id="edit-panel-address-toggle'+id+'" type="radio" name="edit-address-toggle" value="'+id+'" checked>';
   editPanel += '<label for="edit-panel-address-toggle'+id+'"> </label>';
   editPanel += '</div>';
   editPanel += '</div>';
   editPanel += '<div id="address-summary'+id+'" class="address-summary">';
-  editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.lastname+'</span></p>';
-  editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.custom_field[1]+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
-  editPanel += '<p class="pin-error">The pincode is not servicable.</p>';
+  editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.custom_field[1]+'</span></p>';
+  editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.city+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
+  var pinError = address.pin_check.service_available == '0' ? 'Cod is not available on this pincode' : ''
+  editPanel += '<p id="pinError_"'+id+' class="pin-error">' + pinError + '</p>';
   editPanel += '</div>';
   editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
   editPanel += '</div>';
@@ -691,21 +1005,19 @@ function setAddressFormHtml(id,address) {
 
   formVar += '<div class="form-group clearfix">';
   formVar += '<div class="col-sm-6">';
-  formVar += '<input class="form-control" name="city" placeholder="City / District / Town">';
+  formVar += '<input class="form-control" value="'+address.city+'" name="city" placeholder="City / District / Town">';
   formVar += '</div>';
   formVar += '<div class="col-sm-6">';
-  formVar += `<select class="form-control" style="height:45px" name="Country" placeholder="State">
-  <option disabled value='-1'>Select Country</option>
-  <option selected value="99" >India</option>
+  formVar += `<select id='countries_${id}' data-statesId='-1' class="form-control countries" style="height:45px" name="country" placeholder="Country">
+              ${countriesOptions}
   </select>`;
   formVar += '</div>';
   formVar += '</div>';
 
   formVar += '<div class="form-group clearfix">';
   formVar += '<div class="col-sm-6">';
-  formVar += `<select class="form-control" style="height:45px" name="state" placeholder="State">
-              <option disabled value='-1'>Select State</option>
-              <option selected value="1488" >Jammu And Kashmir</option>
+  formVar += `<select id='states_${id}' class="form-control states" style="height:45px" name="state" placeholder="State">
+              ${statesOptions}
   </select>`;
   formVar += '</div>';
   formVar += '<div class="col-sm-6">';
