@@ -566,6 +566,12 @@ $(document).ready(function() {
         })
         return
       }
+
+      $('#userAddress .street-address').text($('#addressSummary'+formId+' .street-address'))
+      $('#userAddress .city').text($('#addressSummary'+formId+' .city'))
+      $('#userAddress .state').text($('#addressSummary'+formId+' .state'))
+      $('#userAddress .pincode').text($('#addressSummary'+formId+' .pincode'))
+
       if ($('#pinError_'+formId).text().trim() != '' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
         if (codFlag) {
@@ -606,7 +612,6 @@ $(document).ready(function() {
 
   function registerAddressFormSubmit(id) {
     $('#address-form'+id).submit(function(){
-      $('#preloader').show()
       var wrapper = $(this).closest('.address-form-wrap');
       var isNewAddress = wrapper.hasClass('new');
       if(!validateCheckoutAddressForm($(this))) {
@@ -615,6 +620,7 @@ $(document).ready(function() {
       if(isNewAddress) {
         $('#add-new-address').removeClass('hidden');
       }
+      $('#preloader').show()
       wrapper.removeClass('new');
       wrapper.removeClass('editing');
       wrapper.addClass('saved');
@@ -823,11 +829,6 @@ function validateCheckoutAddressForm(form) {
 
   if(!address_1.val() || address_1.val().trim() === '') {
     address_1.after('<span class="field-error">Address line 1 is required</span>');
-    isRequeredEmpty = true;
-  }
-
-  if(!address_2.val() || address_2.val().trim() === '') {
-    address_2.after('<span class="field-error">Address line 2 is required</span>');
     isRequeredEmpty = true;
   }
 
