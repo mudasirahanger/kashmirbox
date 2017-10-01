@@ -59,32 +59,32 @@ $(document).ready(function() {
               customer_id = userData.logged;
               $('#logged-out').addClass('hidden')
               $('#logged-in').removeClass('hidden')
-              $('#logged-in .login-name').text(userData.firstname + " " + userData.lastname)
-              $('#logged-in .login-email').text(userData.email)
-              for (let i=0; i<data.cartDetails.length; i++){
-                if (data.cartDetails[0].cod === 0) {
+              $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
+              $('#logged-in .login-email').text(userData.session.email)
+              for (let i=0; i<userData.cartDetails.length; i++){
+                if (userData.cartDetails[0].cod === 0) {
                   codFlag = false
-                  codProduct = data.cartDetails[0].name
+                  codProduct = userData.cartDetails[0].name
                   break;
                 }
               }
-              for (let i=0; i<data.cartDetails.length; i++){
-                if (data.cartDetails[0].availability_location === 1) {
+              for (let i=0; i<userData.cartDetails.length; i++){
+                if (userData.cartDetails[0].availability_location === 1) {
                   availabilityFlag = false
-                  availabilityProduct = data.cartDetails[0].name
+                  availabilityProduct = userData.cartDetails[0].name
                   break;
                 }
               }
-              if(data.shipping_address !== false)
+              if(userData.session.shipping_address !== false)
               {
                 $('#add-new-address').removeClass('hidden')
-                for (var address in data.shipping_address) {
-                  shippingAddresses.push(data.shipping_address[address]);
-                  var formHtml = setAddressFormHtml(lastFormId, data.shipping_address[address]);
+                for (var address in userData.session.shipping_address) {
+                  shippingAddresses.push(userData.session.shipping_address[address]);
+                  var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
                   step2.find('.address-forms').append(formHtml);
                   registerAddressFormSubmit(lastFormId);
-                   $('#countries_'+lastFormId).val(data.shipping_address[address].country_id)
-                   $('#countries_'+lastFormId).data('stateId',data.shipping_address[address].zone_id)
+                   $('#countries_'+lastFormId).val(userData.session.shipping_address[address].country_id)
+                   $('#countries_'+lastFormId).data('stateId',userData.session.shipping_address[address].zone_id)
                    $('#countries_'+lastFormId).trigger("change");
                   lastFormId++
                 }
@@ -556,8 +556,6 @@ $(document).ready(function() {
         return;
       }
 
-
-
       address_id = $('.address-toggle :checked').data('id')
       formId = $('.address-toggle :checked').val()
       if ($('#countries_'+formId).val() !== '99' && !availabilityFlag) {
@@ -870,7 +868,7 @@ function getAddressFormHtml(id) {
   editPanel += '<div id="address-summary'+id+'" class="address-summary">';
   editPanel += '<p><span class="name"></span><span class="phone"></span></p>';
   editPanel += '<p class="delivery-address"><span class="street-address"></span><span class="city"></span><span class="state"></span><span class="pincode"></span><span class="country"></span></p>';
-  editPanel += '<p id="pinError_"'+id+' class="pin-error">The pincode is not servicable.</p>';
+  editPanel += '<p "pinError_'+id+'" class="pin-error">The pincode is not servicable.</p>';
   editPanel += '</div>';
   editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
   editPanel += '</div>';
@@ -931,13 +929,6 @@ function getAddressFormHtml(id) {
               ${statesOptions}
   </select>`;
   formVar += '</div>';
-  formVar += '<div class="col-sm-6">';
-  formVar += `<select class="form-control" style="height:45px" name="defaultAddress" placeholder="Default Address">
-  <option selected disabled value='-1'>Default Address</option>
-  <option value="yes" >Yes</option>
-  <option value="no" >No</option>
-  </select>`;
-  formVar += '</div>';
   formVar += '</div>';
 
   formVar += '<div class="form-group">';
@@ -970,7 +961,7 @@ function setAddressFormHtml(id,address) {
   editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.custom_field[1]+'</span></p>';
   editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.city+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
   var pinError = address.pin_check.service_available == '0' ? 'Cod is not available on this pincode' : ''
-  editPanel += '<p id="pinError_"'+id+' class="pin-error">' + pinError + '</p>';
+  editPanel += '<p id="pinError_'+id+'" class="pin-error">' + pinError + '</p>';
   editPanel += '</div>';
   editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
   editPanel += '</div>';
@@ -1029,13 +1020,6 @@ function setAddressFormHtml(id,address) {
   formVar += '<div class="col-sm-6">';
   formVar += `<select id='states_${id}' class="form-control states" style="height:45px" name="state" placeholder="State">
               ${statesOptions}
-  </select>`;
-  formVar += '</div>';
-  formVar += '<div class="col-sm-6">';
-  formVar += `<select class="form-control" style="height:45px" name="defaultAddress" placeholder="Default Address">
-  <option selected disabled value='-1'>Default Address</option>
-  <option value="yes" >Yes</option>
-  <option value="no" >No</option>
   </select>`;
   formVar += '</div>';
   formVar += '</div>';
