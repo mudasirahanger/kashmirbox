@@ -61,17 +61,17 @@ $(document).ready(function() {
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
-              for (let i=0; i<userData.cartDetails.length; i++){
-                if (userData.cartDetails[0].cod === 0) {
+              for (let i=0; i<userData.session.cartDetails.length; i++){
+                if (userData.session.cartDetails[0].cod === 0) {
                   codFlag = false
-                  codProduct = userData.cartDetails[0].name
+                  codProduct = userData.session.cartDetails[0].name
                   break;
                 }
               }
-              for (let i=0; i<userData.cartDetails.length; i++){
-                if (userData.cartDetails[0].availability_location === 1) {
+              for (let i=0; i<userData.session.cartDetails.length; i++){
+                if (userData.session.cartDetails[0].availability_location === 1) {
                   availabilityFlag = false
-                  availabilityProduct = userData.cartDetails[0].name
+                  availabilityProduct = userData.session.cartDetails[0].name
                   break;
                 }
               }
@@ -88,6 +88,8 @@ $(document).ready(function() {
                    $('#countries_'+lastFormId).trigger("change");
                   lastFormId++
                 }
+                $('#edit-panel-address-toggle1').prop('checked', true);
+
               } else {
                 var formHtml = getAddressFormHtml(lastFormId)
                 step2.find('.address-forms').append(formHtml);
@@ -660,15 +662,18 @@ $(document).ready(function() {
       }).done(function(data){
         $('#preloader').hide()
         console.log(data)
-        wrapper.find('#edit-panel-address-toggle'+id).prop('checked', true);
-        let addressSummary = wrapper.find('#address-summary'+id);
-        addressSummary.find('.name').text(firstname + ' ' + lastname)
-        addressSummary.find('.phone').text(phone)
-        addressSummary.find('.street-address').text(address_1 + ',' + address_2)
-        addressSummary.find('.city').text(city)
-        addressSummary.find('.state').text(state)
-        addressSummary.find('.pincode').text(postcode)
-        addressSummary.find('.country').text(country)
+        if(data.hasOwnProperty('success'))
+        {
+          wrapper.find('#edit-panel-address-toggle'+id).prop('checked', true);
+          let addressSummary = wrapper.find('#address-summary'+id);
+          addressSummary.find('.name').text(firstname + ' ' + lastname)
+          addressSummary.find('.phone').text(phone)
+          addressSummary.find('.street-address').text(address_1 + ',' + address_2)
+          addressSummary.find('.city').text(city)
+          addressSummary.find('.state').text(state)
+          addressSummary.find('.pincode').text(postcode)
+          addressSummary.find('.country').text(country)
+        }
       })
       return false;
     });
