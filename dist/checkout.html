@@ -168,32 +168,32 @@
             <div class="step" id="step3">
               <div class="step-title"><span class="index">3</span><span>Payment</span></div>
               <div class="step-content collapse">
-                <div class="col-xs-12 payment-gateway">
+                <div id="ccavenueOpt" class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
-                    <input id="cc-avenue-payment-option" type="radio" name="payment-gateway" value="ccavenue" checked>
+                    <input class="paymentGateway" id="cc-avenue-payment-option" type="radio" name="payment-gateway" value="ccavenue" checked>
                     <label for="cc-avenue-payment-option"><span class="edit-label">CCavenue Cards,Netbanking & EMI</span><img src="images/icons/cc-avenue-gateway.png" alt="CC Avenue"></label>
                   </div>
                 </div>
-                <div class="col-xs-12 payment-gateway">
+                <div id="payuOpt" class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
-                    <input id="payu-money-payment-option" type="radio" name="payment-gateway" value="payu">
+                    <input class="paymentGateway" id="payu-money-payment-option" type="radio" name="payment-gateway" value="payu">
                     <label for="payu-money-payment-option"><span class="edit-label">PayUMoney Cards & NetBanking</span><img src="images/icons/payu-money.png" alt="CC Avenue"></label>
                   </div>
                 </div>
-                <div class="col-xs-12 payment-gateway">
+                <div id="codOpt" class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
-                    <input id="cod-payment-option" type="radio" name="payment-gateway" value="cod">
+                    <input class="paymentGateway" id="cod-payment-option" type="radio" name="payment-gateway" value="cod">
                     <label for="cod-payment-option"><span class="edit-label">Cash On Delivery</span></label>
                     <p hidden id="codError" style="color: red;">Cod is not available</p>
                   </div>
                 </div>
-                <div class="col-xs-12 payment-gateway">
+                <div id="mobikwickOpt" class="col-xs-12 payment-gateway">
                   <div class="radio radio-primary">
-                    <input id="mobikwik-payment-option" type="radio" name="payment-gateway" value="mobikwik">
+                    <input class="paymentGateway" id="mobikwik-payment-option" type="radio" name="payment-gateway" value="mobikwik">
                     <label for="mobikwik-payment-option"><span class="edit-label">MobiKwik Wallet</span></label>
                   </div>
                 </div>
-                <div id="proceed-to-payment-gateway"><a class="btn btn-orange" href="#">Pay Now</a></div>
+                <div id="proceed-to-payment-gateway"><a id="proceedToPaymentGateway" class="btn btn-orange" href="#">Pay Now</a></div>
               </div>
             </div>
           </div>

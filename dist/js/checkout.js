@@ -30,6 +30,10 @@
 
 $(document).ready(function() {
     $('#preloader').show();
+    // $('#ccavenueOpt').addClass('hidden')
+    // $('#ccavenueOpt').addClass('hidden')
+    // $('#ccavenueOpt').addClass('hidden')
+    // $('#ccavenueOpt').addClass('hidden')
     step1.find('.col-right form').parent().removeClass('hidden');
     $.ajax({   
        "async": true,
@@ -48,7 +52,6 @@ $(document).ready(function() {
          "headers": {"content-type": "application/x-www-form-urlencoded"},
       }).done(function(userData){
         console.log(userData)
-        // $('#preloader').hide();
         if(userData.responseCode == '200') {
           $('#order-summary .order-summary-list .item-value').text(userData.session.total)
           if (userData.logged != null) {
@@ -61,17 +64,32 @@ $(document).ready(function() {
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
+
+              for (let i=0; i<userData.session.payment_methods.length; i++){
+                if (userData.session.payment_methods[i].code == 'ccavenue') {
+                  $('#ccavenueOpt').removeClass('hidden')
+                }
+                if (userData.session.payment_methods[i].code == 'cod') {
+                  $('#ccavenueOpt').removeClass('hidden')
+                }
+                if (userData.session.payment_methods[i].code == 'mobikwik') {
+                  $('#ccavenueOpt').removeClass('hidden')
+                }
+                if (userData.session.payment_methods[i].code == 'payu') {
+                  $('#ccavenueOpt').removeClass('hidden')
+                }
+              }
               for (let i=0; i<userData.session.cartDetails.length; i++){
-                if (userData.session.cartDetails[0].cod === 0) {
+                if (userData.session.cartDetails[i].cod === 0) {
                   codFlag = false
-                  codProduct = userData.session.cartDetails[0].name
+                  codProduct = userData.session.cartDetails[i].name
                   break;
                 }
               }
               for (let i=0; i<userData.session.cartDetails.length; i++){
-                if (userData.session.cartDetails[0].availability_location === 1) {
+                if (userData.session.cartDetails[i].availability_location === 1) {
                   availabilityFlag = false
-                  availabilityProduct = userData.session.cartDetails[0].name
+                  availabilityProduct = userData.session.cartDetails[i].name
                   break;
                 }
               }
@@ -318,17 +336,31 @@ $(document).ready(function() {
         $('#logged-in').removeClass('hidden')
         $('#logged-in .login-name').text(data.firstname + " " + data.lastname)
         $('#logged-in .login-email').text(email)
+        for (let i=0; i<data.payment_methods.length; i++){
+          if (data.payment_methods[i].code == 'ccavenue') {
+            $('#ccavenueOpt').removeClass('hidden')
+          }
+          if (data.payment_methods[i].code == 'cod') {
+            $('#codOpt').removeClass('hidden')
+          }
+          if (data.payment_methods[i].code == 'mobikwik') {
+            $('#mobikwikOpt').removeClass('hidden')
+          }
+          if (data.payment_methods[i].code == 'payu') {
+            $('#payuOpt').removeClass('hidden')
+          }
+        }
         for (let i=0; i<data.cartDetails.length; i++){
-          if (data.cartDetails[0].cod === 0) {
+          if (data.cartDetails[i].cod === 0) {
             codFlag = false
-            codProduct = data.cartDetails[0].name
+            codProduct = data.cartDetails[i].name
             break;
           }
         }
         for (let i=0; i<data.cartDetails.length; i++){
-          if (data.cartDetails[0].availability_location === 1) {
+          if (data.cartDetails[i].availability_location === 1) {
             availabilityFlag = false
-            availabilityProduct = data.cartDetails[0].name
+            availabilityProduct = data.cartDetails[i].name
             break;
           }
         }
@@ -569,15 +601,24 @@ $(document).ready(function() {
         return
       }
 
+      if ($('#pinError_'+formId).data('validation') == '2') {
+        swal({
+          title: 'Sorry!',
+          type: 'info',
+          text: "We don't ship to this address."
+        })
+        return
+      }
+
       $('#userAddress .street-address').text($('#addressSummary'+formId+' .street-address'))
       $('#userAddress .city').text($('#addressSummary'+formId+' .city'))
       $('#userAddress .state').text($('#addressSummary'+formId+' .state'))
       $('#userAddress .pincode').text($('#addressSummary'+formId+' .pincode'))
 
-      if ($('#pinError_'+formId).text().trim() != '' || !codFlag) {
+      if ($('#pinError_'+formId).data('validation') == '0' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
         if (codFlag) {
-          $('codError').text('Cod is not available on selected pincode.')
+          $('codError').text('Cod is not available on selected address.')
         } else {
           $('codError').text('Cod is not available on ' + codProduct + ' product.')
         }
@@ -660,19 +701,64 @@ $(document).ready(function() {
         "headers": {"content-type": "application/x-www-form-urlencoded"},
         "data": postData
       }).done(function(data){
-        $('#preloader').hide()
         console.log(data)
         if(data.hasOwnProperty('success'))
         {
-          wrapper.find('#edit-panel-address-toggle'+id).prop('checked', true);
-          let addressSummary = wrapper.find('#address-summary'+id);
-          addressSummary.find('.name').text(firstname + ' ' + lastname)
-          addressSummary.find('.phone').text(phone)
-          addressSummary.find('.street-address').text(address_1 + ',' + address_2)
-          addressSummary.find('.city').text(city)
-          addressSummary.find('.state').text(state)
-          addressSummary.find('.pincode').text(postcode)
-          addressSummary.find('.country').text(country)
+          $.ajax({   
+             "async": true,
+             "crossDomain": true,
+             "url": "https://www.kashmirbox.com/index.php?route=checkout/api",
+             "method": "POST",
+             "headers": {"content-type": "application/x-www-form-urlencoded"},
+          }).done(function(userData){
+            console.log(userData)
+            $('#preloader').hide();
+            if(userData.responseCode == '200') {
+                if(userData.redirect.split('=')[1] == 'checkout/cart') {
+                  window.location = data.redirect
+                } else {
+                  for (let i=0; i<userData.session.cartDetails.length; i++){
+                    if (userData.session.cartDetails[0].cod === 0) {
+                      codFlag = false
+                      codProduct = userData.session.cartDetails[0].name
+                      break;
+                    }
+                  }
+                  for (let i=0; i<userData.session.cartDetails.length; i++){
+                    if (userData.session.cartDetails[0].availability_location === 1) {
+                      availabilityFlag = false
+                      availabilityProduct = userData.session.cartDetails[0].name
+                      break;
+                    }
+                  }
+                  if(userData.session.shipping_address !== false)
+                  {
+                    formId = 1
+                    step2.find('.address-forms').html('')
+                    $('#add-new-address').removeClass('hidden')
+                    for (var address in userData.session.shipping_address) {
+                      shippingAddresses.push(userData.session.shipping_address[address]);
+                      var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
+                      step2.find('.address-forms').append(formHtml);
+                      registerAddressFormSubmit(lastFormId);
+                       $('#countries_'+lastFormId).val(userData.session.shipping_address[address].country_id)
+                       $('#countries_'+lastFormId).data('stateId',userData.session.shipping_address[address].zone_id)
+                       $('#countries_'+lastFormId).trigger("change");
+                      lastFormId++
+                    }
+                    $('#edit-panel-address-toggle1').prop('checked', true);
+
+                  }
+                }
+            } else {
+              swal({
+                title: 'OOPS!',
+                type: 'warning',
+                text: 'Something wrong happened!'
+              })
+            }
+          });
+
         }
       })
       return false;
@@ -859,6 +945,46 @@ function validateCheckoutAddressForm(form) {
 }
 
 
+
+$(document).on('change', '.paymentGateway', function (){
+  code = $(this).val();
+   $.ajax({   
+     "async": true,
+     "crossDomain": true,
+     "url": "https://www.kashmirbox.com/'index.php?route=checkout/payment_method/save",
+     "method": "POST",
+     "headers": {"content-type": "application/x-www-form-urlencoded"},
+     "data": {
+      code: code,
+      policy: '1',
+      comments: ""
+     }
+  }).done(function(data){
+    console.log(data)
+    $('#proceedToPaymentGateway').prop('href',data.redirect)
+  })
+})
+
+$(document).on('click', '#proceedToPaymentGateway', function (){
+  code = $(this).val();
+   $.ajax({   
+     "async": true,
+     "crossDomain": true,
+     "url": "https://www.kashmirbox.com/index.php?route=checkout/confirm",
+     "method": "POST",
+     "headers": {"content-type": "application/x-www-form-urlencoded"},
+     "data": {
+      code: code,
+      policy: '1',
+      comments: ""
+     }
+  }).done(function(data){
+    console.log(data)
+    $('#proceedToPaymentGateway').prop('href',data.redirect)
+  })
+})
+
+
 function getAddressFormHtml(id) {
   if(!id)
     return '';
@@ -966,8 +1092,17 @@ function setAddressFormHtml(id,address) {
   editPanel += '<div id="address-summary'+id+'" class="address-summary">';
   editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.custom_field[1]+'</span></p>';
   editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.city+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
-  var pinError = address.pin_check.service_available == '0' ? 'Cod is not available on this pincode' : ''
-  editPanel += '<p id="pinError_'+id+'" class="pin-error">' + pinError + '</p>';
+  var pinError = ''
+  var pinValidation = 0
+  if (address.pin_check.length > 0) {
+    pinError = address.pin_check.service_available == '0' ? 'Only Prepaid Service is Available At This Location' : 'COD and Prepaid Service is Available At This Location'
+    pinValidation = address.pin_check.service_available
+  } else {
+    pinError = 'Service is not Available at this location yet'
+    pinValidation = 2
+  }
+ 
+  editPanel += '<p id="pinError_'+id+'" data-validation='+pinValidation+' class="pin-error">' + pinError + '</p>';
   editPanel += '</div>';
   editPanel += '<div class="address-edit"><a><span class="fa fa-edit"></span><span>Edit</span></a></div>';
   editPanel += '</div>';
