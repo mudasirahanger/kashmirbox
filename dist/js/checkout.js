@@ -718,7 +718,7 @@ $(document).ready(function() {
       } else {
         postData.customer_id = customerId
         successMsg = 'You have added an address successfully.'
-        url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
+        url = 'https://www.kashmirbox.com/index.php?route=checkout/api/addShippingAddress'
       }
       console.log('======================= post data =======================')
       console.log(postData)
