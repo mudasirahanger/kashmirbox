@@ -76,13 +76,13 @@ $(document).ready(function() {
                   $('#ccavenueOpt').removeClass('hidden')
                 }
                 if (userData.session.payment_methods[i].code == 'cod') {
-                  $('#ccavenueOpt').removeClass('hidden')
+                  $('#codOpt').removeClass('hidden')
                 }
                 if (userData.session.payment_methods[i].code == 'mobikwik') {
-                  $('#ccavenueOpt').removeClass('hidden')
+                  $('#mobikwikOpt').removeClass('hidden')
                 }
                 if (userData.session.payment_methods[i].code == 'payu') {
-                  $('#ccavenueOpt').removeClass('hidden')
+                  $('#payuOpt').removeClass('hidden')
                 }
               }
               for (let i=0; i<userData.session.cartDetails.length; i++){
