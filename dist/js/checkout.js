@@ -3,7 +3,8 @@
   var step2 = checkoutPage.find('#step2');
   var step3 = checkoutPage.find('#step3');
   var step = checkoutPage.find('.step');
-  var shippingAddresses = []
+  var shippingAddresses = {}
+  var paymentMethods = {}
   var countriesOptions = "<option disabled value='-1'>Select Country</option>"
   var statesOptions = "<option disabled value='-1'>Select State</option>"
 
@@ -70,18 +71,22 @@ $(document).ready(function() {
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
-
-              for (let i=0; i<userData.session.payment_methods.length; i++){
-                if (userData.session.payment_methods[i].code == 'ccavenue') {
+              $('#step1 .details .name').text(data.firstname + " " + data.lastname)
+              $('#step1 .details .email').text(email)
+              $('#login-email').val('')
+              $('#login-password').val('')
+              paymentMethods = userData.session.payment_methods
+              for (var method in userData.session.payment_methods) {
+                if (method == 'ccavenue') {
                   $('#ccavenueOpt').removeClass('hidden')
                 }
-                if (userData.session.payment_methods[i].code == 'cod') {
+                if (method == 'cod') {
                   $('#codOpt').removeClass('hidden')
                 }
-                if (userData.session.payment_methods[i].code == 'mobikwik') {
+                if (method == 'mobikwik') {
                   $('#mobikwikOpt').removeClass('hidden')
                 }
-                if (userData.session.payment_methods[i].code == 'payu') {
+                if (method == 'payu') {
                   $('#payuOpt').removeClass('hidden')
                 }
               }
@@ -102,6 +107,7 @@ $(document).ready(function() {
               if(userData.session.shipping_address !== false)
               {
                 $('#add-new-address').removeClass('hidden')
+                shippingAddresses = userData.session.shipping_address
                 for (var address in userData.session.shipping_address) {
                   shippingAddresses.push(userData.session.shipping_address[address]);
                   var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
@@ -346,17 +352,18 @@ $(document).ready(function() {
         $('#logged-in').removeClass('hidden')
         $('#logged-in .login-name').text(data.firstname + " " + data.lastname)
         $('#logged-in .login-email').text(email)
-        for (let i=0; i<data.payment_methods.length; i++){
-          if (data.payment_methods[i].code == 'ccavenue') {
+        paymentMethods = data.payment_methods
+        for (var method in data.payment_methods) {
+          if (method == 'ccavenue') {
             $('#ccavenueOpt').removeClass('hidden')
           }
-          if (data.payment_methods[i].code == 'cod') {
+          if (method == 'cod') {
             $('#codOpt').removeClass('hidden')
           }
-          if (data.payment_methods[i].code == 'mobikwik') {
+          if (method == 'mobikwik') {
             $('#mobikwikOpt').removeClass('hidden')
           }
-          if (data.payment_methods[i].code == 'payu') {
+          if (method == 'payu') {
             $('#payuOpt').removeClass('hidden')
           }
         }
@@ -376,6 +383,7 @@ $(document).ready(function() {
         }
         if(data.shipping_address !== false)
         {
+          shippingAddresses = data.shipping_address
           $('#add-new-address').removeClass('hidden')
           for (var address in data.shipping_address) {
             shippingAddresses.push(data.shipping_address[address]);
@@ -620,10 +628,10 @@ $(document).ready(function() {
         return
       }
 
-      $('#userAddress .street-address').text($('#addressSummary'+formId+' .street-address'))
-      $('#userAddress .city').text($('#addressSummary'+formId+' .city').text())
-      $('#userAddress .state').text($('#addressSummary'+formId+' .state').text())
-      $('#userAddress .pincode').text($('#addressSummary'+formId+' .pincode').text())
+      $('#userAddress .street-address').text($('#address-summary'+formId+' .street-address').text())
+      $('#userAddress .city').text($('#address-summary'+formId+' .city').text())
+      $('#userAddress .state').text($('#address-summary'+formId+' .state').text())
+      $('#userAddress .pincode').text($('#address-summary'+formId+' .pincode').text())
 
       if ($('#pinError_'+formId).data('validation') == '0' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
@@ -700,10 +708,12 @@ $(document).ready(function() {
         country_id: country_id
       }
       let successMsg = 'You have added an address successfully.'
+      let url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
       console.log(postData)
       if(!isNewAddress) {
         postData.address_id = wrapper.find("#edit-panel-address-toggle"+id).data('id')
-        let successMsg = 'You have updated an address successfully.'
+        successMsg = 'You have updated an address successfully.'
+        url = 'https://www.kashmirbox.com/index.php?route=checkout/api/addShippingAddress'
       }
       $.ajax({   
         "async": true,
@@ -762,7 +772,7 @@ $(document).ready(function() {
                     swal({
                       title: 'Success',
                       type: 'warning',
-                      text: ''
+                      text: successMsg
                     })
                   }
                 }
@@ -774,7 +784,12 @@ $(document).ready(function() {
               })
             }
           });
-
+        } else {
+          swal({
+            title: 'OOPS!',
+            text: data.warning,
+            type: 'error'
+          })
         }
       })
       return false;
@@ -963,41 +978,39 @@ function validateCheckoutAddressForm(form) {
 
 
 $(document).on('change', '.paymentGateway', function (){
-  code = $(this).val();
-   $.ajax({   
-     "async": true,
-     "crossDomain": true,
-     "url": "https://www.kashmirbox.com/'index.php?route=checkout/payment_method/save",
-     "method": "POST",
-     "headers": {"content-type": "application/x-www-form-urlencoded"},
-     "data": {
-      code: code,
-      policy: '1',
-      comments: ""
-     }
-  }).done(function(data){
-    console.log(data)
-    $('#proceedToPaymentGateway').prop('href',data.redirect)
-  })
+  paymentId = $(this).val();
 })
 
 $(document).on('click', '#proceedToPaymentGateway', function (){
-  code = $(this).val();
-   $.ajax({   
-     "async": true,
-     "crossDomain": true,
-     "url": "https://www.kashmirbox.com/index.php?route=checkout/confirm",
-     "method": "POST",
-     "headers": {"content-type": "application/x-www-form-urlencoded"},
-     "data": {
-      code: code,
-      agree: '1',
-      comments: ""
-     }
-  }).done(function(data){
-    console.log(data)
-    $('#proceedToPaymentGateway').prop('href',data.redirect)
-  })
+  console.log('====================== IDS ========================')
+  console.log(paymentId)
+  console.log(addressId) 
+  if(paymentId && addressId) {
+    let paymentMethod = paymentMethods[paymentId]
+    let shippingAddress = shippingAddresses[addressId]
+    let postData = {
+      payment_method: paymentMethod,
+      shipping_address: shippingAddress
+    }
+    console.log('====================== CONFIRM POST DATA ========================')
+    console.log(postData)
+     $.ajax({   
+       "async": true,
+       "crossDomain": true,
+       "url": "https://www.kashmirbox.com/index.php?route=checkout/confirm",
+       "method": "POST",
+       "headers": {"content-type": "application/x-www-form-urlencoded"},
+       "data": postData
+    }).done(function(data){
+      console.log(data)
+      if(data.redirect) {
+        window.location = data.redirect
+      } else {
+        $('#confirmModal .modal-body').html(data.payment)
+        $('#confirmModal').modal('show');
+      }
+    })
+  }
 })
 
 
