@@ -621,9 +621,9 @@ $(document).ready(function() {
       }
 
       $('#userAddress .street-address').text($('#addressSummary'+formId+' .street-address'))
-      $('#userAddress .city').text($('#addressSummary'+formId+' .city'))
-      $('#userAddress .state').text($('#addressSummary'+formId+' .state'))
-      $('#userAddress .pincode').text($('#addressSummary'+formId+' .pincode'))
+      $('#userAddress .city').text($('#addressSummary'+formId+' .city').text())
+      $('#userAddress .state').text($('#addressSummary'+formId+' .state').text())
+      $('#userAddress .pincode').text($('#addressSummary'+formId+' .pincode').text())
 
       if ($('#pinError_'+formId).data('validation') == '0' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
