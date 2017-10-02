@@ -3,7 +3,8 @@
   var step2 = checkoutPage.find('#step2');
   var step3 = checkoutPage.find('#step3');
   var step = checkoutPage.find('.step');
-  var shippingAddresses = {}
+  var shippingAddresses = []
+  var shippingAddressess = []
   var paymentMethods = {}
   var countriesOptions = "<option disabled value='-1'>Select Country</option>"
   var statesOptions = "<option disabled value='-1'>Select State</option>"
@@ -107,7 +108,7 @@ $(document).ready(function() {
               if(userData.session.shipping_address !== false)
               {
                 $('#add-new-address').removeClass('hidden')
-                shippingAddresses = userData.session.shipping_address
+                shippingAddressess = userData.session.shipping_address
                 for (var address in userData.session.shipping_address) {
                   shippingAddresses.push(userData.session.shipping_address[address]);
                   var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
@@ -383,7 +384,7 @@ $(document).ready(function() {
         }
         if(data.shipping_address !== false)
         {
-          shippingAddresses = data.shipping_address
+          shippingAddressess = data.shipping_address
           $('#add-new-address').removeClass('hidden')
           for (var address in data.shipping_address) {
             shippingAddresses.push(data.shipping_address[address]);
@@ -759,6 +760,7 @@ $(document).ready(function() {
                     step2.find('.address-forms').html('')
                     $('#add-new-address').removeClass('hidden')
                     for (var address in userData.session.shipping_address) {
+                      shippingAddressess = userData.session.shipping_address
                       shippingAddresses.push(userData.session.shipping_address[address]);
                       var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
                       step2.find('.address-forms').append(formHtml);
@@ -987,7 +989,7 @@ $(document).on('click', '#proceedToPaymentGateway', function (){
   console.log(addressId) 
   if(paymentId && addressId) {
     let paymentMethod = paymentMethods[paymentId]
-    let shippingAddress = shippingAddresses[addressId]
+    let shippingAddress = shippingAddressess[addressId]
     let postData = {
       payment_method: paymentMethod,
       shipping_address: shippingAddress
