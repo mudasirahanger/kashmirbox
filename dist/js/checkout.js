@@ -19,7 +19,7 @@
     /* Step2 Events */
   var addNewAddressBtn = step2.find('#add-new-address');
   var formsCount = step2.find('.address-forms > div').length;
-  var lastFormId = 1;
+  var lastFormId;
   for(var i = 1; i <= formsCount; i++) {
     var formId = step2
     .find('.address-forms > div:nth-of-type('+i+') form')
@@ -29,6 +29,7 @@
   }
 
 $(document).ready(function() {
+    lastFormId = 1;
     $('#preloader').show();
     $('#ccavenueOpt').addClass('hidden')
     $('#ccavenueOpt').addClass('hidden')
@@ -43,7 +44,11 @@ $(document).ready(function() {
        "headers": {"content-type": "application/x-www-form-urlencoded"},
     }).done(function(countryData){
       console.log(countryData.countries)
-      
+      let countriesData = countryData.countries
+      for(var i = 0; i < countriesData.length; i++){
+        let selected = countriesData[i].country_id == '99'?'selected':''
+        countriesOptions += '<option ' + selected + ' value=' + countriesData[i].country_id + '>' + countriesData[i].name + '</option>'
+      }
       $.ajax({   
          "async": true,
          "crossDomain": true,
@@ -53,6 +58,7 @@ $(document).ready(function() {
       }).done(function(userData){
         console.log(userData)
         if(userData.responseCode == '200') {
+          $('#preloader').hide()
           $('#order-summary .order-summary-list .item-value').text(userData.session.total)
           if (userData.logged != null) {
             if(userData.redirect.split('=')[1] == 'checkout/cart') {
@@ -101,7 +107,7 @@ $(document).ready(function() {
                   var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
                   step2.find('.address-forms').append(formHtml);
                   registerAddressFormSubmit(lastFormId);
-                  console.log(userData.session.shipping_address[address].country_id)
+                  console.log(lastFormId)
                    $('#countries_'+lastFormId).val(userData.session.shipping_address[address].country_id)
                    $('#countries_'+lastFormId).data('stateId',userData.session.shipping_address[address].zone_id)
                    $('#countries_'+lastFormId).trigger("change");
@@ -220,6 +226,7 @@ $(document).ready(function() {
   });
 
   $('#logout-link').on('click',function () {
+    $('#preloader').show()
   	$.ajax({   
          "async": true,
          "crossDomain": true,
@@ -231,15 +238,17 @@ $(document).ready(function() {
          }
       }).done(function(data){
         console.log(data)
+        $('#preloader').show()
         swal({
           title: 'Success',
           type: 'success',
           text: data.success
+        }).then(function(){
+          if(data.success){
+            window.onbeforeunload = true;
+            window.location.reload(true)
+          }
         })
-        if(data.success){
-          window.onbeforeunload = true;
-          window.location.reload(true)
-        }
       })
   })
 
@@ -434,7 +443,7 @@ $(document).ready(function() {
     let countryId = $(this).val()
     let stateId =  $(this).data('stateId')
     let formId = $(this).attr('id').split('_')[1]
-    console.log('============>' + countryId)
+    if()
     $.ajax({   
        "async": false,
        "crossDomain": true,
@@ -691,9 +700,11 @@ $(document).ready(function() {
         zone_id: state_id,
         country_id: country_id
       }
+      let successMsg = 'You have added an address successfully.'
       console.log(postData)
       if(!isNewAddress) {
         postData.address_id = wrapper.find("#edit-panel-address-toggle"+id).data('id')
+        let successMsg = 'You have updated an address successfully.'
       }
       $.ajax({   
         "async": true,
@@ -749,7 +760,11 @@ $(document).ready(function() {
                       lastFormId++
                     }
                     $('#edit-panel-address-toggle1').prop('checked', true);
-
+                    swal({
+                      title: 'Success',
+                      type: 'warning',
+                      text: ''
+                    })
                   }
                 }
             } else {
@@ -1096,12 +1111,12 @@ function setAddressFormHtml(id,address) {
   editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.city+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
   var pinError = ''
   var pinValidation = 0
-  if (address.pin_check.length > 0) {
-    pinError = address.pin_check.service_available == '0' ? 'Only Prepaid Service is Available At This Location' : 'COD and Prepaid Service is Available At This Location'
-    pinValidation = address.pin_check.service_available
-  } else {
+  if (address.pin_check.length == 0) {
     pinError = 'Service is not Available at this location yet'
     pinValidation = 2
+  } else {
+    pinError = address.pin_check.service_available == '0' ? 'Only Prepaid Service is Available At This Location' : 'COD and Prepaid Service is Available At This Location'
+    pinValidation = address.pin_check.service_available
   }
  
   editPanel += '<p id="pinError_'+id+'" data-validation='+pinValidation+' class="pin-error">' + pinError + '</p>';
