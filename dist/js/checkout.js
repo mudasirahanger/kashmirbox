@@ -71,7 +71,7 @@ $(document).ready(function() {
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
-              $('#step1 .details .name').text(userData.firstname + " " + userData.lastname)
+              $('#step1 .details .name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#step1 .details .email').text(userData.session.email)
               $('#login-email').val('')
               $('#login-password').val('')
