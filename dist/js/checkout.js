@@ -714,7 +714,7 @@ $(document).ready(function() {
       if(!isNewAddress) {
         postData.address_id = wrapper.find("#edit-panel-address-toggle"+id).data('id')
         successMsg = 'You have updated an address successfully.'
-        url = 'https://www.kashmirbox.com/index.php?route=checkout/api/addShippingAddress'
+        url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
       } else {
         postData.customer_id = customerId
         successMsg = 'You have added an address successfully.'
