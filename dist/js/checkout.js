@@ -72,7 +72,7 @@ $(document).ready(function() {
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
               $('#step1 .details .name').text(userData.firstname + " " + userData.lastname)
-              $('#step1 .details .email').text(email)
+              $('#step1 .details .email').text(userData.session.email)
               $('#login-email').val('')
               $('#login-password').val('')
               paymentMethods = userData.session.payment_methods
