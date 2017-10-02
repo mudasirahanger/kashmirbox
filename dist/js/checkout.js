@@ -67,7 +67,7 @@ $(document).ready(function() {
               window.location = data.redirect
             } else {
               $('#logout-link').data('cid',userData.logged)
-              customer_id = userData.logged;
+              customerId = userData.logged;
               $('#logged-out').addClass('hidden')
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
@@ -514,6 +514,7 @@ $(document).ready(function() {
         $('#register-password').val('')
         $('#step1 .details .name').text(firstname + " " + lastname)
         $('#step1 .details .email').text(email)
+        customerId = data.customer_id
         $('#logout-link').data('cid',data.customer_id)
         $('#logged-out').addClass('hidden')
         $('#logged-in').removeClass('hidden')
@@ -609,7 +610,7 @@ $(document).ready(function() {
         return;
       }
 
-      address_id = $('.address-toggle :checked').data('id')
+      addressId = $('.address-toggle :checked').data('id')
       formId = $('.address-toggle :checked').val()
       if ($('#countries_'+formId).val() !== '99' && !availabilityFlag) {
         swal({
@@ -710,12 +711,14 @@ $(document).ready(function() {
       }
       let successMsg = 'You have added an address successfully.'
       let url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
-      console.log(postData)
       if(!isNewAddress) {
         postData.address_id = wrapper.find("#edit-panel-address-toggle"+id).data('id')
+        postData.customer_id = customerId
         successMsg = 'You have updated an address successfully.'
         url = 'https://www.kashmirbox.com/index.php?route=checkout/api/addShippingAddress'
       }
+      console.log('======================= post data =======================')
+      console.log(postData)
       $.ajax({   
         "async": true,
         "crossDomain": true,
@@ -1129,7 +1132,7 @@ function setAddressFormHtml(id,address) {
     pinError = 'Service is not Available at this location yet'
     pinValidation = 2
   } else {
-    pinError = address.pin_check.service_available == '0' ? 'Only Prepaid Service is Available At This Location' : 'COD and Prepaid Service is Available At This Location'
+    pinError = address.pin_check.service_available == '0' ? 'Only Prepaid Service is Available At This Location' : ''
     pinValidation = address.pin_check.service_available
   }
  
