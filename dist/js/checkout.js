@@ -434,6 +434,7 @@ $(document).ready(function() {
     let countryId = $(this).val()
     let stateId =  $(this).data('stateId')
     let formId = $(this).attr('id').split('_')[1]
+    console.log('============>' + countryId)
     $.ajax({   
        "async": false,
        "crossDomain": true,
