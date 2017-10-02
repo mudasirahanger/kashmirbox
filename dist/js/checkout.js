@@ -709,13 +709,16 @@ $(document).ready(function() {
         zone_id: state_id,
         country_id: country_id
       }
-      let successMsg = 'You have added an address successfully.'
-      let url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
+      let successMsg;
+      let url;
       if(!isNewAddress) {
         postData.address_id = wrapper.find("#edit-panel-address-toggle"+id).data('id')
-        postData.customer_id = customerId
         successMsg = 'You have updated an address successfully.'
         url = 'https://www.kashmirbox.com/index.php?route=checkout/api/addShippingAddress'
+      } else {
+        postData.customer_id = customerId
+        successMsg = 'You have added an address successfully.'
+        url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
       }
       console.log('======================= post data =======================')
       console.log(postData)
