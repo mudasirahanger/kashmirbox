@@ -718,7 +718,7 @@ $(document).ready(function() {
       $.ajax({   
         "async": true,
         "crossDomain": true,
-        "url": 'https://www.kashmirbox.com/index.php?route=checkout/api/saveShippingAddress',
+        "url": url,
         "method": "POST",
         "headers": {"content-type": "application/x-www-form-urlencoded"},
         "data": postData
