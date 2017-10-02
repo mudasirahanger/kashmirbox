@@ -976,7 +976,7 @@ $(document).on('click', '#proceedToPaymentGateway', function (){
      "headers": {"content-type": "application/x-www-form-urlencoded"},
      "data": {
       code: code,
-      policy: '1',
+      agree: '1',
       comments: ""
      }
   }).done(function(data){
