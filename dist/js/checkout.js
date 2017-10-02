@@ -30,10 +30,10 @@
 
 $(document).ready(function() {
     $('#preloader').show();
-    // $('#ccavenueOpt').addClass('hidden')
-    // $('#ccavenueOpt').addClass('hidden')
-    // $('#ccavenueOpt').addClass('hidden')
-    // $('#ccavenueOpt').addClass('hidden')
+    $('#ccavenueOpt').addClass('hidden')
+    $('#ccavenueOpt').addClass('hidden')
+    $('#ccavenueOpt').addClass('hidden')
+    $('#ccavenueOpt').addClass('hidden')
     step1.find('.col-right form').parent().removeClass('hidden');
     $.ajax({   
        "async": true,
@@ -101,6 +101,7 @@ $(document).ready(function() {
                   var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
                   step2.find('.address-forms').append(formHtml);
                   registerAddressFormSubmit(lastFormId);
+                  console.log(userData.session.shipping_address[address].country_id)
                    $('#countries_'+lastFormId).val(userData.session.shipping_address[address].country_id)
                    $('#countries_'+lastFormId).data('stateId',userData.session.shipping_address[address].zone_id)
                    $('#countries_'+lastFormId).trigger("change");
@@ -718,16 +719,16 @@ $(document).ready(function() {
                   window.location = data.redirect
                 } else {
                   for (let i=0; i<userData.session.cartDetails.length; i++){
-                    if (userData.session.cartDetails[0].cod === 0) {
+                    if (userData.session.cartDetails[i].cod === 0) {
                       codFlag = false
-                      codProduct = userData.session.cartDetails[0].name
+                      codProduct = userData.session.cartDetails[i].name
                       break;
                     }
                   }
                   for (let i=0; i<userData.session.cartDetails.length; i++){
-                    if (userData.session.cartDetails[0].availability_location === 1) {
+                    if (userData.session.cartDetails[i].availability_location === 1) {
                       availabilityFlag = false
-                      availabilityProduct = userData.session.cartDetails[0].name
+                      availabilityProduct = userData.session.cartDetails[i].name
                       break;
                     }
                   }
