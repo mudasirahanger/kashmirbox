@@ -990,10 +990,31 @@ $(document).on('change', '.paymentGateway', function (){
 })
 
 $(document).on('click', '#proceedToPaymentGateway', function (){
+
   console.log('====================== IDS ========================')
   console.log(paymentId)
-  console.log(addressId) 
-  if(paymentId && addressId) {
+  console.log(addressId)
+  console.log(customerId) 
+  if(!paymentId) {
+    swal({
+      type: 'error',
+      title: 'NO PAYMENT METHOD SELECTED',
+      text: 'Please select payment option first.'
+    })
+  } else if (!addressId) {
+    swal({
+      type: 'error',
+      title: 'NO ADDRESS SELECTED',
+      text: 'Please select address first.'
+    })
+  } else if (!customerId) {
+    swal({
+      type: 'error',
+      title: 'NO USER',
+      text: 'Please login or register first.'
+    })
+  } else {
+    $('#preloader').show()
     let paymentMethod = paymentMethods[paymentId]
     let shippingAddress = shippingAddressess[addressId]
     let postData = {
@@ -1005,17 +1026,22 @@ $(document).on('click', '#proceedToPaymentGateway', function (){
      $.ajax({   
        "async": true,
        "crossDomain": true,
-       "url": "https://www.kashmirbox.com/index.php?route=checkout/confirm",
+       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/confirm",
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
        "data": postData
     }).done(function(data){
       console.log(data)
+      $('#preloader').show()
       if(data.redirect) {
         window.location = data.redirect
       } else {
-        $('#confirmModal .modal-body').html(data.payment)
-        $('#confirmModal').modal('show');
+        $('#proceedToPaymentGateway').addClass('hidden')
+        // $('#proceedToPaymentGateway').prop('id','button-confirm')
+        $('#conformContent').html(data.payment)
+        $('#button-confirm').removeClass('btn-primary');
+        $('#button-confirm').addClass('btn-orange');
+        $('#button-confirm').parent().removeClass('pull-right')
       }
     })
   }
