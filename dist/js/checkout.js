@@ -245,13 +245,16 @@ $(document).ready(function() {
          }
       }).done(function(data){
         console.log(data)
-        $('#preloader').show()
+        $('#preloader').hide()
         swal({
           title: 'Success',
           type: 'success',
           text: data.success
         }).then(function(){
-          if(data.success){
+          console.log('====================================================================')
+          console.log('logout success')
+          console.log('====================================================================')
+          if(data.hasOwnProperty('success')){
             window.onbeforeunload = true;
             window.location.reload(true)
           }
