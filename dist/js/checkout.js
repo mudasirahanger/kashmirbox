@@ -537,9 +537,8 @@ $(document).ready(function() {
           type: "error"
         })
       }
-      console.log(data)                       
     }); 
-    })
+  })
     //step1 is complete
     return false;
   });
@@ -638,9 +637,9 @@ $(document).ready(function() {
       if ($('#pinError_'+formId).data('validation') == '0' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
         if (codFlag) {
-          $('codError').text('Cod is not available on selected address.')
+          $('#codError').text('Cod is not available on selected address.')
         } else {
-          $('codError').text('Cod is not available on ' + codProduct + ' product.')
+          $('#codError').text('Cod is not available on ' + codProduct + ' product.')
         }
       }      
       //validate activated address form
@@ -1032,12 +1031,11 @@ $(document).on('click', '#proceedToPaymentGateway', function (){
        "data": postData
     }).done(function(data){
       console.log(data)
-      $('#preloader').show()
+      $('#preloader').hide()
       if(data.redirect) {
         window.location = data.redirect
       } else {
         $('#proceedToPaymentGateway').addClass('hidden')
-        // $('#proceedToPaymentGateway').prop('id','button-confirm')
         $('#conformContent').html(data.payment)
         $('#button-confirm').removeClass('btn-primary');
         $('#button-confirm').addClass('btn-orange');
@@ -1153,7 +1151,7 @@ function setAddressFormHtml(id,address) {
   editPanel += '</div>';
   editPanel += '</div>';
   editPanel += '<div id="address-summary'+id+'" class="address-summary">';
-  editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.custom_field[1]+'</span></p>';
+  editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.custom_field ? address.custom_field[1] : ''+'</span></p>';
   editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.city+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
   var pinError = ''
   var pinValidation = 0
