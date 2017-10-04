@@ -504,7 +504,7 @@ $(document).ready(function() {
         "email": email,
         "password": password
       }
-    }).done(function(data){
+    }).done(function(data){ 
       $('#preloader').hide();
       console.log(data)
       if (data.hasOwnProperty('success')) {
@@ -1151,7 +1151,8 @@ function setAddressFormHtml(id,address) {
   editPanel += '</div>';
   editPanel += '</div>';
   editPanel += '<div id="address-summary'+id+'" class="address-summary">';
-  editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+address.custom_field ? address.custom_field[1] : ''+'</span></p>';
+  let phoneNumber = address.custom_field == null ? '' : address.custom_field[1]
+  editPanel += '<p><span class="name">'+address.firstname+' '+address.lastname+'</span><span class="phone">'+phoneNumber+'</span></p>';
   editPanel += '<p class="delivery-address"><span class="street-address">'+address.address_1+','+address.address_2+'</span><span class="city">'+address.city+'</span><span class="state">'+address.zone+'</span><span class="pincode">'+address.postcode+'</span><span class="country">'+address.country+'</span></p>';
   var pinError = ''
   var pinValidation = 0
@@ -1194,7 +1195,7 @@ function setAddressFormHtml(id,address) {
   formVar += '<input class="form-control" value="'+address.postcode+'" type="number" onkeypress="return isNumberKey(event)" name="pincode" placeholder="Pincode">';
   formVar += '</div>';
   formVar += '<div class="col-xs-6">';
-  formVar += '<input class="form-control" value="'+address.custom_field[1]+'" type="number" onkeypress="return isNumberKey(event)" name="phone" placeholder="Phone Number">';
+  formVar += '<input class="form-control" value="'+phoneNumber+'" type="number" onkeypress="return isNumberKey(event)" name="phone" placeholder="Phone Number">';
   formVar += '</div>';
   formVar += '</div>';
 
