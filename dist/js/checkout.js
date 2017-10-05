@@ -631,7 +631,7 @@ $(document).ready(function() {
         })
         return
       }
-
+      $('#codError').hide()
       $('#userAddress .street-address').text($('#address-summary'+formId+' .street-address').text())
       $('#userAddress .city').text($('#address-summary'+formId+' .city').text())
       $('#userAddress .state').text($('#address-summary'+formId+' .state').text())
@@ -639,6 +639,7 @@ $(document).ready(function() {
 
       if ($('#pinError_'+formId).data('validation') == '0' || !codFlag) {
         $('#cod-payment-option').prop('disabled',true)
+        $('#codError').show()
         if (codFlag) {
           $('#codError').text('Cod is not available on selected address.')
         } else {
@@ -989,10 +990,6 @@ function validateCheckoutAddressForm(form) {
 
 $(document).on('change', '.paymentGateway', function (){
   paymentId = $(this).val();
-})
-
-$(document).on('click', '#proceedToPaymentGateway', function (){
-
   console.log('====================== IDS ========================')
   console.log(paymentId)
   console.log(addressId)
@@ -1040,9 +1037,10 @@ $(document).on('click', '#proceedToPaymentGateway', function (){
       } else {
         $('#proceedToPaymentGateway').addClass('hidden')
         $('#conformContent').html(data.payment)
-        $('#button-confirm').removeClass('btn-primary');
-        $('#button-confirm').addClass('btn-orange');
-        $('#button-confirm').parent().removeClass('pull-right')
+        $('#conformContent .btn-primary').addClass('btn-orange')
+        $('#conformContent .btn-primary').parent().removeClass('pull-right')
+        $('#conformContent .btn-primary').removeClass('btn-primary')
+        
       }
     })
   }
