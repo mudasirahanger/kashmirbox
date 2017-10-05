@@ -64,11 +64,13 @@ $(document).ready(function() {
           $('#order-summary .order-summary-list .item-value').text(userData.session.total)
           if (userData.logged != null) {
             if(userData.redirect.split('=')[1] == 'checkout/cart') {
+              window.onbeforeunload = true;
               window.location = data.redirect
             } else {
               $('#logout-link').data('cid',userData.logged)
               customerId = userData.logged;
               $('#logged-out').addClass('hidden')
+              $('#facebookLogin').text(`<a href="#" class="btn btn-white facebook-login-btn" onClick="MyWindow=window.open('${userData.fb_url}','MyWin‌​dow','width=600,heig‌​ht=300'); return false;">Connect with <strong>Facebook</strong></a>`)
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
