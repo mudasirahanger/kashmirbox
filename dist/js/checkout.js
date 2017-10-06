@@ -158,7 +158,7 @@ $(document).ready(function() {
             }).done(function(stateData){
               console.log(stateData)
               $('#preloader').hide();
-              $('#facebookLogin').html(`<a href="#" class="btn btn-white facebook-login-btn" onClick="MyWindow=window.open('${userData.fb_url}','MyWin‌​dow','width=600,heig‌​ht=300'); return false;">Connect with <strong>Facebook</strong></a>`)
+              $('#facebookLogin').html(`<a href="${userData.fb_url}" class="btn btn-white facebook-login-btn">Connect with <strong>Facebook</strong></a>`)
               let countriesData = countryData.countries
               for(var i = 0; i < countriesData.length; i++){
                 let selected = countriesData[i].country_id == '99'?'selected':''
