@@ -70,7 +70,6 @@ $(document).ready(function() {
               $('#logout-link').data('cid',userData.logged)
               customerId = userData.logged;
               $('#logged-out').addClass('hidden')
-              $('#facebookLogin').text(`<a href="#" class="btn btn-white facebook-login-btn" onClick="MyWindow=window.open('${userData.fb_url}','MyWin‌​dow','width=600,heig‌​ht=300'); return false;">Connect with <strong>Facebook</strong></a>`)
               $('#logged-in').removeClass('hidden')
               $('#logged-in .login-name').text(userData.session.firstname + " " + userData.session.lastname)
               $('#logged-in .login-email').text(userData.session.email)
@@ -159,6 +158,7 @@ $(document).ready(function() {
             }).done(function(stateData){
               console.log(stateData)
               $('#preloader').hide();
+              $('#facebookLogin').html(`<a href="#" class="btn btn-white facebook-login-btn" onClick="MyWindow=window.open('${userData.fb_url}','MyWin‌​dow','width=600,heig‌​ht=300'); return false;">Connect with <strong>Facebook</strong></a>`)
               let countriesData = countryData.countries
               for(var i = 0; i < countriesData.length; i++){
                 let selected = countriesData[i].country_id == '99'?'selected':''
