@@ -1039,6 +1039,13 @@ $(document).on('change', '.paymentGateway', function (){
             
           }
         })
+      } else {
+      	$('#preloader').hide();
+      	swal({
+      		title:'OOPS!',
+      		text: 'Something went wrong!',
+      		type: 'error'
+  		})
       }
     })
   }
