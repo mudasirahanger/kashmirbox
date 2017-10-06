@@ -1027,7 +1027,7 @@ $(document).on('change', '.paymentGateway', function (){
      $.ajax({   
        "async": true,
        "crossDomain": true,
-       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/savePaymentMethod",
+       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/savePaymentMethods",
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
        "data": {payment_methods: paymentMethods}
