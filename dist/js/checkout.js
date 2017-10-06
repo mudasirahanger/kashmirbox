@@ -183,26 +183,6 @@ $(document).ready(function() {
 });
 
 
-  function isNumberKey(evt){
-    var charCode = (evt.which) ? evt.which : event.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-      return false;
-    return true;
-  }
-
-
-  window.onbeforeunload = function (e) {
-    e = e || window.event;
-
-    // For IE and Firefox prior to version 4
-    if (e) {
-        e.returnValue = 'Sure?';
-    }
-
-    // For Safari
-    return 'Sure?';
-  };
-
   $(document).on(
     'click', 
     '.checkout-page-content .step >.step-complete-panel', function(){
