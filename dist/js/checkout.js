@@ -1027,22 +1027,35 @@ $(document).on('change', '.paymentGateway', function (){
      $.ajax({   
        "async": true,
        "crossDomain": true,
-       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/confirm",
+       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/savePaymentMethod",
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
-       "data": postData
+       "data": {payment_methods: paymentMethods}
     }).done(function(data){
       console.log(data)
-      $('#preloader').hide()
-      if(data.redirect) {
-        window.location = data.redirect
-      } else {
-        $('#proceedToPaymentGateway').addClass('hidden')
-        $('#conformContent').html(data.payment)
-        $('#conformContent .btn-primary').addClass('btn-orange')
-        $('#conformContent .btn-primary').parent().removeClass('pull-right')
-        $('#conformContent .btn-primary').removeClass('btn-primary')
-        
+      if(data.responseCode == '000')
+      {
+        $.ajax({   
+         "async": true,
+         "crossDomain": true,
+         "url": "https://www.kashmirbox.com/index.php?route=checkout/api/confirm",
+         "method": "POST",
+         "headers": {"content-type": "application/x-www-form-urlencoded"},
+         "data": postData
+        }).done(function(data){
+          console.log(data)
+          $('#preloader').hide()
+          if(data.redirect) {
+            window.location = data.redirect
+          } else {
+            $('#proceedToPaymentGateway').addClass('hidden')
+            $('#conformContent').html(data.payment)
+            $('#conformContent .btn-primary').addClass('btn-orange')
+            $('#conformContent .btn-primary').parent().removeClass('pull-right')
+            $('#conformContent .btn-primary').removeClass('btn-primary')
+            
+          }
+        })
       }
     })
   }
