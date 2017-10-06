@@ -1052,7 +1052,7 @@ $(document).on('change', '.paymentGateway', function (){
           } else {
             $('#proceedToPaymentGateway').addClass('hidden')
             $('#conformContent').html(data.payment)
-            $('#conformContent .btn-primary').addClass('btn-orange')
+            $('#conformContent .btn-primary').addClass('btn btn-lg btn-orange btn-block')
             $('#conformContent .btn-primary').parent().removeClass('pull-right')
             $('#conformContent .btn-primary').removeClass('btn-primary')
             
