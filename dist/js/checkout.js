@@ -1,4 +1,4 @@
-  var checkoutPage = $('.checkout-page-content');
+var checkoutPage = $('.checkout-page-content');
   var step1 = checkoutPage.find('#step1');
   var step2 = checkoutPage.find('#step2');
   var step3 = checkoutPage.find('#step3');
@@ -236,7 +236,7 @@ $(document).ready(function() {
 
   $('#logout-link').on('click',function () {
     $('#preloader').show()
-  	$.ajax({   
+    $.ajax({   
          "async": true,
          "crossDomain": true,
          "url": "https://www.kashmirbox.com/index.php?route=checkout/api/logout",
@@ -321,7 +321,7 @@ $(document).ready(function() {
   })
 
   $('#nextstep').on('click',function () {
-  	moveToNextStep(1, 2);
+    moveToNextStep(1, 2);
   })
 
   $(document).on('submit', '#checkout-login-form', function(){
@@ -338,7 +338,7 @@ $(document).ready(function() {
     $.ajax({   
        "async": true,
        "crossDomain": true,
-       "url": "https://www.kashmirbox.com/index.php?route=checkout%2Fapi%2FLogin",
+       "url": "https://www.kashmirbox.com/index.php?route=checkout/api/Login",
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
        "data": {
@@ -500,7 +500,7 @@ $(document).ready(function() {
     $.ajax({   
       "async": true,
       "crossDomain": true,
-      "url": "https://www.kashmirbox.com/index.php?route=checkout%2Fapi%2Fregister",
+      "url": "https://www.kashmirbox.com/index.php?route=checkout/api/register",
       "method": "POST",
       "headers": {"content-type": "application/x-www-form-urlencoded"},
       "data": {
@@ -1030,10 +1030,12 @@ $(document).on('change', '.paymentGateway', function (){
        "url": "https://www.kashmirbox.com/index.php?route=checkout/api/savePaymentMethods",
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
-       "data": {payment_methods: paymentMethods}
+       "data": {payment_method: paymentMethod,
+                shipping_address: shippingAddress
+                 }
     }).done(function(data){
       console.log(data)
-      if(data.responseCode == '000')
+      if(data.responseCode == '200')
       {
         $.ajax({   
          "async": true,
@@ -1256,5 +1258,3 @@ function setAddressFormHtml(id,address) {
   formVar += '</div>'; 
   return formVar;
 }
-
-
