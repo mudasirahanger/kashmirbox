@@ -1031,7 +1031,7 @@ $(document).on('change', '.paymentGateway', function (){
             window.onbeforeunload = true
             window.location = data.redirect
           } else {
-            $('#proceedToPaymentGateway').addClass('hidden')
+            $('#conformContent').html('')
             $('#conformContent').html(data.payment)
             $('#conformContent .btn-primary').addClass('btn btn-lg btn-orange btn-block')
             $('#conformContent .btn-primary').parent().removeClass('pull-right')
