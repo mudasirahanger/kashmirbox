@@ -61,7 +61,23 @@ $(document).ready(function() {
         console.log(userData)
         if(userData.responseCode == '200') {
           $('#preloader').hide()
-          $('#order-summary .order-summary-list .item-value').text(userData.session.total)
+          let orderSummary = userData.session.total.totals;
+          let listItems = ""
+          for (var i=0; i<orderSummary.length; i++) {
+          	if (orderSummary[i].title.trim() == 'Total')
+          	{
+				listItems += `<li class="item total">
+                  <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
+                </li`
+          	} 
+          	else 
+          	{
+          		listItems += `<li class="item">
+                  <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
+                </li`
+          	}
+          } 
+          $('#order-summary .order-summary-list').html(listItems)
           if (userData.logged != null) {
             if(userData.redirect.split('=')[1] == 'checkout/cart') {
               window.onbeforeunload = true;
@@ -415,8 +431,23 @@ $(document).ready(function() {
           })
           window.location = data.redirect
         } 
-        let listItems = `<li class="item total"><span class="item-title">Total</span><span class="item-value">${data.total}</span></li>`
-        $('#order-summary .order-summary-list').html(listItems)
+        let orderSummary = data.total.totals
+	    let listItems = ""
+      	for (var i=0; i<orderSummary.length; i++) {
+  			if (orderSummary[i].title.trim() == 'Total')
+	      	{
+				listItems += `<li class="item total">
+	              <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
+	            </li`
+	      	} 
+	      	else 
+	      	{
+	      		listItems += `<li class="item">
+	              <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
+	            </li`
+	      	}
+      	} 
+      	$('#order-summary .order-summary-list').html(listItems)
 
         moveToNextStep(1, 2);
         } else {
