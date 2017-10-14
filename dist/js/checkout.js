@@ -68,20 +68,20 @@ $(document).ready(function() {
           	{
 				listItems += `<li class="item total">
                   <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
-                </li`
+                </li>`
           	} 
           	else 
           	{
           		listItems += `<li class="item">
                   <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
-                </li`
+                </li>`
           	}
           } 
           $('#order-summary .order-summary-list').html(listItems)
           if (userData.logged != null) {
             if(userData.redirect.split('=')[1] == 'checkout/cart') {
               window.onbeforeunload = true;
-              window.location = data.redirect
+              window.location = userData.redirect
             } else {
               $('#logout-link').data('cid',userData.logged)
               customerId = userData.logged;
@@ -109,14 +109,14 @@ $(document).ready(function() {
                 }
               }
               for (let i=0; i<userData.session.cartDetails.length; i++){
-                if (userData.session.cartDetails[i].cod === 0) {
+                if (userData.session.cartDetails[i].cod === '0') {
                   codFlag = false
                   codProduct = userData.session.cartDetails[i].name
                   break;
                 }
               }
               for (let i=0; i<userData.session.cartDetails.length; i++){
-                if (userData.session.cartDetails[i].availability_location === 1) {
+                if (userData.session.cartDetails[i].availability_location === '1') {
                   availabilityFlag = false
                   availabilityProduct = userData.session.cartDetails[i].name
                   break;
@@ -397,6 +397,7 @@ $(document).ready(function() {
             $('#countries_'+lastFormId).trigger("change");
             lastFormId++
           }
+          $('#edit-panel-address-toggle1').prop('checked', true);
         } else {
           var formHtml = getAddressFormHtml(lastFormId)
           step2.find('.address-forms').append(formHtml);
@@ -431,20 +432,20 @@ $(document).ready(function() {
           })
           window.location = data.redirect
         } 
-        let orderSummary = data.total.totals
+        let orderSummary = data.totals
 	    let listItems = ""
       	for (var i=0; i<orderSummary.length; i++) {
   			if (orderSummary[i].title.trim() == 'Total')
 	      	{
 				listItems += `<li class="item total">
 	              <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
-	            </li`
+	            </li>`
 	      	} 
 	      	else 
 	      	{
 	      		listItems += `<li class="item">
 	              <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${orderSummary[i].text.trim()}</span>
-	            </li`
+	            </li>`
 	      	}
       	} 
       	$('#order-summary .order-summary-list').html(listItems)
@@ -645,6 +646,7 @@ $(document).ready(function() {
         return
       }
       $('#codError').hide()
+      $('#cod-payment-option').prop('disabled',false)
       $('#userAddress .street-address').text($('#address-summary'+formId+' .street-address').text())
       $('#userAddress .city').text($('#address-summary'+formId+' .city').text())
       $('#userAddress .state').text($('#address-summary'+formId+' .state').text())
@@ -1062,6 +1064,29 @@ $(document).on('change', '.paymentGateway', function (){
             window.onbeforeunload = true
             window.location = data.redirect
           } else {
+            let orderSummary = data.order_data.totals
+            let listItems = ""
+            for (var i=0; i<orderSummary.length; i++) {
+              let text
+              if(orderSummary[i].value == null)
+                text = 'Rs.00'
+              else 
+                text = 'Rs.'+orderSummary[i].value
+
+            if (orderSummary[i].title.trim() == 'Total')
+              {
+            listItems += `<li class="item total">
+                    <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${text.trim()}</span>
+                  </li>`
+              } 
+              else 
+              {
+                listItems += `<li class="item">
+                    <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${text.trim()}</span>
+                  </li>`
+              }
+            } 
+          $('#order-summary .order-summary-list').html(listItems)
             $('#conformContent').html('')
             $('#conformContent').html(data.payment)
             $('#conformContent .btn-primary').addClass('btn btn-lg btn-orange btn-block')
