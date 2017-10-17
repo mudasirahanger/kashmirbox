@@ -45,7 +45,6 @@ $(document).ready(function() {
        "method": "POST",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
     }).done(function(countryData){
-      console.log(countryData.countries)
       let countriesData = countryData.countries
       for(var i = 0; i < countriesData.length; i++){
         let selected = countriesData[i].country_id == '99'?'selected':''
@@ -58,7 +57,6 @@ $(document).ready(function() {
          "method": "POST",
          "headers": {"content-type": "application/x-www-form-urlencoded"},
       }).done(function(userData){
-        console.log(userData)
         if(userData.responseCode == '200') {
           $('#preloader').hide()
           let orderSummary = userData.session.total.totals;
@@ -131,7 +129,6 @@ $(document).ready(function() {
                   var formHtml = setAddressFormHtml(lastFormId, userData.session.shipping_address[address]);
                   step2.find('.address-forms').append(formHtml);
                   registerAddressFormSubmit(lastFormId);
-                  console.log(lastFormId)
                    $('#countries_'+lastFormId).val(userData.session.shipping_address[address].country_id)
                    $('#countries_'+lastFormId).data('stateId',userData.session.shipping_address[address].zone_id)
                    $('#countries_'+lastFormId).trigger("change");
@@ -150,7 +147,6 @@ $(document).ready(function() {
                    "method": "GET",
                    "headers": {"content-type": "application/x-www-form-urlencoded"},
                 }).done(function(stateData){
-                  console.log(stateData)
                   $('#preloader').hide();
                   let zoneData = stateData.zone
                   for(var i = 0; i < zoneData.length; i++){
@@ -172,7 +168,6 @@ $(document).ready(function() {
                "method": "GET",
                "headers": {"content-type": "application/x-www-form-urlencoded"},
             }).done(function(stateData){
-              console.log(stateData)
               $('#preloader').hide();
               $('#facebookLogin').html(`<a href="${userData.fb_url}" class="btn btn-white facebook-login-btn">Connect with <strong>Facebook</strong></a>`)
               let countriesData = countryData.countries
@@ -242,16 +237,12 @@ $(document).ready(function() {
           customer_id: $(this).data('cid')
          }
       }).done(function(data){
-        console.log(data)
         $('#preloader').hide()
         swal({
           title: 'Success',
           type: 'success',
           text: data.success
         }).then(function(){
-          console.log('====================================================================')
-          console.log('logout success')
-          console.log('====================================================================')
           if(data.hasOwnProperty('success')){
             window.onbeforeunload = true;
             window.location.reload(true)
@@ -409,7 +400,6 @@ $(document).ready(function() {
              "method": "GET",
              "headers": {"content-type": "application/x-www-form-urlencoded"},
           }).done(function(stateData){
-            console.log(stateData)
             $('#preloader').hide();
             let zoneData = stateData.zone
             for(var i = 0; i < zoneData.length; i++){
@@ -458,7 +448,6 @@ $(document).ready(function() {
             type: "error"
           })
         }
-        console.log(data)                       
     }); 
     //step1 is complete
     return false;
@@ -476,14 +465,12 @@ $(document).ready(function() {
        "method": "GET",
        "headers": {"content-type": "application/x-www-form-urlencoded"},
     }).done(function(stateData){
-      console.log(stateData)
       let zoneData = stateData.zone
       let statesOptionss = "<option " + stateId == '-1' ? 'selected' : '' + " disabled value='-1'>Select State</option>"
       for(var i = 0; i < zoneData.length; i++){
         let selected = zoneData[i].zone_id == stateId?'selected':''
         statesOptionss += '<option ' + selected + ' value=' + zoneData[i].zone_id + '>' + zoneData[i].name + '</option>'
       }
-      console.log('#states_'+formId)
       $('#states_'+formId).html(statesOptionss)
     })
   })
@@ -523,7 +510,6 @@ $(document).ready(function() {
       }
     }).done(function(data){ 
       $('#preloader').hide();
-      console.log(data)
       if (data.hasOwnProperty('success')) {
         $('#register-firstname').val('')
         $('#register-lastname').val('')
@@ -606,7 +592,6 @@ $(document).ready(function() {
       var formId = $(this).closest('.address-form-wrap')
       .find('form')
       .attr('data-form-id');
-      console.log(formId)
       activateAddressForm(formId);
       $(this).closest('.address-form-wrap').addClass('editing');
     });
@@ -734,12 +719,9 @@ $(document).ready(function() {
         successMsg = 'You have updated an address successfully.'
         url = 'https://www.kashmirbox.com/index.php?route=checkout/api/editShippingAddress'
       } else {
-        postData.customer_id = customerId
         successMsg = 'You have added an address successfully.'
         url = 'https://www.kashmirbox.com/index.php?route=checkout/api/addShippingAddress'
       }
-      console.log('======================= post data =======================')
-      console.log(postData)
       $.ajax({   
         "async": true,
         "crossDomain": true,
@@ -748,7 +730,6 @@ $(document).ready(function() {
         "headers": {"content-type": "application/x-www-form-urlencoded"},
         "data": postData
       }).done(function(data){
-        console.log(data)
         if(data.hasOwnProperty('success'))
         {
           $.ajax({   
@@ -758,7 +739,6 @@ $(document).ready(function() {
              "method": "POST",
              "headers": {"content-type": "application/x-www-form-urlencoded"},
           }).done(function(userData){
-            console.log(userData)
             $('#preloader').hide();
             if(userData.responseCode == '200') {
                 if(userData.redirect.split('=')[1] == 'checkout/cart') {
@@ -823,7 +803,6 @@ $(document).ready(function() {
   }
 
   function activateAddressForm(formId) {
-    console.log(formId);
     step2.find('#edit-panel-address-toggle'+formId).prop('checked', true);
     step2.find('#edit-address-toggle'+formId).prop('checked', true);
   }
@@ -1005,10 +984,6 @@ function validateCheckoutAddressForm(form) {
 
 $(document).on('change', '.paymentGateway', function (){
   paymentId = $(this).val();
-  console.log('====================== IDS ========================')
-  console.log(paymentId)
-  console.log(addressId)
-  console.log(customerId) 
   if(!paymentId) {
     swal({
       type: 'error',
@@ -1035,8 +1010,6 @@ $(document).on('change', '.paymentGateway', function (){
       payment_method: paymentMethod,
       shipping_address: shippingAddress
     }
-    console.log('====================== CONFIRM POST DATA ========================')
-    console.log(postData)
      $.ajax({   
        "async": true,
        "crossDomain": true,
@@ -1047,7 +1020,6 @@ $(document).on('change', '.paymentGateway', function (){
                 shipping_address: shippingAddress
                  }
     }).done(function(data){
-      console.log(data)
       if(data.responseCode == '200')
       {
         $.ajax({   
@@ -1058,7 +1030,6 @@ $(document).on('change', '.paymentGateway', function (){
          "headers": {"content-type": "application/x-www-form-urlencoded"},
          "data": postData
         }).done(function(data){
-          console.log(data)
           $('#preloader').hide()
           if(data.redirect) {
             window.onbeforeunload = true
@@ -1073,9 +1044,9 @@ $(document).on('change', '.paymentGateway', function (){
               else 
                 text = 'Rs.'+orderSummary[i].value
 
-            if (orderSummary[i].title.trim() == 'Total')
+              if (orderSummary[i].title.trim() == 'Total')
               {
-            listItems += `<li class="item total">
+                listItems += `<li class="item total">
                     <span class="item-title">${orderSummary[i].title.trim()}</span><span class="item-value">${text.trim()}</span>
                   </li>`
               } 
@@ -1086,7 +1057,7 @@ $(document).on('change', '.paymentGateway', function (){
                   </li>`
               }
             } 
-          $('#order-summary .order-summary-list').html(listItems)
+            $('#order-summary .order-summary-list').html(listItems)
             $('#conformContent').html('')
             $('#conformContent').html(data.payment)
             $('#conformContent .btn-primary').addClass('btn btn-lg btn-orange btn-block')
@@ -1203,7 +1174,6 @@ function getAddressFormHtml(id) {
 function setAddressFormHtml(id,address) {
   if(!id)
     return '';
-  console.log(address)
   var editPanel='';
   editPanel += '<div class="address-form-edit-panel">';
   editPanel += '<div class="address-toggle">';
